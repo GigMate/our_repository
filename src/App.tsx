@@ -13,6 +13,8 @@ import FanDashboard from './components/Fan/FanDashboard';
 import DatabaseSeeder from './components/Admin/DatabaseSeeder';
 import DocumentationDownload from './components/Admin/DocumentationDownload';
 import HomePage from './components/Home/HomePage';
+import LegalConsentGate from './components/Auth/LegalConsentGate';
+import ErrorBoundary from './components/Shared/ErrorBoundary';
 
 type AuthPage = 'musician' | 'venue' | 'fan' | null;
 
@@ -95,20 +97,24 @@ function AppContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header onLogoClick={() => setShowHome(true)} />
-      <main>
-        {showHome ? (
-          <HomePage onGetStarted={() => setShowHome(false)} />
-        ) : (
-          <>
-            {profile.user_type === 'musician' && <MusicianDashboard />}
-            {profile.user_type === 'venue' && <VenueDashboard />}
-            {profile.user_type === 'fan' && <FanDashboard />}
-          </>
-        )}
-      </main>
-    </div>
+    <ErrorBoundary>
+      <LegalConsentGate>
+        <div className="min-h-screen bg-gray-50">
+          <Header onLogoClick={() => setShowHome(true)} />
+          <main>
+            {showHome ? (
+              <HomePage onGetStarted={() => setShowHome(false)} />
+            ) : (
+              <>
+                {profile.user_type === 'musician' && <MusicianDashboard />}
+                {profile.user_type === 'venue' && <VenueDashboard />}
+                {profile.user_type === 'fan' && <FanDashboard />}
+              </>
+            )}
+          </main>
+        </div>
+      </LegalConsentGate>
+    </ErrorBoundary>
   );
 }
 
