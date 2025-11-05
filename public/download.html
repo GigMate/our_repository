@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download GigMate Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 50px;
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 10px;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        .button.secondary {
+            background: #48bb78;
+        }
+        .info {
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        .info h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .info ul {
+            list-style: none;
+            padding: 0;
+        }
+        .info li {
+            padding: 5px 0;
+            color: #555;
+        }
+        .info li:before {
+            content: "✓ ";
+            color: #48bb78;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">📄</div>
+        <h1>GigMate Documentation</h1>
+        <p>Complete platform analysis and implementation guide</p>
+
+        <a href="/gigmate-docs.html" target="_blank" class="button">
+            📖 View Documentation
+        </a>
+
+        <a href="/gigmate-docs.html" download="GigMate_Complete_Documentation.html" class="button secondary">
+            ⬇️ Download HTML File
+        </a>
+
+        <div class="info">
+            <h3>What's Included:</h3>
+            <ul>
+                <li>Executive Summary</li>
+                <li>Platform Analysis (50+ pages)</li>
+                <li>Data Monetization Strategy ($500K-$2M potential)</li>
+                <li>Implementation Guide for 10 Showstoppers</li>
+                <li>Financial Projections</li>
+                <li>Go-to-Market Strategy</li>
+                <li>Launch Checklist</li>
+            </ul>
+        </div>
+
+        <div class="info" style="border-left-color: #48bb78; margin-top: 20px;">
+            <h3>How to Save as PDF:</h3>
+            <ul style="list-style: decimal; padding-left: 20px;">
+                <li style="padding: 8px 0;">Click "View Documentation" above</li>
+                <li style="padding: 8px 0;">Press Cmd+P on your keyboard</li>
+                <li style="padding: 8px 0;">Select "Save as PDF" in the print dialog</li>
+                <li style="padding: 8px 0;">Click Save and choose your location</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
