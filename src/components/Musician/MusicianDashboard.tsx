@@ -48,7 +48,7 @@ export default function MusicianDashboard() {
     const { data } = await supabase
       .from('musicians')
       .select('id')
-      .eq('user_id', profile.id)
+      .eq('id', profile.id)
       .maybeSingle();
 
     if (data) {

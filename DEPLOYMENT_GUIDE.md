@@ -1,597 +1,287 @@
-# GigMate Deployment Guide
-## How to Deploy GigMate to Production
+# GigMate Deployment Guide - Vercel
+
+## Quick Start Summary
+
+1. Push code to GitHub
+2. Connect GitHub to Vercel
+3. Add environment variables
+4. Deploy automatically
+5. Get live URL: `your-app.vercel.app`
 
 ---
 
-## Quick Start (5 Minutes)
-
-### Option 1: Deploy to Vercel (Recommended)
-
-1. **Create Vercel Account**
-   ```bash
-   # Visit vercel.com and sign up with GitHub
-   ```
-
-2. **Import Repository**
-   - Click "Add New Project"
-   - Import your GitHub repository
-   - Vercel auto-detects Vite configuration
-
-3. **Configure Environment Variables**
-   ```
-   VITE_SUPABASE_URL=your-supabase-url
-   VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
-   VITE_STRIPE_PUBLISHABLE_KEY=your-stripe-key
-   ```
-
-4. **Deploy**
-   - Click "Deploy"
-   - Wait 2-3 minutes
-   - Your site is live at `your-project.vercel.app`
-
-5. **Add Custom Domain**
-   - Go to Settings → Domains
-   - Add `gigmate.com`
-   - Update DNS records (provided by Vercel)
-   - SSL certificate auto-generated
-
-### Option 2: Deploy to Netlify
-
-1. **Create Netlify Account**
-   ```bash
-   # Visit netlify.com and sign up
-   ```
-
-2. **Import from Git**
-   - Click "Add new site" → "Import from Git"
-   - Connect GitHub, select repository
-
-3. **Build Settings**
-   ```
-   Build command: npm run build
-   Publish directory: dist
-   ```
-
-4. **Environment Variables**
-   - Go to Site Settings → Environment Variables
-   - Add VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, etc.
-
-5. **Deploy**
-   - Click "Deploy site"
-   - Site live at `your-project.netlify.app`
-
----
-
-## Detailed Setup
+## Step-by-Step Deployment Instructions
 
 ### Prerequisites
 
 - ✅ GitHub account
-- ✅ Supabase account (database already set up)
-- ✅ Stripe account
-- ✅ Domain name (optional, can use free subdomain)
+- ✅ Vercel account (free - sign up at vercel.com)
+- ✅ Your GigMate code ready
 
-### Step 1: Prepare Your Repository
+---
 
-1. **Create GitHub Repository**
+## Part 1: Push to GitHub
+
+### Option A: Create New Repository (Recommended)
+
+1. **Go to GitHub.com** and sign in
+2. **Click "New Repository"**
+   - Name: `gigmate-platform` (or your preferred name)
+   - Description: "GigMate - Musicians, Venues, and Fans Platform"
+   - Keep it **Private** (recommended for beta)
+   - Don't initialize with README (we already have files)
+
+3. **Initialize Git in your project** (if not already done):
    ```bash
    git init
    git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/yourusername/gigmate.git
+   git commit -m "Initial GigMate deployment setup"
+   ```
+
+4. **Connect to GitHub**:
+   ```bash
+   git remote add origin https://github.com/YOUR_USERNAME/gigmate-platform.git
+   git branch -M main
    git push -u origin main
    ```
 
-2. **Verify Files**
-   Ensure these files exist:
-   - `package.json`
-   - `vite.config.ts`
-   - `index.html`
-   - `.gitignore` (includes `.env`)
+### Option B: Use Existing Repository
 
-### Step 2: Set Up Supabase
-
-Your database is already configured! You just need the connection details:
-
-1. **Get Credentials**
-   - Go to Supabase Dashboard
-   - Project Settings → API
-   - Copy:
-     - Project URL (`VITE_SUPABASE_URL`)
-     - Anon/Public key (`VITE_SUPABASE_ANON_KEY`)
-
-2. **Verify Database**
-   - Go to Table Editor
-   - Verify all tables exist (profiles, musicians, venues, etc.)
-   - All migrations should be applied
-
-### Step 3: Set Up Stripe
-
-1. **Create Stripe Account**
-   - Go to stripe.com
-   - Sign up (free)
-
-2. **Get API Keys**
-   - Dashboard → Developers → API Keys
-   - Copy Publishable Key for frontend
-   - Copy Secret Key for backend (Edge Functions)
-
-3. **Configure Webhooks**
-   ```
-   Endpoint URL: https://your-project.supabase.co/functions/v1/stripe-webhook
-   Events to send:
-   - payment_intent.succeeded
-   - payment_intent.failed
-   - checkout.session.completed
-   - subscription.updated
-   - subscription.deleted
-   ```
-
-4. **Get Webhook Secret**
-   - After creating webhook, copy signing secret
-   - Store as `STRIPE_WEBHOOK_SECRET`
-
-### Step 4: Deploy to Vercel
-
-1. **Install Vercel CLI (Optional)**
-   ```bash
-   npm install -g vercel
-   vercel login
-   vercel
-   ```
-
-2. **Configure Project**
-   ```bash
-   # Create vercel.json (already exists in project)
-   {
-     "buildCommand": "npm run build",
-     "outputDirectory": "dist",
-     "framework": "vite"
-   }
-   ```
-
-3. **Add Environment Variables**
-   - Vercel Dashboard → Settings → Environment Variables
-
-   ```
-   VITE_SUPABASE_URL=https://your-project.supabase.co
-   VITE_SUPABASE_ANON_KEY=your-anon-key
-   VITE_STRIPE_PUBLISHABLE_KEY=pk_live_...
-   ```
-
-4. **Deploy Edge Functions**
-   Edge functions are deployed to Supabase, not Vercel:
-   ```bash
-   # Already deployed via migrations!
-   # Functions available at:
-   # https://your-project.supabase.co/functions/v1/stripe-checkout
-   # https://your-project.supabase.co/functions/v1/stripe-webhook
-   # https://your-project.supabase.co/functions/v1/send-email
-   ```
-
-5. **Set Production Environment**
-   - Vercel Dashboard → Settings → Environment
-   - Set variables for "Production"
-   - Redeploy
-
-### Step 5: Custom Domain
-
-1. **Purchase Domain**
-   - GoDaddy, Namecheap, Google Domains, etc.
-   - Recommended: `gigmate.com`
-
-2. **Add to Vercel**
-   - Vercel Dashboard → Domains
-   - Add `gigmate.com` and `www.gigmate.com`
-
-3. **Update DNS**
-   ```
-   A Record:
-   @ → 76.76.21.21
-
-   CNAME Record:
-   www → cname.vercel-dns.com
-   ```
-
-4. **Wait for DNS Propagation**
-   - 5 minutes to 48 hours
-   - Check with `dig gigmate.com`
-
-5. **SSL Certificate**
-   - Auto-generated by Vercel
-   - Force HTTPS in settings
-
----
-
-## Environment Variables Reference
-
-### Frontend (.env)
-
-```bash
-# Supabase
-VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-
-# Stripe (Frontend)
-VITE_STRIPE_PUBLISHABLE_KEY=pk_live_51...
-
-# Optional: Analytics
-VITE_GA_TRACKING_ID=G-XXXXXXXXXX
-```
-
-### Backend (Supabase Edge Functions)
-
-These are automatically available in Edge Functions:
-```bash
-# Pre-configured by Supabase:
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_ANON_KEY=eyJhbG...
-SUPABASE_SERVICE_ROLE_KEY=eyJhbG... (secret)
-
-# You need to add:
-STRIPE_SECRET_KEY=sk_live_51... (in Supabase Dashboard)
-STRIPE_WEBHOOK_SECRET=whsec_... (in Supabase Dashboard)
-```
-
-To add Stripe keys to Supabase:
-1. Supabase Dashboard → Project Settings → Edge Functions
-2. Add secrets:
-   ```bash
-   STRIPE_SECRET_KEY=sk_live_...
-   STRIPE_WEBHOOK_SECRET=whsec_...
-   ```
-
----
-
-## Post-Deployment Checklist
-
-### Security
-
-- [ ] All environment variables set correctly
-- [ ] No `.env` file committed to Git
-- [ ] Stripe webhook signature verification enabled
-- [ ] RLS policies enabled on all tables
-- [ ] API keys rotated from test to production
-- [ ] HTTPS enforced (no HTTP access)
-- [ ] CORS configured properly
-- [ ] Rate limiting enabled
-
-### Functionality
-
-- [ ] User registration works
-- [ ] Login/logout works
-- [ ] Profile creation works
-- [ ] Search works
-- [ ] Messaging works
-- [ ] Booking flow works end-to-end
-- [ ] Stripe payments work (test card: 4242 4242 4242 4242)
-- [ ] Email notifications send
-- [ ] Social media connections work
-- [ ] Images upload correctly
-
-### Performance
-
-- [ ] Page load times <2 seconds
-- [ ] Images optimized (WebP format)
-- [ ] Database queries indexed
-- [ ] CDN configured for static assets
-- [ ] Lighthouse score 90+ (mobile & desktop)
-
-### Monitoring
-
-- [ ] Error tracking (Sentry recommended)
-- [ ] Analytics (Google Analytics, Plausible)
-- [ ] Uptime monitoring (UptimeRobot, Pingdom)
-- [ ] Performance monitoring (Vercel Analytics)
-- [ ] Database monitoring (Supabase Dashboard)
-
----
-
-## Scaling Considerations
-
-### When to Scale
-
-**At 1,000 users:**
-- ✅ Current setup handles this easily
-- No changes needed
-
-**At 10,000 users:**
-- Consider Vercel Pro ($20/mo) for better performance
-- Enable Supabase connection pooler
-- Add caching layer (Redis/Upstash)
-
-**At 100,000 users:**
-- Upgrade Supabase to Pro ($25/mo)
-- Add CDN (Cloudflare, Fastly)
-- Consider edge caching
-- Database read replicas
-
-**At 1,000,000 users:**
-- Dedicated infrastructure
-- Multiple database regions
-- Load balancing
-- Microservices architecture (maybe)
-
-### Database Scaling
-
-**Current Setup:**
-- Supabase Free: 500MB database, 2GB bandwidth
-- Good for: 10,000 users
-
-**Growth Path:**
-- Pro ($25/mo): 8GB database, 50GB bandwidth → 100,000 users
-- Team ($599/mo): 100GB database, 250GB bandwidth → 1M users
-- Enterprise: Custom pricing → Unlimited
-
-**Optimization Tips:**
-- Indexes already created (done!)
-- Connection pooling (enable in Supabase)
-- Query optimization (use EXPLAIN ANALYZE)
-- Archive old data (bookings >2 years)
-
----
-
-## Continuous Deployment
-
-### Automatic Deploys
-
-Vercel automatically deploys on every push to `main`:
-
+If you already have a GitHub repo:
 ```bash
 git add .
-git commit -m "Add new feature"
-git push origin main
-# Vercel auto-deploys in 2-3 minutes
+git commit -m "Add deployment configuration"
+git push
 ```
 
-### Preview Deployments
+---
 
-Every pull request gets a preview URL:
+## Part 2: Deploy to Vercel
 
+### Step 1: Sign Up/Login to Vercel
+
+1. Go to **https://vercel.com**
+2. Click **"Sign Up"** (or Login)
+3. **Connect with GitHub** (easiest option)
+4. Authorize Vercel to access your repositories
+
+### Step 2: Import Your Project
+
+1. On Vercel dashboard, click **"Add New Project"**
+2. Click **"Import Git Repository"**
+3. Find your `gigmate-platform` repository
+4. Click **"Import"**
+
+### Step 3: Configure Build Settings
+
+Vercel should auto-detect these settings:
+
+- **Framework Preset**: Vite
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Install Command**: `npm install`
+
+✅ **Leave these as default** - they're already correct!
+
+### Step 4: Add Environment Variables
+
+⚠️ **CRITICAL STEP** - Your app won't work without these!
+
+Click **"Environment Variables"** and add each one:
+
+**VITE_SUPABASE_URL**
+```
+https://rmagqkuwulbcabxtzsjm.supabase.co
+```
+
+**VITE_SUPABASE_ANON_KEY**
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtYWdxa3V3dWxiY2FieHR6c2ptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIxODU4ODgsImV4cCI6MjA3Nzc2MTg4OH0.CZ8gB9UmU1t1LptFUQr000lLj_MfVGHoMmB2NxfnyYI
+```
+
+**VITE_STRIPE_PUBLISHABLE_KEY**
+```
+pk_test_51SPk6QEmdaRadoqtquUtTFvISjmTocjPmkFiiwhPuhCuf34YENPHfcBvBGeODPnQQWGq2LTJkdtHuW8GsHJ0w3mR00mIoM6NQc
+```
+
+**VITE_GOOGLE_MAPS_API_KEY**
+```
+YOUR_GOOGLE_MAPS_API_KEY_HERE
+```
+
+**Important Notes:**
+- ⚠️ These are test/development keys - replace Stripe key with production key when going live
+- ⚠️ You need to get a real Google Maps API key from Google Cloud Console
+- ✅ Supabase keys are already configured and working
+
+### Step 5: Deploy!
+
+1. Click **"Deploy"**
+2. Wait 2-3 minutes while Vercel builds your app
+3. You'll see a progress screen with build logs
+4. When complete, you'll get a live URL! 🎉
+
+Your app will be at something like:
+```
+https://gigmate-platform-abc123.vercel.app
+```
+
+---
+
+## Part 3: Configure Supabase for Production
+
+### Update Supabase URL Allowlist
+
+Your Vercel URL needs to be allowed in Supabase:
+
+1. **Go to Supabase Dashboard**: https://app.supabase.com
+2. **Select your project**: `rmagqkuwulbcabxtzsjm`
+3. **Go to Authentication → URL Configuration**
+4. **Add your Vercel URL to "Site URL"**:
+   ```
+   https://your-app-name.vercel.app
+   ```
+5. **Add to "Redirect URLs"**:
+   ```
+   https://your-app-name.vercel.app/**
+   ```
+
+This allows Supabase authentication to work on your deployed app.
+
+---
+
+## Part 4: Test Your Deployment
+
+### Basic Tests:
+
+1. ✅ **Visit your Vercel URL**
+2. ✅ **Homepage loads correctly**
+3. ✅ **Try to sign up** as a musician/venue/fan
+4. ✅ **Check if NDA screen appears** (if you added one)
+5. ✅ **Login works**
+6. ✅ **Dashboard loads**
+
+### If Something Doesn't Work:
+
+**Check Vercel Logs:**
+1. Go to Vercel Dashboard
+2. Click on your project
+3. Click "Deployments"
+4. Click latest deployment
+5. View "Build Logs" and "Function Logs"
+
+**Common Issues:**
+
+❌ **"Blank page"**
+- Check browser console for errors
+- Verify environment variables are set correctly
+- Make sure Supabase URL is in the allowlist
+
+❌ **"Authentication not working"**
+- Check Supabase redirect URLs
+- Verify VITE_SUPABASE_ANON_KEY is correct
+
+❌ **"Payments failing"**
+- Check Stripe publishable key is correct
+- Verify webhook endpoint is configured
+
+---
+
+## Automatic Deployments
+
+🎉 **Great news!** Every time you push to GitHub, Vercel will automatically:
+1. Build your app
+2. Deploy the new version
+3. Give you a preview URL
+
+**To deploy an update:**
 ```bash
-git checkout -b feature/new-feature
 git add .
-git commit -m "New feature"
-git push origin feature/new-feature
-# Create PR on GitHub
-# Vercel creates preview at: https://gigmate-abc123.vercel.app
+git commit -m "Fix bug in musician dashboard"
+git push
 ```
 
-### Rollback
+Vercel detects the push and deploys automatically!
 
-If something breaks:
+---
 
-```bash
-# Via Vercel Dashboard:
-# Deployments → Find last good deploy → Promote to Production
+## Custom Domain (Optional)
 
-# Via CLI:
-vercel rollback
+Want `gigmate.com` instead of the Vercel subdomain?
+
+1. **Buy a domain** (Namecheap, GoDaddy, Google Domains, etc.)
+2. **In Vercel Dashboard**:
+   - Go to your project
+   - Click "Settings" → "Domains"
+   - Click "Add"
+   - Enter your domain: `gigmate.com`
+3. **Update DNS records** (Vercel will show you exactly what to add)
+4. **Wait for DNS propagation** (5-60 minutes)
+5. **Update Supabase URLs** to use your custom domain
+
+---
+
+## Security Checklist
+
+Before going fully live:
+
+- [ ] Replace test Stripe keys with production keys
+- [ ] Get real Google Maps API key
+- [ ] Set up custom domain with SSL
+- [ ] Review Supabase RLS policies
+- [ ] Enable Vercel password protection (for private beta)
+- [ ] Configure CORS properly
+- [ ] Review all environment variables
+
+---
+
+## Cost Estimate
+
+### Vercel (Free Tier):
+- ✅ Unlimited personal projects
+- ✅ 100GB bandwidth/month
+- ✅ Automatic HTTPS
+- ✅ Preview deployments
+
+### Supabase (Free Tier):
+- ✅ 500MB database
+- ✅ 1GB file storage
+- ✅ 2GB bandwidth
+- ✅ 50,000 monthly active users
+
+**Total Cost for Beta: $0/month** 🎉
+
+---
+
+## Quick Reference
+
+### Your URLs:
+
+**Frontend (Vercel):**
+Will be provided after deployment (something like `gigmate-platform-abc123.vercel.app`)
+
+**Backend (Supabase):**
+```
+https://rmagqkuwulbcabxtzsjm.supabase.co
+```
+
+**Edge Functions:**
+```
+https://rmagqkuwulbcabxtzsjm.supabase.co/functions/v1/
+```
+
+**Supabase Dashboard:**
+```
+https://app.supabase.com/project/rmagqkuwulbcabxtzsjm
+```
+
+**Vercel Dashboard:**
+```
+https://vercel.com/dashboard
 ```
 
 ---
 
-## Monitoring & Alerts
+🚀 **You're ready to deploy GigMate!**
 
-### Error Tracking (Sentry)
-
-1. **Install Sentry**
-   ```bash
-   npm install @sentry/react @sentry/vite-plugin
-   ```
-
-2. **Configure**
-   ```typescript
-   // src/main.tsx
-   import * as Sentry from "@sentry/react";
-
-   Sentry.init({
-     dsn: "https://...@sentry.io/...",
-     environment: import.meta.env.MODE,
-     tracesSampleRate: 1.0,
-   });
-   ```
-
-3. **Test**
-   ```typescript
-   throw new Error("Test error");
-   // Check Sentry dashboard for alert
-   ```
-
-### Uptime Monitoring (UptimeRobot)
-
-1. Create account at uptimerobot.com
-2. Add monitor:
-   - URL: `https://gigmate.com`
-   - Check interval: 5 minutes
-3. Add alert contacts (email, SMS)
-
-### Analytics (Plausible)
-
-1. Create account at plausible.io
-2. Add script to `index.html`:
-   ```html
-   <script defer data-domain="gigmate.com" src="https://plausible.io/js/script.js"></script>
-   ```
-3. View dashboard at plausible.io
-
----
-
-## Troubleshooting
-
-### "Site not loading"
-
-**Check:**
-1. DNS propagated? (`dig gigmate.com`)
-2. Vercel deployment successful? (check dashboard)
-3. Environment variables set? (Vercel settings)
-4. Browser cache? (try incognito)
-
-**Fix:**
-```bash
-# Redeploy
-vercel --prod
-
-# Check DNS
-dig gigmate.com +short
-
-# Clear Vercel cache
-vercel --prod --force
-```
-
-### "Database connection failed"
-
-**Check:**
-1. Supabase URL correct?
-2. Supabase key correct?
-3. RLS policies allow access?
-4. Table exists?
-
-**Fix:**
-```sql
--- Check RLS
-SELECT tablename, policyname FROM pg_policies WHERE schemaname = 'public';
-
--- Disable RLS temporarily (testing only!)
-ALTER TABLE profiles DISABLE ROW LEVEL SECURITY;
-```
-
-### "Stripe payments not working"
-
-**Check:**
-1. Live keys (not test keys)?
-2. Webhook configured?
-3. Webhook secret correct?
-4. HTTPS enabled?
-
-**Fix:**
-```bash
-# Test webhook
-stripe listen --forward-to https://your-project.supabase.co/functions/v1/stripe-webhook
-
-# Check Stripe logs
-# Dashboard → Developers → Logs
-```
-
-### "Images not uploading"
-
-**Check:**
-1. Storage bucket created in Supabase?
-2. RLS policies on storage?
-3. File size limits?
-4. CORS configured?
-
-**Fix:**
-```sql
--- Check storage policies
-SELECT * FROM storage.objects WHERE bucket_id = 'avatars' LIMIT 1;
-
--- Create storage bucket if missing
-INSERT INTO storage.buckets (id, name) VALUES ('avatars', 'avatars');
-```
-
----
-
-## Backup & Recovery
-
-### Database Backups
-
-**Automatic (Supabase):**
-- Daily backups (last 7 days) on Pro plan
-- Point-in-time recovery available
-
-**Manual Backup:**
-```bash
-# Via Supabase Dashboard:
-# Database → Backups → Backup Now
-
-# Or via CLI:
-pg_dump -h db.your-project.supabase.co -U postgres -d postgres > backup.sql
-```
-
-### Restore from Backup
-
-```bash
-# Via Supabase Dashboard:
-# Database → Backups → Select backup → Restore
-
-# Or via CLI:
-psql -h db.your-project.supabase.co -U postgres -d postgres < backup.sql
-```
-
-### Code Backups
-
-Your code is on GitHub - always backed up!
-
-```bash
-# Clone fresh copy
-git clone https://github.com/yourusername/gigmate.git
-
-# Restore to specific commit
-git checkout <commit-hash>
-```
-
----
-
-## Going Live Checklist
-
-### Pre-Launch (1 Week Before)
-
-- [ ] All features tested end-to-end
-- [ ] Mobile responsive on all devices
-- [ ] Stripe in live mode (not test mode)
-- [ ] Custom domain configured
-- [ ] SSL certificate valid
-- [ ] Legal pages (Terms, Privacy) live
-- [ ] Support email configured (support@gigmate.com)
-- [ ] Beta testers given access
-- [ ] Press kit prepared
-
-### Launch Day
-
-- [ ] Switch Stripe to live keys
-- [ ] Switch Supabase to production database
-- [ ] Enable monitoring (Sentry, UptimeRobot)
-- [ ] Send launch email to beta testers
-- [ ] Post on social media
-- [ ] Submit to Product Hunt
-- [ ] Monitor for errors (first 24 hours critical)
-
-### Post-Launch (First Week)
-
-- [ ] Fix any critical bugs immediately
-- [ ] Monitor user feedback
-- [ ] Check analytics daily
-- [ ] Respond to support requests <24hrs
-- [ ] Iterate based on feedback
-
----
-
-## Support
-
-### Documentation
-- [Vercel Docs](https://vercel.com/docs)
-- [Supabase Docs](https://supabase.com/docs)
-- [Stripe Docs](https://stripe.com/docs)
-- [Vite Docs](https://vitejs.dev/guide)
-
-### Need Help?
-- Email: dev@gigmate.com
-- Discord: discord.gg/gigmate-dev
-- GitHub Issues: github.com/gigmate/gigmate/issues
-
----
-
-## Next Steps
-
-1. **Deploy to Vercel** (follow Quick Start above)
-2. **Test with real data** (create test bookings)
-3. **Invite beta testers** (use Beta Tester Guide)
-4. **Monitor performance** (set up Sentry, Analytics)
-5. **Prepare for launch** (follow Going Live Checklist)
-
-**Your platform is ready to scale! 🚀**
-
----
-
-*Questions? Email: dev@gigmate.com*
+Follow these steps and you'll have a live app in under 30 minutes.

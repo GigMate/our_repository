@@ -80,28 +80,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       if (profileError) throw profileError;
 
-      if (userData.genres && userData.genres.length > 0) {
-        if (userData.user_type === 'musician') {
-          await supabase
-            .from('musicians')
-            .insert({
-              id: data.user.id,
-              genres: userData.genres,
-            });
-        } else if (userData.user_type === 'venue') {
-          await supabase
-            .from('venues')
-            .insert({
-              id: data.user.id,
-              preferred_genres: userData.genres,
-            });
-        } else if (userData.user_type === 'fan') {
-          await supabase
-            .from('fans')
-            .insert({
-              id: data.user.id,
-            });
-        }
+      if (userData.user_type === 'musician' && userData.genres && userData.genres.length > 0) {
+        await supabase
+          .from('musicians')
+          .insert({
+            id: data.user.id,
+            genres: userData.genres,
+          });
+      } else if (userData.user_type === 'venue' && userData.genres && userData.genres.length > 0) {
+        await supabase
+          .from('venues')
+          .insert({
+            id: data.user.id,
+            preferred_genres: userData.genres,
+          });
       }
 
       await loadProfile(data.user.id);
