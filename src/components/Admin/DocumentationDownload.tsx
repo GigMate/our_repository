@@ -86,20 +86,36 @@ export default function DocumentationDownload() {
       size: '13 pages'
     },
     {
-      title: 'Legal & Compliance',
-      file: 'LEGAL_COMPLIANCE_AND_MERCH_VENDOR_GUIDE.md',
-      description: 'Terms, privacy, vendor policies',
-      icon: '⚖️',
-      category: 'legal',
-      size: '15 pages'
-    },
-    {
       title: 'Premium Fan Messaging',
       file: 'PREMIUM_FAN_MESSAGING_STRATEGY.md',
       description: 'Paid artist-to-fan communication',
       icon: '💬',
       category: 'technical',
       size: '4 pages'
+    },
+    {
+      title: 'Platform Exclusivity Terms',
+      file: 'PLATFORM_EXCLUSIVITY_TERMS.md',
+      description: 'Anti-circumvention legal protection',
+      icon: '⚖️',
+      category: 'legal',
+      size: '25 pages'
+    },
+    {
+      title: 'Data Seeding Guide',
+      file: 'DATA_SEEDING_GUIDE.md',
+      description: 'When and how to seed test data',
+      icon: '🌱',
+      category: 'technical',
+      size: '12 pages'
+    },
+    {
+      title: 'Legal & Compliance',
+      file: 'LEGAL_COMPLIANCE_AND_MERCH_VENDOR_GUIDE.md',
+      description: 'Terms, privacy, vendor policies',
+      icon: '📋',
+      category: 'legal',
+      size: '15 pages'
     }
   ];
 
@@ -275,6 +291,39 @@ export default function DocumentationDownload() {
             </div>
           </div>
 
+          <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
+            <h3 className="font-semibold text-green-900 mb-3 flex items-center gap-2">
+              <Sparkles className="w-5 h-5" />
+              Latest Updates (November 2025)
+            </h3>
+            <div className="space-y-2 text-sm text-gray-700">
+              <div className="flex items-start gap-2">
+                <span className="text-green-600 font-bold mt-0.5">NEW</span>
+                <div>
+                  <strong>Premium Subscription System:</strong> 3-tier model (Free, Pro $19.99/mo, Business $49.99/mo) with reduced transaction fees for Business tier
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-green-600 font-bold mt-0.5">NEW</span>
+                <div>
+                  <strong>Platform Exclusivity Terms:</strong> Legal protection against users circumventing platform fees with 12-month transaction requirement
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-green-600 font-bold mt-0.5">NEW</span>
+                <div>
+                  <strong>Data Seeding Guide:</strong> Complete guide on when to seed test data and production best practices
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold mt-0.5">FIX</span>
+                <div>
+                  <strong>Database Seeding:</strong> Fixed admin API issue, now uses regular signup flow for creating 300 test accounts
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="text-center">
             <a
               href="/"
@@ -286,8 +335,9 @@ export default function DocumentationDownload() {
         </div>
 
         <div className="mt-6 text-center text-white text-sm">
-          <p>📊 Total Documentation: 400+ pages covering every aspect of GigMate</p>
+          <p>📊 Total Documentation: 450+ pages covering every aspect of GigMate</p>
           <p className="mt-2">Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+          <p className="mt-2 text-xs opacity-80">Including subscription system, legal terms, and data seeding guides</p>
         </div>
       </div>
     </div>
