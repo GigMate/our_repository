@@ -121,13 +121,15 @@ export async function seedDatabase() {
       const email = `${lastName.toLowerCase()}.musician${i + 1}@gigmate.us`;
       const password = 'password123';
 
-      const { data: authData, error: authError } = await supabase.auth.admin.createUser({
+      const { data: authData, error: authError } = await supabase.auth.signUp({
         email,
         password,
-        email_confirm: true,
-        user_metadata: {
-          full_name: `${firstName} ${lastName}`,
-          user_type: 'musician'
+        options: {
+          data: {
+            full_name: `${firstName} ${lastName}`,
+            user_type: 'musician'
+          },
+          emailRedirectTo: undefined
         }
       });
 
@@ -137,7 +139,10 @@ export async function seedDatabase() {
       }
 
       const userId = authData.user?.id;
-      if (!userId) continue;
+      if (!userId) {
+        console.error(`No user ID returned for musician ${i + 1}`);
+        continue;
+      }
 
       await supabase.from('profiles').upsert({
         id: userId,
@@ -224,13 +229,15 @@ export async function seedDatabase() {
       const email = `${lastName.toLowerCase()}.venue${i + 1}@gigmate.us`;
       const password = 'password123';
 
-      const { data: authData, error: authError } = await supabase.auth.admin.createUser({
+      const { data: authData, error: authError } = await supabase.auth.signUp({
         email,
         password,
-        email_confirm: true,
-        user_metadata: {
-          full_name: `${firstName} ${lastName}`,
-          user_type: 'venue'
+        options: {
+          data: {
+            full_name: `${firstName} ${lastName}`,
+            user_type: 'venue'
+          },
+          emailRedirectTo: undefined
         }
       });
 
@@ -240,7 +247,10 @@ export async function seedDatabase() {
       }
 
       const userId = authData.user?.id;
-      if (!userId) continue;
+      if (!userId) {
+        console.error(`No user ID returned for venue ${i + 1}`);
+        continue;
+      }
 
       await supabase.from('profiles').upsert({
         id: userId,
@@ -277,13 +287,15 @@ export async function seedDatabase() {
       const email = `${lastName.toLowerCase()}.fan${i + 1}@gigmate.us`;
       const password = 'password123';
 
-      const { data: authData, error: authError } = await supabase.auth.admin.createUser({
+      const { data: authData, error: authError } = await supabase.auth.signUp({
         email,
         password,
-        email_confirm: true,
-        user_metadata: {
-          full_name: `${firstName} ${lastName}`,
-          user_type: 'fan'
+        options: {
+          data: {
+            full_name: `${firstName} ${lastName}`,
+            user_type: 'fan'
+          },
+          emailRedirectTo: undefined
         }
       });
 
@@ -293,7 +305,10 @@ export async function seedDatabase() {
       }
 
       const userId = authData.user?.id;
-      if (!userId) continue;
+      if (!userId) {
+        console.error(`No user ID returned for fan ${i + 1}`);
+        continue;
+      }
 
       await supabase.from('profiles').upsert({
         id: userId,
@@ -358,17 +373,32 @@ export async function seedDatabase() {
       });
     }
 
-    console.log('Initializing credit accounts...');
+    console.log('Initializing credit accounts and subscriptions...');
     for (const musician of musicians) {
       await supabase.rpc('initialize_user_credits', { p_user_id: musician.id, p_tier: 'free' });
+      await supabase.rpc('upsert_user_subscription', {
+        p_user_id: musician.id,
+        p_plan_name: 'free',
+        p_billing_cycle: 'monthly'
+      });
     }
 
     for (const venue of venues) {
       await supabase.rpc('initialize_user_credits', { p_user_id: venue.id, p_tier: 'free' });
+      await supabase.rpc('upsert_user_subscription', {
+        p_user_id: venue.id,
+        p_plan_name: 'free',
+        p_billing_cycle: 'monthly'
+      });
     }
 
     for (const fan of fans) {
       await supabase.rpc('initialize_user_credits', { p_user_id: fan.id, p_tier: 'free' });
+      await supabase.rpc('upsert_user_subscription', {
+        p_user_id: fan.id,
+        p_plan_name: 'free',
+        p_billing_cycle: 'monthly'
+      });
     }
 
     console.log('Creating sample message threads with credit tracking...');
