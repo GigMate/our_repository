@@ -11,7 +11,7 @@ interface LegalDocument {
   content: string;
   version: string;
   is_active: boolean;
-  requires_signature: boolean;
+  requires_consent: boolean;
   created_at: string;
 }
 
@@ -41,7 +41,7 @@ export default function LegalDocumentManager() {
     title: '',
     content: '',
     version: '1.0',
-    requires_signature: true,
+    requires_consent: true,
   });
 
   useEffect(() => {
@@ -121,7 +121,7 @@ export default function LegalDocumentManager() {
       title: '',
       content: '',
       version: '1.0',
-      requires_signature: true,
+      requires_consent: true,
     });
     loadDocuments();
   }
@@ -163,7 +163,7 @@ export default function LegalDocumentManager() {
       title: doc.title,
       content: doc.content,
       version: doc.version,
-      requires_signature: doc.requires_signature,
+      requires_consent: doc.requires_consent,
     });
     setShowAddForm(true);
   }
@@ -208,7 +208,7 @@ export default function LegalDocumentManager() {
               title: '',
               content: '',
               version: '1.0',
-              requires_signature: true,
+              requires_consent: true,
             });
           }}
           className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2"
@@ -304,12 +304,12 @@ export default function LegalDocumentManager() {
               <div className="flex items-center gap-2">
                 <input
                   type="checkbox"
-                  id="requires_signature"
-                  checked={formData.requires_signature}
-                  onChange={(e) => setFormData({ ...formData, requires_signature: e.target.checked })}
+                  id="requires_consent"
+                  checked={formData.requires_consent}
+                  onChange={(e) => setFormData({ ...formData, requires_consent: e.target.checked })}
                   className="w-4 h-4 text-blue-600"
                 />
-                <label htmlFor="requires_signature" className="text-sm text-gray-700">
+                <label htmlFor="requires_consent" className="text-sm text-gray-700">
                   Require digital signature
                 </label>
               </div>
@@ -408,7 +408,7 @@ export default function LegalDocumentManager() {
                   <p className="text-sm text-gray-600 capitalize">{doc.document_type.replace('_', ' ')}</p>
                   <p className="text-xs text-gray-500 mt-1">
                     Created: {new Date(doc.created_at).toLocaleDateString()}
-                    {doc.requires_signature && ' • Requires Signature'}
+                    {doc.requires_consent && ' • Requires Signature'}
                   </p>
                 </div>
               </div>

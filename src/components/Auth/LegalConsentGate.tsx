@@ -9,7 +9,7 @@ interface LegalDocument {
   title: string;
   content: string;
   version: string;
-  requires_signature: boolean;
+  requires_consent: boolean;
 }
 
 interface LegalConsentGateProps {
@@ -107,7 +107,7 @@ export default function LegalConsentGate({ children }: LegalConsentGateProps) {
 
     const doc = pendingDocuments[currentDocIndex];
 
-    if (doc.requires_signature && !signature) {
+    if (doc.requires_consent && !signature) {
       alert('Please provide your signature');
       return;
     }
@@ -192,7 +192,7 @@ export default function LegalConsentGate({ children }: LegalConsentGateProps) {
               </div>
             </div>
 
-            {currentDoc.requires_signature && (
+            {currentDoc.requires_consent && (
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Digital Signature Required
@@ -238,7 +238,7 @@ export default function LegalConsentGate({ children }: LegalConsentGateProps) {
               </div>
               <button
                 onClick={handleAccept}
-                disabled={submitting || !accepted || (currentDoc.requires_signature && !signature)}
+                disabled={submitting || !accepted || (currentDoc.requires_consent && !signature)}
                 className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center gap-2 font-medium"
               >
                 {submitting ? (
