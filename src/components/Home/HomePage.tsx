@@ -337,17 +337,26 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
         <div className="mt-16 text-center text-white text-sm space-y-2">
           <p>© 2025 GigMate. Making live music better for everyone.</p>
           <p>
-            <a href="/admin/seed" className="hover:underline opacity-75 hover:opacity-100 transition-opacity">
+            <button
+              onClick={() => window.location.href = '/admin/seed'}
+              className="hover:underline opacity-75 hover:opacity-100 transition-opacity"
+            >
               Admin: Seed Database
-            </a>
+            </button>
             {' | '}
-            <a href="/admin/legal" className="hover:underline opacity-75 hover:opacity-100 transition-opacity">
+            <button
+              onClick={() => window.location.href = '/admin/legal'}
+              className="hover:underline opacity-75 hover:opacity-100 transition-opacity"
+            >
               Admin: Legal Documents
-            </a>
+            </button>
             {' | '}
-            <a href="/docs" className="hover:underline opacity-75 hover:opacity-100 transition-opacity">
+            <button
+              onClick={() => window.location.href = '/docs'}
+              className="hover:underline opacity-75 hover:opacity-100 transition-opacity"
+            >
               Documentation
-            </a>
+            </button>
           </p>
         </div>
       </div>
