@@ -1,8 +1,19 @@
 import { FileDown, BookOpen, Sparkles, Download } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import AdminLogin from './AdminLogin';
 
 export default function DocumentationDownload() {
+  const [authenticated, setAuthenticated] = useState(false);
   const [downloading, setDownloading] = useState<string | null>(null);
+
+  useEffect(() => {
+    const isAuth = sessionStorage.getItem('admin_authenticated') === 'true';
+    setAuthenticated(isAuth);
+  }, []);
+
+  if (!authenticated) {
+    return <AdminLogin onAuthenticated={() => setAuthenticated(true)} />;
+  }
 
   const documents = [
     {
