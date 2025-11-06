@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Music, Users, Calendar, DollarSign, Star, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Music, Users, Calendar, DollarSign, Star, ArrowRight, ChevronLeft, ChevronRight, TrendingUp } from 'lucide-react';
 
 interface HomePageProps {
   onGetStarted: () => void;
   onMusicianClick?: () => void;
   onVenueClick?: () => void;
   onFanClick?: () => void;
+  onInvestorClick?: () => void;
 }
 
 const VENUE_IMAGES = [
@@ -17,7 +18,7 @@ const VENUE_IMAGES = [
   'https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg',
 ];
 
-export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, onFanClick }: HomePageProps) {
+export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, onFanClick, onInvestorClick }: HomePageProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -111,7 +112,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-4 gap-8 mb-16">
           <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
             <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
               <Music className="h-8 w-8 text-gigmate-blue" />
@@ -197,6 +198,36 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             <button
               onClick={onFanClick || onGetStarted}
               className="w-full px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors mt-6"
+            >
+              Get Started
+            </button>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
+            <div className="bg-orange-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+              <TrendingUp className="h-8 w-8 text-orange-600" />
+            </div>
+            <h3 className="text-2xl font-bold text-orange-600 mb-3">For Investors</h3>
+            <p className="text-gray-600 mb-4">
+              Access platform analytics, revenue metrics, and growth insights from the GigMate ecosystem.
+            </p>
+            <ul className="text-left text-sm text-gray-700 space-y-2">
+              <li className="flex items-start gap-2">
+                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <span>Real-time platform analytics</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <span>Revenue & growth metrics</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <span>Market insights & KPIs</span>
+              </li>
+            </ul>
+            <button
+              onClick={onInvestorClick || onGetStarted}
+              className="w-full px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors mt-6"
             >
               Get Started
             </button>

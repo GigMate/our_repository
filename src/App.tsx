@@ -7,16 +7,18 @@ import PasswordResetForm from './components/Auth/PasswordResetForm';
 import MusicianAuthPage from './components/Auth/MusicianAuthPage';
 import VenueAuthPage from './components/Auth/VenueAuthPage';
 import FanAuthPage from './components/Auth/FanAuthPage';
+import InvestorAuthPage from './components/Auth/InvestorAuthPage';
 import MusicianDashboard from './components/Musician/MusicianDashboard';
 import VenueDashboard from './components/Venue/VenueDashboard';
 import FanDashboard from './components/Fan/FanDashboard';
+import InvestorDashboard from './components/Investor/InvestorDashboard';
 import DatabaseSeeder from './components/Admin/DatabaseSeeder';
 import DocumentationDownload from './components/Admin/DocumentationDownload';
 import HomePage from './components/Home/HomePage';
 import LegalConsentGate from './components/Auth/LegalConsentGate';
 import ErrorBoundary from './components/Shared/ErrorBoundary';
 
-type AuthPage = 'musician' | 'venue' | 'fan' | null;
+type AuthPage = 'musician' | 'venue' | 'fan' | 'investor' | null;
 
 function AppContent() {
   const { user, profile, loading } = useAuth();
@@ -72,6 +74,9 @@ function AppContent() {
     if (authPage === 'fan') {
       return <FanAuthPage onBack={() => { setAuthPage(null); setShowHome(true); }} />;
     }
+    if (authPage === 'investor') {
+      return <InvestorAuthPage onBack={() => { setAuthPage(null); setShowHome(true); }} />;
+    }
     if (showLogin) {
       return (
         <div className="min-h-screen bg-gradient-to-br from-gigmate-blue to-gigmate-blue-light flex items-center justify-center p-4">
@@ -86,6 +91,7 @@ function AppContent() {
           onMusicianClick={() => { setAuthPage('musician'); setShowHome(false); }}
           onVenueClick={() => { setAuthPage('venue'); setShowHome(false); }}
           onFanClick={() => { setAuthPage('fan'); setShowHome(false); }}
+          onInvestorClick={() => { setAuthPage('investor'); setShowHome(false); }}
         />
       );
     }
@@ -109,6 +115,7 @@ function AppContent() {
                 {profile.user_type === 'musician' && <MusicianDashboard />}
                 {profile.user_type === 'venue' && <VenueDashboard />}
                 {profile.user_type === 'fan' && <FanDashboard />}
+                {profile.user_type === 'investor' && <InvestorDashboard />}
               </>
             )}
           </main>

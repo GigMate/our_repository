@@ -6,6 +6,7 @@ interface LoginFormProps {
   onToggle: () => void;
   onBack?: () => void;
   userType?: 'musician' | 'venue' | 'fan';
+  defaultUserType?: 'musician' | 'venue' | 'fan' | 'investor';
 }
 
 export default function LoginForm({ onToggle, onBack, userType }: LoginFormProps) {
