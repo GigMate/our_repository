@@ -341,6 +341,10 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
               Admin: Seed Database
             </a>
             {' | '}
+            <a href="/admin/legal" className="hover:underline opacity-75 hover:opacity-100 transition-opacity">
+              Admin: Legal Documents
+            </a>
+            {' | '}
             <a href="/docs" className="hover:underline opacity-75 hover:opacity-100 transition-opacity">
               Documentation
             </a>

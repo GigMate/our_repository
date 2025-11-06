@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { FileText, Plus, Edit2, Trash2, Check, X, Upload, Eye } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useAuth } from '../../contexts/AuthContext';
+import AdminLogin from './AdminLogin';
 
 interface LegalDocument {
   id: string;
@@ -28,12 +29,22 @@ interface UserConsent {
 
 export default function LegalDocumentManager() {
   const { user } = useAuth();
+  const [authenticated, setAuthenticated] = useState(false);
   const [documents, setDocuments] = useState<LegalDocument[]>([]);
   const [loading, setLoading] = useState(true);
   const [showAddForm, setShowAddForm] = useState(false);
   const [editingDoc, setEditingDoc] = useState<LegalDocument | null>(null);
   const [viewingConsents, setViewingConsents] = useState<string | null>(null);
   const [consents, setConsents] = useState<UserConsent[]>([]);
+
+  useEffect(() => {
+    const isAuth = sessionStorage.getItem('admin_authenticated') === 'true';
+    setAuthenticated(isAuth);
+  }, []);
+
+  if (!authenticated) {
+    return <AdminLogin onAuthenticated={() => setAuthenticated(true)} />;
+  }
 
   const [formData, setFormData] = useState({
     document_type: 'nda',
