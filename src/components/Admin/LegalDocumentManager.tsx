@@ -36,6 +36,13 @@ export default function LegalDocumentManager() {
   const [editingDoc, setEditingDoc] = useState<LegalDocument | null>(null);
   const [viewingConsents, setViewingConsents] = useState<string | null>(null);
   const [consents, setConsents] = useState<UserConsent[]>([]);
+  const [formData, setFormData] = useState({
+    document_type: 'nda',
+    title: '',
+    content: '',
+    version: '1.0',
+    requires_signature: true,
+  });
 
   useEffect(() => {
     const isAuth = sessionStorage.getItem('admin_authenticated') === 'true';
@@ -45,14 +52,6 @@ export default function LegalDocumentManager() {
   if (!authenticated) {
     return <AdminLogin onAuthenticated={() => setAuthenticated(true)} />;
   }
-
-  const [formData, setFormData] = useState({
-    document_type: 'nda',
-    title: '',
-    content: '',
-    version: '1.0',
-    requires_signature: true,
-  });
 
   useEffect(() => {
     loadDocuments();
