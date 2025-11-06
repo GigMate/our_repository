@@ -47,14 +47,9 @@ export default function LegalDocumentManager() {
   useEffect(() => {
     const isAuth = sessionStorage.getItem('admin_authenticated') === 'true';
     setAuthenticated(isAuth);
-  }, []);
-
-  if (!authenticated) {
-    return <AdminLogin onAuthenticated={() => setAuthenticated(true)} />;
-  }
-
-  useEffect(() => {
-    loadDocuments();
+    if (isAuth) {
+      loadDocuments();
+    }
   }, []);
 
   async function loadDocuments() {
@@ -183,6 +178,10 @@ export default function LegalDocumentManager() {
       setFormData({ ...formData, content });
     };
     reader.readAsText(file);
+  }
+
+  if (!authenticated) {
+    return <AdminLogin onAuthenticated={() => setAuthenticated(true)} />;
   }
 
   if (loading) {
