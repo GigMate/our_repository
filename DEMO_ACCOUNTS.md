@@ -34,6 +34,12 @@ This will create:
 - **User:** Sarah Martinez
 - **Purpose:** Book musicians, manage venue profile, post gig opportunities
 
+### Investor Accounts (5 Total)
+- **Email:** investor1@gigmate.demo through investor5@gigmate.demo
+- **Password:** DemoPass123!
+- **Users:** Alex Chen, Maria Rodriguez, James Thompson, Sarah Patel, David Kim
+- **Purpose:** Access platform analytics, revenue metrics, growth insights, and KPIs
+
 ## Pre-populated Venues
 
 The database includes 10 realistic venues across Texas Hill Country:

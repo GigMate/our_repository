@@ -78,6 +78,7 @@ Each section includes:
 
 Contains:
 - Session 1 notes (Security fixes, Map integration, Tier systems)
+- Session 2 notes (Investor Portal & 4th User Category)
 - Database schema documentation
 - Technical notes and decisions
 - Future enhancement ideas
