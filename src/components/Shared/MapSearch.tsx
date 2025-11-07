@@ -200,7 +200,7 @@ export function MapSearch({ searchType, onLocationSelect }: MapSearchProps) {
         </div>
       </div>
 
-      {userLocation && (
+      {userLocation && import.meta.env.VITE_GOOGLE_MAPS_API_KEY && (
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
           <h4 className="font-semibold text-gray-900 mb-3">Map View</h4>
           <GoogleMap

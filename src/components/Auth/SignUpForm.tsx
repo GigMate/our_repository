@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { UserType } from '../../lib/supabase';
 import { GenreSelector } from '../Shared/GenreSelector';
-import AddressAutocomplete from '../Shared/AddressAutocomplete';
+import ManualAddressForm from '../Shared/ManualAddressForm';
 
 interface SignUpFormProps {
   onToggle: () => void;
@@ -149,15 +149,9 @@ export default function SignUpForm({ onToggle, defaultUserType = 'fan' }: SignUp
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 {userType === 'venue' ? 'Venue Address' : 'Your Location'}
               </label>
-              <AddressAutocomplete
-                onAddressSelect={(address) => setLocationData(address)}
-                placeholder={userType === 'venue' ? 'Enter venue address' : 'Enter your city'}
+              <ManualAddressForm
+                onAddressSubmit={(address) => setLocationData(address)}
               />
-              <p className="mt-1 text-xs text-gray-500">
-                {userType === 'venue'
-                  ? 'Enter your venue address for location-based searches'
-                  : 'Enter your location to help venues find you'}
-              </p>
             </div>
             <div>
               <GenreSelector
