@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { UserType } from '../../lib/supabase';
 import { GenreSelector } from '../Shared/GenreSelector';
+import AddressAutocomplete from '../Shared/AddressAutocomplete';
 
 interface SignUpFormProps {
   onToggle: () => void;
@@ -14,6 +15,7 @@ export default function SignUpForm({ onToggle, defaultUserType = 'fan' }: SignUp
   const [fullName, setFullName] = useState('');
   const [userType, setUserType] = useState<UserType>(defaultUserType);
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+  const [locationData, setLocationData] = useState<any>(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { signUp } = useAuth();
@@ -27,13 +29,19 @@ export default function SignUpForm({ onToggle, defaultUserType = 'fan' }: SignUp
       return;
     }
 
+    if ((userType === 'musician' || userType === 'venue') && !locationData) {
+      setError('Please enter your address using the autocomplete field');
+      return;
+    }
+
     setLoading(true);
 
     try {
       await signUp(email, password, {
         full_name: fullName,
         user_type: userType,
-        genres: selectedGenres.length > 0 ? selectedGenres : undefined
+        genres: selectedGenres.length > 0 ? selectedGenres : undefined,
+        location: locationData
       });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to sign up');
@@ -136,19 +144,35 @@ export default function SignUpForm({ onToggle, defaultUserType = 'fan' }: SignUp
         </div>
 
         {(userType === 'musician' || userType === 'venue') && (
-          <div>
-            <GenreSelector
-              selectedGenres={selectedGenres}
-              onChange={setSelectedGenres}
-              label={userType === 'musician' ? 'Your Genres (Select all that apply)' : 'Preferred Genres (Select all that apply)'}
-              placeholder="Select genres..."
-            />
-            <p className="mt-1 text-xs text-gray-500">
-              {userType === 'musician'
-                ? 'Select all genres you perform. This helps venues find you!'
-                : 'Select genres you prefer for your venue. Helps musicians find you!'}
-            </p>
-          </div>
+          <>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                {userType === 'venue' ? 'Venue Address' : 'Your Location'}
+              </label>
+              <AddressAutocomplete
+                onAddressSelect={(address) => setLocationData(address)}
+                placeholder={userType === 'venue' ? 'Enter venue address' : 'Enter your city'}
+              />
+              <p className="mt-1 text-xs text-gray-500">
+                {userType === 'venue'
+                  ? 'Enter your venue address for location-based searches'
+                  : 'Enter your location to help venues find you'}
+              </p>
+            </div>
+            <div>
+              <GenreSelector
+                selectedGenres={selectedGenres}
+                onChange={setSelectedGenres}
+                label={userType === 'musician' ? 'Your Genres (Select all that apply)' : 'Preferred Genres (Select all that apply)'}
+                placeholder="Select genres..."
+              />
+              <p className="mt-1 text-xs text-gray-500">
+                {userType === 'musician'
+                  ? 'Select all genres you perform. This helps venues find you!'
+                  : 'Select genres you prefer for your venue. Helps musicians find you!'}
+              </p>
+            </div>
+          </>
         )}
 
         {userType === 'fan' && (

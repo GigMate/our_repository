@@ -6,7 +6,7 @@ interface AuthContextType {
   user: User | null;
   profile: Profile | null;
   loading: boolean;
-  signUp: (email: string, password: string, userData: { full_name: string; user_type: 'musician' | 'venue' | 'fan'; genres?: string[] }) => Promise<void>;
+  signUp: (email: string, password: string, userData: { full_name: string; user_type: 'musician' | 'venue' | 'fan'; genres?: string[]; location?: any }) => Promise<void>;
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
 }
@@ -68,7 +68,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const signUp = async (email: string, password: string, userData: { full_name: string; user_type: 'musician' | 'venue' | 'fan'; genres?: string[] }) => {
+  const signUp = async (email: string, password: string, userData: { full_name: string; user_type: 'musician' | 'venue' | 'fan'; genres?: string[]; location?: any }) => {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -88,19 +88,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       if (profileError) throw profileError;
 
-      if (userData.user_type === 'musician' && userData.genres && userData.genres.length > 0) {
+      if (userData.user_type === 'musician') {
         await supabase
           .from('musicians')
           .insert({
             id: data.user.id,
-            genres: userData.genres,
+            genres: userData.genres || [],
+            city: userData.location?.city,
+            state: userData.location?.state,
+            zip_code: userData.location?.zip_code,
+            latitude: userData.location?.latitude,
+            longitude: userData.location?.longitude,
           });
-      } else if (userData.user_type === 'venue' && userData.genres && userData.genres.length > 0) {
+      } else if (userData.user_type === 'venue') {
         await supabase
           .from('venues')
           .insert({
             id: data.user.id,
-            preferred_genres: userData.genres,
+            preferred_genres: userData.genres || [],
+            address: userData.location?.formatted_address,
+            city: userData.location?.city,
+            state: userData.location?.state,
+            zip_code: userData.location?.zip_code,
+            latitude: userData.location?.latitude,
+            longitude: userData.location?.longitude,
           });
       }
 

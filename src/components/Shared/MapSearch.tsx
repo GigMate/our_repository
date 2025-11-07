@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MapPin, Navigation, Search } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useAuth } from '../../contexts/AuthContext';
+import GoogleMap from './GoogleMap';
 
 interface MapSearchProps {
   searchType: 'venues' | 'musicians';
@@ -198,6 +199,31 @@ export function MapSearch({ searchType, onLocationSelect }: MapSearchProps) {
           </span>
         </div>
       </div>
+
+      {userLocation && (
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+          <h4 className="font-semibold text-gray-900 mb-3">Map View</h4>
+          <GoogleMap
+            center={userLocation}
+            zoom={10}
+            height="400px"
+            markers={results.map((result) => ({
+              id: result.id,
+              position: {
+                lat: parseFloat(result.latitude),
+                lng: parseFloat(result.longitude),
+              },
+              title: searchType === 'venues' ? result.venue_name : result.stage_name,
+              subtitle: `${result.city}, ${result.state}`,
+              onClick: () => {
+                if (onLocationSelect) {
+                  onLocationSelect(result);
+                }
+              },
+            }))}
+          />
+        </div>
+      )}
 
       {results.length > 0 && (
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
