@@ -426,3 +426,200 @@ Yes, you can absolutely turn over GigMate operations to AI. The foundation is bu
 ✓ **Scale infinitely** as the platform grows
 
 **The future is autonomous, intelligent, and always working to grow GigMate.**
+
+---
+
+## Auto Event Generation System (NEW!)
+
+### The Self-Managing Calendar
+
+GigMate now features a fully automated event generation system that keeps your calendar fresh without manual intervention. This is the first step toward a fully self-managing platform.
+
+### How It Works
+
+**Event Templates** - 12 different event types with smart scheduling:
+- Acoustic Sunday Sessions (Sunday afternoons)
+- Bluegrass & Country Night (Friday evenings)
+- Blues Wednesday (Wednesday evenings)
+- Rock & Roll Saturday (Saturday nights)
+- Singer-Songwriter Series (Tuesday/Thursday evenings)
+- Friday Night Dance Party (Friday late night)
+- Songwriter Circle with Special Guests (Sunday/Saturday evenings)
+- Happy Hour Shows (Friday early evening)
+- Texas Country Throwback (Saturday evenings)
+- Sunday Jazz Brunch (Sunday mornings)
+- General LIVE shows (Friday/Saturday/Sunday)
+- Late Night Shows (Friday/Saturday late)
+
+**Intelligent Randomization:**
+- Dates spread across 4 weeks into the future
+- Times match event type (brunch at noon, rock at 9pm)
+- Prices vary within realistic ranges ($8-$35)
+- Ticket sales pre-seeded (0-50% sold) for realism
+- Events prefer their ideal days automatically
+- No duplicate shows at same venue/time
+
+**Automated Scheduling:**
+- Runs every Monday at 3 AM UTC
+- Maintains rolling 4-week calendar
+- Cleans up events older than 7 days
+- Zero human intervention required
+
+### Manual Control
+
+**Generate Events Immediately:**
+```sql
+SELECT trigger_event_generation();
+```
+
+Returns:
+```json
+{
+  "success": true,
+  "events_created": 47,
+  "events_cleaned": 12,
+  "timestamp": "2025-11-08T10:00:00Z"
+}
+```
+
+**Call via Edge Function:**
+```bash
+curl -X POST https://your-project.supabase.co/functions/v1/auto-generate-events
+```
+
+### Database Functions
+
+**`generate_upcoming_events(weeks_ahead)`**
+- Generates diverse events for specified weeks
+- Default: 4 weeks ahead
+- Returns: Number of events created
+- Prevents duplicates automatically
+- Uses templates for variety
+
+**`cleanup_past_events()`**
+- Removes completed/cancelled events older than 7 days
+- Returns: Number of events deleted
+- Keeps database performant
+
+**`trigger_event_generation()`**
+- Runs both generation and cleanup
+- Returns: JSON with full results
+- Perfect for admin dashboards
+
+### Customization
+
+**Add New Event Templates:**
+
+```sql
+INSERT INTO event_templates (
+  title_template,
+  description_template,
+  genre_category,
+  min_price,
+  max_price,
+  min_capacity,
+  max_capacity,
+  preferred_day_of_week,
+  preferred_time_slots
+) VALUES (
+  '[ARTIST] - Metal Mayhem',
+  '🤘 METAL NIGHT! [ARTIST] brings heavy riffs and headbanging energy!',
+  'metal',
+  20.00,
+  30.00,
+  150,
+  300,
+  ARRAY[5, 6], -- Friday/Saturday
+  ARRAY['night']
+);
+```
+
+**Adjust Generation Frequency:**
+
+```sql
+-- Change to daily at midnight
+SELECT cron.schedule(
+  'auto-generate-weekly-events',
+  '0 0 * * *',  -- Every day at midnight
+  $$ SELECT generate_upcoming_events(4); $$
+);
+```
+
+### Monitoring
+
+**Check System Status:**
+
+```sql
+-- Events by week
+SELECT
+  date_trunc('week', event_date) as week,
+  COUNT(*) as events,
+  AVG(ticket_price)::numeric(10,2) as avg_price
+FROM events
+WHERE event_date >= CURRENT_DATE
+GROUP BY week
+ORDER BY week;
+
+-- Template usage (last 30 days)
+SELECT
+  genre_category,
+  COUNT(*) as times_used
+FROM event_templates t
+WHERE is_active = true
+GROUP BY genre_category
+ORDER BY times_used DESC;
+
+-- Cron job history
+SELECT * FROM cron.job_run_details
+WHERE jobid = (SELECT jobid FROM cron.job WHERE jobname = 'auto-generate-weekly-events')
+ORDER BY start_time DESC
+LIMIT 10;
+```
+
+### Benefits
+
+1. **Always Fresh**: Platform never runs out of events
+2. **Realistic Variety**: 12 event types, intelligent scheduling
+3. **Zero Maintenance**: Runs automatically every week
+4. **Scalable**: Works with any number of venues/musicians
+5. **Customizable**: Easy to add templates or adjust parameters
+6. **Self-Healing**: Maintains itself without human intervention
+
+### The GMAi Vision
+
+This auto-generation system is the foundation for a truly intelligent, self-managing platform:
+
+**Current State:**
+- ✅ Automatic event creation
+- ✅ Intelligent scheduling
+- ✅ Realistic randomization
+- ✅ Weekly maintenance
+- ✅ Template system for variety
+
+**Near Future:**
+- Learn from popular event types (generate more of what sells)
+- Analyze ticket sales to optimize pricing
+- Detect calendar gaps and fill intelligently
+- Generate seasonal/holiday events automatically
+- Personalize by region and local preferences
+
+**Long Term:**
+- Machine learning for optimal show times
+- Predictive analytics for attendance
+- Dynamic pricing based on demand
+- Genre popularity tracking and adaptation
+- Cross-promote complementary events
+- Coordinate multi-venue schedules
+
+### Integration with Marketing AI
+
+The event generation system feeds the marketing AI:
+- Fresh content for social media posts
+- New shows to promote automatically
+- Data for analyzing what sells
+- Inventory for targeted campaigns
+- Metrics for strategy optimization
+
+**This is GMAi in action** - the platform managing and growing itself intelligently, learning from every interaction, optimizing continuously, and scaling infinitely.
+
+**Welcome to the future of autonomous platform management!** 🎸🤖
