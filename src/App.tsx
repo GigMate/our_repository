@@ -16,6 +16,7 @@ import InvestorDashboard from './components/Investor/InvestorDashboard';
 import DatabaseSeeder from './components/Admin/DatabaseSeeder';
 import DocumentationDownload from './components/Admin/DocumentationDownload';
 import LegalDocumentManager from './components/Admin/LegalDocumentManager';
+import AIDashboard from './components/AI/AIDashboard';
 import HomePage from './components/Home/HomePage';
 import LegalConsentGate from './components/Auth/LegalConsentGate';
 import ErrorBoundary from './components/Shared/ErrorBoundary';
@@ -30,6 +31,7 @@ function AppContent() {
   const [showPasswordReset, setShowPasswordReset] = useState(false);
   const [showDocs, setShowDocs] = useState(false);
   const [showLegalManager, setShowLegalManager] = useState(false);
+  const [showAIDashboard, setShowAIDashboard] = useState(false);
   const [showHome, setShowHome] = useState(true);
   const [authPage, setAuthPage] = useState<AuthPage>(null);
 
@@ -43,6 +45,8 @@ function AppContent() {
       setShowDocs(true);
     } else if (path === '/admin/legal') {
       setShowLegalManager(true);
+    } else if (path === '/ai' || path === '/ai/dashboard') {
+      setShowAIDashboard(true);
     }
   }, []);
 
@@ -58,6 +62,14 @@ function AppContent() {
     return (
       <div className="min-h-screen bg-gray-50">
         <LegalDocumentManager />
+      </div>
+    );
+  }
+
+  if (showAIDashboard) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <AIDashboard />
       </div>
     );
   }
