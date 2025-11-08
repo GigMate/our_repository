@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Search, Music, MapPin, Calendar } from 'lucide-react';
+import { Search, Music, MapPin, Calendar, ShoppingBag, TrendingUp } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
+import { useGeolocation } from '../../hooks/useGeolocation';
 import VenueCard from './VenueCard';
 import MusicianCard from './MusicianCard';
 import EventCard from './EventCard';
 import TicketPurchaseModal from './TicketPurchaseModal';
 import AdBanner from '../Shared/AdBanner';
 import VenueDetailView from '../Shared/VenueDetailView';
+import { ProductCard } from '../Consumer/ProductCard';
 
 interface Venue {
   id: string;
@@ -50,17 +52,35 @@ interface Event {
   venue_state?: string;
 }
 
+interface Product {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  image_url?: string;
+  video_url?: string;
+  address: string;
+  city: string;
+  state: string;
+  distance_miles: number;
+  stock_quantity: number;
+}
+
 export default function FanDashboard() {
-  const [searchType, setSearchType] = useState<'events' | 'venues' | 'musicians'>('events');
+  const { latitude, longitude } = useGeolocation();
+  const [searchType, setSearchType] = useState<'events' | 'venues' | 'musicians' | 'products'>('events');
   const [searchQuery, setSearchQuery] = useState('');
   const [genreFilter, setGenreFilter] = useState('');
   const [venues, setVenues] = useState<Venue[]>([]);
   const [musicians, setMusicians] = useState<Musician[]>([]);
   const [events, setEvents] = useState<Event[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [availableGenres, setAvailableGenres] = useState<string[]>([]);
   const [selectedEvent, setSelectedEvent] = useState<string | null>(null);
   const [selectedVenueId, setSelectedVenueId] = useState<string | null>(null);
+  const [radiusMiles, setRadiusMiles] = useState(10);
 
   useEffect(() => {
     loadData();
@@ -91,7 +111,19 @@ export default function FanDashboard() {
   async function loadData() {
     setLoading(true);
 
-    if (searchType === 'events') {
+    if (searchType === 'products') {
+      if (latitude && longitude) {
+        const { data, error } = await supabase.rpc('find_products_within_radius', {
+          user_lat: latitude,
+          user_lon: longitude,
+          radius_miles: radiusMiles,
+        });
+
+        if (!error && data) {
+          setProducts(data);
+        }
+      }
+    } else if (searchType === 'events') {
       let query = supabase
         .from('events')
         .select(`
@@ -219,6 +251,17 @@ export default function FanDashboard() {
               <Music className="h-4 w-4" />
               <span>Musicians</span>
             </button>
+            <button
+              onClick={() => setSearchType('products')}
+              className={`flex items-center space-x-2 px-4 py-2 rounded-md font-medium transition-colors ${
+                searchType === 'products'
+                  ? 'bg-green-600 text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              <ShoppingBag className="h-4 w-4" />
+              <span>Shop Local</span>
+            </button>
           </div>
         </div>
 
@@ -234,6 +277,8 @@ export default function FanDashboard() {
                   ? 'Search upcoming events...'
                   : searchType === 'venues'
                   ? 'Search by venue name, city, zip code, county, or type...'
+                  : searchType === 'products'
+                  ? 'Search local products, merchandise, tickets...'
                   : 'Search by artist name, city, zip code, or county...'
               }
               className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gigmate-blue focus:border-transparent"
@@ -256,12 +301,27 @@ export default function FanDashboard() {
               </select>
             </div>
           )}
+
+          {searchType === 'products' && (
+            <div className="md:w-48">
+              <select
+                value={radiusMiles}
+                onChange={(e) => setRadiusMiles(Number(e.target.value))}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              >
+                <option value={2}>Within 2 miles</option>
+                <option value={5}>Within 5 miles</option>
+                <option value={10}>Within 10 miles</option>
+                <option value={25}>Within 25 miles</option>
+              </select>
+            </div>
+          )}
         </div>
 
         {(searchQuery || genreFilter) && (
           <div className="mt-4 flex items-center justify-between">
             <p className="text-sm text-gray-600">
-              {searchType === 'events' ? events.length : searchType === 'venues' ? venues.length : musicians.length} results found
+              {searchType === 'events' ? events.length : searchType === 'venues' ? venues.length : searchType === 'products' ? products.length : musicians.length} results found
             </p>
             <button
               onClick={() => {
@@ -284,25 +344,56 @@ export default function FanDashboard() {
         </div>
       ) : (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {searchType === 'events'
-              ? events.map((event) => (
-                  <EventCard
-                    key={event.id}
-                    event={event}
-                    onBuyTickets={() => setSelectedEvent(event.id)}
-                  />
-                ))
-              : searchType === 'venues'
-              ? venues.map((venue) => (
-                  <VenueCard
-                    key={venue.id}
-                    venue={venue}
-                    onClick={() => setSelectedVenueId(venue.id)}
-                  />
-                ))
-              : musicians.map((musician) => <MusicianCard key={musician.id} musician={musician} />)}
-          </div>
+          {searchType === 'products' ? (
+            <>
+              {latitude && longitude ? (
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 text-green-700 mb-4">
+                    <TrendingUp className="w-5 h-5" />
+                    <h2 className="text-xl font-bold">Local Products & Merchandise</h2>
+                  </div>
+                  <p className="text-gray-600 mb-6">
+                    Shop from local musicians and businesses within {radiusMiles} miles of you
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    {products.map((product) => (
+                      <ProductCard
+                        key={product.id}
+                        product={product}
+                        onPurchase={(prod) => console.log('Purchase:', prod)}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="text-center py-12 bg-yellow-50 rounded-lg">
+                  <MapPin className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
+                  <p className="text-gray-700 font-medium">Enable location access to see local products</p>
+                  <p className="text-sm text-gray-600 mt-2">We need your location to show you products from nearby sellers</p>
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {searchType === 'events'
+                ? events.map((event) => (
+                    <EventCard
+                      key={event.id}
+                      event={event}
+                      onBuyTickets={() => setSelectedEvent(event.id)}
+                    />
+                  ))
+                : searchType === 'venues'
+                ? venues.map((venue) => (
+                    <VenueCard
+                      key={venue.id}
+                      venue={venue}
+                      onClick={() => setSelectedVenueId(venue.id)}
+                    />
+                  ))
+                : musicians.map((musician) => <MusicianCard key={musician.id} musician={musician} />)}
+            </div>
+          )}
 
           {(events.length > 0 || venues.length > 0 || musicians.length > 0) && (
             <AdBanner tier="basic" placement="fan_dashboard" className="mb-8" />

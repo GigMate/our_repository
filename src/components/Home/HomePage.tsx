@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Music, Users, Calendar, DollarSign, Star, ArrowRight, ChevronLeft, ChevronRight, TrendingUp, ShoppingBag } from 'lucide-react';
+import { Music, Users, Calendar, DollarSign, Star, ArrowRight, ChevronLeft, ChevronRight, TrendingUp } from 'lucide-react';
 
 interface HomePageProps {
   onGetStarted: () => void;
@@ -7,7 +7,6 @@ interface HomePageProps {
   onVenueClick?: () => void;
   onFanClick?: () => void;
   onInvestorClick?: () => void;
-  onConsumerClick?: () => void;
 }
 
 const VENUE_IMAGES = [
@@ -19,7 +18,7 @@ const VENUE_IMAGES = [
   'https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg',
 ];
 
-export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, onFanClick, onInvestorClick, onConsumerClick }: HomePageProps) {
+export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, onFanClick, onInvestorClick }: HomePageProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -69,7 +68,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
               Welcome to GigMate
             </h1>
             <p className="text-xl md:text-2xl text-white mb-6 max-w-3xl mx-auto drop-shadow-md">
-              The modern marketplace connecting musicians, venues, and fans
+              Where fans discover live music, shop local, and support the artists they love
             </p>
             <button
               onClick={onGetStarted}
@@ -113,7 +112,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
             <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
               <Music className="h-8 w-8 text-gigmate-blue" />
@@ -174,33 +173,40 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </button>
           </div>
 
-          <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
-            <div className="bg-green-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-              <Calendar className="h-8 w-8 text-green-600" />
+          <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg shadow-2xl p-8 text-center transform hover:scale-105 transition-transform border-4 border-green-500 relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-yellow-400 text-gray-900 px-4 py-1 text-xs font-bold rounded-bl-lg">
+              THE HEART OF GIGMATE
             </div>
-            <h3 className="text-2xl font-bold text-green-600 mb-3">For Fans</h3>
-            <p className="text-gray-600 mb-4">
-              Discover live music near you, buy tickets easily, and support local artists.
+            <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-full p-4 w-20 h-20 mx-auto mb-4 flex items-center justify-center shadow-lg">
+              <Star className="h-10 w-10 text-white" />
+            </div>
+            <h3 className="text-3xl font-bold text-green-700 mb-3">For Fans</h3>
+            <p className="text-gray-700 mb-4 font-medium">
+              You're the reason live music exists! Discover shows, buy tickets, shop merchandise, and support local artists in your area.
             </p>
-            <ul className="text-left text-sm text-gray-700 space-y-2">
+            <ul className="text-left text-sm text-gray-800 space-y-2">
               <li className="flex items-start gap-2">
                 <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <span>Find events by genre & location</span>
+                <span className="font-medium">Events & tickets within YOUR area</span>
               </li>
               <li className="flex items-start gap-2">
                 <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <span>No hidden fees or markups</span>
+                <span className="font-medium">Shop local musician merchandise</span>
               </li>
               <li className="flex items-start gap-2">
                 <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <span>Rate & review performances</span>
+                <span className="font-medium">No hidden fees or markups</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <span className="font-medium">Personalized recommendations</span>
               </li>
             </ul>
             <button
               onClick={onFanClick || onGetStarted}
-              className="w-full px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors mt-6"
+              className="w-full px-6 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold text-lg rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all shadow-lg hover:shadow-xl mt-6"
             >
-              Get Started
+              Join as a Fan
             </button>
           </div>
 
@@ -234,35 +240,6 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </button>
           </div>
 
-          <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
-            <div className="bg-teal-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-              <ShoppingBag className="h-8 w-8 text-teal-600" />
-            </div>
-            <h3 className="text-2xl font-bold text-teal-600 mb-3">Shop Local</h3>
-            <p className="text-gray-600 mb-4">
-              Discover products from local businesses and creators within your area.
-            </p>
-            <ul className="text-left text-sm text-gray-700 space-y-2">
-              <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <span>Products within 2 miles</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <span>Merchandise, tickets & more</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <span>Support local creators</span>
-              </li>
-            </ul>
-            <button
-              onClick={onConsumerClick || onGetStarted}
-              className="w-full px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 transition-colors mt-6"
-            >
-              Start Shopping
-            </button>
-          </div>
         </div>
 
         <div className="bg-white rounded-lg shadow-xl p-12 mb-16">
