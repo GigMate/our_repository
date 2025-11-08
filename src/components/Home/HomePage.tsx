@@ -113,6 +113,43 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg shadow-2xl p-8 text-center transform hover:scale-105 transition-transform border-4 border-green-500 relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-yellow-400 text-gray-900 px-4 py-1 text-xs font-bold rounded-bl-lg">
+              THE HEART OF GIGMATE
+            </div>
+            <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-full p-4 w-20 h-20 mx-auto mb-4 flex items-center justify-center shadow-lg">
+              <Star className="h-10 w-10 text-white" />
+            </div>
+            <h3 className="text-3xl font-bold text-green-700 mb-3">For Fans</h3>
+            <p className="text-gray-700 mb-4 font-medium">
+              You're the reason live music exists! Discover shows, buy tickets, shop merchandise, and support local artists in your area.
+            </p>
+            <ul className="text-left text-sm text-gray-800 space-y-2">
+              <li className="flex items-start gap-2">
+                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <span className="font-medium">Events & tickets within YOUR area</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <span className="font-medium">Shop local musician merchandise</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <span className="font-medium">No hidden fees or markups</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <span className="font-medium">Personalized recommendations</span>
+              </li>
+            </ul>
+            <button
+              onClick={onFanClick || onGetStarted}
+              className="w-full px-6 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold text-lg rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all shadow-lg hover:shadow-xl mt-6"
+            >
+              Join as a Fan
+            </button>
+          </div>
+
           <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
             <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
               <Music className="h-8 w-8 text-gigmate-blue" />
@@ -173,50 +210,13 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </button>
           </div>
 
-          <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg shadow-2xl p-8 text-center transform hover:scale-105 transition-transform border-4 border-green-500 relative overflow-hidden">
-            <div className="absolute top-0 right-0 bg-yellow-400 text-gray-900 px-4 py-1 text-xs font-bold rounded-bl-lg">
-              THE HEART OF GIGMATE
-            </div>
-            <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-full p-4 w-20 h-20 mx-auto mb-4 flex items-center justify-center shadow-lg">
-              <Star className="h-10 w-10 text-white" />
-            </div>
-            <h3 className="text-3xl font-bold text-green-700 mb-3">For Fans</h3>
-            <p className="text-gray-700 mb-4 font-medium">
-              You're the reason live music exists! Discover shows, buy tickets, shop merchandise, and support local artists in your area.
-            </p>
-            <ul className="text-left text-sm text-gray-800 space-y-2">
-              <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <span className="font-medium">Events & tickets within YOUR area</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <span className="font-medium">Shop local musician merchandise</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <span className="font-medium">No hidden fees or markups</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <span className="font-medium">Personalized recommendations</span>
-              </li>
-            </ul>
-            <button
-              onClick={onFanClick || onGetStarted}
-              className="w-full px-6 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold text-lg rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all shadow-lg hover:shadow-xl mt-6"
-            >
-              Join as a Fan
-            </button>
-          </div>
-
           <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
             <div className="bg-orange-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
               <TrendingUp className="h-8 w-8 text-orange-600" />
             </div>
             <h3 className="text-2xl font-bold text-orange-600 mb-3">For Investors</h3>
             <p className="text-gray-600 mb-4">
-              Access platform analytics, revenue metrics, and growth insights from the GigMate ecosystem.
+              By invitation only. Access platform analytics, revenue metrics, and growth insights.
             </p>
             <ul className="text-left text-sm text-gray-700 space-y-2">
               <li className="flex items-start gap-2">
@@ -236,7 +236,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
               onClick={onInvestorClick || onGetStarted}
               className="w-full px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors mt-6"
             >
-              Get Started
+              Request Access
             </button>
           </div>
 
