@@ -8,6 +8,7 @@ import MusicianAuthPage from './components/Auth/MusicianAuthPage';
 import VenueAuthPage from './components/Auth/VenueAuthPage';
 import FanAuthPage from './components/Auth/FanAuthPage';
 import InvestorAuthPage from './components/Auth/InvestorAuthPage';
+import RoleSelectionPage from './components/Auth/RoleSelectionPage';
 import MusicianDashboard from './components/Musician/MusicianDashboard';
 import VenueDashboard from './components/Venue/VenueDashboard';
 import FanDashboard from './components/Fan/FanDashboard';
@@ -24,6 +25,7 @@ type AuthPage = 'musician' | 'venue' | 'fan' | 'investor' | null;
 function AppContent() {
   const { user, profile, loading } = useAuth();
   const [showLogin, setShowLogin] = useState(false);
+  const [showRoleSelection, setShowRoleSelection] = useState(false);
   const [showSeeder, setShowSeeder] = useState(false);
   const [showPasswordReset, setShowPasswordReset] = useState(false);
   const [showDocs, setShowDocs] = useState(false);
@@ -78,28 +80,42 @@ function AppContent() {
 
   if (!user || !profile) {
     if (authPage === 'musician') {
-      return <MusicianAuthPage onBack={() => { setAuthPage(null); setShowHome(true); }} />;
+      return <MusicianAuthPage onBack={() => { setAuthPage(null); setShowHome(true); setShowRoleSelection(false); }} />;
     }
     if (authPage === 'venue') {
-      return <VenueAuthPage onBack={() => { setAuthPage(null); setShowHome(true); }} />;
+      return <VenueAuthPage onBack={() => { setAuthPage(null); setShowHome(true); setShowRoleSelection(false); }} />;
     }
     if (authPage === 'fan') {
-      return <FanAuthPage onBack={() => { setAuthPage(null); setShowHome(true); }} />;
+      return <FanAuthPage onBack={() => { setAuthPage(null); setShowHome(true); setShowRoleSelection(false); }} />;
     }
     if (authPage === 'investor') {
-      return <InvestorAuthPage onBack={() => { setAuthPage(null); setShowHome(true); }} />;
+      return <InvestorAuthPage onBack={() => { setAuthPage(null); setShowHome(true); setShowRoleSelection(false); }} />;
+    }
+    if (showRoleSelection) {
+      return (
+        <RoleSelectionPage
+          onRoleSelect={(role) => {
+            setAuthPage(role);
+            setShowRoleSelection(false);
+          }}
+          onBack={() => { setShowRoleSelection(false); setShowHome(true); }}
+        />
+      );
     }
     if (showLogin) {
       return (
         <div className="min-h-screen bg-gradient-to-br from-gigmate-blue to-gigmate-blue-light flex items-center justify-center p-4">
-          <LoginForm onToggle={() => setShowLogin(false)} onBack={() => { setShowLogin(false); setShowHome(true); }} />
+          <LoginForm
+            onToggle={() => { setShowLogin(false); setShowRoleSelection(true); }}
+            onBack={() => { setShowLogin(false); setShowHome(true); }}
+          />
         </div>
       );
     }
     if (showHome) {
       return (
         <HomePage
-          onGetStarted={() => { setShowHome(false); setShowLogin(true); }}
+          onGetStarted={() => { setShowHome(false); setShowRoleSelection(true); }}
           onMusicianClick={() => { setAuthPage('musician'); setShowHome(false); }}
           onVenueClick={() => { setAuthPage('venue'); setShowHome(false); }}
           onFanClick={() => { setAuthPage('fan'); setShowHome(false); }}
@@ -121,7 +137,13 @@ function AppContent() {
           <Header onLogoClick={() => setShowHome(true)} />
           <main>
             {showHome ? (
-              <HomePage onGetStarted={() => setShowHome(false)} />
+              <HomePage
+                onGetStarted={() => setShowHome(false)}
+                onMusicianClick={() => setShowHome(false)}
+                onVenueClick={() => setShowHome(false)}
+                onFanClick={() => setShowHome(false)}
+                onInvestorClick={() => setShowHome(false)}
+              />
             ) : (
               <>
                 {profile.user_type === 'musician' && <MusicianDashboard />}
