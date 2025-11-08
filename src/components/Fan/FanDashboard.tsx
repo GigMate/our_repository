@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Search, Music, MapPin, Calendar, ShoppingBag, TrendingUp } from 'lucide-react';
+import { Search, Music, MapPin, Calendar, ShoppingBag, TrendingUp, Map as MapIcon, List } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useGeolocation } from '../../hooks/useGeolocation';
 import VenueCard from './VenueCard';
@@ -9,6 +9,7 @@ import TicketPurchaseModal from './TicketPurchaseModal';
 import AdBanner from '../Shared/AdBanner';
 import VenueDetailView from '../Shared/VenueDetailView';
 import { ProductCard } from '../Consumer/ProductCard';
+import GoogleMap from '../Shared/GoogleMap';
 
 interface Venue {
   id: string;
@@ -21,6 +22,8 @@ interface Venue {
   capacity: number;
   venue_type: string;
   amenities: string[];
+  latitude?: number;
+  longitude?: number;
 }
 
 interface Musician {
@@ -63,6 +66,8 @@ interface Product {
   address: string;
   city: string;
   state: string;
+  latitude?: number;
+  longitude?: number;
   distance_miles: number;
   stock_quantity: number;
 }
@@ -70,6 +75,7 @@ interface Product {
 export default function FanDashboard() {
   const { latitude, longitude } = useGeolocation();
   const [searchType, setSearchType] = useState<'events' | 'venues' | 'musicians' | 'products'>('events');
+  const [viewMode, setViewMode] = useState<'grid' | 'map'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
   const [genreFilter, setGenreFilter] = useState('');
   const [venues, setVenues] = useState<Venue[]>([]);
@@ -155,7 +161,7 @@ export default function FanDashboard() {
     } else if (searchType === 'venues') {
       let query = supabase
         .from('venues')
-        .select('*')
+        .select('*, latitude, longitude')
         .order('venue_name');
 
       if (searchQuery.trim()) {
@@ -210,8 +216,8 @@ export default function FanDashboard() {
       <AdBanner tier="premium" placement="fan_dashboard" className="mb-8" />
 
       <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-        <div className="flex flex-col md:flex-row gap-4 mb-4">
-          <div className="flex gap-2 flex-wrap">
+        <div className="flex flex-col md:flex-row gap-4 mb-4 items-start md:items-center">
+          <div className="flex gap-2 flex-wrap flex-1">
             <button
               onClick={() => {
                 setSearchType('events');
@@ -261,6 +267,31 @@ export default function FanDashboard() {
             >
               <ShoppingBag className="h-4 w-4" />
               <span>Shop Local</span>
+            </button>
+          </div>
+
+          <div className="flex gap-2 bg-gray-100 rounded-lg p-1">
+            <button
+              onClick={() => setViewMode('grid')}
+              className={`flex items-center gap-2 px-4 py-2 rounded-md font-medium text-sm transition-colors ${
+                viewMode === 'grid'
+                  ? 'bg-white text-gray-900 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <List className="h-4 w-4" />
+              <span>List</span>
+            </button>
+            <button
+              onClick={() => setViewMode('map')}
+              className={`flex items-center gap-2 px-4 py-2 rounded-md font-medium text-sm transition-colors ${
+                viewMode === 'map'
+                  ? 'bg-white text-gray-900 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <MapIcon className="h-4 w-4" />
+              <span>Map</span>
             </button>
           </div>
         </div>
@@ -342,6 +373,56 @@ export default function FanDashboard() {
         <div className="text-center py-12">
           <div className="text-gray-600">Loading...</div>
         </div>
+      ) : viewMode === 'map' ? (
+        <>
+          {latitude && longitude ? (
+            <div className="mb-8">
+              <GoogleMap
+                center={{ lat: latitude, lng: longitude }}
+                zoom={12}
+                height="600px"
+                markers={
+                  searchType === 'events'
+                    ? events.map((event) => ({
+                        id: event.id,
+                        position: { lat: 30.2672, lng: -98.8703 },
+                        title: event.title,
+                        subtitle: `${event.venue_name} - ${new Date(event.event_date).toLocaleDateString()}`,
+                        onClick: () => setSelectedEvent(event.id),
+                      }))
+                    : searchType === 'venues'
+                    ? venues.map((venue) => ({
+                        id: venue.id,
+                        position: { lat: venue.latitude || 30.2672, lng: venue.longitude || -98.8703 },
+                        title: venue.venue_name,
+                        subtitle: `${venue.city}, ${venue.state}`,
+                        onClick: () => setSelectedVenueId(venue.id),
+                      }))
+                    : searchType === 'musicians'
+                    ? musicians.map((musician) => ({
+                        id: musician.id,
+                        position: { lat: 30.2672, lng: -98.8703 },
+                        title: musician.stage_name,
+                        subtitle: musician.city ? `${musician.city}, ${musician.state}` : 'Location not set',
+                      }))
+                    : products.map((product) => ({
+                        id: product.id,
+                        position: { lat: product.latitude || latitude, lng: product.longitude || longitude },
+                        title: product.name,
+                        subtitle: `$${product.price} - ${product.distance_miles.toFixed(1)} mi away`,
+                      }))
+                }
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+          ) : (
+            <div className="text-center py-12 bg-yellow-50 rounded-lg mb-8">
+              <MapPin className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
+              <p className="text-gray-700 font-medium">Enable location access to see map view</p>
+              <p className="text-sm text-gray-600 mt-2">We need your location to show nearby items on the map</p>
+            </div>
+          )}
+        </>
       ) : (
         <>
           {searchType === 'products' ? (
