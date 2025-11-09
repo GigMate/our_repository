@@ -13,16 +13,22 @@ export default function TicketPurchaseModal({
   eventId,
   onClose
 }: TicketPurchaseModalProps) {
-  const { user } = useAuth();
+  const { user, profile } = useAuth();
   const [quantity, setQuantity] = useState(1);
   const [eventData, setEventData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [referralCode, setReferralCode] = useState('');
-  const [discount, setDiscount] = useState(0);
+  const [creditsToUse, setCreditsToUse] = useState(0);
+  const [availableCredits, setAvailableCredits] = useState(0);
 
   useEffect(() => {
     loadEventData();
   }, [eventId]);
+
+  useEffect(() => {
+    if (profile?.referral_credits) {
+      setAvailableCredits(profile.referral_credits);
+    }
+  }, [profile]);
 
   async function loadEventData() {
     const { data, error } = await supabase
@@ -54,33 +60,12 @@ export default function TicketPurchaseModal({
   const ccProcessingFixed = 0.30;
 
   const subtotal = eventData.ticket_price * quantity;
-  const gigmateFee = subtotal * (gigmateFeePercentage / 100);
-  const ccProcessingFee = (subtotal * (ccProcessingPercentage / 100)) + ccProcessingFixed;
-  const discountedSubtotal = Math.max(0, subtotal - discount);
-  const discountedGigmateFee = discountedSubtotal * (gigmateFeePercentage / 100);
-  const discountedCCFee = (discountedSubtotal * (ccProcessingPercentage / 100)) + ccProcessingFixed;
-  const total = discountedSubtotal + discountedGigmateFee + discountedCCFee;
+  const maxCreditsCanUse = Math.min(availableCredits, subtotal);
+  const afterCredits = Math.max(0, subtotal - creditsToUse);
+  const finalGigmateFee = afterCredits * (gigmateFeePercentage / 100);
+  const finalCCFee = afterCredits > 0 ? (afterCredits * (ccProcessingPercentage / 100)) + ccProcessingFixed : 0;
+  const total = afterCredits + finalGigmateFee + finalCCFee;
   const availableTickets = eventData.total_tickets - eventData.tickets_sold;
-
-  async function applyReferralCode() {
-    if (!referralCode || !user) return;
-
-    const { data, error } = await supabase.rpc('apply_referral_discount', {
-      p_user_id: user.id,
-      p_referral_code: referralCode.toUpperCase(),
-      p_transaction_amount: subtotal
-    });
-
-    if (error) {
-      console.error('Error applying referral:', error);
-      alert('Invalid referral code');
-    } else if (data && data.length > 0) {
-      setDiscount(data[0].discount_amount);
-      if (data[0].discount_amount > 0) {
-        alert(`Referral code applied! You saved $${data[0].discount_amount.toFixed(2)}`);
-      }
-    }
-  }
 
   async function handlePurchase() {
     if (!user) return;
@@ -125,58 +110,73 @@ export default function TicketPurchaseModal({
             </div>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Have a Referral Code?
-            </label>
-            <div className="flex gap-2">
-              <div className="relative flex-1">
-                <input
-                  type="text"
-                  value={referralCode}
-                  onChange={(e) => setReferralCode(e.target.value.toUpperCase())}
-                  placeholder="Enter code"
-                  className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-                />
-                <Gift className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+          {availableCredits > 0 && (
+            <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-lg p-4 border border-green-200">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <Gift className="w-5 h-5 text-green-600" />
+                  <h3 className="font-semibold text-gray-900">Use Your Credits</h3>
+                </div>
+                <span className="text-sm font-medium text-gray-600">
+                  Available: <span className="text-green-600 font-bold">${availableCredits.toFixed(2)}</span>
+                </span>
               </div>
-              <button
-                onClick={applyReferralCode}
-                disabled={!referralCode}
-                className="px-4 py-2 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Apply
-              </button>
+
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Credits to Use (Max: ${maxCreditsCanUse.toFixed(2)})
+              </label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="number"
+                  min="0"
+                  max={maxCreditsCanUse}
+                  step="0.01"
+                  value={creditsToUse}
+                  onChange={(e) => setCreditsToUse(Math.min(parseFloat(e.target.value) || 0, maxCreditsCanUse))}
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500"
+                  placeholder="0.00"
+                />
+                <button
+                  onClick={() => setCreditsToUse(maxCreditsCanUse)}
+                  className="px-4 py-2 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition-colors whitespace-nowrap"
+                >
+                  Use Max
+                </button>
+              </div>
+              {creditsToUse > 0 && (
+                <p className="mt-2 text-sm text-green-600 font-medium">
+                  Saving ${creditsToUse.toFixed(2)} with your credits!
+                </p>
+              )}
             </div>
-            {discount > 0 && (
-              <p className="mt-1 text-sm text-green-600 font-medium">
-                Discount applied: -${discount.toFixed(2)}
-              </p>
-            )}
-          </div>
+          )}
 
           <div className="bg-gray-50 rounded-lg p-4 space-y-2">
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">Tickets ({quantity}x ${eventData.ticket_price.toFixed(2)})</span>
               <span className="font-medium">${subtotal.toFixed(2)}</span>
             </div>
-            {discount > 0 && (
+            {creditsToUse > 0 && (
               <div className="flex justify-between text-sm">
-                <span className="text-green-600">Referral Discount</span>
-                <span className="font-medium text-green-600">-${discount.toFixed(2)}</span>
+                <span className="text-green-600 font-medium">GigMate Credits Applied</span>
+                <span className="font-medium text-green-600">-${creditsToUse.toFixed(2)}</span>
               </div>
             )}
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">Service Fee ({gigmateFeePercentage}%)</span>
-              <span className="font-medium">${discountedGigmateFee.toFixed(2)}</span>
+              <span className="font-medium">${finalGigmateFee.toFixed(2)}</span>
             </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-gray-600">CC Processing ({ccProcessingPercentage}% + ${ccProcessingFixed.toFixed(2)})</span>
-              <span className="font-medium">${discountedCCFee.toFixed(2)}</span>
-            </div>
+            {afterCredits > 0 && (
+              <div className="flex justify-between text-sm">
+                <span className="text-gray-600">CC Processing ({ccProcessingPercentage}% + ${ccProcessingFixed.toFixed(2)})</span>
+                <span className="font-medium">${finalCCFee.toFixed(2)}</span>
+              </div>
+            )}
             <div className="flex justify-between text-lg font-bold pt-2 border-t border-gray-300">
-              <span>Total</span>
-              <span>${total.toFixed(2)}</span>
+              <span>Total to Pay</span>
+              <span className={creditsToUse > 0 ? 'text-green-600' : ''}>
+                {total === 0 ? 'FREE' : `$${total.toFixed(2)}`}
+              </span>
             </div>
           </div>
 

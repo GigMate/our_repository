@@ -5,7 +5,7 @@ import { useAuth } from '../../contexts/AuthContext';
 
 interface ReferralStats {
   totalReferrals: number;
-  totalEarnings: number;
+  totalCredits: number;
   pendingReferrals: number;
   convertedReferrals: number;
 }
@@ -15,8 +15,8 @@ interface Referral {
   referee_type: string;
   status: string;
   conversion_date: string | null;
-  reward_amount: number;
-  reward_paid: boolean;
+  reward_credits: number;
+  credits_awarded: boolean;
   created_at: string;
 }
 
@@ -26,7 +26,7 @@ export default function ReferralProgram() {
   const [copied, setCopied] = useState(false);
   const [stats, setStats] = useState<ReferralStats>({
     totalReferrals: 0,
-    totalEarnings: 0,
+    totalCredits: 0,
     pendingReferrals: 0,
     convertedReferrals: 0,
   });
@@ -55,11 +55,11 @@ export default function ReferralProgram() {
       if (referralData) {
         const converted = referralData.filter(r => r.status === 'converted');
         const pending = referralData.filter(r => r.status === 'pending');
-        const totalEarnings = referralData.reduce((sum, r) => sum + (Number(r.reward_amount) || 0), 0);
+        const totalCredits = referralData.reduce((sum, r) => sum + (Number(r.reward_credits) || 0), 0);
 
         setStats({
           totalReferrals: referralData.length,
-          totalEarnings,
+          totalCredits,
           pendingReferrals: pending.length,
           convertedReferrals: converted.length,
         });
@@ -69,12 +69,12 @@ export default function ReferralProgram() {
 
       // Update profile stats if they don't match
       if (profile.total_referrals !== referralData?.length ||
-          profile.referral_earnings !== stats.totalEarnings) {
+          profile.referral_credits !== stats.totalCredits) {
         await supabase
           .from('profiles')
           .update({
             total_referrals: referralData?.length || 0,
-            referral_earnings: stats.totalEarnings,
+            referral_credits: stats.totalCredits,
           })
           .eq('id', profile.id);
       }
@@ -142,8 +142,8 @@ export default function ReferralProgram() {
               <Gift className="w-8 h-8" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold">Refer & Earn!</h2>
-              <p className="text-green-50">Share GigMate and earn ${rewardAmount} per referral</p>
+              <h2 className="text-3xl font-bold">Refer & Earn Credits!</h2>
+              <p className="text-green-50">Share GigMate and earn ${rewardAmount} in credits per referral</p>
             </div>
           </div>
 
@@ -231,8 +231,8 @@ export default function ReferralProgram() {
               <DollarSign className="w-6 h-6 text-green-600" />
             </div>
           </div>
-          <div className="text-3xl font-bold text-green-600">${stats.totalEarnings.toFixed(2)}</div>
-          <div className="text-sm text-gray-600">Total Earned</div>
+          <div className="text-3xl font-bold text-green-600">${stats.totalCredits.toFixed(2)}</div>
+          <div className="text-sm text-gray-600">Credits Earned</div>
         </div>
 
         <div className="bg-white rounded-xl shadow-lg p-6">
@@ -282,9 +282,9 @@ export default function ReferralProgram() {
             <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
               <span className="text-2xl font-bold text-green-600">3</span>
             </div>
-            <h4 className="font-semibold text-gray-900 mb-2">Earn Rewards</h4>
+            <h4 className="font-semibold text-gray-900 mb-2">Earn Credits</h4>
             <p className="text-sm text-gray-600">
-              Get ${rewardAmount} for each successful referral. Cash out anytime!
+              Get ${rewardAmount} in credits for each successful referral. Use at any GigMate event!
             </p>
           </div>
         </div>
@@ -301,8 +301,8 @@ export default function ReferralProgram() {
                   <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
                   <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">User Type</th>
                   <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Reward</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Paid</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Credits</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Awarded</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -326,10 +326,10 @@ export default function ReferralProgram() {
                       </span>
                     </td>
                     <td className="px-4 py-3 text-sm font-semibold text-green-600">
-                      ${Number(referral.reward_amount).toFixed(2)}
+                      ${Number(referral.reward_credits).toFixed(2)}
                     </td>
                     <td className="px-4 py-3">
-                      {referral.reward_paid ? (
+                      {referral.credits_awarded ? (
                         <Check className="w-5 h-5 text-green-600" />
                       ) : (
                         <span className="text-sm text-gray-400">Pending</span>
@@ -366,26 +366,35 @@ export default function ReferralProgram() {
         </ul>
       </div>
 
-      {/* How People Save */}
+      {/* How Credits Work */}
       <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 border border-green-200">
-        <h3 className="text-lg font-bold text-gray-900 mb-3">🎁 Benefits for Your Referrals</h3>
+        <h3 className="text-lg font-bold text-gray-900 mb-3">🎟️ How Your Credits Work</h3>
         <p className="text-sm text-gray-700 mb-3">
-          When someone signs up with your code, they get <strong>10% off their first purchase</strong> (up to $10 maximum).
+          <strong>Credits = Dollars!</strong> Your referral credits have real dollar value and can be used to buy tickets at any GigMate event.
         </p>
         <ul className="space-y-2 text-sm text-gray-700">
           <li className="flex items-start gap-2">
             <span className="text-green-600 font-bold">✓</span>
-            <span>Works on ticket purchases, subscriptions, and products</span>
+            <span><strong>1 Credit = $1 Value</strong> - Use them just like cash at events</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-600 font-bold">✓</span>
-            <span>Automatically applied from your referral link</span>
+            <span><strong>Event Tickets Only</strong> - Redeemable at GigMate.us events</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-600 font-bold">✓</span>
-            <span>Can also be manually entered at checkout</span>
+            <span><strong>No Expiration</strong> - Keep earning and use them whenever you want</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-green-600 font-bold">✓</span>
+            <span><strong>Partial or Full Payment</strong> - Use some or all of your credits per purchase</span>
           </li>
         </ul>
+        <div className="mt-4 p-3 bg-white rounded-lg border border-green-300">
+          <p className="text-xs text-gray-600 text-center">
+            💡 <strong>Example:</strong> You have $50 in credits and tickets cost $40. You can use $40 in credits and pay $0, or save your credits for later!
+          </p>
+        </div>
       </div>
     </div>
   );

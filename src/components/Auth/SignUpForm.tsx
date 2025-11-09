@@ -197,7 +197,7 @@ export default function SignUpForm({ onToggle, defaultUserType = 'fan' }: SignUp
           </div>
           {referralCode && (
             <p className="mt-1 text-xs text-green-600">
-              Get 10% off your first purchase!
+              Help your friend earn credits!
             </p>
           )}
         </div>

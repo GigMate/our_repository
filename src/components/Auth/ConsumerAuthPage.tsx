@@ -155,7 +155,7 @@ export default function ConsumerAuthPage({ onBack }: ConsumerAuthPageProps) {
                 </div>
                 {referralCode && (
                   <p className="mt-2 text-sm text-green-600 font-medium">
-                    Get 10% off your first purchase!
+                    Help your friend earn credits!
                   </p>
                 )}
               </div>
