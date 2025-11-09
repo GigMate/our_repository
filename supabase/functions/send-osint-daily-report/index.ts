@@ -263,6 +263,22 @@ function generateReportEmail(reports: OSINTReport[]): string {
               <p style="margin: 10px 0 0 0;">${report.recommendation_reason}</p>
             </div>
 
+            ${(report.recommendation === 'deny' || report.recommendation === 'more_info_needed') && report.risk_score >= 25 ? `
+              <div style="background: #e0f2fe; border-left: 4px solid #0284c7; padding: 15px; margin: 15px 0; border-radius: 4px;">
+                <div class="detail-label" style="color: #0369a1;">💡 Background Check Options Available</div>
+                <p style="margin: 10px 0 0 0; font-size: 13px; color: #075985;">
+                  <strong>Due to elevated risk factors, this investor may improve their standing by:</strong>
+                </p>
+                <ul style="margin: 10px 0; padding-left: 20px; font-size: 13px; color: #075985;">
+                  <li><strong>Option 1:</strong> Upload an existing background check (must be dated within the last 2 weeks)</li>
+                  <li><strong>Option 2:</strong> Pay $50 for a professional background check by Mayday Investigations, LLC</li>
+                </ul>
+                <p style="margin: 5px 0 0 0; font-size: 12px; color: #0369a1;">
+                  If Option 2 is selected, KYC information will be automatically sent to jon@maydaypi.com and jt@maydaypi.com for processing.
+                </p>
+              </div>
+            ` : ''}
+
             <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #dee2e6; font-size: 12px; color: #666;">
               Investigation completed at ${new Date(report.created_at).toLocaleString()}
             </div>

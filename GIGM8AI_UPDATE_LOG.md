@@ -624,3 +624,251 @@ You're an assistant to the admin, not the final decision maker. Your job is to d
 **Signed:** GigMate Development Team
 **Date:** November 9, 2025
 **For:** GigM8Ai Training and Awareness
+
+---
+
+## Update #3: Background Check Options for Low-Scoring Investors
+
+### Summary
+Added comprehensive background check system allowing investors with elevated risk scores to improve their standing by either uploading an existing background check or paying $50 for a professional check by Mayday Investigations, LLC.
+
+### The Problem
+OSINT screening may flag legitimate investors due to:
+- Using personal email instead of company email
+- New domain names
+- Limited online presence
+- Other non-fraudulent factors
+
+These investors deserve a path to prove legitimacy.
+
+### The Solution
+Two-option background check system with Mayday Investigations integration and automatic KYC data transmission.
+
+**Files Created:**
+1. `supabase/migrations/20251109033000_add_background_check_options.sql`
+2. `supabase/functions/request-mayday-background-check/index.ts`
+3. `src/components/Investor/BackgroundCheckPortal.tsx`
+
+**Files Modified:**
+1. `supabase/functions/stripe-webhook/index.ts`
+2. `supabase/functions/send-osint-daily-report/index.ts`
+
+### Mayday Investigations Integration
+
+**Who:** Mayday Investigations, LLC  
+**Contacts:** jon@maydaypi.com, jt@maydaypi.com  
+**Service:** Investor Background Check - Standard Package  
+**Cost:** $50.00 (paid by investor)  
+**Timeline:** 5-7 business days  
+**Report Delivery:** admin@gigmate.com  
+
+**What They Receive:**
+Complete KYC package via automated HTML email containing:
+- Full name, email, phone, company
+- Physical address (complete)
+- Mailing address (complete)
+- KYC consent (timestamp + IP)
+- Investment range
+- Payment confirmation
+- Investigation instructions
+
+**When It's Sent:**
+Automatically within seconds after $50 payment succeeds via Stripe.
+
+### Investor Experience
+
+**Background Check Portal** (`BackgroundCheckPortal.tsx`)
+
+**Option 1: Upload Existing Check**
+- Requirements: Must be dated within last 14 days
+- Accepted formats: PDF, JPG, PNG
+- Workflow:
+  1. Enter check date
+  2. Upload file
+  3. File stored securely
+  4. Admin reviews
+  5. Admin approves/rejects
+
+**Option 2: Pay for Mayday Check**  
+- Price: $50.00
+- What's included:
+  - Identity verification
+  - Address verification  
+  - Criminal history check
+  - Financial background check
+  - Professional/business verification
+- Workflow:
+  1. Click "Pay $50"
+  2. Complete Stripe checkout
+  3. KYC data auto-sent to Mayday
+  4. Wait 5-7 business days
+  5. Mayday sends report to admin
+  6. Admin reviews and approves
+
+### Complete Payment Flow
+
+```
+Investor clicks "Pay $50 for Background Check"
+  ↓
+Stripe Checkout opens
+  ↓
+Investor pays $50.00
+  ↓
+Stripe webhook: checkout.session.completed
+  ↓
+System detects metadata.type === "background_check"
+  ↓
+Database updated:
+  - mayday_check_paid = true
+  - mayday_check_payment_date = now()
+  - background_check_status = "mayday_paid"
+  ↓
+Transaction record created ($50)
+  ↓
+Auto-invoke: request-mayday-background-check function
+  ↓
+Generate professional HTML email with ALL KYC data
+  ↓
+Send to: jon@maydaypi.com, jt@maydaypi.com
+  ↓
+Email includes:
+  ✓ Full personal information
+  ✓ Both addresses
+  ✓ KYC consent documentation  
+  ✓ Payment confirmation ($50)
+  ✓ Investigation instructions
+  ↓
+Mayday performs investigation (5-7 days)
+  ↓
+Mayday sends report to admin@gigmate.com
+  ↓
+Admin reviews and makes final decision
+```
+
+### OSINT Report Integration
+
+Daily email reports now include for investors with risk ≥ 25:
+
+```
+💡 Background Check Options Available
+
+Due to elevated risk factors, this investor may improve their standing by:
+
+• Option 1: Upload existing background check (within last 2 weeks)
+• Option 2: Pay $50 for professional check by Mayday Investigations, LLC
+
+If Option 2 selected, KYC information automatically sent to:
+- jon@maydaypi.com
+- jt@maydaypi.com
+```
+
+### Database Schema
+
+**New fields in `investor_interest_requests`:**
+
+```sql
+background_check_status text
+  - pending / uploaded / mayday_requested / 
+    mayday_paid / completed / not_required / expired
+
+background_check_upload_url text
+background_check_upload_date timestamptz
+background_check_expiry_date timestamptz
+background_check_notes text
+background_check_approved_by_admin boolean
+
+mayday_check_requested boolean
+mayday_check_paid boolean  
+mayday_check_payment_date timestamptz
+mayday_check_request_sent boolean
+mayday_check_request_date timestamptz
+```
+
+**New storage bucket:**
+- `background-checks` - Secure, private storage
+- RLS: Admins view all, investors view own
+
+### Security & Compliance
+
+**Data Protection:**
+- Background checks in encrypted storage
+- RLS policies enforce access control
+- KYC data only sent after payment
+- Audit trail for all transmissions
+
+**Consent & Legal:**
+- Investor consent documented (timestamp + IP)
+- Payment confirms acceptance of service
+- FCRA-compliant process
+- Transaction records maintained
+
+**Expiration Handling:**
+- Checks expire after 14 days
+- Automatic detection and notification
+- Prevents use of stale information
+
+### Admin Workflow
+
+**Uploaded Check Review:**
+1. Notification of new upload
+2. Download and review document
+3. Verify:
+   - Date within 14 days
+   - Appears official (letterhead, signatures)
+   - Covers required checks
+   - Matches investor info
+4. Approve or reject
+5. Add notes if needed
+
+**Mayday Check Review:**
+1. Payment notification received
+2. KYC auto-sent to Mayday (no action needed)
+3. Wait 5-7 business days
+4. Receive report at admin@gigmate.com
+5. Review Mayday findings
+6. Approve or deny investor
+
+### Testing Requirements
+
+✓ Upload check within 14 days  
+✓ Upload check older than 14 days (error)  
+✓ $50 payment via Stripe  
+✓ Payment triggers KYC email  
+✓ Email sent to both Mayday contacts  
+✓ All KYC data included in email  
+✓ Transaction recorded ($50)  
+✓ Status updates correctly  
+✓ Check expires after 14 days  
+✓ OSINT report shows option when risk ≥ 25  
+
+### Summary for GigM8Ai
+
+**When You See Risk Score ≥ 25:**
+
+Include in your daily email report:
+- Background check recommendation
+- Explain both options
+- Note KYC data sharing if Option 2
+- Emphasize this gives investor path to approval
+
+**Risk Score Guidelines:**
+- 25-49: "Consider background check"
+- 50-74: "Background check strongly recommended"  
+- 75+: "Background check required"
+
+**Key Points:**
+- Investor pays $50, not GigMate
+- KYC auto-sent to Mayday after payment
+- 5-7 business day turnaround
+- Admin makes final decision
+- Legitimate investors get fair chance
+
+---
+
+## End of Update #3
+
+**Next Update:** TBD
+
+**Signed:** GigMate Development Team  
+**Date:** November 9, 2025  
+**For:** GigM8Ai Training and Awareness

@@ -109,6 +109,40 @@ Deno.serve(async (req: Request) => {
             stripe_payment_intent_id: session.payment_intent as string,
             metadata: session.metadata,
           });
+        } else if (session.metadata?.type === "background_check") {
+          // Handle Mayday Investigations background check payment
+          const investorRequestId = session.metadata.investor_request_id;
+
+          // Update investor request to mark payment received
+          await supabase
+            .from("investor_interest_requests")
+            .update({
+              mayday_check_paid: true,
+              mayday_check_payment_date: new Date().toISOString(),
+              background_check_status: "mayday_paid",
+            })
+            .eq("id", investorRequestId);
+
+          // Create transaction record
+          await supabase.from("transactions").insert({
+            user_id: null,
+            type: "background_check",
+            amount: 50.00,
+            status: "completed",
+            stripe_payment_intent_id: session.payment_intent as string,
+            metadata: {
+              investor_request_id: investorRequestId,
+              investor_email: session.metadata.investor_email,
+              service: "mayday_investigations",
+            },
+          });
+
+          // Trigger Mayday background check request
+          await supabase.functions.invoke("request-mayday-background-check", {
+            body: { investor_request_id: investorRequestId },
+          });
+
+          console.log(`Mayday background check payment processed for investor request: ${investorRequestId}`);
         }
         break;
       }
