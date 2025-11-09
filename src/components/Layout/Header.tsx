@@ -1,5 +1,5 @@
 import { useAuth } from '../../contexts/AuthContext';
-import { Database, FileDown } from 'lucide-react';
+import { Database, FileDown, Home } from 'lucide-react';
 import VenueSpotlight from '../Shared/VenueSpotlight';
 
 interface HeaderProps {
@@ -26,23 +26,30 @@ export default function Header({ onLogoClick }: HeaderProps) {
           </button>
 
           <div className="flex items-center space-x-4">
+            <button
+              onClick={onLogoClick}
+              className="flex items-center space-x-2 px-3 py-2 bg-white/10 hover:bg-white/20 text-white rounded-md transition-colors font-medium text-sm"
+            >
+              <Home className="h-4 w-4" />
+              <span className="hidden sm:inline">Home</span>
+            </button>
             <a
               href="/admin/seed"
               className="flex items-center space-x-2 px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors font-medium text-sm"
             >
               <Database className="h-4 w-4" />
-              <span>Seed Data</span>
+              <span className="hidden sm:inline">Seed Data</span>
             </a>
             {profile && (
               <>
                 <a
                   href="/download"
-                  className="flex items-center space-x-2 px-3 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors font-medium text-sm"
+                  className="flex items-center space-x-2 px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors font-medium text-sm"
                 >
                   <FileDown className="h-4 w-4" />
-                  <span>Download Docs</span>
+                  <span className="hidden sm:inline">Docs</span>
                 </a>
-                <span className="text-sm text-white">
+                <span className="text-sm text-white hidden md:inline">
                   {profile.full_name} <span className="text-gray-300">({profile.user_type})</span>
                 </span>
                 <button
