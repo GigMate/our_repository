@@ -163,7 +163,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </p>
             <button
               onClick={onGetStarted}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gigmate-red text-white text-lg font-semibold rounded-lg hover:bg-gigmate-red-dark transition-all transform hover:scale-105 shadow-2xl"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gigmate-red text-white text-lg font-semibold rounded-lg hover:bg-gigmate-red-dark transition-all transform hover:scale-105 shadow-2xl mb-16"
             >
               Get Started
               <ArrowRight className="h-6 w-6" />
@@ -186,7 +186,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           <ChevronRight className="w-6 h-6 text-white" />
         </button>
 
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
           {VENUE_IMAGES.map((_, index) => (
             <button
               key={index}
