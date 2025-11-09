@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { UserType } from '../../lib/supabase';
 import { GenreSelector } from '../Shared/GenreSelector';
 import ManualAddressForm from '../Shared/ManualAddressForm';
+import { Gift } from 'lucide-react';
 
 interface SignUpFormProps {
   onToggle: () => void;
@@ -16,9 +17,18 @@ export default function SignUpForm({ onToggle, defaultUserType = 'fan' }: SignUp
   const [userType, setUserType] = useState<UserType>(defaultUserType);
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
   const [locationData, setLocationData] = useState<any>(null);
+  const [referralCode, setReferralCode] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { signUp } = useAuth();
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const refCode = urlParams.get('ref');
+    if (refCode) {
+      setReferralCode(refCode);
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,7 +51,8 @@ export default function SignUpForm({ onToggle, defaultUserType = 'fan' }: SignUp
         full_name: fullName,
         user_type: userType,
         genres: selectedGenres.length > 0 ? selectedGenres : undefined,
-        location: locationData
+        location: locationData,
+        referred_by_code: referralCode || undefined
       });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to sign up');
@@ -168,6 +179,28 @@ export default function SignUpForm({ onToggle, defaultUserType = 'fan' }: SignUp
             </div>
           </>
         )}
+
+        <div>
+          <label htmlFor="referralCode" className="block text-sm font-medium text-gray-700 mb-1">
+            Referral Code (Optional)
+          </label>
+          <div className="relative">
+            <input
+              id="referralCode"
+              type="text"
+              value={referralCode}
+              onChange={(e) => setReferralCode(e.target.value.toUpperCase())}
+              placeholder="Enter referral code"
+              className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-md focus:ring-2 focus:ring-gigmate-blue focus:border-transparent"
+            />
+            <Gift className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+          </div>
+          {referralCode && (
+            <p className="mt-1 text-xs text-green-600">
+              Get 10% off your first purchase!
+            </p>
+          )}
+        </div>
 
         {userType === 'fan' && (
           <div>

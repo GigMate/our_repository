@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { X, Gift } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useAuth } from '../../contexts/AuthContext';
 import StripeCheckout from '../Shared/StripeCheckout';
@@ -17,6 +17,8 @@ export default function TicketPurchaseModal({
   const [quantity, setQuantity] = useState(1);
   const [eventData, setEventData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [referralCode, setReferralCode] = useState('');
+  const [discount, setDiscount] = useState(0);
 
   useEffect(() => {
     loadEventData();
@@ -54,8 +56,31 @@ export default function TicketPurchaseModal({
   const subtotal = eventData.ticket_price * quantity;
   const gigmateFee = subtotal * (gigmateFeePercentage / 100);
   const ccProcessingFee = (subtotal * (ccProcessingPercentage / 100)) + ccProcessingFixed;
-  const total = subtotal + gigmateFee + ccProcessingFee;
+  const discountedSubtotal = Math.max(0, subtotal - discount);
+  const discountedGigmateFee = discountedSubtotal * (gigmateFeePercentage / 100);
+  const discountedCCFee = (discountedSubtotal * (ccProcessingPercentage / 100)) + ccProcessingFixed;
+  const total = discountedSubtotal + discountedGigmateFee + discountedCCFee;
   const availableTickets = eventData.total_tickets - eventData.tickets_sold;
+
+  async function applyReferralCode() {
+    if (!referralCode || !user) return;
+
+    const { data, error } = await supabase.rpc('apply_referral_discount', {
+      p_user_id: user.id,
+      p_referral_code: referralCode.toUpperCase(),
+      p_transaction_amount: subtotal
+    });
+
+    if (error) {
+      console.error('Error applying referral:', error);
+      alert('Invalid referral code');
+    } else if (data && data.length > 0) {
+      setDiscount(data[0].discount_amount);
+      if (data[0].discount_amount > 0) {
+        alert(`Referral code applied! You saved $${data[0].discount_amount.toFixed(2)}`);
+      }
+    }
+  }
 
   async function handlePurchase() {
     if (!user) return;
@@ -100,18 +125,54 @@ export default function TicketPurchaseModal({
             </div>
           </div>
 
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Have a Referral Code?
+            </label>
+            <div className="flex gap-2">
+              <div className="relative flex-1">
+                <input
+                  type="text"
+                  value={referralCode}
+                  onChange={(e) => setReferralCode(e.target.value.toUpperCase())}
+                  placeholder="Enter code"
+                  className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                />
+                <Gift className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              </div>
+              <button
+                onClick={applyReferralCode}
+                disabled={!referralCode}
+                className="px-4 py-2 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Apply
+              </button>
+            </div>
+            {discount > 0 && (
+              <p className="mt-1 text-sm text-green-600 font-medium">
+                Discount applied: -${discount.toFixed(2)}
+              </p>
+            )}
+          </div>
+
           <div className="bg-gray-50 rounded-lg p-4 space-y-2">
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">Tickets ({quantity}x ${eventData.ticket_price.toFixed(2)})</span>
               <span className="font-medium">${subtotal.toFixed(2)}</span>
             </div>
+            {discount > 0 && (
+              <div className="flex justify-between text-sm">
+                <span className="text-green-600">Referral Discount</span>
+                <span className="font-medium text-green-600">-${discount.toFixed(2)}</span>
+              </div>
+            )}
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">Service Fee ({gigmateFeePercentage}%)</span>
-              <span className="font-medium">${gigmateFee.toFixed(2)}</span>
+              <span className="font-medium">${discountedGigmateFee.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">CC Processing ({ccProcessingPercentage}% + ${ccProcessingFixed.toFixed(2)})</span>
-              <span className="font-medium">${ccProcessingFee.toFixed(2)}</span>
+              <span className="font-medium">${discountedCCFee.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-lg font-bold pt-2 border-t border-gray-300">
               <span>Total</span>

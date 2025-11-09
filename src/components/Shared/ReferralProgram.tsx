@@ -344,7 +344,7 @@ export default function ReferralProgram() {
       )}
 
       {/* Pro Tips */}
-      <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 border border-blue-200">
+      <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-6 border border-blue-200">
         <h3 className="text-lg font-bold text-gray-900 mb-3">💡 Pro Tips for More Referrals</h3>
         <ul className="space-y-2 text-sm text-gray-700">
           <li className="flex items-start gap-2">
@@ -362,6 +362,28 @@ export default function ReferralProgram() {
           <li className="flex items-start gap-2">
             <span className="text-green-600 font-bold">•</span>
             <span>Post about specific events or features you love</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* How People Save */}
+      <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 border border-green-200">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">🎁 Benefits for Your Referrals</h3>
+        <p className="text-sm text-gray-700 mb-3">
+          When someone signs up with your code, they get <strong>10% off their first purchase</strong> (up to $10 maximum).
+        </p>
+        <ul className="space-y-2 text-sm text-gray-700">
+          <li className="flex items-start gap-2">
+            <span className="text-green-600 font-bold">✓</span>
+            <span>Works on ticket purchases, subscriptions, and products</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-green-600 font-bold">✓</span>
+            <span>Automatically applied from your referral link</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-green-600 font-bold">✓</span>
+            <span>Can also be manually entered at checkout</span>
           </li>
         </ul>
       </div>

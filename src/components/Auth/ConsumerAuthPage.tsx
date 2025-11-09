@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { ShoppingBag, ArrowLeft, Mail, Lock, User, MapPin } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ShoppingBag, ArrowLeft, Mail, Lock, User, MapPin, Gift } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
 interface ConsumerAuthPageProps {
@@ -10,11 +10,20 @@ export default function ConsumerAuthPage({ onBack }: ConsumerAuthPageProps) {
   const [isLogin, setIsLogin] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [referralCode, setReferralCode] = useState('');
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     full_name: '',
   });
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const refCode = urlParams.get('ref');
+    if (refCode) {
+      setReferralCode(refCode);
+    }
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -36,14 +45,20 @@ export default function ConsumerAuthPage({ onBack }: ConsumerAuthPageProps) {
         if (signUpError) throw signUpError;
 
         if (authData.user) {
+          const profileData: any = {
+            id: authData.user.id,
+            email: formData.email,
+            full_name: formData.full_name,
+            user_type: 'consumer',
+          };
+
+          if (referralCode) {
+            profileData.referred_by_code = referralCode;
+          }
+
           const { error: profileError } = await supabase
             .from('profiles')
-            .insert({
-              id: authData.user.id,
-              email: formData.email,
-              full_name: formData.full_name,
-              user_type: 'consumer',
-            });
+            .insert(profileData);
           if (profileError) throw profileError;
         }
       }
@@ -122,6 +137,29 @@ export default function ConsumerAuthPage({ onBack }: ConsumerAuthPageProps) {
                 />
               </div>
             </div>
+
+            {!isLogin && (
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Referral Code (Optional)
+                </label>
+                <div className="relative">
+                  <Gift className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <input
+                    type="text"
+                    value={referralCode}
+                    onChange={(e) => setReferralCode(e.target.value.toUpperCase())}
+                    className="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="Enter referral code"
+                  />
+                </div>
+                {referralCode && (
+                  <p className="mt-2 text-sm text-green-600 font-medium">
+                    Get 10% off your first purchase!
+                  </p>
+                )}
+              </div>
+            )}
 
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">

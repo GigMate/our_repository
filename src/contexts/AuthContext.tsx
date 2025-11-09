@@ -6,7 +6,7 @@ interface AuthContextType {
   user: User | null;
   profile: Profile | null;
   loading: boolean;
-  signUp: (email: string, password: string, userData: { full_name: string; user_type: 'musician' | 'venue' | 'fan'; genres?: string[]; location?: any }) => Promise<void>;
+  signUp: (email: string, password: string, userData: { full_name: string; user_type: 'musician' | 'venue' | 'fan' | 'consumer'; genres?: string[]; location?: any; referred_by_code?: string }) => Promise<void>;
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
 }
@@ -68,7 +68,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const signUp = async (email: string, password: string, userData: { full_name: string; user_type: 'musician' | 'venue' | 'fan'; genres?: string[]; location?: any }) => {
+  const signUp = async (email: string, password: string, userData: { full_name: string; user_type: 'musician' | 'venue' | 'fan' | 'consumer'; genres?: string[]; location?: any; referred_by_code?: string }) => {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -77,14 +77,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (error) throw error;
 
     if (data.user) {
+      const profileData: any = {
+        id: data.user.id,
+        email,
+        full_name: userData.full_name,
+        user_type: userData.user_type,
+      };
+
+      if (userData.referred_by_code) {
+        profileData.referred_by_code = userData.referred_by_code;
+      }
+
       const { error: profileError } = await supabase
         .from('profiles')
-        .insert({
-          id: data.user.id,
-          email,
-          full_name: userData.full_name,
-          user_type: userData.user_type,
-        });
+        .insert(profileData);
 
       if (profileError) throw profileError;
 
