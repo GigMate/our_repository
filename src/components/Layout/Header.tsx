@@ -1,5 +1,6 @@
 import { useAuth } from '../../contexts/AuthContext';
 import { Database, FileDown } from 'lucide-react';
+import VenueSpotlight from '../Shared/VenueSpotlight';
 
 interface HeaderProps {
   onLogoClick: () => void;
@@ -9,7 +10,7 @@ export default function Header({ onLogoClick }: HeaderProps) {
   const { profile, signOut } = useAuth();
 
   return (
-    <header className="bg-gigmate-blue border-b border-gigmate-blue-light shadow-sm">
+    <header className="bg-gigmate-blue shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <button
@@ -55,6 +56,7 @@ export default function Header({ onLogoClick }: HeaderProps) {
           </div>
         </div>
       </div>
+      <VenueSpotlight />
     </header>
   );
 }
