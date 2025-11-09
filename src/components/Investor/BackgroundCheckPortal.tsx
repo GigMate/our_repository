@@ -166,7 +166,7 @@ export default function BackgroundCheckPortal({
           <div>
             <h3 className="font-semibold text-green-900">Payment Received</h3>
             <p className="text-sm text-green-700">
-              Your background check has been ordered from Mayday Investigations.
+              Your background check has been ordered from our investigation partner.
               They will complete the investigation within 5-7 business days.
               Results will be sent directly to our admin team.
             </p>
@@ -194,7 +194,7 @@ export default function BackgroundCheckPortal({
             <h3 className="font-semibold text-red-900">Background Check Expired</h3>
             <p className="text-sm text-red-700">
               Your uploaded background check is older than 2 weeks. Please upload a new one
-              or order a fresh check from Mayday Investigations.
+              or order a fresh check from our investigation partner.
             </p>
           </div>
         </div>
@@ -288,7 +288,7 @@ export default function BackgroundCheckPortal({
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">Option 2: Order Professional Check</h3>
                 <p className="text-sm text-gray-600 mt-1">
-                  Pay $50 for a comprehensive background check performed by Mayday Investigations, LLC.
+                  Pay $50 for a comprehensive background check performed by our authorized investigation partner.
                 </p>
               </div>
             </div>
@@ -308,7 +308,7 @@ export default function BackgroundCheckPortal({
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
               <p className="text-xs text-blue-800">
                 <strong>Privacy Notice:</strong> Your KYC information will be securely transmitted
-                to Mayday Investigations (jon@maydaypi.com, jt@maydaypi.com) for verification purposes only.
+                to our authorized third-party investigation service for verification purposes only.
               </p>
             </div>
 

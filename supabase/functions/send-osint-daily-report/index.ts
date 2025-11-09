@@ -271,10 +271,10 @@ function generateReportEmail(reports: OSINTReport[]): string {
                 </p>
                 <ul style="margin: 10px 0; padding-left: 20px; font-size: 13px; color: #075985;">
                   <li><strong>Option 1:</strong> Upload an existing background check (must be dated within the last 2 weeks)</li>
-                  <li><strong>Option 2:</strong> Pay $50 for a professional background check by Mayday Investigations, LLC</li>
+                  <li><strong>Option 2:</strong> Pay $50 for a professional background check by our authorized investigation partner</li>
                 </ul>
                 <p style="margin: 5px 0 0 0; font-size: 12px; color: #0369a1;">
-                  If Option 2 is selected, KYC information will be automatically sent to jon@maydaypi.com and jt@maydaypi.com for processing.
+                  If Option 2 is selected, KYC information will be automatically forwarded to our investigation partner for processing.
                 </p>
               </div>
             ` : ''}
