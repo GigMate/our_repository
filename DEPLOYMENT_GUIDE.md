@@ -101,8 +101,10 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtYWdxa3V
 
 **VITE_STRIPE_PUBLISHABLE_KEY**
 ```
-pk_test_51SPk6QEmdaRadoqtquUtTFvISjmTocjPmkFiiwhPuhCuf34YENPHfcBvBGeODPnQQWGq2LTJkdtHuW8GsHJ0w3mR00mIoM6NQc
+pk_test_YOUR_STRIPE_PUBLISHABLE_KEY_HERE
 ```
+
+⚠️ **You must add your own Stripe publishable key from https://dashboard.stripe.com/test/apikeys**
 
 **VITE_GOOGLE_MAPS_API_KEY**
 ```
@@ -112,6 +114,7 @@ YOUR_GOOGLE_MAPS_API_KEY_HERE
 **Important Notes:**
 - ⚠️ These are test/development keys - replace Stripe key with production key when going live
 - ⚠️ You need to get a real Google Maps API key from Google Cloud Console
+- ⚠️ You MUST get your own Stripe publishable key from https://dashboard.stripe.com/test/apikeys
 - ✅ Supabase keys are already configured and working
 
 ### Step 5: Deploy!
@@ -128,7 +131,53 @@ https://gigmate-platform-abc123.vercel.app
 
 ---
 
-## Part 3: Configure Supabase for Production
+## Part 3: Configure Stripe Secrets in Supabase
+
+### Add Stripe Keys to Supabase Edge Functions
+
+**CRITICAL:** Your Stripe integration won't work without these secrets!
+
+1. **Go to Supabase Dashboard**: https://app.supabase.com/project/rmagqkuwulbcabxtzsjm/settings/functions
+2. **Click on "Edge Functions" settings**
+3. **Find the "Secrets" section**
+4. **Add the following secrets:**
+
+**STRIPE_SECRET_KEY**
+- Click "Add new secret"
+- Name: `STRIPE_SECRET_KEY`
+- Value: Your Stripe secret key starting with `sk_test_...`
+- Get it from: https://dashboard.stripe.com/test/apikeys
+
+**STRIPE_WEBHOOK_SECRET**
+- Click "Add new secret"
+- Name: `STRIPE_WEBHOOK_SECRET`
+- Value: `whsec_ltO4viqDLNfnREkNcSU6Zr1CL7BgMJrT`
+- This is pre-configured for your project
+
+5. **Save both secrets**
+
+### Configure Stripe Webhook Endpoint
+
+1. **Go to Stripe Dashboard**: https://dashboard.stripe.com/test/webhooks
+2. **Click "Add endpoint"**
+3. **Enter webhook URL:**
+   ```
+   https://rmagqkuwulbcabxtzsjm.supabase.co/functions/v1/stripe-webhook
+   ```
+4. **Select events to listen to:**
+   - `checkout.session.completed`
+   - `payment_intent.succeeded`
+   - `payment_intent.payment_failed`
+   - `customer.subscription.created`
+   - `customer.subscription.updated`
+   - `customer.subscription.deleted`
+5. **Click "Add endpoint"**
+6. **Copy the webhook signing secret** (starts with `whsec_...`)
+7. **Update STRIPE_WEBHOOK_SECRET in Supabase** if different from default
+
+---
+
+## Part 4: Configure Supabase for Production
 
 ### Update Supabase URL Allowlist
 
@@ -150,7 +199,7 @@ This allows Supabase authentication to work on your deployed app.
 
 ---
 
-## Part 4: Test Your Deployment
+## Part 5: Test Your Deployment
 
 ### Basic Tests:
 
@@ -182,8 +231,10 @@ This allows Supabase authentication to work on your deployed app.
 - Verify VITE_SUPABASE_ANON_KEY is correct
 
 ❌ **"Payments failing"**
-- Check Stripe publishable key is correct
-- Verify webhook endpoint is configured
+- Check Stripe publishable key is correct in Vercel environment variables
+- Verify Stripe secret key is set in Supabase Edge Functions secrets
+- Verify webhook endpoint is configured in Stripe Dashboard
+- Check webhook secret matches in Supabase
 
 ---
 
@@ -225,13 +276,16 @@ Want `gigmate.com` instead of the Vercel subdomain?
 
 Before going fully live:
 
-- [ ] Replace test Stripe keys with production keys
+- [ ] Replace test Stripe keys with production keys (both Vercel and Supabase)
+- [ ] Update Stripe webhook endpoint to production URL
+- [ ] Verify webhook secret is updated for production
 - [ ] Get real Google Maps API key
 - [ ] Set up custom domain with SSL
 - [ ] Review Supabase RLS policies
 - [ ] Enable Vercel password protection (for private beta)
 - [ ] Configure CORS properly
 - [ ] Review all environment variables
+- [ ] Test payment flows end-to-end in production mode
 
 ---
 

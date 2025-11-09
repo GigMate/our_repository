@@ -96,14 +96,41 @@ CREATE INDEX IF NOT EXISTS idx_payment_intents_stripe_id ON payment_intents(stri
 
 ### Environment Setup
 
-```bash
-# Add to .env
-VITE_STRIPE_PUBLISHABLE_KEY=pk_test_...
+#### Frontend Environment Variables (Vercel)
 
-# Add to Supabase Edge Function secrets (server-side only)
-STRIPE_SECRET_KEY=sk_test_...
-STRIPE_WEBHOOK_SECRET=whsec_...
+Add to Vercel project environment variables:
+
+```bash
+# Add to .env and Vercel
+VITE_STRIPE_PUBLISHABLE_KEY=pk_test_YOUR_KEY_HERE
 ```
+
+Get your publishable key from: https://dashboard.stripe.com/test/apikeys
+
+#### Backend Secrets (Supabase Edge Functions)
+
+Add these secrets in Supabase Dashboard at:
+https://app.supabase.com/project/rmagqkuwulbcabxtzsjm/settings/functions
+
+**Required Secrets:**
+
+1. **STRIPE_SECRET_KEY**
+   - Get from: https://dashboard.stripe.com/test/apikeys
+   - Format: `sk_test_...`
+   - Used by Edge Functions to process payments
+
+2. **STRIPE_WEBHOOK_SECRET**
+   - Get from: https://dashboard.stripe.com/test/webhooks (after creating endpoint)
+   - Format: `whsec_...`
+   - Pre-configured value: `whsec_ltO4viqDLNfnREkNcSU6Zr1CL7BgMJrT`
+   - Used to verify webhook authenticity
+
+**How to Add Secrets:**
+1. Go to Supabase Dashboard → Project Settings → Edge Functions
+2. Find "Secrets" section
+3. Click "Add new secret"
+4. Enter name and value
+5. Click "Save"
 
 ### Implementation Files
 
@@ -429,21 +456,65 @@ npm install @stripe/stripe-js @stripe/react-stripe-js
 ```
 
 ### Testing Checklist
-- [ ] Test card payment: 4242 4242 4242 4242
-- [ ] Test declined card: 4000 0000 0000 0002
-- [ ] Test 3D Secure: 4000 0027 6000 3184
+
+#### Payment Processing
+- [ ] Test successful payment: Use card `4242 4242 4242 4242`
+- [ ] Test declined card: Use card `4000 0000 0000 0002`
+- [ ] Test 3D Secure: Use card `4000 0027 6000 3184`
+- [ ] Verify payment appears in Stripe Dashboard
+- [ ] Check webhook events are received
+
+#### Stripe Integration
+- [ ] Verify STRIPE_SECRET_KEY is set in Supabase
+- [ ] Verify STRIPE_WEBHOOK_SECRET is set in Supabase
+- [ ] Verify VITE_STRIPE_PUBLISHABLE_KEY is set in Vercel
+- [ ] Confirm webhook endpoint is active in Stripe Dashboard
+- [ ] Test webhook signature verification
+
+#### Subscriptions (if implemented)
 - [ ] Test subscription creation
 - [ ] Test subscription cancellation
-- [ ] Test webhook events
-- [ ] Test refunds
+- [ ] Verify subscription status updates
+- [ ] Test payment failures
+
+#### Escrow & Payouts (if implemented)
+- [ ] Test escrow deposit
 - [ ] Test escrow release
+- [ ] Test refunds
+- [ ] Verify platform fee deduction
 
 ### Stripe Dashboard Configuration
-1. Enable webhook endpoint: `https://your-project.supabase.co/functions/v1/stripe-webhooks`
-2. Subscribe to events: payment_intent.*, customer.subscription.*
-3. Copy webhook signing secret to environment variables
-4. Create subscription prices for each tier
-5. Set up Connect for marketplace payouts
+
+#### Step 1: Create Webhook Endpoint
+1. Go to: https://dashboard.stripe.com/test/webhooks
+2. Click "Add endpoint"
+3. Enter URL: `https://rmagqkuwulbcabxtzsjm.supabase.co/functions/v1/stripe-webhook`
+4. Select events:
+   - `checkout.session.completed`
+   - `payment_intent.succeeded`
+   - `payment_intent.payment_failed`
+   - `customer.subscription.created`
+   - `customer.subscription.updated`
+   - `customer.subscription.deleted`
+5. Click "Add endpoint"
+6. Copy the webhook signing secret (starts with `whsec_...`)
+7. Update `STRIPE_WEBHOOK_SECRET` in Supabase if different from default
+
+#### Step 2: Create Product Prices (Optional for Subscriptions)
+1. Go to: https://dashboard.stripe.com/test/products
+2. Create products for each subscription tier:
+   - Bronze: $9.99/month
+   - Silver: $19.99/month
+   - Gold: $49.99/month
+   - Platinum: $99.99/month
+3. Copy price IDs (start with `price_...`)
+4. Update in your code if implementing subscriptions
+
+#### Step 3: Test Mode
+- Ensure you're in **Test mode** (toggle in top right)
+- Use test credit card: `4242 4242 4242 4242`
+- Any future date for expiry
+- Any 3 digits for CVC
 
 ---
 
