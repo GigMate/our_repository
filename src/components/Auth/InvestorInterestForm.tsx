@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { TrendingUp, CheckCircle2, FileText, Shield, AlertCircle } from 'lucide-react';
+import { TrendingUp, CheckCircle2, AlertCircle } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
+import LegalDocumentViewer from '../Shared/LegalDocumentViewer';
 
 interface InvestorInterestFormProps {
   onBack: () => void;
@@ -10,6 +11,7 @@ export default function InvestorInterestForm({ onBack }: InvestorInterestFormPro
   const [step, setStep] = useState<'interest' | 'legal' | 'submitted'>('interest');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [requestId, setRequestId] = useState('');
   const [formData, setFormData] = useState({
     full_name: '',
     email: '',
@@ -18,35 +20,20 @@ export default function InvestorInterestForm({ onBack }: InvestorInterestFormPro
     investment_range: '',
     message: '',
   });
-  const [legalAgreements, setLegalAgreements] = useState({
-    nda: false,
-    ip_agreement: false,
-    non_compete: false,
-  });
 
   async function handleInterestSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError('');
+    setLoading(true);
 
     if (!formData.full_name || !formData.email || !formData.investment_range) {
       setError('Please fill in all required fields');
+      setLoading(false);
       return;
     }
-
-    setStep('legal');
-  }
-
-  async function handleLegalSubmit() {
-    if (!legalAgreements.nda || !legalAgreements.ip_agreement || !legalAgreements.non_compete) {
-      setError('You must agree to all legal documents to proceed');
-      return;
-    }
-
-    setLoading(true);
-    setError('');
 
     try {
-      const { error: submitError } = await supabase
+      const { data, error: submitError } = await supabase
         .from('investor_interest_requests')
         .insert({
           full_name: formData.full_name,
@@ -55,15 +42,15 @@ export default function InvestorInterestForm({ onBack }: InvestorInterestFormPro
           phone: formData.phone || null,
           investment_range: formData.investment_range,
           message: formData.message || null,
-          nda_signed: true,
-          ip_agreement_signed: true,
-          non_compete_signed: true,
           status: 'pending',
-        });
+        })
+        .select()
+        .single();
 
       if (submitError) throw submitError;
 
-      setStep('submitted');
+      setRequestId(data.id);
+      setStep('legal');
     } catch (err: any) {
       if (err.code === '23505') {
         setError('An investor request with this email already exists.');
@@ -73,6 +60,10 @@ export default function InvestorInterestForm({ onBack }: InvestorInterestFormPro
     } finally {
       setLoading(false);
     }
+  }
+
+  function handleAllSigned() {
+    setStep('submitted');
   }
 
   if (step === 'submitted') {
@@ -106,124 +97,20 @@ export default function InvestorInterestForm({ onBack }: InvestorInterestFormPro
   if (step === 'legal') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-orange-600 to-orange-400 py-12 px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <button
-            onClick={() => setStep('interest')}
+            onClick={onBack}
             className="mb-6 text-white hover:underline"
           >
-            ← Back to Form
+            ← Back to Home
           </button>
 
-          <div className="bg-white rounded-2xl shadow-2xl p-8">
-            <div className="flex items-center gap-3 mb-6">
-              <Shield className="w-8 h-8 text-orange-600" />
-              <h2 className="text-3xl font-bold text-gray-900">Legal Agreements</h2>
-            </div>
-
-            <p className="text-gray-600 mb-8">
-              Before proceeding, you must review and agree to the following legal documents.
-              These protect both GigMate's intellectual property and your investment interests.
-            </p>
-
-            {error && (
-              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6 flex items-start gap-2">
-                <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                <span>{error}</span>
-              </div>
-            )}
-
-            <div className="space-y-6 mb-8">
-              <div className="border border-gray-200 rounded-lg p-6">
-                <div className="flex items-start gap-3 mb-4">
-                  <FileText className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
-                  <div className="flex-1">
-                    <h3 className="font-bold text-lg text-gray-900 mb-2">Non-Disclosure Agreement (NDA)</h3>
-                    <p className="text-sm text-gray-600 mb-4">
-                      You agree to keep all GigMate business information, financial data, user metrics,
-                      proprietary technology, and strategic plans confidential. This includes revenue data,
-                      user analytics, platform architecture, and future business strategies.
-                    </p>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={legalAgreements.nda}
-                        onChange={(e) => setLegalAgreements({ ...legalAgreements, nda: e.target.checked })}
-                        className="w-5 h-5 text-orange-600 rounded focus:ring-2 focus:ring-orange-500"
-                      />
-                      <span className="text-sm font-medium text-gray-900">
-                        I agree to the Non-Disclosure Agreement
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border border-gray-200 rounded-lg p-6">
-                <div className="flex items-start gap-3 mb-4">
-                  <FileText className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
-                  <div className="flex-1">
-                    <h3 className="font-bold text-lg text-gray-900 mb-2">Intellectual Property Agreement</h3>
-                    <p className="text-sm text-gray-600 mb-4">
-                      You acknowledge that all GigMate intellectual property, including software, algorithms,
-                      branding, trade secrets, and business processes, remain the exclusive property of GigMate.
-                      You will not copy, reproduce, or use this IP for any competing purposes.
-                    </p>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={legalAgreements.ip_agreement}
-                        onChange={(e) => setLegalAgreements({ ...legalAgreements, ip_agreement: e.target.checked })}
-                        className="w-5 h-5 text-orange-600 rounded focus:ring-2 focus:ring-orange-500"
-                      />
-                      <span className="text-sm font-medium text-gray-900">
-                        I agree to the Intellectual Property Agreement
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border border-gray-200 rounded-lg p-6">
-                <div className="flex items-start gap-3 mb-4">
-                  <FileText className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
-                  <div className="flex-1">
-                    <h3 className="font-bold text-lg text-gray-900 mb-2">Non-Compete Agreement</h3>
-                    <p className="text-sm text-gray-600 mb-4">
-                      During your investment period and for 2 years thereafter, you agree not to invest in,
-                      develop, or support any competing live music booking, venue management, or music industry
-                      marketplace platforms. This protects GigMate's competitive position.
-                    </p>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={legalAgreements.non_compete}
-                        onChange={(e) => setLegalAgreements({ ...legalAgreements, non_compete: e.target.checked })}
-                        className="w-5 h-5 text-orange-600 rounded focus:ring-2 focus:ring-orange-500"
-                      />
-                      <span className="text-sm font-medium text-gray-900">
-                        I agree to the Non-Compete Agreement
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
-              <p className="text-sm text-yellow-900">
-                <strong>Legal Notice:</strong> By checking these boxes, you are electronically signing these agreements.
-                These are legally binding contracts. Please read carefully before proceeding.
-              </p>
-            </div>
-
-            <button
-              onClick={handleLegalSubmit}
-              disabled={loading || !legalAgreements.nda || !legalAgreements.ip_agreement || !legalAgreements.non_compete}
-              className="w-full px-6 py-4 bg-orange-600 text-white font-bold text-lg rounded-lg hover:bg-orange-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
-            >
-              {loading ? 'Submitting...' : 'Submit Investor Request'}
-            </button>
-          </div>
+          <LegalDocumentViewer
+            investorRequestId={requestId}
+            investorEmail={formData.email}
+            investorName={formData.full_name}
+            onAllSigned={handleAllSigned}
+          />
         </div>
       </div>
     );

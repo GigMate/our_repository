@@ -16,6 +16,7 @@ import InvestorDashboard from './components/Investor/InvestorDashboard';
 import DatabaseSeeder from './components/Admin/DatabaseSeeder';
 import DocumentationDownload from './components/Admin/DocumentationDownload';
 import LegalDocumentManager from './components/Admin/LegalDocumentManager';
+import InvestorApprovalPanel from './components/Admin/InvestorApprovalPanel';
 import AIDashboard from './components/AI/AIDashboard';
 import HomePage from './components/Home/HomePage';
 import LegalConsentGate from './components/Auth/LegalConsentGate';
@@ -31,6 +32,7 @@ function AppContent() {
   const [showPasswordReset, setShowPasswordReset] = useState(false);
   const [showDocs, setShowDocs] = useState(false);
   const [showLegalManager, setShowLegalManager] = useState(false);
+  const [showInvestorApproval, setShowInvestorApproval] = useState(false);
   const [showAIDashboard, setShowAIDashboard] = useState(false);
   const [showHome, setShowHome] = useState(true);
   const [authPage, setAuthPage] = useState<AuthPage>(null);
@@ -45,6 +47,8 @@ function AppContent() {
       setShowDocs(true);
     } else if (path === '/admin/legal') {
       setShowLegalManager(true);
+    } else if (path === '/admin/investors') {
+      setShowInvestorApproval(true);
     } else if (path === '/ai' || path === '/ai/dashboard') {
       setShowAIDashboard(true);
     }
@@ -62,6 +66,14 @@ function AppContent() {
     return (
       <div className="min-h-screen bg-gray-50">
         <LegalDocumentManager />
+      </div>
+    );
+  }
+
+  if (showInvestorApproval) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <InvestorApprovalPanel />
       </div>
     );
   }

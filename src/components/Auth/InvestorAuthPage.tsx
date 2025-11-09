@@ -57,8 +57,8 @@ export default function InvestorAuthPage({ onBack }: InvestorAuthPageProps) {
 
   if (view === 'login') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-600 to-orange-400">
-        <div className="max-w-6xl mx-auto px-4 py-12">
+      <div className="min-h-screen bg-gradient-to-br from-orange-600 to-orange-400 flex items-center justify-center p-4">
+        <div className="max-w-md w-full">
           <button
             onClick={onBack}
             className="mb-6 text-white hover:underline"
@@ -66,46 +66,28 @@ export default function InvestorAuthPage({ onBack }: InvestorAuthPageProps) {
             ← Back to Home
           </button>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="text-white">
-              <div className="bg-white/10 backdrop-blur-sm rounded-full p-4 w-20 h-20 mb-6 flex items-center justify-center">
-                <TrendingUp className="h-10 w-10" />
-              </div>
-              <h1 className="text-5xl font-bold mb-6">Investor Portal</h1>
-              <p className="text-xl mb-8 text-white/90">
-                Welcome back! Access your investor dashboard with real-time platform analytics and growth metrics.
-              </p>
-
-              <div className="space-y-4">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                  <h3 className="font-bold text-xl mb-2">Platform Analytics</h3>
-                  <p className="text-white/90">
-                    Real-time dashboards showing user growth, transaction volume, and revenue streams
-                  </p>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                  <h3 className="font-bold text-xl mb-2">Revenue Metrics</h3>
-                  <p className="text-white/90">
-                    Detailed breakdowns of platform fees, subscription revenue, and market trends
-                  </p>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                  <h3 className="font-bold text-xl mb-2">Growth Insights</h3>
-                  <p className="text-white/90">
-                    Market analysis, user engagement metrics, and expansion opportunities
-                  </p>
-                </div>
-              </div>
+          <div className="bg-white rounded-2xl shadow-2xl p-8">
+            <div className="bg-orange-100 rounded-full p-4 w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+              <TrendingUp className="w-10 h-10 text-orange-600" />
             </div>
 
-            <div>
-              <LoginForm
-                onToggle={() => {}}
-                onBack={() => setView('check')}
-                defaultUserType="investor"
-              />
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-2">
+              Investor Portal Login
+            </h2>
+            <p className="text-center text-gray-600 mb-8">
+              Access your investor dashboard with real-time analytics
+            </p>
+
+            <LoginForm
+              onToggle={() => {}}
+              onBack={() => setView('check')}
+              defaultUserType="investor"
+            />
+
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <p className="text-sm text-gray-600 text-center">
+                Use the credentials sent to your email after approval
+              </p>
             </div>
           </div>
         </div>
