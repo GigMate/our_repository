@@ -72,6 +72,16 @@ export default function DatabaseSeeder() {
           Populate the database with 300 total accounts (100 fans, 100 musicians, 100 venues) with proper tier distribution and full feature integration.
         </p>
 
+        <div className="mb-6 p-4 bg-green-50 border-2 border-green-400 rounded-lg">
+          <h3 className="font-semibold text-green-900 mb-2 flex items-center gap-2">
+            <span className="text-xl">🚀</span>
+            NEW: Auto-Generation System Active!
+          </h3>
+          <p className="text-sm text-green-800 mb-3">
+            After seeding, events will auto-generate weekly within 20-mile radius. Platform will always look busy!
+          </p>
+        </div>
+
         <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
           <h3 className="font-semibold text-blue-900 mb-2">What will be created:</h3>
           <ul className="text-sm text-blue-800 space-y-1">
@@ -79,6 +89,7 @@ export default function DatabaseSeeder() {
             <li>• 100 Venues - First 29 are REAL Texas Hill Country venues including:</li>
             <li className="ml-6">- The Roundup, Gruene Hall, Luckenbach Texas</li>
             <li className="ml-6">- Whitewater Amphitheatre, 11th Street Cowboy Bar</li>
+            <li className="ml-6">- Arkey Blue's Silver Dollar (legendary!)</li>
             <li className="ml-6">- From Kendall, Gillespie, Blanco, Comal, Bandera, and Kerr counties</li>
             <li>• 100 Fans with subscription tiers (25% bronze, 25% silver, 50% gold)</li>
             <li>• 50 Events connecting venues and musicians</li>
@@ -87,6 +98,19 @@ export default function DatabaseSeeder() {
             <li>• Login format: lastname.type#@gigmate.us (e.g., smith.musician1@gigmate.us)</li>
             <li>• Password for all: password123</li>
           </ul>
+        </div>
+
+        <div className="mb-6 p-4 bg-purple-50 border border-purple-200 rounded-lg">
+          <h3 className="font-semibold text-purple-900 mb-2">After Seeding - Next Steps:</h3>
+          <ol className="text-sm text-purple-800 space-y-2">
+            <li>1. Run this SQL in Supabase to generate initial events:</li>
+            <li className="ml-6 font-mono bg-white p-2 rounded border border-purple-200">
+              SELECT weekly_platform_refresh();
+            </li>
+            <li>2. This will create 100-300 events matched within 20-mile radius</li>
+            <li>3. Events auto-regenerate every Monday at 3 AM UTC (no manual work!)</li>
+            <li>4. Featured venues/musicians rotate weekly for fair visibility</li>
+          </ol>
         </div>
 
         <button
