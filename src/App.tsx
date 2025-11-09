@@ -126,13 +126,16 @@ function AppContent() {
     }
     if (showHome) {
       return (
-        <HomePage
-          onGetStarted={() => { setShowHome(false); setShowRoleSelection(true); }}
-          onMusicianClick={() => { setAuthPage('musician'); setShowHome(false); }}
-          onVenueClick={() => { setAuthPage('venue'); setShowHome(false); }}
-          onFanClick={() => { setAuthPage('fan'); setShowHome(false); }}
-          onInvestorClick={() => { setAuthPage('investor'); setShowHome(false); }}
-        />
+        <div className="min-h-screen bg-gray-50">
+          <Header onLogoClick={() => setShowHome(true)} />
+          <HomePage
+            onGetStarted={() => { setShowHome(false); setShowRoleSelection(true); }}
+            onMusicianClick={() => { setAuthPage('musician'); setShowHome(false); }}
+            onVenueClick={() => { setAuthPage('venue'); setShowHome(false); }}
+            onFanClick={() => { setAuthPage('fan'); setShowHome(false); }}
+            onInvestorClick={() => { setAuthPage('investor'); setShowHome(false); }}
+          />
+        </div>
       );
     }
     return (
