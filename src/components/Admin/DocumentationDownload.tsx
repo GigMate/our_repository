@@ -17,6 +17,22 @@ export default function DocumentationDownload() {
 
   const documents = [
     {
+      title: 'Complete Platform Documentation 2025',
+      file: 'GIGMATE_COMPLETE_PLATFORM_DOCUMENTATION_2025.md',
+      description: 'Comprehensive guide covering all features, revenue model, and GM8AI',
+      icon: '📚',
+      category: 'launch',
+      size: '80 pages'
+    },
+    {
+      title: 'Membership & Advertising Pitch Deck',
+      file: 'GIGMATE_PITCH_DECK.md',
+      description: '20-slide pitch deck for musicians, venues, and advertisers',
+      icon: '🎯',
+      category: 'launch',
+      size: '40 pages'
+    },
+    {
       title: 'Beta Tester Guide',
       file: 'BETA_TESTER_GUIDE.md',
       description: 'Complete onboarding guide for beta testers',
@@ -311,25 +327,31 @@ export default function DocumentationDownload() {
               <div className="flex items-start gap-2">
                 <span className="text-green-600 font-bold mt-0.5">NEW</span>
                 <div>
-                  <strong>Premium Subscription System:</strong> 3-tier model (Free, Pro $19.99/mo, Business $49.99/mo) with reduced transaction fees for Business tier
+                  <strong>Complete Platform Documentation 2025:</strong> 80-page comprehensive guide with all features, revenue model, GM8AI operations, and getting started guides
                 </div>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-green-600 font-bold mt-0.5">NEW</span>
                 <div>
-                  <strong>Platform Exclusivity Terms:</strong> Legal protection against users circumventing platform fees with 12-month transaction requirement
+                  <strong>Membership & Advertising Pitch Deck:</strong> 20-slide presentation for soliciting musicians, venues, and sponsor advertisers
                 </div>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-green-600 font-bold mt-0.5">NEW</span>
                 <div>
-                  <strong>Data Seeding Guide:</strong> Complete guide on when to seed test data and production best practices
+                  <strong>Weekly Venue Spotlight:</strong> Automated venue featuring in header banner, rotates every Monday with fair algorithm
                 </div>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-blue-600 font-bold mt-0.5">FIX</span>
+                <span className="text-green-600 font-bold mt-0.5">NEW</span>
                 <div>
-                  <strong>Database Seeding:</strong> Fixed admin API issue, now uses regular signup flow for creating 300 test accounts
+                  <strong>Placeholder Advertisements:</strong> 20 professional sponsor ads (Gibson, Fender, Tito's, SXSW, etc.) showing commercial readiness
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-green-600 font-bold mt-0.5">NEW</span>
+                <div>
+                  <strong>Home Navigation:</strong> Prominent home button in header across entire platform for easy navigation
                 </div>
               </div>
             </div>
@@ -346,9 +368,9 @@ export default function DocumentationDownload() {
         </div>
 
         <div className="mt-6 text-center text-white text-sm">
-          <p>📊 Total Documentation: 450+ pages covering every aspect of GigMate</p>
+          <p>📊 Total Documentation: 550+ pages covering every aspect of GigMate</p>
           <p className="mt-2">Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
-          <p className="mt-2 text-xs opacity-80">Including subscription system, legal terms, and data seeding guides</p>
+          <p className="mt-2 text-xs opacity-80">Including complete platform guide, membership pitch deck, GM8AI operations, and advertising strategies</p>
         </div>
       </div>
     </div>
