@@ -40,7 +40,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
   const [featuredEvent, setFeaturedEvent] = useState<FeaturedEvent | null>(null);
   const [loadingEvent, setLoadingEvent] = useState(false);
   const { latitude, longitude } = useGeolocation();
-  const { user, profile } = useAuth();
+  const { profile } = useAuth();
 
   const isPremiumUser = profile?.subscription_tier === 'premium';
 
@@ -90,8 +90,10 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
       if (events && events.length > 0) {
         const event = events[0];
-        const venueLat = event.venues.latitude || 0;
-        const venueLng = event.venues.longitude || 0;
+        const venue = Array.isArray(event.venues) ? event.venues[0] : event.venues;
+        const musician = Array.isArray(event.musicians) ? event.musicians[0] : event.musicians;
+        const venueLat = venue?.latitude || 0;
+        const venueLng = venue?.longitude || 0;
 
         const distance = Math.sqrt(
           Math.pow((latitude - venueLat) * milesPerDegree, 2) +
@@ -104,11 +106,11 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           event_date: event.event_date,
           start_time: event.start_time,
           ticket_price: event.ticket_price,
-          venue_name: event.venues.venue_name,
-          venue_city: event.venues.city,
-          venue_state: event.venues.state,
-          musician_name: event.musicians.stage_name,
-          genres: event.musicians.genres || [],
+          venue_name: venue?.venue_name || '',
+          venue_city: venue?.city || '',
+          venue_state: venue?.state || '',
+          musician_name: musician?.stage_name || '',
+          genres: musician?.genres || [],
           distance_miles: distance,
         });
       }

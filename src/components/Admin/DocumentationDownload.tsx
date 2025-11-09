@@ -153,7 +153,7 @@ export default function DocumentationDownload() {
     legal: { title: 'Legal', color: 'yellow', icon: '📜' }
   };
 
-  const downloadFile = async (filename: string, title: string) => {
+  const downloadFile = async (filename: string) => {
     setDownloading(filename);
     try {
       const response = await fetch(`/${filename}`);
@@ -180,7 +180,7 @@ export default function DocumentationDownload() {
   const downloadAll = async (categoryKey: string) => {
     const categoryDocs = documents.filter(d => d.category === categoryKey);
     for (const doc of categoryDocs) {
-      await downloadFile(doc.file, doc.title);
+      await downloadFile(doc.file);
       await new Promise(resolve => setTimeout(resolve, 500));
     }
   };
@@ -210,7 +210,7 @@ export default function DocumentationDownload() {
               green: { bg: 'bg-green-50', border: 'border-green-200', text: 'text-green-900', hover: 'hover:bg-green-100', button: 'bg-green-600 hover:bg-green-700' },
               blue: { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-900', hover: 'hover:bg-blue-100', button: 'bg-blue-600 hover:bg-blue-700' },
               yellow: { bg: 'bg-yellow-50', border: 'border-yellow-200', text: 'text-yellow-900', hover: 'hover:bg-yellow-100', button: 'bg-yellow-600 hover:bg-yellow-700' }
-            }[category.color];
+            }[category.color] || { bg: 'bg-gray-50', border: 'border-gray-200', text: 'text-gray-900', hover: 'hover:bg-gray-100', button: 'bg-gray-600 hover:bg-gray-700' };
 
             return (
               <div key={key} className={`${colorClasses.bg} border ${colorClasses.border} rounded-lg p-6 mb-6`}>
@@ -231,7 +231,7 @@ export default function DocumentationDownload() {
                   {categoryDocs.map((doc) => (
                     <button
                       key={doc.file}
-                      onClick={() => downloadFile(doc.file, doc.title)}
+                      onClick={() => downloadFile(doc.file)}
                       disabled={downloading === doc.file}
                       className={`block bg-white ${colorClasses.hover} border ${colorClasses.border} rounded-lg p-4 transition-colors group text-left w-full disabled:opacity-50 disabled:cursor-not-allowed`}
                     >

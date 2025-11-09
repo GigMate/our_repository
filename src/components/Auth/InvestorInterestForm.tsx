@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TrendingUp, CheckCircle2, AlertCircle } from 'lucide-react';
+import { TrendingUp, CheckCircle2 } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import LegalDocumentViewer from '../Shared/LegalDocumentViewer';
 

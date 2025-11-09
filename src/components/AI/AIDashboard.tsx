@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
-import { Brain, TrendingUp, Users, Zap, AlertCircle, CheckCircle, Clock, DollarSign, Target, BarChart3, Settings, Play, Pause, RefreshCw } from 'lucide-react';
+import { Brain, TrendingUp, Users, Zap, AlertCircle, CheckCircle, Clock, Target, BarChart3, Settings, RefreshCw } from 'lucide-react';
 
 interface AIStats {
   totalLeads: number;

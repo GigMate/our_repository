@@ -1,76 +1,64 @@
 import { useState, useEffect } from 'react';
-import { X, CreditCard, Plus, Ticket } from 'lucide-react';
+import { X } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useAuth } from '../../contexts/AuthContext';
 import StripeCheckout from '../Shared/StripeCheckout';
 
-interface PaymentMethod {
-  id: string;
-  card_brand: string;
-  last_four: string;
-  expiry_month: number;
-  expiry_year: number;
-  is_default: boolean;
-}
-
 interface TicketPurchaseModalProps {
   eventId: string;
-  eventTitle: string;
-  ticketPrice: number;
-  availableTickets: number;
   onClose: () => void;
-  onPurchaseComplete: () => void;
 }
 
 export default function TicketPurchaseModal({
   eventId,
-  eventTitle,
-  ticketPrice,
-  availableTickets,
-  onClose,
-  onPurchaseComplete
+  onClose
 }: TicketPurchaseModalProps) {
   const { user } = useAuth();
   const [quantity, setQuantity] = useState(1);
-  const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string>('');
-  const [loading, setLoading] = useState(false);
-  const [showAddCard, setShowAddCard] = useState(false);
+  const [eventData, setEventData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadEventData();
+  }, [eventId]);
+
+  async function loadEventData() {
+    const { data, error } = await supabase
+      .from('events')
+      .select('*, venues(venue_name), musicians(stage_name)')
+      .eq('id', eventId)
+      .single();
+
+    if (error) {
+      console.error('Error loading event:', error);
+    } else {
+      setEventData(data);
+    }
+    setLoading(false);
+  }
+
+  if (loading || !eventData) {
+    return (
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div className="bg-white rounded-lg max-w-md w-full p-6">
+          <p className="text-center text-gray-600">Loading event details...</p>
+        </div>
+      </div>
+    );
+  }
 
   const gigmateFeePercentage = 10;
   const ccProcessingPercentage = 2.9;
   const ccProcessingFixed = 0.30;
 
-  const subtotal = ticketPrice * quantity;
+  const subtotal = eventData.ticket_price * quantity;
   const gigmateFee = subtotal * (gigmateFeePercentage / 100);
   const ccProcessingFee = (subtotal * (ccProcessingPercentage / 100)) + ccProcessingFixed;
   const total = subtotal + gigmateFee + ccProcessingFee;
-
-  useEffect(() => {
-    loadPaymentMethods();
-  }, []);
-
-  async function loadPaymentMethods() {
-    if (!user) return;
-
-    const { data } = await supabase
-      .from('payment_methods')
-      .select('*')
-      .eq('user_id', user.id)
-      .order('is_default', { ascending: false });
-
-    if (data) {
-      setPaymentMethods(data);
-      const defaultMethod = data.find(pm => pm.is_default);
-      if (defaultMethod) {
-        setSelectedPaymentMethod(defaultMethod.id);
-      }
-    }
-  }
+  const availableTickets = eventData.total_tickets - eventData.tickets_sold;
 
   async function handlePurchase() {
     if (!user) return;
-    onPurchaseComplete();
     onClose();
   }
 
@@ -80,7 +68,7 @@ export default function TicketPurchaseModal({
         <div className="flex justify-between items-start mb-4">
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-1">Buy Tickets</h2>
-            <p className="text-gray-600">{eventTitle}</p>
+            <p className="text-gray-600">{eventData.title}</p>
           </div>
           <button
             onClick={onClose}
@@ -114,7 +102,7 @@ export default function TicketPurchaseModal({
 
           <div className="bg-gray-50 rounded-lg p-4 space-y-2">
             <div className="flex justify-between text-sm">
-              <span className="text-gray-600">Tickets ({quantity}x ${ticketPrice.toFixed(2)})</span>
+              <span className="text-gray-600">Tickets ({quantity}x ${eventData.ticket_price.toFixed(2)})</span>
               <span className="font-medium">${subtotal.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-sm">
@@ -138,10 +126,10 @@ export default function TicketPurchaseModal({
                 type: 'ticket',
                 fan_id: user?.id,
                 event_id: eventId,
-                eventName: eventTitle,
-                price: ticketPrice,
+                eventName: eventData.title,
+                price: eventData.ticket_price,
                 quantity,
-                description: `${quantity} ticket(s) for ${eventTitle}`,
+                description: `${quantity} ticket(s) for ${eventData.title}`,
               },
             }}
             buttonText={`Purchase for $${total.toFixed(2)}`}

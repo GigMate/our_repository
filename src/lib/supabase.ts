@@ -9,7 +9,7 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-export type UserType = 'musician' | 'venue' | 'fan';
+export type UserType = 'musician' | 'venue' | 'fan' | 'investor' | 'consumer';
 
 export interface Profile {
   id: string;
@@ -20,6 +20,10 @@ export interface Profile {
   user_type: UserType;
   average_rating: number;
   total_ratings: number;
+  subscription_tier?: string;
+  referral_code?: string;
+  total_referrals?: number;
+  referral_earnings?: number;
   created_at: string;
   updated_at: string;
 }
