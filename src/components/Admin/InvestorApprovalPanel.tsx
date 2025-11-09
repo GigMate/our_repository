@@ -10,6 +10,22 @@ interface InvestorRequest {
   phone: string | null;
   investment_range: string;
   message: string | null;
+  physical_address_line1: string;
+  physical_address_line2: string | null;
+  physical_city: string;
+  physical_state: string;
+  physical_zip: string;
+  physical_country: string;
+  mailing_address_line1: string;
+  mailing_address_line2: string | null;
+  mailing_city: string;
+  mailing_state: string;
+  mailing_zip: string;
+  mailing_country: string;
+  mailing_same_as_physical: boolean;
+  kyc_consent_given: boolean;
+  kyc_consent_timestamp: string | null;
+  kyc_consent_ip: string | null;
   status: string;
   documents_signed_at: string | null;
   password_generated_at: string | null;
@@ -58,6 +74,11 @@ export default function InvestorApprovalPanel() {
   async function handleApprove(request: InvestorRequest) {
     if (!request.documents_signed_at) {
       alert('Cannot approve: Investor has not completed document signatures.');
+      return;
+    }
+
+    if (!request.kyc_consent_given) {
+      alert('Cannot approve: Investor has not provided KYC consent for background verification.');
       return;
     }
 
@@ -244,7 +265,7 @@ export default function InvestorApprovalPanel() {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {requests.map((request) => (
-                <tr key={request.id}>
+                <tr key={request.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4">
                     <div>
                       <div className="font-medium text-gray-900">{request.full_name}</div>
@@ -252,7 +273,63 @@ export default function InvestorApprovalPanel() {
                       {request.company && (
                         <div className="text-sm text-gray-500">{request.company}</div>
                       )}
+                      {request.phone && (
+                        <div className="text-sm text-gray-500">{request.phone}</div>
+                      )}
                     </div>
+                    <details className="mt-3">
+                      <summary className="text-xs text-blue-600 cursor-pointer hover:underline">
+                        View Addresses & KYC
+                      </summary>
+                      <div className="mt-2 p-3 bg-gray-50 rounded text-xs space-y-2">
+                        <div>
+                          <p className="font-semibold text-gray-700">Physical Address:</p>
+                          <p className="text-gray-600">
+                            {request.physical_address_line1}
+                            {request.physical_address_line2 && `, ${request.physical_address_line2}`}
+                          </p>
+                          <p className="text-gray-600">
+                            {request.physical_city}, {request.physical_state} {request.physical_zip}
+                          </p>
+                          <p className="text-gray-600">{request.physical_country}</p>
+                        </div>
+                        <div>
+                          <p className="font-semibold text-gray-700">Mailing Address:</p>
+                          {request.mailing_same_as_physical ? (
+                            <p className="text-gray-600 italic">Same as physical address</p>
+                          ) : (
+                            <>
+                              <p className="text-gray-600">
+                                {request.mailing_address_line1}
+                                {request.mailing_address_line2 && `, ${request.mailing_address_line2}`}
+                              </p>
+                              <p className="text-gray-600">
+                                {request.mailing_city}, {request.mailing_state} {request.mailing_zip}
+                              </p>
+                              <p className="text-gray-600">{request.mailing_country}</p>
+                            </>
+                          )}
+                        </div>
+                        <div className="pt-2 border-t">
+                          <p className="font-semibold text-gray-700">KYC Consent:</p>
+                          <p className="text-gray-600">
+                            {request.kyc_consent_given ? (
+                              <span className="text-green-700 font-medium">✓ Granted</span>
+                            ) : (
+                              <span className="text-red-700 font-medium">✗ Not Granted</span>
+                            )}
+                          </p>
+                          {request.kyc_consent_timestamp && (
+                            <p className="text-gray-500">
+                              {new Date(request.kyc_consent_timestamp).toLocaleString()}
+                            </p>
+                          )}
+                          {request.kyc_consent_ip && (
+                            <p className="text-gray-500">IP: {request.kyc_consent_ip}</p>
+                          )}
+                        </div>
+                      </div>
+                    </details>
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-900">
                     {request.investment_range}
@@ -267,27 +344,42 @@ export default function InvestorApprovalPanel() {
                         <Shield className="w-4 h-4 text-green-600" />
                       )}
                     </div>
+                    {request.kyc_consent_given && (
+                      <div className="flex items-center gap-1 mt-1">
+                        <Shield className="w-3 h-3 text-blue-600" />
+                        <span className="text-xs text-blue-600">KYC</span>
+                      </div>
+                    )}
                   </td>
                   <td className="px-6 py-4">{getStatusBadge(request.status)}</td>
                   <td className="px-6 py-4">
                     {request.status === 'pending' && (
-                      <div className="flex gap-2">
-                        <button
-                          onClick={() => handleApprove(request)}
-                          disabled={processing === request.id || !request.documents_signed_at}
-                          className="inline-flex items-center gap-1 px-3 py-2 bg-green-600 text-white text-sm font-medium rounded-md hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                          <CheckCircle2 className="w-4 h-4" />
-                          Approve
-                        </button>
-                        <button
-                          onClick={() => handleReject(request)}
-                          disabled={processing === request.id}
-                          className="inline-flex items-center gap-1 px-3 py-2 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                          <XCircle className="w-4 h-4" />
-                          Reject
-                        </button>
+                      <div className="flex flex-col gap-2">
+                        <div className="flex gap-2">
+                          <button
+                            onClick={() => handleApprove(request)}
+                            disabled={processing === request.id || !request.documents_signed_at || !request.kyc_consent_given}
+                            className="inline-flex items-center gap-1 px-3 py-2 bg-green-600 text-white text-sm font-medium rounded-md hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            title={!request.kyc_consent_given ? 'KYC consent required' : ''}
+                          >
+                            <CheckCircle2 className="w-4 h-4" />
+                            Approve
+                          </button>
+                          <button
+                            onClick={() => handleReject(request)}
+                            disabled={processing === request.id}
+                            className="inline-flex items-center gap-1 px-3 py-2 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                          >
+                            <XCircle className="w-4 h-4" />
+                            Reject
+                          </button>
+                        </div>
+                        {(!request.documents_signed_at || !request.kyc_consent_given) && (
+                          <p className="text-xs text-red-600">
+                            {!request.documents_signed_at && 'Awaiting document signatures. '}
+                            {!request.kyc_consent_given && 'Awaiting KYC consent.'}
+                          </p>
+                        )}
                       </div>
                     )}
                     {request.status === 'approved' && request.invitation_sent_at && (

@@ -19,6 +19,20 @@ export default function InvestorInterestForm({ onBack }: InvestorInterestFormPro
     phone: '',
     investment_range: '',
     message: '',
+    physical_address_line1: '',
+    physical_address_line2: '',
+    physical_city: '',
+    physical_state: '',
+    physical_zip: '',
+    physical_country: 'USA',
+    mailing_address_line1: '',
+    mailing_address_line2: '',
+    mailing_city: '',
+    mailing_state: '',
+    mailing_zip: '',
+    mailing_country: 'USA',
+    mailing_same_as_physical: false,
+    kyc_consent_given: false,
   });
 
   async function handleInterestSubmit(e: React.FormEvent) {
@@ -26,13 +40,23 @@ export default function InvestorInterestForm({ onBack }: InvestorInterestFormPro
     setError('');
     setLoading(true);
 
-    if (!formData.full_name || !formData.email || !formData.investment_range) {
-      setError('Please fill in all required fields');
+    if (!formData.full_name || !formData.email || !formData.investment_range ||
+        !formData.physical_address_line1 || !formData.physical_city ||
+        !formData.physical_state || !formData.physical_zip ||
+        !formData.mailing_address_line1 || !formData.mailing_city ||
+        !formData.mailing_state || !formData.mailing_zip ||
+        !formData.kyc_consent_given) {
+      setError('Please fill in all required fields and provide consent for background verification');
       setLoading(false);
       return;
     }
 
     try {
+      const ipAddress = await fetch('https://api.ipify.org?format=json')
+        .then(res => res.json())
+        .then(data => data.ip)
+        .catch(() => 'unknown');
+
       const { data, error: submitError } = await supabase
         .from('investor_interest_requests')
         .insert({
@@ -42,6 +66,22 @@ export default function InvestorInterestForm({ onBack }: InvestorInterestFormPro
           phone: formData.phone || null,
           investment_range: formData.investment_range,
           message: formData.message || null,
+          physical_address_line1: formData.physical_address_line1,
+          physical_address_line2: formData.physical_address_line2 || null,
+          physical_city: formData.physical_city,
+          physical_state: formData.physical_state,
+          physical_zip: formData.physical_zip,
+          physical_country: formData.physical_country,
+          mailing_address_line1: formData.mailing_address_line1,
+          mailing_address_line2: formData.mailing_address_line2 || null,
+          mailing_city: formData.mailing_city,
+          mailing_state: formData.mailing_state,
+          mailing_zip: formData.mailing_zip,
+          mailing_country: formData.mailing_country,
+          mailing_same_as_physical: formData.mailing_same_as_physical,
+          kyc_consent_given: formData.kyc_consent_given,
+          kyc_consent_timestamp: new Date().toISOString(),
+          kyc_consent_ip: ipAddress,
           status: 'pending',
         })
         .select()
@@ -253,6 +293,263 @@ export default function InvestorInterestForm({ onBack }: InvestorInterestFormPro
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   placeholder="Tell us about your investment background and interest in GigMate..."
                 />
+              </div>
+
+              {/* Physical Address Section */}
+              <div className="border-t pt-5 mt-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">Physical Address *</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Required for investor verification and due diligence purposes.
+                </p>
+
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Address Line 1 *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.physical_address_line1}
+                      onChange={(e) => setFormData({ ...formData, physical_address_line1: e.target.value })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      placeholder="123 Main Street"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Address Line 2 (Optional)
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.physical_address_line2}
+                      onChange={(e) => setFormData({ ...formData, physical_address_line2: e.target.value })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      placeholder="Suite 100"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        City *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.physical_city}
+                        onChange={(e) => setFormData({ ...formData, physical_city: e.target.value })}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        placeholder="Austin"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        State *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.physical_state}
+                        onChange={(e) => setFormData({ ...formData, physical_state: e.target.value })}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        placeholder="TX"
+                        maxLength={2}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        ZIP Code *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.physical_zip}
+                        onChange={(e) => setFormData({ ...formData, physical_zip: e.target.value })}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        placeholder="78701"
+                        maxLength={10}
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Country *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.physical_country}
+                        onChange={(e) => setFormData({ ...formData, physical_country: e.target.value })}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        placeholder="USA"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mailing Address Section */}
+              <div className="border-t pt-5 mt-5">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-bold text-gray-900">Mailing Address *</h3>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={formData.mailing_same_as_physical}
+                      onChange={(e) => {
+                        const checked = e.target.checked;
+                        setFormData({
+                          ...formData,
+                          mailing_same_as_physical: checked,
+                          mailing_address_line1: checked ? formData.physical_address_line1 : '',
+                          mailing_address_line2: checked ? formData.physical_address_line2 : '',
+                          mailing_city: checked ? formData.physical_city : '',
+                          mailing_state: checked ? formData.physical_state : '',
+                          mailing_zip: checked ? formData.physical_zip : '',
+                          mailing_country: checked ? formData.physical_country : 'USA',
+                        });
+                      }}
+                      className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
+                    />
+                    <span className="text-sm text-gray-700">Same as physical address</span>
+                  </label>
+                </div>
+
+                {!formData.mailing_same_as_physical && (
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Address Line 1 *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.mailing_address_line1}
+                        onChange={(e) => setFormData({ ...formData, mailing_address_line1: e.target.value })}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        placeholder="PO Box 456"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Address Line 2 (Optional)
+                      </label>
+                      <input
+                        type="text"
+                        value={formData.mailing_address_line2}
+                        onChange={(e) => setFormData({ ...formData, mailing_address_line2: e.target.value })}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        placeholder="Suite 200"
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          City *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={formData.mailing_city}
+                          onChange={(e) => setFormData({ ...formData, mailing_city: e.target.value })}
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                          placeholder="Austin"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          State *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={formData.mailing_state}
+                          onChange={(e) => setFormData({ ...formData, mailing_state: e.target.value })}
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                          placeholder="TX"
+                          maxLength={2}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          ZIP Code *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={formData.mailing_zip}
+                          onChange={(e) => setFormData({ ...formData, mailing_zip: e.target.value })}
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                          placeholder="78701"
+                          maxLength={10}
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          Country *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={formData.mailing_country}
+                          onChange={(e) => setFormData({ ...formData, mailing_country: e.target.value })}
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                          placeholder="USA"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* KYC Consent */}
+              <div className="border-t pt-5 mt-5">
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
+                  <h3 className="text-sm font-bold text-gray-900 mb-2">Know Your Customer (KYC) Verification</h3>
+                  <p className="text-xs text-gray-700 leading-relaxed">
+                    As part of our investor verification process, GigMate is required to conduct due diligence
+                    background checks to comply with securities regulations and anti-money laundering laws.
+                  </p>
+                </div>
+
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    required
+                    checked={formData.kyc_consent_given}
+                    onChange={(e) => setFormData({ ...formData, kyc_consent_given: e.target.checked })}
+                    className="w-5 h-5 text-orange-600 border-gray-300 rounded focus:ring-orange-500 mt-1"
+                  />
+                  <div className="text-sm text-gray-700">
+                    <p className="font-semibold mb-2">I hereby consent and authorize GigMate to:</p>
+                    <ul className="list-disc list-inside space-y-1 text-xs">
+                      <li>Conduct comprehensive background investigations regarding my identity, financial history, and investment credentials</li>
+                      <li>Verify the accuracy of all information provided in this application</li>
+                      <li>Contact references, financial institutions, and other entities to verify my suitability as an investor</li>
+                      <li>Perform identity verification through third-party services and databases</li>
+                      <li>Retain records of this verification process as required by applicable laws and regulations</li>
+                      <li>Use the provided information solely for investor verification and due diligence purposes</li>
+                    </ul>
+                    <p className="mt-2 font-semibold">
+                      I understand that providing false information or withholding material facts may result in the
+                      denial of my investor application and potential legal consequences. I certify that all information
+                      provided is true, accurate, and complete to the best of my knowledge.
+                    </p>
+                  </div>
+                </label>
               </div>
 
               <button
