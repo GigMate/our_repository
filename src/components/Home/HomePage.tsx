@@ -131,7 +131,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gigmate-blue to-gigmate-blue-light">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
       <div className="relative w-full h-96 mb-8 overflow-hidden">
         <div className="absolute inset-0">
           {VENUE_IMAGES.map((image, index) => (
@@ -219,25 +219,25 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
       {(featuredEvent || loadingEvent || (latitude && longitude && !featuredEvent && !loadingEvent)) && (
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           {isPremiumUser && featuredEvent ? (
-            <div className="bg-gradient-to-br from-yellow-50 via-white to-orange-50 rounded-2xl shadow-2xl p-8 border-4 border-yellow-700">
+            <div className="bg-gradient-to-br from-orange-600 via-red-600 to-rose-700 rounded-2xl shadow-2xl p-8 border-4 border-orange-400">
               <div className="flex items-center gap-2 mb-4">
-                <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">
                   PREMIUM MEMBER EXCLUSIVE
                 </div>
-                <Star className="w-5 h-5 text-rose-500 animate-pulse" />
+                <Star className="w-5 h-5 text-yellow-300 animate-pulse" />
               </div>
 
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">Live Music Near You</h2>
-              <p className="text-gray-600 mb-6">Happening within 2 miles of your location</p>
+              <h2 className="text-3xl font-bold text-white mb-2">Live Music Near You</h2>
+              <p className="text-white/90 mb-6">Happening within 2 miles of your location</p>
 
               <div className="bg-white rounded-xl shadow-lg p-6">
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gigmate-blue mb-3">{featuredEvent.title}</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{featuredEvent.title}</h3>
 
                     <div className="space-y-3">
                       <div className="flex items-center gap-3 text-gray-700">
-                        <Music className="w-5 h-5 text-gigmate-blue flex-shrink-0" />
+                        <Music className="w-5 h-5 text-gray-900 flex-shrink-0" />
                         <div>
                           <span className="font-semibold">{featuredEvent.musician_name}</span>
                           {featuredEvent.genres.length > 0 && (
@@ -249,7 +249,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                       </div>
 
                       <div className="flex items-center gap-3 text-gray-700">
-                        <MapPin className="w-5 h-5 text-red-500 flex-shrink-0" />
+                        <MapPin className="w-5 h-5 text-red-700 flex-shrink-0" />
                         <div>
                           <div className="font-semibold">{featuredEvent.venue_name}</div>
                           <div className="text-sm text-gray-500">
@@ -259,7 +259,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                       </div>
 
                       <div className="flex items-center gap-3 text-gray-700">
-                        <Calendar className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <Calendar className="w-5 h-5 text-green-700 flex-shrink-0" />
                         <div>
                           <span className="font-semibold">
                             {new Date(featuredEvent.event_date).toLocaleDateString('en-US', {
@@ -272,13 +272,13 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                       </div>
 
                       <div className="flex items-center gap-3 text-gray-700">
-                        <Clock className="w-5 h-5 text-purple-500 flex-shrink-0" />
+                        <Clock className="w-5 h-5 text-gray-900 flex-shrink-0" />
                         <span className="font-semibold">{featuredEvent.start_time}</span>
                       </div>
 
                       <div className="flex items-center gap-3 text-gray-700">
-                        <Ticket className="w-5 h-5 text-orange-6000 flex-shrink-0" />
-                        <span className="font-semibold text-lg text-gigmate-blue">
+                        <Ticket className="w-5 h-5 text-orange-700 flex-shrink-0" />
+                        <span className="font-semibold text-lg text-gray-900">
                           ${featuredEvent.ticket_price.toFixed(2)}
                         </span>
                       </div>
@@ -286,17 +286,17 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                   </div>
 
                   <div className="flex flex-col justify-between">
-                    <div className="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-lg p-4 mb-4">
-                      <MapPin className="w-8 h-8 text-red-500 mx-auto mb-2" />
+                    <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-lg p-4 mb-4">
+                      <MapPin className="w-8 h-8 text-white mx-auto mb-2" />
                       <div className="text-center">
-                        <div className="text-2xl font-bold text-gray-900">{featuredEvent.distance_miles.toFixed(1)}</div>
-                        <div className="text-sm text-gray-600">miles away</div>
+                        <div className="text-2xl font-bold text-white">{featuredEvent.distance_miles.toFixed(1)}</div>
+                        <div className="text-sm text-white/90">miles away</div>
                       </div>
                     </div>
 
                     <button
                       onClick={onFanClick || onGetStarted}
-                      className="px-6 py-3 bg-gradient-to-r from-gigmate-blue to-blue-600 text-white font-bold rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl"
+                      className="px-6 py-3 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold rounded-lg hover:from-gray-800 hover:to-gray-700 transition-all shadow-lg hover:shadow-xl"
                     >
                       Get Tickets
                     </button>
@@ -318,7 +318,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                   <div className="h-32 bg-gray-300 animate-pulse rounded-lg"></div>
                 </div>
 
-                <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-xl p-6 text-center">
+                <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-xl p-6 text-center">
                   <Star className="w-12 h-12 mx-auto mb-3" />
                   <h3 className="text-2xl font-bold mb-2">Upgrade to Premium</h3>
                   <p className="text-white/90 mb-4">
@@ -326,7 +326,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                   </p>
                   <button
                     onClick={onGetStarted}
-                    className="px-8 py-3 bg-white text-orange-600 font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg"
+                    className="px-8 py-3 bg-gray-900 text-white font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg"
                   >
                     Upgrade Now
                   </button>
@@ -341,10 +341,10 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
               </div>
             </div>
           ) : latitude && longitude ? (
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-xl p-8 text-center">
-              <Music className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">No Upcoming Events Nearby</h3>
-              <p className="text-gray-600 mb-4">
+            <div className="bg-gradient-to-br from-gray-700 to-gray-600 rounded-2xl shadow-xl p-8 text-center">
+              <Music className="w-12 h-12 text-white mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">No Upcoming Events Nearby</h3>
+              <p className="text-white/90 mb-4">
                 We couldn't find any live music events within 2 miles of your location right now.
               </p>
               <button
