@@ -3,6 +3,7 @@ import { MapPin, Users, Music, Star, ArrowLeft, Calendar, Mail, Phone } from 'lu
 import { supabase } from '../../lib/supabase';
 import ImageGallery from './ImageGallery';
 import RatingDisplay from './RatingDisplay';
+import VenueCalendar from './VenueCalendar';
 
 interface Venue {
   id: string;
@@ -182,6 +183,14 @@ export default function VenueDetailView({ venueId, onBack }: VenueDetailViewProp
             </div>
           )}
         </div>
+      </div>
+
+      <div className="mt-6">
+        <VenueCalendar
+          venueId={venue.id}
+          venueName={venue.venue_name}
+          isOwner={false}
+        />
       </div>
     </div>
   );

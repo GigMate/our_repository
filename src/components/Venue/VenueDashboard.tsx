@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Search, Music, Map, Settings, Gift } from 'lucide-react';
+import { Search, Music, Map, Settings, Gift, Calendar } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useTheme } from '../../contexts/ThemeContext';
 import MusicianCard from '../Fan/MusicianCard';
@@ -7,6 +7,7 @@ import AdBanner from '../Shared/AdBanner';
 import { MapSearch } from '../Shared/MapSearch';
 import ImageUpload from '../Shared/ImageUpload';
 import ReferralProgram from '../Shared/ReferralProgram';
+import VenueCalendar from '../Shared/VenueCalendar';
 import { useAuth } from '../../contexts/AuthContext';
 
 interface Musician {
@@ -33,7 +34,9 @@ export default function VenueDashboard() {
   const [viewMode, setViewMode] = useState<'list' | 'map'>('list');
   const [showSettings, setShowSettings] = useState(false);
   const [showReferrals, setShowReferrals] = useState(false);
+  const [showCalendar, setShowCalendar] = useState(false);
   const [venueId, setVenueId] = useState<string | null>(null);
+  const [venueName, setVenueName] = useState<string>('');
 
   useEffect(() => {
     loadData();
@@ -48,12 +51,13 @@ export default function VenueDashboard() {
     if (!profile?.id) return;
     const { data } = await supabase
       .from('venues')
-      .select('id')
+      .select('id, venue_name')
       .eq('user_id', profile.id)
       .maybeSingle();
 
     if (data) {
       setVenueId(data.id);
+      setVenueName(data.venue_name);
     }
   }
 
@@ -113,6 +117,24 @@ export default function VenueDashboard() {
     );
   }
 
+  if (showCalendar && venueId) {
+    return (
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <button
+          onClick={() => setShowCalendar(false)}
+          className="mb-4 text-gigmate-blue hover:text-gigmate-blue-dark font-medium flex items-center gap-2"
+        >
+          ← Back to Dashboard
+        </button>
+        <VenueCalendar
+          venueId={venueId}
+          venueName={venueName}
+          isOwner={true}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className={`min-h-screen bg-gradient-to-br ${colors.lightGradient}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -122,6 +144,13 @@ export default function VenueDashboard() {
             <p className="text-gray-700">Search for talented musicians for your venue</p>
           </div>
         <div className="flex gap-2">
+          <button
+            onClick={() => setShowCalendar(true)}
+            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:from-blue-600 hover:to-indigo-600 transition-all shadow-lg hover:shadow-xl font-semibold"
+          >
+            <Calendar className="h-5 w-5" />
+            Manage Calendar
+          </button>
           <button
             onClick={() => setShowReferrals(true)}
             className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg hover:shadow-xl font-semibold"
