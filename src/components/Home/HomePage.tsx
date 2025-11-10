@@ -219,7 +219,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
       {(featuredEvent || loadingEvent || (latitude && longitude && !featuredEvent && !loadingEvent)) && (
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           {isPremiumUser && featuredEvent ? (
-            <div className="bg-gradient-to-br from-yellow-50 via-white to-orange-50 rounded-2xl shadow-2xl p-8 border-4 border-yellow-400">
+            <div className="bg-gradient-to-br from-yellow-50 via-white to-orange-50 rounded-2xl shadow-2xl p-8 border-4 border-yellow-700">
               <div className="flex items-center gap-2 mb-4">
                 <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold">
                   PREMIUM MEMBER EXCLUSIVE
@@ -277,7 +277,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                       </div>
 
                       <div className="flex items-center gap-3 text-gray-700">
-                        <Ticket className="w-5 h-5 text-orange-500 flex-shrink-0" />
+                        <Ticket className="w-5 h-5 text-orange-6000 flex-shrink-0" />
                         <span className="font-semibold text-lg text-gigmate-blue">
                           ${featuredEvent.ticket_price.toFixed(2)}
                         </span>
@@ -361,7 +361,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg shadow-2xl p-8 text-center transform hover:scale-105 transition-transform border-4 border-green-500 relative overflow-hidden">
-            <div className="absolute top-0 right-0 bg-yellow-400 text-gray-900 px-4 py-1 text-xs font-bold rounded-bl-lg">
+            <div className="absolute top-0 right-0 bg-yellow-500 text-gray-900 px-4 py-1 text-xs font-bold rounded-bl-lg">
               THE HEART OF GIGMATE
             </div>
             <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-full p-4 w-20 h-20 mx-auto mb-4 flex items-center justify-center shadow-lg">
@@ -398,7 +398,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           </div>
 
           <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
-            <div className="bg-orange-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <div className="bg-gray-700 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
               <Music className="h-8 w-8 text-gigmate-blue" />
             </div>
             <h3 className="text-2xl font-bold text-gigmate-blue mb-3">For Musicians</h3>
@@ -458,7 +458,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           </div>
 
           <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
-            <div className="bg-orange-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <div className="bg-gray-700 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
               <TrendingUp className="h-8 w-8 text-orange-600" />
             </div>
             <h3 className="text-2xl font-bold text-orange-600 mb-3">For Investors</h3>
@@ -495,7 +495,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="flex gap-4">
-              <div className="bg-orange-100 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
+              <div className="bg-gray-700 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
                 <DollarSign className="h-6 w-6 text-gigmate-blue" />
               </div>
               <div>
@@ -507,7 +507,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </div>
 
             <div className="flex gap-4">
-              <div className="bg-orange-100 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
+              <div className="bg-gray-700 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
                 <Star className="h-6 w-6 text-gigmate-blue" />
               </div>
               <div>
@@ -519,7 +519,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </div>
 
             <div className="flex gap-4">
-              <div className="bg-orange-100 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
+              <div className="bg-gray-700 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
                 <Music className="h-6 w-6 text-gigmate-blue" />
               </div>
               <div>
@@ -531,7 +531,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </div>
 
             <div className="flex gap-4">
-              <div className="bg-orange-100 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
+              <div className="bg-gray-700 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
                 <Calendar className="h-6 w-6 text-gigmate-blue" />
               </div>
               <div>
@@ -550,21 +550,21 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           </h2>
           <div className="grid md:grid-cols-3 gap-6 text-white">
             <div className="text-center">
-              <Star className="h-12 w-12 mx-auto mb-3 text-yellow-400" />
+              <Star className="h-12 w-12 mx-auto mb-3 text-yellow-600" />
               <h3 className="font-bold mb-2">Everyone Gets Rated</h3>
               <p className="text-sm text-white/90">
                 Musicians, venues, and fans all participate in our rating system, ensuring accountability for all.
               </p>
             </div>
             <div className="text-center">
-              <Users className="h-12 w-12 mx-auto mb-3 text-yellow-400" />
+              <Users className="h-12 w-12 mx-auto mb-3 text-yellow-600" />
               <h3 className="font-bold mb-2">Reputation Protection</h3>
               <p className="text-sm text-white/90">
                 No single entity can damage the platform's reputation—our mutual rating system keeps everyone honest.
               </p>
             </div>
             <div className="text-center">
-              <Star className="h-12 w-12 mx-auto mb-3 text-yellow-400" />
+              <Star className="h-12 w-12 mx-auto mb-3 text-yellow-600" />
               <h3 className="font-bold mb-2">Quality Community</h3>
               <p className="text-sm text-white/90">
                 Bad actors get filtered out naturally. Great musicians, venues, and fans rise to the top.

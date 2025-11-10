@@ -154,7 +154,7 @@ export default function LegalDocumentViewer({
               <Shield className="w-8 h-8 text-white" />
               <div>
                 <h2 className="text-2xl font-bold text-white">Legal Document Review</h2>
-                <p className="text-orange-100 text-sm">
+                <p className="text-orange-500 text-sm">
                   {signatures.length} of {documents.length} documents signed
                 </p>
               </div>
@@ -172,7 +172,7 @@ export default function LegalDocumentViewer({
               onClick={() => setCurrentDocIndex(idx)}
               className={`flex-1 px-4 py-4 font-medium transition-colors flex items-center justify-center gap-2 ${
                 currentDocIndex === idx
-                  ? 'bg-orange-50 text-orange-600 border-b-2 border-orange-600'
+                  ? 'bg-gray-800 text-orange-600 border-b-2 border-orange-600'
                   : 'text-gray-600 hover:bg-gray-50'
               }`}
             >
@@ -215,7 +215,7 @@ export default function LegalDocumentViewer({
             dangerouslySetInnerHTML={{ __html: currentDoc.content }}
           />
 
-          <div className="mt-6 p-4 bg-rose-50 border border-yellow-200 rounded-lg">
+          <div className="mt-6 p-4 bg-rose-50 border border-yellow-600 rounded-lg">
             <p className="text-sm text-yellow-900">
               <strong>Notice:</strong> This document is view-only and cannot be downloaded. By
               clicking "I Agree and Sign" below, you are providing your legally binding electronic

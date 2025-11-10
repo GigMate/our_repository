@@ -70,8 +70,8 @@ export default function AdBanner({ tier, placement, className = '' }: AdBannerPr
   if (!ad) return null;
 
   const tierStyles = {
-    premium: 'bg-gradient-to-r from-yellow-50 to-yellow-100 border-yellow-300',
-    standard: 'bg-gradient-to-r from-blue-50 to-blue-100 border-blue-300',
+    premium: 'bg-gradient-to-r from-yellow-50 to-yellow-100 border-yellow-700',
+    standard: 'bg-gradient-to-r from-blue-50 to-blue-100 border-blue-700',
     basic: 'bg-gradient-to-r from-gray-50 to-gray-100 border-gray-300',
   };
 

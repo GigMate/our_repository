@@ -161,7 +161,7 @@ export function RevenueAnalytics() {
         <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-gray-600 text-sm">Total Users</span>
-            <Users className="w-5 h-5 text-orange-500" />
+            <Users className="w-5 h-5 text-orange-6000" />
           </div>
           <p className="text-3xl font-bold text-gray-900">{analytics.totalUsers.toLocaleString()}</p>
           <p className="text-xs text-green-600 mt-1">{analytics.activeUsers} active</p>
@@ -188,7 +188,7 @@ export function RevenueAnalytics() {
         <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-gray-600 text-sm">AI Effectiveness</span>
-            <Target className="w-5 h-5 text-orange-500" />
+            <Target className="w-5 h-5 text-orange-6000" />
           </div>
           <p className="text-3xl font-bold text-gray-900">{analytics.recommendationEffectiveness.toFixed(1)}%</p>
           <p className="text-xs text-gray-500 mt-1">Revenue from AI</p>
@@ -273,7 +273,7 @@ export function RevenueAnalytics() {
                   <td className="py-3 px-4">
                     <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                       user.spending_tier === 'luxury' ? 'bg-purple-100 text-purple-800' :
-                      user.spending_tier === 'premium' ? 'bg-orange-100 text-blue-800' :
+                      user.spending_tier === 'premium' ? 'bg-gray-700 text-blue-800' :
                       user.spending_tier === 'moderate' ? 'bg-green-100 text-green-800' :
                       'bg-gray-100 text-gray-800'
                     }`}>

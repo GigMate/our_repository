@@ -270,7 +270,7 @@ export function RatingAnalytics() {
       </div>
 
       {analytics.lowestCategory && analytics.lowestCategory.average < 4 && (
-        <div className="bg-rose-50 border-2 border-yellow-300 rounded-lg p-6">
+        <div className="bg-rose-50 border-2 border-yellow-700 rounded-lg p-6">
           <h3 className="text-lg font-bold text-yellow-900 mb-2 flex items-center gap-2">
             <TrendingUp className="h-5 w-5" />
             Improvement Opportunity
@@ -295,9 +295,9 @@ interface StatCardProps {
 
 function StatCard({ icon: Icon, label, value, subtext, color }: StatCardProps) {
   const colorClasses = {
-    yellow: 'from-yellow-50 to-yellow-100 border-yellow-300 text-yellow-700',
+    yellow: 'from-yellow-50 to-yellow-100 border-yellow-700 text-yellow-700',
     green: 'from-green-50 to-green-100 border-green-300 text-green-700',
-    blue: 'from-blue-50 to-blue-100 border-blue-300 text-blue-700',
+    blue: 'from-blue-50 to-blue-100 border-blue-700 text-blue-700',
     purple: 'from-purple-50 to-purple-100 border-purple-300 text-purple-700',
   };
 

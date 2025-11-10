@@ -391,7 +391,7 @@ export default function LegalDocumentManager() {
                 <div>
                   <div className="flex items-center gap-2">
                     <h3 className="text-lg font-bold text-gray-900">{doc.title}</h3>
-                    <span className="px-2 py-0.5 bg-orange-100 text-blue-800 text-xs rounded-full">
+                    <span className="px-2 py-0.5 bg-gray-700 text-blue-800 text-xs rounded-full">
                       v{doc.version}
                     </span>
                     {doc.is_active ? (
@@ -419,7 +419,7 @@ export default function LegalDocumentManager() {
                     setViewingConsents(doc.id);
                     loadConsents(doc.id);
                   }}
-                  className="px-3 py-1.5 text-sm text-blue-600 hover:bg-orange-50 rounded-lg flex items-center gap-1"
+                  className="px-3 py-1.5 text-sm text-blue-600 hover:bg-gray-800 rounded-lg flex items-center gap-1"
                 >
                   <Eye className="w-4 h-4" />
                   View Consents

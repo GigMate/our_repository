@@ -132,7 +132,7 @@ export default function AIDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="flex items-center justify-between mb-4">
-              <div className="bg-orange-100 rounded-lg p-3">
+              <div className="bg-gray-700 rounded-lg p-3">
                 <Users className="w-6 h-6 text-blue-600" />
               </div>
               <span className="text-sm text-gray-500">Total Leads</span>
@@ -167,7 +167,7 @@ export default function AIDashboard() {
 
           <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="flex items-center justify-between mb-4">
-              <div className="bg-orange-100 rounded-lg p-3">
+              <div className="bg-gray-700 rounded-lg p-3">
                 <Zap className="w-6 h-6 text-orange-600" />
               </div>
               <span className="text-sm text-gray-500">Operations</span>
@@ -214,7 +214,7 @@ export default function AIDashboard() {
               </div>
             ) : activeTab === 'overview' ? (
               <div className="space-y-6">
-                <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6 border border-blue-200">
+                <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6 border border-blue-600">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">AI System Status</h3>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex items-center gap-3">
@@ -302,7 +302,7 @@ export default function AIDashboard() {
                               )}
                             </td>
                             <td className="px-4 py-3">
-                              <span className="px-2 py-1 text-xs font-medium rounded-full bg-orange-100 text-blue-800">
+                              <span className="px-2 py-1 text-xs font-medium rounded-full bg-gray-700 text-blue-800">
                                 {lead.prospect_type}
                               </span>
                             </td>
@@ -356,7 +356,7 @@ export default function AIDashboard() {
                             <span className={`px-2 py-1 text-xs font-medium rounded-full ${
                               intel.intelligence_type === 'opportunity' ? 'bg-green-100 text-green-800' :
                               intel.intelligence_type === 'threat' ? 'bg-red-100 text-red-800' :
-                              intel.intelligence_type === 'trend' ? 'bg-orange-100 text-blue-800' :
+                              intel.intelligence_type === 'trend' ? 'bg-gray-700 text-blue-800' :
                               'bg-gray-100 text-gray-800'
                             }`}>
                               {intel.intelligence_type}
@@ -404,7 +404,7 @@ export default function AIDashboard() {
                               </span>
                               <span className={`px-2 py-1 text-xs font-medium rounded-full ${
                                 strategy.priority === 'critical' ? 'bg-red-100 text-red-800' :
-                                strategy.priority === 'high' ? 'bg-orange-100 text-orange-800' :
+                                strategy.priority === 'high' ? 'bg-gray-700 text-orange-800' :
                                 strategy.priority === 'medium' ? 'bg-rose-100 text-yellow-800' :
                                 'bg-gray-100 text-gray-800'
                               }`}>
@@ -412,7 +412,7 @@ export default function AIDashboard() {
                               </span>
                               <span className={`px-2 py-1 text-xs font-medium rounded-full ${
                                 strategy.status === 'approved' ? 'bg-green-100 text-green-800' :
-                                strategy.status === 'in_progress' ? 'bg-orange-100 text-blue-800' :
+                                strategy.status === 'in_progress' ? 'bg-gray-700 text-blue-800' :
                                 'bg-gray-100 text-gray-800'
                               }`}>
                                 {strategy.status}
@@ -436,7 +436,7 @@ export default function AIDashboard() {
             ) : activeTab === 'config' ? (
               <div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">AI Configuration</h3>
-                <div className="bg-rose-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                <div className="bg-rose-50 border border-yellow-600 rounded-lg p-4 mb-6">
                   <div className="flex items-start gap-3">
                     <AlertCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
                     <div>

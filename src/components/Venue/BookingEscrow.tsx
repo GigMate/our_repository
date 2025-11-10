@@ -38,11 +38,11 @@ export default function BookingEscrow({ booking, isVenue, onUpdate }: BookingEsc
 
   const statusConfig = {
     pending: { icon: Clock, color: 'text-yellow-600', bg: 'bg-rose-50', label: 'Pending Acceptance' },
-    accepted: { icon: Clock, color: 'text-blue-600', bg: 'bg-orange-50', label: 'Payment Pending' },
+    accepted: { icon: Clock, color: 'text-blue-600', bg: 'bg-gray-800', label: 'Payment Pending' },
     escrowed: { icon: Shield, color: 'text-purple-600', bg: 'bg-purple-50', label: 'In Escrow' },
     completed: { icon: CheckCircle, color: 'text-green-600', bg: 'bg-green-50', label: 'Completed' },
     disputed: { icon: AlertCircle, color: 'text-red-600', bg: 'bg-red-50', label: 'Disputed' },
-    mediation: { icon: AlertCircle, color: 'text-orange-600', bg: 'bg-orange-50', label: 'In Mediation' },
+    mediation: { icon: AlertCircle, color: 'text-orange-600', bg: 'bg-gray-800', label: 'In Mediation' },
     cancelled: { icon: AlertCircle, color: 'text-gray-600', bg: 'bg-gray-50', label: 'Cancelled' }
   };
 
@@ -119,7 +119,7 @@ export default function BookingEscrow({ booking, isVenue, onUpdate }: BookingEsc
 
       {booking.status === 'escrowed' && (
         <div className="space-y-4">
-          <div className="bg-orange-50 border border-blue-200 rounded-lg p-4">
+          <div className="bg-gray-800 border border-blue-600 rounded-lg p-4">
             <div className="flex items-start space-x-3">
               <Shield className="h-5 w-5 text-blue-600 mt-0.5" />
               <div className="flex-1">
@@ -170,7 +170,7 @@ export default function BookingEscrow({ booking, isVenue, onUpdate }: BookingEsc
           )}
 
           {hasRated && !otherPartyRated && (
-            <div className="bg-rose-50 border border-yellow-200 rounded-lg p-4 text-center">
+            <div className="bg-rose-50 border border-yellow-600 rounded-lg p-4 text-center">
               <p className="text-sm text-yellow-800">
                 You've rated {isVenue ? 'the musician' : 'the venue'}. Waiting for their rating...
               </p>
@@ -262,7 +262,7 @@ export default function BookingEscrow({ booking, isVenue, onUpdate }: BookingEsc
       )}
 
       {booking.status === 'disputed' || booking.status === 'mediation' && (
-        <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+        <div className="bg-gray-800 border border-orange-600 rounded-lg p-4">
           <div className="flex items-start space-x-3">
             <AlertCircle className="h-6 w-6 text-orange-600 mt-0.5" />
             <div>

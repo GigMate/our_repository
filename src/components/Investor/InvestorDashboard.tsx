@@ -89,7 +89,7 @@ export default function InvestorDashboard() {
       <div className="grid md:grid-cols-4 gap-6 mb-8">
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center justify-between mb-2">
-            <div className="bg-orange-100 rounded-lg p-3">
+            <div className="bg-gray-700 rounded-lg p-3">
               <Users className="h-6 w-6 text-blue-600" />
             </div>
             <TrendingUp className="h-5 w-5 text-green-500" />
@@ -113,7 +113,7 @@ export default function InvestorDashboard() {
 
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center justify-between mb-2">
-            <div className="bg-orange-100 rounded-lg p-3">
+            <div className="bg-gray-700 rounded-lg p-3">
               <BarChart3 className="h-6 w-6 text-orange-600" />
             </div>
             <TrendingUp className="h-5 w-5 text-green-500" />
@@ -129,7 +129,7 @@ export default function InvestorDashboard() {
             <div className="bg-purple-100 rounded-lg p-3">
               <Calendar className="h-6 w-6 text-purple-600" />
             </div>
-            <Activity className="h-5 w-5 text-orange-500" />
+            <Activity className="h-5 w-5 text-orange-6000" />
           </div>
           <h3 className="text-2xl font-bold text-gray-900">{stats.activeEvents}</h3>
           <p className="text-sm text-gray-600">Active Events</p>

@@ -123,7 +123,7 @@ export default function InvestorInterestForm({ onBack }: InvestorInterestFormPro
           <p className="text-gray-600 mb-6 text-lg">
             Thank you for your interest in investing in GigMate. Our team will review your submission and reach out to you shortly.
           </p>
-          <div className="bg-orange-50 border border-blue-200 rounded-lg p-4 mb-6">
+          <div className="bg-gray-800 border border-blue-600 rounded-lg p-4 mb-6">
             <p className="text-sm text-blue-900">
               <strong>Next Steps:</strong> We will verify your information and legal agreements.
               If approved, you'll receive an invitation email with login credentials to access the investor portal.
@@ -523,7 +523,7 @@ export default function InvestorInterestForm({ onBack }: InvestorInterestFormPro
 
               {/* KYC Consent */}
               <div className="border-t pt-5 mt-5">
-                <div className="bg-rose-50 border border-yellow-200 rounded-lg p-4 mb-4">
+                <div className="bg-rose-50 border border-yellow-600 rounded-lg p-4 mb-4">
                   <h3 className="text-sm font-bold text-gray-900 mb-2">Know Your Customer (KYC) Verification</h3>
                   <p className="text-xs text-gray-700 leading-relaxed">
                     As part of our investor verification process, GigMate is required to conduct due diligence

@@ -57,21 +57,21 @@ export default function VenueAuthPage({ onBack }: VenueAuthPageProps) {
 
           <div className="space-y-4 pt-4">
             <div className="flex items-start gap-3">
-              <Star className="h-6 w-6 text-yellow-400 flex-shrink-0 mt-1" />
+              <Star className="h-6 w-6 text-yellow-600 flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-lg">Find Top Talent</h3>
                 <p className="text-white/80">Search musicians by genre, location, and ratings</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <Ticket className="h-6 w-6 text-yellow-400 flex-shrink-0 mt-1" />
+              <Ticket className="h-6 w-6 text-yellow-600 flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-lg">Built-in Ticketing</h3>
                 <p className="text-white/80">Sell tickets directly through the platform</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <FileText className="h-6 w-6 text-yellow-400 flex-shrink-0 mt-1" />
+              <FileText className="h-6 w-6 text-yellow-600 flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-lg">Digital Contracts</h3>
                 <p className="text-white/80">Secure agreements with escrow payment protection</p>

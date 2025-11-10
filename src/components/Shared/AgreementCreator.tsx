@@ -118,7 +118,7 @@ CANCELLATION:
         Create Digital Agreement
       </h2>
 
-      <div className="mb-6 p-4 bg-orange-50 border border-blue-200 rounded-lg">
+      <div className="mb-6 p-4 bg-gray-800 border border-blue-600 rounded-lg">
         <div className="flex items-start gap-2">
           <AlertCircle className="w-5 h-5 text-blue-600 mt-0.5" />
           <div className="text-sm text-blue-900">

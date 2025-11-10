@@ -217,7 +217,7 @@ export default function ReferralProgram() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-white rounded-xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-3">
-            <div className="bg-orange-100 rounded-lg p-3">
+            <div className="bg-gray-700 rounded-lg p-3">
               <Users className="w-6 h-6 text-blue-600" />
             </div>
           </div>
@@ -312,7 +312,7 @@ export default function ReferralProgram() {
                       {new Date(referral.created_at).toLocaleDateString()}
                     </td>
                     <td className="px-4 py-3">
-                      <span className="px-2 py-1 text-xs font-medium rounded-full bg-orange-100 text-blue-800">
+                      <span className="px-2 py-1 text-xs font-medium rounded-full bg-gray-700 text-blue-800">
                         {referral.referee_type}
                       </span>
                     </td>
@@ -344,7 +344,7 @@ export default function ReferralProgram() {
       )}
 
       {/* Pro Tips */}
-      <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-6 border border-blue-200">
+      <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-6 border border-blue-600">
         <h3 className="text-lg font-bold text-gray-900 mb-3">💡 Pro Tips for More Referrals</h3>
         <ul className="space-y-2 text-sm text-gray-700">
           <li className="flex items-start gap-2">

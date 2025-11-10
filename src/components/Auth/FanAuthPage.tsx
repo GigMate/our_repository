@@ -57,21 +57,21 @@ export default function FanAuthPage({ onBack }: FanAuthPageProps) {
 
           <div className="space-y-4 pt-4">
             <div className="flex items-start gap-3">
-              <MapPin className="h-6 w-6 text-yellow-400 flex-shrink-0 mt-1" />
+              <MapPin className="h-6 w-6 text-yellow-600 flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-lg">Find Events Near You</h3>
                 <p className="text-white/80">Search by genre, location, and date</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <Star className="h-6 w-6 text-yellow-400 flex-shrink-0 mt-1" />
+              <Star className="h-6 w-6 text-yellow-600 flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-lg">No Hidden Fees</h3>
                 <p className="text-white/80">Fair pricing with transparent ticketing</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <Heart className="h-6 w-6 text-yellow-400 flex-shrink-0 mt-1" />
+              <Heart className="h-6 w-6 text-yellow-600 flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-lg">Support Artists</h3>
                 <p className="text-white/80">Rate and review shows to help musicians grow</p>

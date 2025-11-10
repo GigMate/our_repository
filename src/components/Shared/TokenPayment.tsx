@@ -143,7 +143,7 @@ export default function TokenPayment({
           onClick={() => handlePaymentMethodChange('usd')}
           className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
             paymentMethod === 'usd'
-              ? 'border-blue-600 bg-orange-50'
+              ? 'border-blue-600 bg-gray-800'
               : 'border-gray-200 hover:border-gray-300'
           }`}
         >
@@ -207,7 +207,7 @@ export default function TokenPayment({
           onClick={() => handlePaymentMethodChange('mixed')}
           className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
             paymentMethod === 'mixed'
-              ? 'border-orange-600 bg-orange-50'
+              ? 'border-orange-600 bg-gray-800'
               : 'border-gray-200 hover:border-gray-300'
           }`}
         >
@@ -240,7 +240,7 @@ export default function TokenPayment({
           </div>
 
           {paymentMethod === 'mixed' && (
-            <div className="grid grid-cols-2 gap-3 pt-3 border-t border-orange-200">
+            <div className="grid grid-cols-2 gap-3 pt-3 border-t border-orange-600">
               <div className="text-center">
                 <p className="text-xs text-gray-600 mb-1">Tokens</p>
                 <p className="font-bold text-purple-600">
@@ -259,7 +259,7 @@ export default function TokenPayment({
       </div>
 
       {paymentMethod === 'token' && !canAffordWithTokens() && (
-        <div className="flex items-start gap-2 text-orange-600 bg-orange-50 p-3 rounded-lg">
+        <div className="flex items-start gap-2 text-orange-600 bg-gray-800 p-3 rounded-lg">
           <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
           <div className="text-sm">
             <p className="font-semibold">Insufficient tokens</p>
@@ -268,7 +268,7 @@ export default function TokenPayment({
         </div>
       )}
 
-      <div className="bg-orange-50 border border-blue-200 rounded-lg p-3">
+      <div className="bg-gray-800 border border-blue-600 rounded-lg p-3">
         <p className="text-xs text-gray-700">
           <strong>Exchange Rate:</strong> 1 {tokenConfig.token_symbol} = ${tokenConfig.current_usd_rate.toFixed(4)} USD
         </p>

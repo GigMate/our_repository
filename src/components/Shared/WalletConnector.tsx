@@ -230,7 +230,7 @@ export default function WalletConnector() {
             )}
 
             {!isWalletInstalled() && (
-              <div className="mb-6 bg-rose-50 border border-yellow-200 rounded-lg p-4">
+              <div className="mb-6 bg-rose-50 border border-yellow-600 rounded-lg p-4">
                 <div className="flex items-start gap-3">
                   <AlertCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
                   <div>

@@ -57,21 +57,21 @@ export default function MusicianAuthPage({ onBack }: MusicianAuthPageProps) {
 
           <div className="space-y-4 pt-4">
             <div className="flex items-start gap-3">
-              <Star className="h-6 w-6 text-yellow-400 flex-shrink-0 mt-1" />
+              <Star className="h-6 w-6 text-yellow-600 flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-lg">Build Your Profile</h3>
                 <p className="text-white/80">Showcase your talent with videos, photos, and ratings</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <Calendar className="h-6 w-6 text-yellow-400 flex-shrink-0 mt-1" />
+              <Calendar className="h-6 w-6 text-yellow-600 flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-lg">Get Booked Directly</h3>
                 <p className="text-white/80">Venues can find and book you with verified contracts</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <DollarSign className="h-6 w-6 text-yellow-400 flex-shrink-0 mt-1" />
+              <DollarSign className="h-6 w-6 text-yellow-600 flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-lg">Secure Payments</h3>
                 <p className="text-white/80">Escrow protection and only 10% platform fee</p>

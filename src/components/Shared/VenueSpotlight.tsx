@@ -74,7 +74,7 @@ export default function VenueSpotlight() {
 
                 {venue.average_rating && (
                   <div className="flex items-center gap-1 bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">
-                    <Star className="w-4 h-4 text-yellow-300 fill-yellow-300" />
+                    <Star className="w-4 h-4 text-yellow-500 fill-yellow-300" />
                     <span className="text-sm font-semibold text-white">
                       {venue.average_rating.toFixed(1)}
                     </span>
@@ -96,7 +96,7 @@ export default function VenueSpotlight() {
               href={venue.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-shrink-0 flex items-center gap-2 px-4 py-2 bg-white text-orange-600 font-semibold rounded-lg hover:bg-orange-50 transition-colors shadow-md text-sm"
+              className="flex-shrink-0 flex items-center gap-2 px-4 py-2 bg-white text-orange-600 font-semibold rounded-lg hover:bg-gray-800 transition-colors shadow-md text-sm"
             >
               <span className="hidden sm:inline">Visit Website</span>
               <ExternalLink className="w-4 h-4" />

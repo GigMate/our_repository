@@ -242,7 +242,7 @@ export function AgreementViewer({ agreementId, onClose }: AgreementViewerProps) 
       {agreement.cancellation_policy && (
         <div className="mb-6">
           <h3 className="font-bold text-gray-900 mb-3">Cancellation Policy</h3>
-          <div className="p-4 bg-rose-50 rounded-lg border border-yellow-200">
+          <div className="p-4 bg-rose-50 rounded-lg border border-yellow-600">
             <p className="text-sm text-gray-700">{agreement.cancellation_policy}</p>
           </div>
         </div>
@@ -251,7 +251,7 @@ export function AgreementViewer({ agreementId, onClose }: AgreementViewerProps) 
       {agreement.refund_policy && (
         <div className="mb-6">
           <h3 className="font-bold text-gray-900 mb-3">Refund Policy</h3>
-          <div className="p-4 bg-orange-50 rounded-lg border border-blue-200">
+          <div className="p-4 bg-gray-800 rounded-lg border border-blue-600">
             <p className="text-sm text-gray-700">{agreement.refund_policy}</p>
           </div>
         </div>
@@ -274,7 +274,7 @@ export function AgreementViewer({ agreementId, onClose }: AgreementViewerProps) 
             </div>
           ))}
           {!userIsSigned && agreement.status === 'pending_signatures' && (
-            <div className="flex items-center gap-2 p-3 bg-rose-50 border border-yellow-200 rounded-lg">
+            <div className="flex items-center gap-2 p-3 bg-rose-50 border border-yellow-600 rounded-lg">
               <Clock className="w-5 h-5 text-yellow-600" />
               <p className="font-medium text-yellow-900">Awaiting your signature</p>
             </div>
@@ -322,7 +322,7 @@ export function AgreementViewer({ agreementId, onClose }: AgreementViewerProps) 
             />
           </div>
 
-          <div className="flex items-start gap-2 mb-4 p-4 bg-orange-50 rounded-lg">
+          <div className="flex items-start gap-2 mb-4 p-4 bg-gray-800 rounded-lg">
             <AlertCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
             <p className="text-sm text-blue-900">
               By signing this agreement, you acknowledge that you have read and agree to all terms and conditions outlined above. This is a legally binding electronic signature.
@@ -342,7 +342,7 @@ export function AgreementViewer({ agreementId, onClose }: AgreementViewerProps) 
       {isActive && profile?.user_type === 'venue' && (
         <div className="space-y-4">
           {agreement.deposit_amount && !agreement.deposit_paid && (
-            <div className="p-4 bg-rose-50 border border-yellow-200 rounded-lg">
+            <div className="p-4 bg-rose-50 border border-yellow-600 rounded-lg">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="font-medium text-yellow-900">Deposit Payment Required</p>

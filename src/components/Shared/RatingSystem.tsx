@@ -215,7 +215,7 @@ export function RatingSystem({
             <Star
               className={`h-5 w-5 ${
                 star <= rating
-                  ? 'fill-yellow-400 text-yellow-400'
+                  ? 'fill-yellow-400 text-yellow-600'
                   : 'text-gray-300'
               }`}
             />
@@ -226,7 +226,7 @@ export function RatingSystem({
   };
 
   const renderUpgradePrompt = () => (
-    <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
+    <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-600 rounded-lg p-6 mb-6">
       <div className="flex items-start gap-4">
         <Lock className="h-8 w-8 text-blue-600 flex-shrink-0" />
         <div className="flex-1">
@@ -239,7 +239,7 @@ export function RatingSystem({
                 You've used {quotaRemaining !== null ? 3 - quotaRemaining : 0} of 3 free ratings this month.
               </p>
               <div className="grid md:grid-cols-2 gap-4 mt-4">
-                <div className="bg-white rounded-lg p-4 border-2 border-blue-300">
+                <div className="bg-white rounded-lg p-4 border-2 border-blue-700">
                   <h4 className="font-bold text-blue-900 mb-2">Premium - $4.99/mo</h4>
                   <ul className="space-y-2 text-sm text-gray-700">
                     <li>✓ Unlimited ratings</li>
@@ -290,7 +290,7 @@ export function RatingSystem({
           </h3>
 
           {quotaRemaining !== null && userProfile?.fan_subscription_tier === 'free' && (
-            <div className="bg-orange-50 border border-blue-200 rounded-lg p-3 mb-4">
+            <div className="bg-gray-800 border border-blue-600 rounded-lg p-3 mb-4">
               <p className="text-sm text-blue-800">
                 {quotaRemaining} free rating{quotaRemaining !== 1 ? 's' : ''} remaining this month
               </p>
@@ -380,7 +380,7 @@ export function RatingSystem({
                   {new Date(rating.created_at).toLocaleDateString()}
                 </p>
                 {rating.response && (
-                  <div className="mt-3 bg-gray-50 rounded-lg p-3 border-l-4 border-orange-500">
+                  <div className="mt-3 bg-gray-50 rounded-lg p-3 border-l-4 border-orange-5000">
                     <p className="text-xs font-semibold text-gray-700 mb-1">Response from {ratedUserType}:</p>
                     <p className="text-sm text-gray-700">{rating.response}</p>
                   </div>

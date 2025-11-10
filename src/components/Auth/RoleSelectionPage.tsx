@@ -28,7 +28,7 @@ export default function RoleSelectionPage({ onRoleSelect, onBack }: RoleSelectio
             onClick={() => onRoleSelect('fan')}
             className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl shadow-2xl p-8 text-center transform hover:scale-105 transition-all border-4 border-green-500 relative overflow-hidden group"
           >
-            <div className="absolute top-0 right-0 bg-yellow-400 text-gray-900 px-3 py-1 text-xs font-bold rounded-bl-lg">
+            <div className="absolute top-0 right-0 bg-yellow-500 text-gray-900 px-3 py-1 text-xs font-bold rounded-bl-lg">
               MOST POPULAR
             </div>
             <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-full p-4 w-20 h-20 mx-auto mb-4 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
@@ -47,14 +47,14 @@ export default function RoleSelectionPage({ onRoleSelect, onBack }: RoleSelectio
             onClick={() => onRoleSelect('musician')}
             className="bg-white rounded-xl shadow-xl p-8 text-center transform hover:scale-105 transition-all group"
           >
-            <div className="bg-orange-100 rounded-full p-4 w-20 h-20 mx-auto mb-4 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+            <div className="bg-gray-700 rounded-full p-4 w-20 h-20 mx-auto mb-4 flex items-center justify-center group-hover:bg-gray-600 transition-colors">
               <Music className="h-10 w-10 text-gigmate-blue" />
             </div>
             <h3 className="text-2xl font-bold text-gigmate-blue mb-3">I'm a Musician</h3>
             <p className="text-gray-600 text-sm mb-4">
               Find gigs, build your profile, and get paid securely
             </p>
-            <div className="bg-orange-100 rounded-lg px-4 py-2 text-xs font-semibold text-blue-800">
+            <div className="bg-gray-700 rounded-lg px-4 py-2 text-xs font-semibold text-blue-800">
               Keep 90% of Earnings
             </div>
           </button>
@@ -79,14 +79,14 @@ export default function RoleSelectionPage({ onRoleSelect, onBack }: RoleSelectio
             onClick={() => onRoleSelect('investor')}
             className="bg-white rounded-xl shadow-xl p-8 text-center transform hover:scale-105 transition-all group"
           >
-            <div className="bg-orange-100 rounded-full p-4 w-20 h-20 mx-auto mb-4 flex items-center justify-center group-hover:bg-orange-200 transition-colors">
+            <div className="bg-gray-700 rounded-full p-4 w-20 h-20 mx-auto mb-4 flex items-center justify-center group-hover:bg-orange-600 transition-colors">
               <TrendingUp className="h-10 w-10 text-orange-600" />
             </div>
             <h3 className="text-2xl font-bold text-orange-600 mb-3">I'm an Investor</h3>
             <p className="text-gray-600 text-sm mb-4">
               Access analytics, metrics, and growth insights
             </p>
-            <div className="bg-orange-100 rounded-lg px-4 py-2 text-xs font-semibold text-orange-800">
+            <div className="bg-gray-700 rounded-lg px-4 py-2 text-xs font-semibold text-orange-800">
               By Invitation
             </div>
           </button>

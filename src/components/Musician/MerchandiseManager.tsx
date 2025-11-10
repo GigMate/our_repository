@@ -137,7 +137,7 @@ export function MerchandiseManager() {
         <div className="bg-white p-4 rounded-lg shadow border border-gray-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-gray-600">Total Sold</span>
-            <ShoppingBag className="w-5 h-5 text-orange-500" />
+            <ShoppingBag className="w-5 h-5 text-orange-6000" />
           </div>
           <p className="text-2xl font-bold text-gray-900">{totalSold}</p>
         </div>
@@ -153,7 +153,7 @@ export function MerchandiseManager() {
         <div className="bg-white p-4 rounded-lg shadow border border-gray-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-gray-600">Low Stock Alerts</span>
-            <AlertCircle className="w-5 h-5 text-orange-500" />
+            <AlertCircle className="w-5 h-5 text-orange-6000" />
           </div>
           <p className="text-2xl font-bold text-gray-900">{lowStockItems.length}</p>
         </div>
@@ -161,7 +161,7 @@ export function MerchandiseManager() {
 
       {/* Low Stock Alert */}
       {lowStockItems.length > 0 && (
-        <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+        <div className="bg-gray-800 border border-orange-600 rounded-lg p-4">
           <div className="flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-orange-600 mt-0.5" />
             <div>
@@ -176,7 +176,7 @@ export function MerchandiseManager() {
       )}
 
       {/* Management Type Banner */}
-      <div className="bg-orange-50 border border-blue-200 rounded-lg p-4">
+      <div className="bg-gray-800 border border-blue-600 rounded-lg p-4">
         <div className="flex items-start gap-3">
           <Package className="w-5 h-5 text-blue-600 mt-0.5" />
           <div className="flex-1">
@@ -184,7 +184,7 @@ export function MerchandiseManager() {
             <p className="text-sm text-blue-800 mb-3">
               Currently managing your merchandise: <strong>Self-Service</strong>
             </p>
-            <div className="bg-white border border-blue-300 rounded-lg p-3">
+            <div className="bg-white border border-blue-700 rounded-lg p-3">
               <p className="text-sm text-gray-700 mb-2">
                 <strong>Coming Soon:</strong> GigMate Managed Merchandise (Premium Feature)
               </p>
@@ -266,7 +266,7 @@ export function MerchandiseManager() {
                               key={inv.id}
                               className={`text-xs px-2 py-1 rounded ${
                                 inv.quantity_available <= inv.reorder_level
-                                  ? 'bg-orange-100 text-orange-800'
+                                  ? 'bg-gray-700 text-orange-800'
                                   : 'bg-gray-100 text-gray-700'
                               }`}
                             >
@@ -280,7 +280,7 @@ export function MerchandiseManager() {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => setEditingItem(item)}
-                        className="px-3 py-1.5 text-sm text-gigmate-blue hover:bg-orange-50 rounded-lg flex items-center gap-1"
+                        className="px-3 py-1.5 text-sm text-gigmate-blue hover:bg-gray-800 rounded-lg flex items-center gap-1"
                       >
                         <Edit2 className="w-4 h-4" />
                         Edit

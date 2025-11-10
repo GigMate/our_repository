@@ -105,7 +105,7 @@ export function EmailQueueViewer() {
           <div className="flex gap-2">
             <button
               onClick={sendTestEmail}
-              className="flex items-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-gray-8000 text-white rounded-lg hover:bg-blue-600 transition-colors"
             >
               <Send className="w-4 h-4" />
               Send Test Email
@@ -240,7 +240,7 @@ export function EmailQueueViewer() {
         )}
       </div>
 
-      <div className="bg-orange-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-gray-800 border border-blue-600 rounded-lg p-6">
         <h3 className="font-bold text-blue-900 mb-2">About Email Queue</h3>
         <ul className="text-sm text-blue-800 space-y-1">
           <li>• Emails are automatically queued when events occur (bookings, purchases, etc.)</li>
