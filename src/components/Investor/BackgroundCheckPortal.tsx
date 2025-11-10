@@ -148,7 +148,7 @@ export default function BackgroundCheckPortal({
 
       {/* Status Display */}
       {backgroundCheckStatus === 'uploaded' && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 flex items-start gap-3">
+        <div className="bg-orange-50 border border-blue-200 rounded-lg p-4 mb-6 flex items-start gap-3">
           <Clock className="w-5 h-5 text-blue-600 mt-0.5" />
           <div>
             <h3 className="font-semibold text-blue-900">Under Review</h3>
@@ -202,7 +202,7 @@ export default function BackgroundCheckPortal({
 
       {/* Risk Score Display */}
       {riskScore > 0 && showOptions && (
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+        <div className="bg-rose-50 border border-yellow-200 rounded-lg p-4 mb-6">
           <div className="flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-yellow-600 mt-0.5" />
             <div className="flex-1">
@@ -305,7 +305,7 @@ export default function BackgroundCheckPortal({
               </ul>
             </div>
 
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
+            <div className="bg-orange-50 border border-blue-200 rounded-lg p-3 mb-4">
               <p className="text-xs text-blue-800">
                 <strong>Privacy Notice:</strong> Your KYC information will be securely transmitted
                 to our authorized third-party investigation service for verification purposes only.

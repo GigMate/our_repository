@@ -84,7 +84,7 @@ export default function AdBanner({ tier, placement, className = '' }: AdBannerPr
               Sponsored
             </span>
             {tier === 'premium' && (
-              <span className="px-2 py-0.5 bg-yellow-500 text-white text-xs font-bold rounded">
+              <span className="px-2 py-0.5 bg-rose-500 text-white text-xs font-bold rounded">
                 FEATURED
               </span>
             )}

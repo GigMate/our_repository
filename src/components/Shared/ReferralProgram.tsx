@@ -217,7 +217,7 @@ export default function ReferralProgram() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-white rounded-xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-3">
-            <div className="bg-blue-100 rounded-lg p-3">
+            <div className="bg-orange-100 rounded-lg p-3">
               <Users className="w-6 h-6 text-blue-600" />
             </div>
           </div>
@@ -237,7 +237,7 @@ export default function ReferralProgram() {
 
         <div className="bg-white rounded-xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-3">
-            <div className="bg-yellow-100 rounded-lg p-3">
+            <div className="bg-rose-100 rounded-lg p-3">
               <TrendingUp className="w-6 h-6 text-yellow-600" />
             </div>
           </div>
@@ -312,14 +312,14 @@ export default function ReferralProgram() {
                       {new Date(referral.created_at).toLocaleDateString()}
                     </td>
                     <td className="px-4 py-3">
-                      <span className="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">
+                      <span className="px-2 py-1 text-xs font-medium rounded-full bg-orange-100 text-blue-800">
                         {referral.referee_type}
                       </span>
                     </td>
                     <td className="px-4 py-3">
                       <span className={`px-2 py-1 text-xs font-medium rounded-full ${
                         referral.status === 'converted' ? 'bg-green-100 text-green-800' :
-                        referral.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
+                        referral.status === 'pending' ? 'bg-rose-100 text-yellow-800' :
                         'bg-gray-100 text-gray-800'
                       }`}>
                         {referral.status}

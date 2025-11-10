@@ -270,7 +270,7 @@ export function RatingAnalytics() {
       </div>
 
       {analytics.lowestCategory && analytics.lowestCategory.average < 4 && (
-        <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+        <div className="bg-rose-50 border-2 border-yellow-300 rounded-lg p-6">
           <h3 className="text-lg font-bold text-yellow-900 mb-2 flex items-center gap-2">
             <TrendingUp className="h-5 w-5" />
             Improvement Opportunity

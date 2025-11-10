@@ -118,7 +118,7 @@ export default function InvestorAuthPage({ onBack }: InvestorAuthPageProps) {
           </p>
 
           {error && (
-            <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 px-4 py-3 rounded-lg mb-6 text-sm">
+            <div className="bg-rose-50 border border-yellow-200 text-yellow-800 px-4 py-3 rounded-lg mb-6 text-sm">
               {error}
             </div>
           )}

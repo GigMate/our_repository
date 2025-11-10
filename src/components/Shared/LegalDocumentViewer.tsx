@@ -215,7 +215,7 @@ export default function LegalDocumentViewer({
             dangerouslySetInnerHTML={{ __html: currentDoc.content }}
           />
 
-          <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+          <div className="mt-6 p-4 bg-rose-50 border border-yellow-200 rounded-lg">
             <p className="text-sm text-yellow-900">
               <strong>Notice:</strong> This document is view-only and cannot be downloaded. By
               clicking "I Agree and Sign" below, you are providing your legally binding electronic

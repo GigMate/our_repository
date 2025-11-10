@@ -238,7 +238,7 @@ export default function PayoutAccountManager() {
                   onClick={() => setFormData({ ...formData, payout_type: type })}
                   className={`p-3 border-2 rounded-lg text-sm font-medium transition-colors ${
                     formData.payout_type === type
-                      ? 'border-gigmate-blue bg-blue-50 text-gigmate-blue'
+                      ? 'border-gigmate-blue bg-orange-50 text-gigmate-blue'
                       : 'border-gray-300 hover:border-gray-400'
                   }`}
                 >

@@ -162,7 +162,7 @@ export default function VideoGallery({
             </div>
 
             {video.is_featured && (
-              <div className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+              <div className="absolute top-2 left-2 bg-rose-500 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
                 <Star className="w-3 h-3" />
                 Featured
               </div>
@@ -175,7 +175,7 @@ export default function VideoGallery({
                     e.stopPropagation();
                     toggleFeatured(video.id, video.is_featured);
                   }}
-                  className="bg-yellow-500 hover:bg-yellow-600 text-white p-2 rounded-full"
+                  className="bg-rose-500 hover:bg-yellow-600 text-white p-2 rounded-full"
                   title="Toggle Featured"
                 >
                   <Star className="w-4 h-4" />

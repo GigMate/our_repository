@@ -416,8 +416,8 @@ export default function FanDashboard() {
               />
             </div>
           ) : (
-            <div className="text-center py-12 bg-yellow-50 rounded-lg mb-8">
-              <MapPin className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
+            <div className="text-center py-12 bg-rose-50 rounded-lg mb-8">
+              <MapPin className="h-12 w-12 text-rose-500 mx-auto mb-4" />
               <p className="text-gray-700 font-medium">Enable location access to see map view</p>
               <p className="text-sm text-gray-600 mt-2">We need your location to show nearby items on the map</p>
             </div>
@@ -447,8 +447,8 @@ export default function FanDashboard() {
                   </div>
                 </div>
               ) : (
-                <div className="text-center py-12 bg-yellow-50 rounded-lg">
-                  <MapPin className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
+                <div className="text-center py-12 bg-rose-50 rounded-lg">
+                  <MapPin className="h-12 w-12 text-rose-500 mx-auto mb-4" />
                   <p className="text-gray-700 font-medium">Enable location access to see local products</p>
                   <p className="text-sm text-gray-600 mt-2">We need your location to show you products from nearby sellers</p>
                 </div>

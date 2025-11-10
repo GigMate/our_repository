@@ -143,7 +143,7 @@ export default function TokenPayment({
           onClick={() => handlePaymentMethodChange('usd')}
           className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
             paymentMethod === 'usd'
-              ? 'border-blue-600 bg-blue-50'
+              ? 'border-blue-600 bg-orange-50'
               : 'border-gray-200 hover:border-gray-300'
           }`}
         >
@@ -268,7 +268,7 @@ export default function TokenPayment({
         </div>
       )}
 
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+      <div className="bg-orange-50 border border-blue-200 rounded-lg p-3">
         <p className="text-xs text-gray-700">
           <strong>Exchange Rate:</strong> 1 {tokenConfig.token_symbol} = ${tokenConfig.current_usd_rate.toFixed(4)} USD
         </p>

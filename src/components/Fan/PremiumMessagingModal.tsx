@@ -230,7 +230,7 @@ export function PremiumMessagingModal({ artistId, artistName, onClose, onUnlocke
                     <div>
                       <h4 className="text-xl font-bold text-gray-900 flex items-center gap-2">
                         {tier.name}
-                        {tier.id === 'vip' && <Crown className="w-5 h-5 text-yellow-500" />}
+                        {tier.id === 'vip' && <Crown className="w-5 h-5 text-rose-500" />}
                       </h4>
                       <div className="mt-2">
                         <span className="text-3xl font-bold text-gigmate-blue">
@@ -271,19 +271,19 @@ export function PremiumMessagingModal({ artistId, artistName, onClose, onUnlocke
             <h4 className="font-bold text-gray-900 mb-3">Why upgrade?</h4>
             <ul className="space-y-2 text-sm text-gray-700">
               <li className="flex items-start gap-2">
-                <Star className="w-4 h-4 text-yellow-500 mt-0.5" />
+                <Star className="w-4 h-4 text-rose-500 mt-0.5" />
                 <span>Direct access to your favorite artists without barriers</span>
               </li>
               <li className="flex items-start gap-2">
-                <Star className="w-4 h-4 text-yellow-500 mt-0.5" />
+                <Star className="w-4 h-4 text-rose-500 mt-0.5" />
                 <span>Higher chance of getting responses from busy musicians</span>
               </li>
               <li className="flex items-start gap-2">
-                <Star className="w-4 h-4 text-yellow-500 mt-0.5" />
+                <Star className="w-4 h-4 text-rose-500 mt-0.5" />
                 <span>Support independent artists you love</span>
               </li>
               <li className="flex items-start gap-2">
-                <Star className="w-4 h-4 text-yellow-500 mt-0.5" />
+                <Star className="w-4 h-4 text-rose-500 mt-0.5" />
                 <span>Build genuine connections with the music community</span>
               </li>
             </ul>

@@ -224,7 +224,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                 <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold">
                   PREMIUM MEMBER EXCLUSIVE
                 </div>
-                <Star className="w-5 h-5 text-yellow-500 animate-pulse" />
+                <Star className="w-5 h-5 text-rose-500 animate-pulse" />
               </div>
 
               <h2 className="text-3xl font-bold text-gray-900 mb-2">Live Music Near You</h2>
@@ -373,19 +373,19 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </p>
             <ul className="text-left text-sm text-gray-800 space-y-2">
               <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <Star className="h-5 w-5 text-rose-500 flex-shrink-0 mt-0.5" />
                 <span className="font-medium">Events & tickets within YOUR area</span>
               </li>
               <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <Star className="h-5 w-5 text-rose-500 flex-shrink-0 mt-0.5" />
                 <span className="font-medium">Shop local musician merchandise</span>
               </li>
               <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <Star className="h-5 w-5 text-rose-500 flex-shrink-0 mt-0.5" />
                 <span className="font-medium">No hidden fees or markups</span>
               </li>
               <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <Star className="h-5 w-5 text-rose-500 flex-shrink-0 mt-0.5" />
                 <span className="font-medium">Personalized recommendations</span>
               </li>
             </ul>
@@ -398,7 +398,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           </div>
 
           <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
-            <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <div className="bg-orange-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
               <Music className="h-8 w-8 text-gigmate-blue" />
             </div>
             <h3 className="text-2xl font-bold text-gigmate-blue mb-3">For Musicians</h3>
@@ -407,15 +407,15 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </p>
             <ul className="text-left text-sm text-gray-700 space-y-2">
               <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <Star className="h-5 w-5 text-rose-500 flex-shrink-0 mt-0.5" />
                 <span>Build professional profile with videos</span>
               </li>
               <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <Star className="h-5 w-5 text-rose-500 flex-shrink-0 mt-0.5" />
                 <span>Direct booking with venues</span>
               </li>
               <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <Star className="h-5 w-5 text-rose-500 flex-shrink-0 mt-0.5" />
                 <span>Secure escrow payments</span>
               </li>
             </ul>
@@ -437,15 +437,15 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </p>
             <ul className="text-left text-sm text-gray-700 space-y-2">
               <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <Star className="h-5 w-5 text-rose-500 flex-shrink-0 mt-0.5" />
                 <span>Search musicians by genre & location</span>
               </li>
               <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <Star className="h-5 w-5 text-rose-500 flex-shrink-0 mt-0.5" />
                 <span>Built-in event ticketing</span>
               </li>
               <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <Star className="h-5 w-5 text-rose-500 flex-shrink-0 mt-0.5" />
                 <span>Digital contracts & agreements</span>
               </li>
             </ul>
@@ -467,15 +467,15 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </p>
             <ul className="text-left text-sm text-gray-700 space-y-2">
               <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <Star className="h-5 w-5 text-rose-500 flex-shrink-0 mt-0.5" />
                 <span>Real-time platform analytics</span>
               </li>
               <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <Star className="h-5 w-5 text-rose-500 flex-shrink-0 mt-0.5" />
                 <span>Revenue & growth metrics</span>
               </li>
               <li className="flex items-start gap-2">
-                <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <Star className="h-5 w-5 text-rose-500 flex-shrink-0 mt-0.5" />
                 <span>Market insights & KPIs</span>
               </li>
             </ul>
@@ -495,7 +495,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="flex gap-4">
-              <div className="bg-blue-100 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
+              <div className="bg-orange-100 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
                 <DollarSign className="h-6 w-6 text-gigmate-blue" />
               </div>
               <div>
@@ -507,7 +507,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </div>
 
             <div className="flex gap-4">
-              <div className="bg-blue-100 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
+              <div className="bg-orange-100 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
                 <Star className="h-6 w-6 text-gigmate-blue" />
               </div>
               <div>
@@ -519,7 +519,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </div>
 
             <div className="flex gap-4">
-              <div className="bg-blue-100 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
+              <div className="bg-orange-100 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
                 <Music className="h-6 w-6 text-gigmate-blue" />
               </div>
               <div>
@@ -531,7 +531,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </div>
 
             <div className="flex gap-4">
-              <div className="bg-blue-100 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
+              <div className="bg-orange-100 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
                 <Calendar className="h-6 w-6 text-gigmate-blue" />
               </div>
               <div>

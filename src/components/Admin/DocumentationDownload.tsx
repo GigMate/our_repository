@@ -240,8 +240,8 @@ export default function DocumentationDownload() {
             const colorClasses = {
               purple: { bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-900', hover: 'hover:bg-purple-100', button: 'bg-purple-600 hover:bg-purple-700' },
               green: { bg: 'bg-green-50', border: 'border-green-200', text: 'text-green-900', hover: 'hover:bg-green-100', button: 'bg-green-600 hover:bg-green-700' },
-              blue: { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-900', hover: 'hover:bg-blue-100', button: 'bg-blue-600 hover:bg-blue-700' },
-              yellow: { bg: 'bg-yellow-50', border: 'border-yellow-200', text: 'text-yellow-900', hover: 'hover:bg-yellow-100', button: 'bg-yellow-600 hover:bg-yellow-700' }
+              blue: { bg: 'bg-orange-50', border: 'border-blue-200', text: 'text-blue-900', hover: 'hover:bg-orange-100', button: 'bg-blue-600 hover:bg-blue-700' },
+              yellow: { bg: 'bg-rose-50', border: 'border-yellow-200', text: 'text-yellow-900', hover: 'hover:bg-rose-100', button: 'bg-yellow-600 hover:bg-yellow-700' }
             }[category.color] || { bg: 'bg-gray-50', border: 'border-gray-200', text: 'text-gray-900', hover: 'hover:bg-gray-100', button: 'bg-gray-600 hover:bg-gray-700' };
 
             return (
@@ -316,7 +316,7 @@ export default function DocumentationDownload() {
             </a>
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+          <div className="bg-orange-50 border border-blue-200 rounded-lg p-6 mb-6">
             <h3 className="font-semibold text-blue-900 mb-3">
               💡 How to Use These Files:
             </h3>

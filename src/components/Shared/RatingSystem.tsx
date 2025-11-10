@@ -290,7 +290,7 @@ export function RatingSystem({
           </h3>
 
           {quotaRemaining !== null && userProfile?.fan_subscription_tier === 'free' && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
+            <div className="bg-orange-50 border border-blue-200 rounded-lg p-3 mb-4">
               <p className="text-sm text-blue-800">
                 {quotaRemaining} free rating{quotaRemaining !== 1 ? 's' : ''} remaining this month
               </p>
@@ -380,7 +380,7 @@ export function RatingSystem({
                   {new Date(rating.created_at).toLocaleDateString()}
                 </p>
                 {rating.response && (
-                  <div className="mt-3 bg-gray-50 rounded-lg p-3 border-l-4 border-blue-500">
+                  <div className="mt-3 bg-gray-50 rounded-lg p-3 border-l-4 border-orange-500">
                     <p className="text-xs font-semibold text-gray-700 mb-1">Response from {ratedUserType}:</p>
                     <p className="text-sm text-gray-700">{rating.response}</p>
                   </div>

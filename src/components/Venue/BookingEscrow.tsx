@@ -37,8 +37,8 @@ export default function BookingEscrow({ booking, isVenue, onUpdate }: BookingEsc
   const [ratingComment, setRatingComment] = useState('');
 
   const statusConfig = {
-    pending: { icon: Clock, color: 'text-yellow-600', bg: 'bg-yellow-50', label: 'Pending Acceptance' },
-    accepted: { icon: Clock, color: 'text-blue-600', bg: 'bg-blue-50', label: 'Payment Pending' },
+    pending: { icon: Clock, color: 'text-yellow-600', bg: 'bg-rose-50', label: 'Pending Acceptance' },
+    accepted: { icon: Clock, color: 'text-blue-600', bg: 'bg-orange-50', label: 'Payment Pending' },
     escrowed: { icon: Shield, color: 'text-purple-600', bg: 'bg-purple-50', label: 'In Escrow' },
     completed: { icon: CheckCircle, color: 'text-green-600', bg: 'bg-green-50', label: 'Completed' },
     disputed: { icon: AlertCircle, color: 'text-red-600', bg: 'bg-red-50', label: 'Disputed' },
@@ -119,7 +119,7 @@ export default function BookingEscrow({ booking, isVenue, onUpdate }: BookingEsc
 
       {booking.status === 'escrowed' && (
         <div className="space-y-4">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div className="bg-orange-50 border border-blue-200 rounded-lg p-4">
             <div className="flex items-start space-x-3">
               <Shield className="h-5 w-5 text-blue-600 mt-0.5" />
               <div className="flex-1">
@@ -138,7 +138,7 @@ export default function BookingEscrow({ booking, isVenue, onUpdate }: BookingEsc
               booking.venue_rating ? 'bg-green-50 border-2 border-green-300' : 'bg-gray-50 border border-gray-200'
             }`}>
               <div className="flex items-center space-x-2 mb-1">
-                {booking.venue_rating && <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />}
+                {booking.venue_rating && <Star className="h-4 w-4 text-rose-500 fill-yellow-500" />}
                 <span className="text-xs font-semibold text-gray-700">Venue Rating</span>
               </div>
               <p className="text-xs text-gray-600">
@@ -150,7 +150,7 @@ export default function BookingEscrow({ booking, isVenue, onUpdate }: BookingEsc
               booking.musician_rating ? 'bg-green-50 border-2 border-green-300' : 'bg-gray-50 border border-gray-200'
             }`}>
               <div className="flex items-center space-x-2 mb-1">
-                {booking.musician_rating && <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />}
+                {booking.musician_rating && <Star className="h-4 w-4 text-rose-500 fill-yellow-500" />}
                 <span className="text-xs font-semibold text-gray-700">Musician Rating</span>
               </div>
               <p className="text-xs text-gray-600">
@@ -170,7 +170,7 @@ export default function BookingEscrow({ booking, isVenue, onUpdate }: BookingEsc
           )}
 
           {hasRated && !otherPartyRated && (
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-center">
+            <div className="bg-rose-50 border border-yellow-200 rounded-lg p-4 text-center">
               <p className="text-sm text-yellow-800">
                 You've rated {isVenue ? 'the musician' : 'the venue'}. Waiting for their rating...
               </p>
@@ -198,7 +198,7 @@ export default function BookingEscrow({ booking, isVenue, onUpdate }: BookingEsc
                         <Star
                           className={`h-10 w-10 ${
                             star <= rating
-                              ? 'text-yellow-500 fill-yellow-500'
+                              ? 'text-rose-500 fill-yellow-500'
                               : 'text-gray-300'
                           }`}
                         />

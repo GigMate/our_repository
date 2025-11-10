@@ -218,7 +218,7 @@ export default function InvestorApprovalPanel() {
         );
       default:
         return (
-          <span className="inline-flex items-center gap-1 px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">
+          <span className="inline-flex items-center gap-1 px-3 py-1 bg-rose-100 text-yellow-800 rounded-full text-sm font-medium">
             <Clock className="w-4 h-4" />
             Pending
           </span>

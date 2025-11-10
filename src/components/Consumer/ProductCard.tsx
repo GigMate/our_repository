@@ -55,7 +55,7 @@ export function ProductCard({ product, onPurchase }: ProductCardProps) {
       <div className="p-5">
         {!hasMedia && (
           <div className="flex items-center justify-between mb-3">
-            <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-medium">
+            <span className="bg-orange-100 text-blue-700 px-3 py-1 rounded-full text-xs font-medium">
               {product.category}
             </span>
             <span className="text-2xl font-bold text-gray-800">

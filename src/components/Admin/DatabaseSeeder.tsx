@@ -82,7 +82,7 @@ export default function DatabaseSeeder() {
           </p>
         </div>
 
-        <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+        <div className="mb-6 p-4 bg-orange-50 border border-blue-200 rounded-lg">
           <h3 className="font-semibold text-blue-900 mb-2">What will be created:</h3>
           <ul className="text-sm text-blue-800 space-y-1">
             <li>• 100 Musicians with availability slots (25% bronze, 25% silver, 50% gold)</li>

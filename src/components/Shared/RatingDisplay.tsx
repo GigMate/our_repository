@@ -97,7 +97,7 @@ export default function RatingDisplay({ userId, userName }: RatingDisplayProps) 
     <div className="bg-white rounded-lg shadow-md p-6">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-2">
-          <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
+          <Star className="h-5 w-5 text-rose-500 fill-yellow-500" />
           <h3 className="font-semibold text-gray-900">Ratings for {userName}</h3>
         </div>
         {profile?.tier_level && (
@@ -105,7 +105,7 @@ export default function RatingDisplay({ userId, userName }: RatingDisplayProps) 
             profile.tier_level === 'platinum'
               ? 'bg-purple-100 text-purple-700'
               : profile.tier_level === 'gold'
-              ? 'bg-yellow-100 text-yellow-700'
+              ? 'bg-rose-100 text-yellow-700'
               : 'bg-gray-100 text-gray-700'
           }`}>
             {profile.tier_level.toUpperCase()} TIER
@@ -127,7 +127,7 @@ export default function RatingDisplay({ userId, userName }: RatingDisplayProps) 
                         key={star}
                         className={`h-4 w-4 ${
                           star <= rating.rating
-                            ? 'text-yellow-500 fill-yellow-500'
+                            ? 'text-rose-500 fill-yellow-500'
                             : 'text-gray-300'
                         }`}
                       />
@@ -145,7 +145,7 @@ export default function RatingDisplay({ userId, userName }: RatingDisplayProps) 
                 <p className="text-sm text-gray-700 mt-2">{rating.comment}</p>
               )}
               {rating.transaction_type && (
-                <span className="inline-block mt-2 px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded">
+                <span className="inline-block mt-2 px-2 py-1 bg-orange-50 text-blue-700 text-xs rounded">
                   {rating.transaction_type}
                 </span>
               )}

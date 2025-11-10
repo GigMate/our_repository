@@ -103,7 +103,7 @@ export function RecommendationFeed() {
 
   const getRecommendationColor = (confidence: number) => {
     if (confidence >= 0.8) return 'bg-green-50 border-green-200';
-    if (confidence >= 0.6) return 'bg-blue-50 border-blue-200';
+    if (confidence >= 0.6) return 'bg-orange-50 border-blue-200';
     return 'bg-gray-50 border-gray-200';
   };
 

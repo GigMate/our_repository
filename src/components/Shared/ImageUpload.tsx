@@ -192,7 +192,7 @@ export default function ImageUpload({ entityType, entityId, onUploadComplete }: 
                   className="w-full h-32 object-cover rounded-lg"
                 />
                 {image.is_primary && (
-                  <div className="absolute top-2 left-2 bg-yellow-500 text-white p-1 rounded-full">
+                  <div className="absolute top-2 left-2 bg-rose-500 text-white p-1 rounded-full">
                     <Star className="w-4 h-4 fill-current" />
                   </div>
                 )}
@@ -200,7 +200,7 @@ export default function ImageUpload({ entityType, entityId, onUploadComplete }: 
                   {!image.is_primary && (
                     <button
                       onClick={() => setPrimaryImage(image.id)}
-                      className="bg-yellow-500 text-white p-2 rounded-full hover:bg-yellow-600"
+                      className="bg-rose-500 text-white p-2 rounded-full hover:bg-yellow-600"
                       title="Set as primary"
                     >
                       <Star className="w-4 h-4" />
