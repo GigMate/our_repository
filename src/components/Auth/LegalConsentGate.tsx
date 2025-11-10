@@ -261,15 +261,7 @@ export default function LegalConsentGate({ children }: LegalConsentGateProps) {
   }
 
   if (!hasCompliance && pendingDocuments.length === 0) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="text-center">
-          <AlertCircle className="w-16 h-16 text-red-600 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Setup Required</h2>
-          <p className="text-gray-600">Legal documents need to be configured by an administrator.</p>
-        </div>
-      </div>
-    );
+    setHasCompliance(true);
   }
 
   return <>{children}</>;
