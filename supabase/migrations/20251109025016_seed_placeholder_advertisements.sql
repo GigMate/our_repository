@@ -146,30 +146,30 @@ VALUES
   now() + interval '90 days'
 ),
 
--- Ticketing & Promotion
-(
-  'Eventbrite',
-  'standard',
-  'Sell More Tickets. Grow Your Event.',
-  'Powerful ticketing platform for venues and promoters. Easy setup, secure payments.',
-  'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg',
-  'https://www.eventbrite.com',
-  'venue_dashboard',
-  true,
-  now(),
-  now() + interval '90 days'
-),
+-- Music Promotion & Discovery
 (
   'BandsInTown',
   'standard',
   'Connect With Fans on Tour',
-  'Get discovered by millions of music fans. Track RSVPs and sell tickets directly.',
+  'Get discovered by millions of music fans. Track RSVPs and grow your audience.',
   'https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg',
   'https://www.bandsintown.com',
   'musician_dashboard',
   true,
   now(),
   now() + interval '60 days'
+),
+(
+  'ReverbNation',
+  'standard',
+  'Tools to Grow Your Music Career',
+  'Build your fanbase, book more gigs, and get discovered by industry professionals.',
+  'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg',
+  'https://www.reverbnation.com',
+  'musician_dashboard',
+  true,
+  now(),
+  now() + interval '90 days'
 ),
 
 -- Local Texas Businesses
