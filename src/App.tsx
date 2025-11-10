@@ -146,6 +146,7 @@ function AppContent() {
             onVenueClick={() => { setAuthPage('venue'); setShowHome(false); }}
             onFanClick={() => { setAuthPage('fan'); setShowHome(false); }}
             onInvestorClick={() => { setAuthPage('investor'); setShowHome(false); }}
+            onLogin={() => { setShowHome(false); setShowLogin(true); }}
           />
         </div>
       );

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Music, Users, Calendar, DollarSign, Star, ArrowRight, ChevronLeft, ChevronRight, TrendingUp, MapPin, Clock, Ticket, Lock } from 'lucide-react';
+import { Music, Users, Calendar, DollarSign, Star, ArrowRight, ChevronLeft, ChevronRight, TrendingUp, MapPin, Clock, Ticket, Lock, LogIn } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useGeolocation } from '../../hooks/useGeolocation';
 import { useAuth } from '../../contexts/AuthContext';
@@ -10,6 +10,7 @@ interface HomePageProps {
   onVenueClick?: () => void;
   onFanClick?: () => void;
   onInvestorClick?: () => void;
+  onLogin?: () => void;
 }
 
 interface FeaturedEvent {
@@ -35,7 +36,7 @@ const VENUE_IMAGES = [
   'https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg',
 ];
 
-export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, onFanClick, onInvestorClick }: HomePageProps) {
+export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, onFanClick, onInvestorClick, onLogin }: HomePageProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [featuredEvent, setFeaturedEvent] = useState<FeaturedEvent | null>(null);
   const [loadingEvent, setLoadingEvent] = useState(false);
@@ -163,13 +164,24 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             <p className="text-xl md:text-2xl text-white mb-6 max-w-3xl mx-auto drop-shadow-md">
               Where fans discover live music, shop local, and support the artists they love
             </p>
-            <button
-              onClick={onGetStarted}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gigmate-red text-white text-lg font-semibold rounded-lg hover:bg-gigmate-red-dark transition-all transform hover:scale-105 shadow-2xl mb-16"
-            >
-              Get Started
-              <ArrowRight className="h-6 w-6" />
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+              <button
+                onClick={onGetStarted}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gigmate-red text-white text-lg font-semibold rounded-lg hover:bg-gigmate-red-dark transition-all transform hover:scale-105 shadow-2xl"
+              >
+                Get Started
+                <ArrowRight className="h-6 w-6" />
+              </button>
+              {onLogin && (
+                <button
+                  onClick={onLogin}
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-gigmate-blue text-lg font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-2xl"
+                >
+                  <LogIn className="h-6 w-6" />
+                  Login
+                </button>
+              )}
+            </div>
           </div>
         </div>
 
