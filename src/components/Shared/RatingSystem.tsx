@@ -248,9 +248,9 @@ export function RatingSystem({
                     <li>✓ Access analytics</li>
                   </ul>
                 </div>
-                <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-lg p-4 border-2 border-purple-400">
-                  <h4 className="font-bold text-purple-900 mb-2">VIP - $9.99/mo</h4>
-                  <ul className="space-y-2 text-sm text-gray-700">
+                <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg p-4 border-2 border-purple-400">
+                  <h4 className="font-bold text-white mb-2">VIP - $9.99/mo</h4>
+                  <ul className="space-y-2 text-sm text-white">
                     <li>✓ All Premium features</li>
                     <li>✓ Early event access</li>
                     <li>✓ Priority support</li>
@@ -259,7 +259,7 @@ export function RatingSystem({
                   </ul>
                 </div>
               </div>
-              <button className="w-full mt-4 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+              <button className="w-full mt-4 bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
                 Upgrade Now
               </button>
             </div>

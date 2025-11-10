@@ -70,8 +70,8 @@ export default function AdBanner({ tier, placement, className = '' }: AdBannerPr
   if (!ad) return null;
 
   const tierStyles = {
-    premium: 'bg-gradient-to-r from-yellow-50 to-yellow-100 border-yellow-700',
-    standard: 'bg-gradient-to-r from-blue-50 to-blue-100 border-blue-700',
+    premium: 'bg-gradient-to-r from-orange-600 to-red-600 border-orange-500',
+    standard: 'bg-gradient-to-r from-gray-700 to-gray-600 border-gray-500',
     basic: 'bg-gradient-to-r from-gray-50 to-gray-100 border-gray-300',
   };
 
@@ -88,7 +88,7 @@ export default function AdBanner({ tier, placement, className = '' }: AdBannerPr
       <div className="flex items-start justify-between mb-2">
         <div className="flex-1">
           <div className="flex items-center space-x-2 mb-1">
-            <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-white/70 uppercase tracking-wider">
               Sponsored
             </span>
             {tier === 'premium' && (
@@ -97,9 +97,9 @@ export default function AdBanner({ tier, placement, className = '' }: AdBannerPr
               </span>
             )}
           </div>
-          <h3 className="font-bold text-gray-900 text-lg mb-1">{ad.title}</h3>
+          <h3 className="font-bold text-white text-lg mb-1">{ad.title}</h3>
           {ad.description && (
-            <p className="text-gray-700 text-sm mb-3">{ad.description}</p>
+            <p className="text-white/90 text-sm mb-3">{ad.description}</p>
           )}
         </div>
         {ad.image_url && tier !== 'basic' && (

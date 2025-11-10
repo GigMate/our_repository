@@ -295,18 +295,18 @@ interface StatCardProps {
 
 function StatCard({ icon: Icon, label, value, subtext, color }: StatCardProps) {
   const colorClasses = {
-    yellow: 'from-yellow-50 to-yellow-100 border-yellow-700 text-yellow-700',
-    green: 'from-green-50 to-green-100 border-green-300 text-green-700',
-    blue: 'from-blue-50 to-blue-100 border-blue-700 text-blue-700',
-    purple: 'from-purple-50 to-purple-100 border-purple-300 text-purple-700',
+    yellow: 'from-orange-600 to-red-600 border-orange-500 text-white',
+    green: 'from-green-600 to-green-700 border-green-500 text-white',
+    blue: 'from-gray-700 to-gray-800 border-gray-600 text-white',
+    purple: 'from-purple-600 to-purple-700 border-purple-500 text-white',
   };
 
   return (
     <div className={`bg-gradient-to-br ${colorClasses[color]} border-2 rounded-lg p-6`}>
       <Icon className="h-8 w-8 mb-3" />
-      <p className="text-sm font-medium text-gray-700 mb-1">{label}</p>
-      <p className="text-3xl font-bold text-gray-900 mb-1">{value}</p>
-      <p className="text-xs text-gray-600">{subtext}</p>
+      <p className="text-sm font-medium text-white/90 mb-1">{label}</p>
+      <p className="text-3xl font-bold text-white mb-1">{value}</p>
+      <p className="text-xs text-white/80">{subtext}</p>
     </div>
   );
 }
