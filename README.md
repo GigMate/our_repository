@@ -63,7 +63,7 @@ npm run build
 
 ## Features
 
-- User authentication for Musicians, Venues, Fans, Consumers, and Investors
+- User authentication for Musicians, Venues, Fans, and Investors
 - Booking and escrow system
 - Ticketing with QR codes
 - Event management

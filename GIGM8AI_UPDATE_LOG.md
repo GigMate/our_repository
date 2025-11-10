@@ -1058,7 +1058,7 @@ Fans sign fan terms, musicians sign artist terms, venues sign venue terms. Every
 - Musicians: 4 documents
 - Venues: 4 documents
 - Merch Vendors: 5 documents
-- Consumers: 3 documents
+- Fans: 3 documents
 
 **Document Signing Order:**
 Always presented in this order:
@@ -1121,7 +1121,7 @@ useEffect(() => {
 **✅ Venues:** MapSearch auto-loads (NEW)
 **✅ Fans:** Already had auto-load via useGeolocation hook
 **N/A Investors:** No map view
-**N/A Consumers:** No map view
+**N/A Fans:** No map view
 
 ### Benefits
 

@@ -9,7 +9,7 @@ import EventCard from './EventCard';
 import TicketPurchaseModal from './TicketPurchaseModal';
 import AdBanner from '../Shared/AdBanner';
 import VenueDetailView from '../Shared/VenueDetailView';
-import { ProductCard } from '../Consumer/ProductCard';
+import { ProductCard } from '../Shared/ProductCard';
 import GoogleMap from '../Shared/GoogleMap';
 
 interface Venue {

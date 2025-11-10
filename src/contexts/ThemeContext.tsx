@@ -60,16 +60,6 @@ const themeByUserType: Record<string, ThemeColors> = {
     buttonBg: 'bg-orange-600',
     buttonHover: 'hover:bg-orange-700',
   },
-  consumer: {
-    primary: 'rgb(234, 88, 12)',
-    primaryHover: 'rgb(194, 65, 12)',
-    secondary: 'rgb(251, 146, 60)',
-    gradient: 'from-orange-600 to-amber-600',
-    lightGradient: 'from-orange-50 to-amber-50',
-    headerBg: 'bg-orange-600',
-    buttonBg: 'bg-orange-600',
-    buttonHover: 'hover:bg-orange-700',
-  },
   default: {
     primary: 'rgb(37, 99, 235)',
     primaryHover: 'rgb(29, 78, 216)',
