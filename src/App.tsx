@@ -18,8 +18,11 @@ import DatabaseSeeder from './components/Admin/DatabaseSeeder';
 import DocumentationDownload from './components/Admin/DocumentationDownload';
 import LegalDocumentManager from './components/Admin/LegalDocumentManager';
 import InvestorApprovalPanel from './components/Admin/InvestorApprovalPanel';
+import BetaInvitationManager from './components/Admin/BetaInvitationManager';
 import AIDashboard from './components/AI/AIDashboard';
 import HomePage from './components/Home/HomePage';
+import BetaRegistrationPage from './components/Auth/BetaRegistrationPage';
+import OnboardingTour from './components/Auth/OnboardingTour';
 import LegalConsentGate from './components/Auth/LegalConsentGate';
 import ErrorBoundary from './components/Shared/ErrorBoundary';
 
@@ -34,12 +37,17 @@ function AppContent() {
   const [showDocs, setShowDocs] = useState(false);
   const [showLegalManager, setShowLegalManager] = useState(false);
   const [showInvestorApproval, setShowInvestorApproval] = useState(false);
+  const [showBetaInvitations, setShowBetaInvitations] = useState(false);
+  const [showBetaRegistration, setShowBetaRegistration] = useState(false);
+  const [showOnboarding, setShowOnboarding] = useState(false);
   const [showAIDashboard, setShowAIDashboard] = useState(false);
   const [showHome, setShowHome] = useState(true);
   const [authPage, setAuthPage] = useState<AuthPage>(null);
 
   useEffect(() => {
     const path = window.location.pathname;
+    const searchParams = new URLSearchParams(window.location.search);
+
     if (path === '/admin/seed') {
       setShowSeeder(true);
     } else if (path === '/reset-password') {
@@ -50,6 +58,13 @@ function AppContent() {
       setShowLegalManager(true);
     } else if (path === '/admin/investors') {
       setShowInvestorApproval(true);
+    } else if (path === '/admin/beta' || path === '/admin/beta-invitations') {
+      setShowBetaInvitations(true);
+    } else if (path === '/beta/register' && searchParams.has('code')) {
+      setShowBetaRegistration(true);
+      setShowHome(false);
+    } else if (path === '/onboarding') {
+      setShowOnboarding(true);
     } else if (path === '/ai' || path === '/ai/dashboard') {
       setShowAIDashboard(true);
     }
@@ -77,6 +92,22 @@ function AppContent() {
         <InvestorApprovalPanel />
       </div>
     );
+  }
+
+  if (showBetaInvitations) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <BetaInvitationManager />
+      </div>
+    );
+  }
+
+  if (showBetaRegistration) {
+    return <BetaRegistrationPage />;
+  }
+
+  if (showOnboarding) {
+    return <OnboardingTour />;
   }
 
   if (showAIDashboard) {

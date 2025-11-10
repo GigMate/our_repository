@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
 import { CheckCircle, AlertCircle, Mail, Lock, User, Music } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
 export default function BetaRegistrationPage() {
-  const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
+  const searchParams = new URLSearchParams(window.location.search);
   const inviteCode = searchParams.get('code');
 
   const [loading, setLoading] = useState(true);
@@ -105,7 +103,7 @@ export default function BetaRegistrationPage() {
 
       if (inviteError) throw inviteError;
 
-      navigate('/onboarding');
+      window.location.href = '/onboarding';
     } catch (err: any) {
       setError(err.message);
       setLoading(false);
@@ -131,7 +129,7 @@ export default function BetaRegistrationPage() {
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Invalid Invitation</h1>
           <p className="text-gray-600 mb-6">{error}</p>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => window.location.href = '/'}
             className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
           >
             Go to Homepage

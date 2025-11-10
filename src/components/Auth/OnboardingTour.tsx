@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   Music, MapPin, Calendar, DollarSign, Star, Users,
   ArrowRight, Check, Shield, Ticket, MessageSquare
@@ -16,7 +15,6 @@ interface TourStep {
 
 export default function OnboardingTour() {
   const { user } = useAuth();
-  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [completing, setCompleting] = useState(false);
 
@@ -140,7 +138,7 @@ export default function OnboardingTour() {
         p_user_id: user.id
       });
 
-      navigate('/dashboard');
+      window.location.href = '/dashboard';
     } catch (error) {
       console.error('Error completing tour:', error);
       setCompleting(false);
@@ -148,7 +146,7 @@ export default function OnboardingTour() {
   }
 
   function handleSkip() {
-    navigate('/dashboard');
+    window.location.href = '/dashboard';
   }
 
   return (
