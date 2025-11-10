@@ -1,4 +1,5 @@
 import { useAuth } from '../../contexts/AuthContext';
+import { useTheme } from '../../contexts/ThemeContext';
 import { Database, FileDown, Home } from 'lucide-react';
 import VenueSpotlight from '../Shared/VenueSpotlight';
 
@@ -8,9 +9,10 @@ interface HeaderProps {
 
 export default function Header({ onLogoClick }: HeaderProps) {
   const { profile, signOut } = useAuth();
+  const { colors } = useTheme();
 
   return (
-    <header className="bg-gigmate-blue shadow-sm">
+    <header className={`${colors.headerBg} shadow-sm`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <button
@@ -35,7 +37,7 @@ export default function Header({ onLogoClick }: HeaderProps) {
             </button>
             <a
               href="/admin/seed"
-              className="flex items-center space-x-2 px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors font-medium text-sm"
+              className={`flex items-center space-x-2 px-3 py-2 ${colors.buttonBg} text-white rounded-md ${colors.buttonHover} transition-colors font-medium text-sm opacity-90`}
             >
               <Database className="h-4 w-4" />
               <span className="hidden sm:inline">Seed Data</span>
@@ -44,7 +46,7 @@ export default function Header({ onLogoClick }: HeaderProps) {
               <>
                 <a
                   href="/download"
-                  className="flex items-center space-x-2 px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors font-medium text-sm"
+                  className={`flex items-center space-x-2 px-3 py-2 ${colors.buttonBg} text-white rounded-md ${colors.buttonHover} transition-colors font-medium text-sm opacity-90`}
                 >
                   <FileDown className="h-4 w-4" />
                   <span className="hidden sm:inline">Docs</span>

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { TrendingUp, Users, DollarSign, Calendar, BarChart3, PieChart, Activity } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../lib/supabase';
+import { useTheme } from '../../contexts/ThemeContext';
 
 interface PlatformStats {
   totalUsers: number;
@@ -18,6 +19,7 @@ interface PlatformStats {
 
 export default function InvestorDashboard() {
   const { profile } = useAuth();
+  const { colors } = useTheme();
   const [stats, setStats] = useState<PlatformStats | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -75,7 +77,7 @@ export default function InvestorDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-amber-50">
+    <div className={`min-h-screen bg-gradient-to-br ${colors.lightGradient}`}>
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-orange-700 mb-2">

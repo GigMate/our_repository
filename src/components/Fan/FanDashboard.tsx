@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Search, Music, MapPin, Calendar, ShoppingBag, TrendingUp, Map as MapIcon, List } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useGeolocation } from '../../hooks/useGeolocation';
+import { useTheme } from '../../contexts/ThemeContext';
 import VenueCard from './VenueCard';
 import MusicianCard from './MusicianCard';
 import EventCard from './EventCard';
@@ -74,6 +75,7 @@ interface Product {
 
 export default function FanDashboard() {
   const { latitude, longitude } = useGeolocation();
+  const { colors } = useTheme();
   const [searchType, setSearchType] = useState<'events' | 'venues' | 'musicians' | 'products'>('events');
   const [viewMode, setViewMode] = useState<'grid' | 'map'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
@@ -207,7 +209,7 @@ export default function FanDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
+    <div className={`min-h-screen bg-gradient-to-br ${colors.lightGradient}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-green-700 mb-2">Discover Local Music</h1>
@@ -262,7 +264,7 @@ export default function FanDashboard() {
               onClick={() => setSearchType('products')}
               className={`flex items-center space-x-2 px-4 py-2 rounded-md font-medium transition-colors ${
                 searchType === 'products'
-                  ? 'bg-green-600 text-white'
+                  ? `${colors.buttonBg} text-white`
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >

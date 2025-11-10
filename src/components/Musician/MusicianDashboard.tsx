@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Search, MapPin, Map, Settings, Gift } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
+import { useTheme } from '../../contexts/ThemeContext';
 import VenueCard from '../Fan/VenueCard';
 import AdBanner from '../Shared/AdBanner';
 import { MapSearch } from '../Shared/MapSearch';
@@ -25,6 +26,7 @@ interface Venue {
 
 export default function MusicianDashboard() {
   const { profile } = useAuth();
+  const { colors } = useTheme();
   const [searchQuery, setSearchQuery] = useState('');
   const [genreFilter, setGenreFilter] = useState('');
   const [venues, setVenues] = useState<Venue[]>([]);
@@ -120,7 +122,7 @@ export default function MusicianDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+    <div className={`min-h-screen bg-gradient-to-br ${colors.lightGradient}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8 flex items-center justify-between">
           <div>
