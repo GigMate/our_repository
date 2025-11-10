@@ -120,12 +120,13 @@ export default function MusicianDashboard() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="mb-8 flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-gigmate-blue mb-2">Find Venues to Play</h1>
-          <p className="text-gray-600">Discover venues looking for talented musicians</p>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-gigmate-blue mb-2">Find Venues to Play</h1>
+            <p className="text-gray-700">Discover venues looking for talented musicians</p>
+          </div>
         <div className="flex gap-2">
           <button
             onClick={() => setShowReferrals(true)}
@@ -264,6 +265,7 @@ export default function MusicianDashboard() {
           )}
         </>
       )}
+      </div>
     </div>
   );
 }

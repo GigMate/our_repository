@@ -75,13 +75,14 @@ export default function InvestorDashboard() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          Welcome, {profile?.full_name || 'Investor'}
-        </h1>
-        <p className="text-gray-600">GigMate Platform Analytics & Insights</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-amber-50">
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-orange-700 mb-2">
+            Welcome, {profile?.full_name || 'Investor'}
+          </h1>
+          <p className="text-gray-700">GigMate Platform Analytics & Insights</p>
+        </div>
 
       <div className="grid md:grid-cols-4 gap-6 mb-8">
         <div className="bg-white rounded-lg shadow p-6">
@@ -230,6 +231,7 @@ export default function InvestorDashboard() {
             <p className="text-xs text-gray-500 mt-1">Based on activity & engagement</p>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
