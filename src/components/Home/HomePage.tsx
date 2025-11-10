@@ -398,7 +398,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           </div>
 
           <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
-            <div className="bg-gray-700 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <div className="bg-gradient-to-br from-gigmate-blue to-blue-700 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center shadow-lg">
               <Music className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-gigmate-blue mb-3">For Musicians</h3>
@@ -428,8 +428,8 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           </div>
 
           <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
-            <div className="bg-purple-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-              <Users className="h-8 w-8 text-purple-600" />
+            <div className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center shadow-lg">
+              <Users className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-purple-600 mb-3">For Venues</h3>
             <p className="text-gray-600 mb-4">
@@ -458,8 +458,8 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           </div>
 
           <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
-            <div className="bg-gray-700 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-              <TrendingUp className="h-8 w-8 text-orange-600" />
+            <div className="bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center shadow-lg">
+              <TrendingUp className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-orange-600 mb-3">For Investors</h3>
             <p className="text-gray-600 mb-4">
