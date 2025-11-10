@@ -505,6 +505,9 @@ export async function seedDatabase() {
       }
     }
 
+    console.log('Running weekly platform refresh...');
+    await supabase.rpc('weekly_platform_refresh');
+
     console.log('Database seeding completed!');
     console.log('\nLogin format: lastname.musician#@gigmate.us');
     console.log('Password: password123');
