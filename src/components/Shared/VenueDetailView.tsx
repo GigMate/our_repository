@@ -173,7 +173,7 @@ export default function VenueDetailView({ venueId, onBack }: VenueDetailViewProp
                 {venue.amenities.map((amenity, index) => (
                   <span
                     key={index}
-                    className="px-4 py-2 bg-gray-800 text-blue-700 rounded-lg font-medium"
+                    className="px-4 py-2 bg-gray-800 text-white rounded-lg font-medium"
                   >
                     {amenity}
                   </span>

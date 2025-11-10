@@ -145,7 +145,7 @@ export default function RatingDisplay({ userId, userName }: RatingDisplayProps) 
                 <p className="text-sm text-gray-700 mt-2">{rating.comment}</p>
               )}
               {rating.transaction_type && (
-                <span className="inline-block mt-2 px-2 py-1 bg-gray-800 text-blue-700 text-xs rounded">
+                <span className="inline-block mt-2 px-2 py-1 bg-gray-800 text-white text-xs rounded">
                   {rating.transaction_type}
                 </span>
               )}
