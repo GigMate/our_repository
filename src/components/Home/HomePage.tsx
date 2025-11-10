@@ -399,7 +399,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
           <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
             <div className="bg-gray-700 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-              <Music className="h-8 w-8 text-gigmate-blue" />
+              <Music className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-gigmate-blue mb-3">For Musicians</h3>
             <p className="text-gray-600 mb-4">
