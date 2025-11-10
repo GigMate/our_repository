@@ -48,7 +48,7 @@ export default function RoleSelectionPage({ onRoleSelect, onBack }: RoleSelectio
             className="bg-white rounded-xl shadow-xl p-8 text-center transform hover:scale-105 transition-all group"
           >
             <div className="bg-gray-700 rounded-full p-4 w-20 h-20 mx-auto mb-4 flex items-center justify-center group-hover:bg-gray-600 transition-colors">
-              <Music className="h-10 w-10 text-gigmate-blue" />
+              <Music className="h-10 w-10 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-gigmate-blue mb-3">I'm a Musician</h3>
             <p className="text-gray-600 text-sm mb-4">
