@@ -496,7 +496,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="flex gap-4">
               <div className="bg-gray-700 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
-                <DollarSign className="h-6 w-6 text-gigmate-blue" />
+                <DollarSign className="h-6 w-6 text-white" />
               </div>
               <div>
                 <h3 className="font-bold text-lg text-gray-900 mb-2">Fair Pricing</h3>
@@ -508,7 +508,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
             <div className="flex gap-4">
               <div className="bg-gray-700 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
-                <Star className="h-6 w-6 text-gigmate-blue" />
+                <Star className="h-6 w-6 text-white" />
               </div>
               <div>
                 <h3 className="font-bold text-lg text-gray-900 mb-2">Trust & Safety</h3>
@@ -520,7 +520,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
             <div className="flex gap-4">
               <div className="bg-gray-700 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
-                <Music className="h-6 w-6 text-gigmate-blue" />
+                <Music className="h-6 w-6 text-white" />
               </div>
               <div>
                 <h3 className="font-bold text-lg text-gray-900 mb-2">Music-Focused</h3>
@@ -532,7 +532,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
             <div className="flex gap-4">
               <div className="bg-gray-700 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
-                <Calendar className="h-6 w-6 text-gigmate-blue" />
+                <Calendar className="h-6 w-6 text-white" />
               </div>
               <div>
                 <h3 className="font-bold text-lg text-gray-900 mb-2">We Handle Everything</h3>
