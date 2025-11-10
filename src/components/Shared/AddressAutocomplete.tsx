@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { importLibrary } from '@googlemaps/js-api-loader';
+import { Loader } from '@googlemaps/js-api-loader';
 import { MapPin, Loader2 } from 'lucide-react';
 
 interface AddressAutocompleteProps {
@@ -36,10 +36,14 @@ export default function AddressAutocomplete({
       return;
     }
 
-    async function initAutocomplete() {
-      try {
-        const { Autocomplete } = await importLibrary('places') as google.maps.PlacesLibrary;
+    const loader = new Loader({
+      apiKey,
+      version: 'weekly',
+      libraries: ['places'],
+    });
 
+    loader.importLibrary('places')
+      .then(({ Autocomplete }) => {
         if (!inputRef.current) return;
 
         const autocomplete = new Autocomplete(inputRef.current, {
@@ -92,14 +96,12 @@ export default function AddressAutocomplete({
         });
 
         setLoading(false);
-      } catch (err) {
+      })
+      .catch((err) => {
         console.error('Error loading Google Maps Places:', err);
         setError('Failed to load address autocomplete');
         setLoading(false);
-      }
-    }
-
-    initAutocomplete();
+      });
   }, [onAddressSelect]);
 
   if (error) {
