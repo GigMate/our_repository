@@ -161,8 +161,8 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
               Welcome to GigMate
             </h1>
-            <p className="text-xl md:text-2xl text-white mb-6 max-w-3xl mx-auto drop-shadow-md">
-              Where fans discover live music, shop local, and support the artists they love
+            <p className="text-xl md:text-2xl text-white mb-6 max-w-3xl mx-auto drop-shadow-md whitespace-nowrap">
+              Where fans discover live music, shop local, and support the artists they&nbsp;love
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
               <button
