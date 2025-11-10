@@ -98,11 +98,12 @@ export default function OnboardingTour() {
       title: 'Beta Tester Rewards',
       description: 'Thank you for being an early supporter!',
       features: [
-        'Free Premium subscription for 1 year',
+        'LIFETIME Pro membership ($240/year value - Forever!)',
+        '50% discount on Business tier upgrades ($25/mo instead of $50/mo)',
         '100 free credits ($50 value)',
-        'Beta Tester badge on your profile',
-        'First access to new features',
-        'Priority support'
+        'Exclusive Beta Tester badge on your profile',
+        'First access to all new features',
+        'Priority customer support'
       ]
     }
   ];
