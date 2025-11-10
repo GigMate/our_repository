@@ -47,12 +47,20 @@ export default function AdBanner({ tier, placement, className = '' }: AdBannerPr
   }
 
   async function trackImpression(adId: string) {
-    await supabase.rpc('increment_ad_impressions', { ad_id: adId }).catch(() => {});
+    try {
+      await supabase.rpc('increment_ad_impressions', { ad_id: adId });
+    } catch (err) {
+      console.error('Ad tracking error:', err);
+    }
   }
 
   async function handleClick() {
     if (ad) {
-      await supabase.rpc('increment_ad_clicks', { ad_id: ad.id }).catch(() => {});
+      try {
+        await supabase.rpc('increment_ad_clicks', { ad_id: ad.id });
+      } catch (err) {
+        console.error('Ad click tracking error:', err);
+      }
       if (ad.link_url) {
         window.open(ad.link_url, '_blank', 'noopener,noreferrer');
       }
