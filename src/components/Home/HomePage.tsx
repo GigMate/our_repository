@@ -489,54 +489,54 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
         </div>
 
-        <div className="bg-white rounded-lg shadow-xl p-12 mb-16">
-          <h2 className="text-3xl font-bold text-center text-gigmate-blue mb-8">
+        <div className="bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 rounded-lg shadow-2xl p-12 mb-16 border border-gray-700">
+          <h2 className="text-3xl font-bold text-center text-white mb-8">
             Why Choose GigMate?
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="flex gap-4">
-              <div className="bg-gray-700 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
+              <div className="bg-gradient-to-br from-gigmate-blue to-blue-700 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0 shadow-lg">
                 <DollarSign className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="font-bold text-lg text-gray-900 mb-2">Fair Pricing</h3>
-                <p className="text-gray-600">
+                <h3 className="font-bold text-lg text-white mb-2">Fair Pricing</h3>
+                <p className="text-gray-300">
                   Only 10% platform fee vs 20-30%+ from competitors. Musicians keep more of what they earn.
                 </p>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <div className="bg-gray-700 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
+              <div className="bg-gradient-to-br from-gigmate-red to-red-700 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0 shadow-lg">
                 <Star className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="font-bold text-lg text-gray-900 mb-2">Trust & Safety</h3>
-                <p className="text-gray-600">
+                <h3 className="font-bold text-lg text-white mb-2">Trust & Safety</h3>
+                <p className="text-gray-300">
                   Escrow payment protection, verified ratings, and digital contracts keep everyone safe.
                 </p>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <div className="bg-gray-700 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
+              <div className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0 shadow-lg">
                 <Music className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="font-bold text-lg text-gray-900 mb-2">Music-Focused</h3>
-                <p className="text-gray-600">
+                <h3 className="font-bold text-lg text-white mb-2">Music-Focused</h3>
+                <p className="text-gray-300">
                   Built specifically for live music. Features designed by musicians for musicians.
                 </p>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <div className="bg-gray-700 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0">
+              <div className="bg-gradient-to-br from-green-600 to-green-800 rounded-lg p-3 h-12 w-12 flex items-center justify-center flex-shrink-0 shadow-lg">
                 <Calendar className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="font-bold text-lg text-gray-900 mb-2">We Handle Everything</h3>
-                <p className="text-gray-600">
+                <h3 className="font-bold text-lg text-white mb-2">We Handle Everything</h3>
+                <p className="text-gray-300">
                   From booking to leveraged advertising, promotion, payments, receipts, and merchandise fulfillment. GigMate can do it all.
                 </p>
               </div>
