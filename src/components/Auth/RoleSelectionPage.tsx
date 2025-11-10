@@ -54,7 +54,7 @@ export default function RoleSelectionPage({ onRoleSelect, onBack }: RoleSelectio
             <p className="text-gray-600 text-sm mb-4">
               Find gigs, build your profile, and get paid securely
             </p>
-            <div className="bg-gray-700 rounded-lg px-4 py-2 text-xs font-semibold text-blue-800">
+            <div className="bg-gray-700 rounded-lg px-4 py-2 text-xs font-semibold text-white">
               Keep 90% of Earnings
             </div>
           </button>
