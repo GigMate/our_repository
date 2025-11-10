@@ -57,6 +57,12 @@ export default function InvestorInterestForm({ onBack }: InvestorInterestFormPro
         .then(data => data.ip)
         .catch(() => 'unknown');
 
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (session) {
+        await supabase.auth.signOut();
+      }
+
       const { data, error: submitError } = await supabase
         .from('investor_interest_requests')
         .insert({
