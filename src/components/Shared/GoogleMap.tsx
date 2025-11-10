@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Loader } from '@googlemaps/js-api-loader';
+import { setOptions, importLibrary } from '@googlemaps/js-api-loader';
 import { MapPin, AlertCircle } from 'lucide-react';
 
 interface GoogleMapProps {
@@ -40,14 +40,15 @@ export default function GoogleMap({
       return;
     }
 
-    const loader = new Loader({
+    setOptions({
       apiKey,
       version: 'weekly',
-      libraries: ['places', 'marker'],
     });
 
-    loader.importLibrary('maps')
-      .then(({ Map }) => {
+    importLibrary('maps')
+      .then((lib) => {
+        const { Map } = lib as google.maps.MapsLibrary;
+
         if (!mapRef.current) return;
 
         const map = new Map(mapRef.current, {
