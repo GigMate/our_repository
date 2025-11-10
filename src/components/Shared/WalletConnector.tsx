@@ -172,7 +172,7 @@ export default function WalletConnector() {
             </div>
 
             <div className="mb-6">
-              <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-4 border border-purple-200">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-4 border border-gray-300">
                 <p className="text-sm text-gray-700">
                   Connect your Solana wallet to pay with GigM8 tokens and receive token rewards.
                   We support Phantom, Solflare, and other Solana wallets.

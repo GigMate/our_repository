@@ -226,9 +226,9 @@ export function RatingSystem({
   };
 
   const renderUpgradePrompt = () => (
-    <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-600 rounded-lg p-6 mb-6">
+    <div className="bg-gradient-to-r from-gray-50 to-gray-100 border-2 border-gray-300 rounded-lg p-6 mb-6">
       <div className="flex items-start gap-4">
-        <Lock className="h-8 w-8 text-blue-600 flex-shrink-0" />
+        <Lock className="h-8 w-8 text-gray-900 flex-shrink-0" />
         <div className="flex-1">
           <h3 className="text-lg font-bold text-gray-900 mb-2">
             Unlock Full Rating Access
@@ -239,7 +239,7 @@ export function RatingSystem({
                 You've used {quotaRemaining !== null ? 3 - quotaRemaining : 0} of 3 free ratings this month.
               </p>
               <div className="grid md:grid-cols-2 gap-4 mt-4">
-                <div className="bg-white rounded-lg p-4 border-2 border-blue-700">
+                <div className="bg-white rounded-lg p-4 border-2 border-gray-900">
                   <h4 className="font-bold text-blue-900 mb-2">Premium - $4.99/mo</h4>
                   <ul className="space-y-2 text-sm text-gray-700">
                     <li>✓ Unlimited ratings</li>

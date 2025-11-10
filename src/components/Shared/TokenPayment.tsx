@@ -124,7 +124,7 @@ export default function TokenPayment({
 
   return (
     <div className="space-y-4">
-      <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-4 border border-purple-200">
+      <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-4 border border-gray-300">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm font-semibold text-gray-700">Your {tokenConfig.token_symbol} Balance</span>
           <span className="text-lg font-bold text-purple-600">

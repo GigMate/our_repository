@@ -67,7 +67,7 @@ export default function ConsumerDashboard() {
 
   if (locationLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-white">
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-50 to-white">
         <div className="text-center">
           <MapPin className="w-16 h-16 text-blue-600 mx-auto mb-4 animate-pulse" />
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Getting your location...</h2>
@@ -115,7 +115,7 @@ export default function ConsumerDashboard() {
                   placeholder="Search products..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                 />
               </div>
 
@@ -125,7 +125,7 @@ export default function ConsumerDashboard() {
                   <select
                     value={radiusMiles}
                     onChange={(e) => setRadiusMiles(Number(e.target.value))}
-                    className="px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                   >
                     <option value={1}>1 mile</option>
                     <option value={2}>2 miles</option>
@@ -145,7 +145,7 @@ export default function ConsumerDashboard() {
                   className={`
                     px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200
                     ${selectedCategory === category
-                      ? 'bg-blue-600 text-white shadow-md'
+                      ? 'bg-gray-900 text-white shadow-md'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }
                   `}
@@ -159,7 +159,7 @@ export default function ConsumerDashboard() {
 
         {loading ? (
           <div className="flex items-center justify-center py-20">
-            <Loader2 className="w-12 h-12 text-blue-600 animate-spin" />
+            <Loader2 className="w-12 h-12 text-gray-900 animate-spin" />
           </div>
         ) : filteredProducts.length === 0 ? (
           <div className="text-center py-20">

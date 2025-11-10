@@ -132,16 +132,16 @@ export default function VideoUpload({
 
   return (
     <div className="space-y-4">
-      <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6 border border-blue-600">
+      <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6 border border-gray-300">
         <div className="flex items-start gap-3 mb-4">
-          <AlertCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+          <AlertCircle className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" />
           <div className="text-sm text-gray-700">
             <p className="font-semibold text-gray-900 mb-1">Media Ownership Notice</p>
             <p>By uploading videos to GigMate, you transfer full ownership rights to GigMate. We can use your content for marketing, promotion, and any commercial purpose. This transfer is permanent and irrevocable.</p>
           </div>
         </div>
 
-        <div className="border-2 border-dashed border-blue-700 rounded-lg p-8 text-center bg-white">
+        <div className="border-2 border-dashed border-gray-400 rounded-lg p-8 text-center bg-white">
           <input
             ref={fileInputRef}
             type="file"

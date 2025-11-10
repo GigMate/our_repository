@@ -70,7 +70,7 @@ export default function ConsumerAuthPage({ onBack }: ConsumerAuthPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         <button
           onClick={onBack}
@@ -114,7 +114,7 @@ export default function ConsumerAuthPage({ onBack }: ConsumerAuthPageProps) {
                     required
                     value={formData.full_name}
                     onChange={(e) => setFormData({ ...formData, full_name: e.target.value })}
-                    className="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                     placeholder="Your name"
                   />
                 </div>
@@ -149,7 +149,7 @@ export default function ConsumerAuthPage({ onBack }: ConsumerAuthPageProps) {
                     type="text"
                     value={referralCode}
                     onChange={(e) => setReferralCode(e.target.value.toUpperCase())}
-                    className="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                     placeholder="Enter referral code"
                   />
                 </div>
@@ -180,12 +180,12 @@ export default function ConsumerAuthPage({ onBack }: ConsumerAuthPageProps) {
             </div>
 
             {!isLogin && (
-              <div className="bg-gray-800 border border-blue-600 rounded-lg p-4">
+              <div className="bg-gray-50 border border-gray-300 rounded-lg p-4">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div className="text-sm text-blue-900">
+                  <MapPin className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" />
+                  <div className="text-sm text-gray-900">
                     <p className="font-semibold mb-1">Location Access Required</p>
-                    <p className="text-blue-700">
+                    <p className="text-gray-700">
                       We'll ask for your location to show you products available within 2 miles of you.
                       You can change this radius anytime.
                     </p>

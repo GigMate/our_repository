@@ -120,8 +120,8 @@ export function RatingAnalytics() {
   if (!hasAccess) {
     return (
       <div className="max-w-4xl mx-auto p-6">
-        <div className="bg-gradient-to-r from-purple-50 to-blue-50 border-2 border-purple-300 rounded-lg p-8 text-center">
-          <Lock className="h-16 w-16 text-purple-600 mx-auto mb-4" />
+        <div className="bg-gradient-to-r from-gray-50 to-gray-100 border-2 border-gray-300 rounded-lg p-8 text-center">
+          <Lock className="h-16 w-16 text-gray-900 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Premium Analytics Locked
           </h2>
@@ -229,7 +229,7 @@ export function RatingAnalytics() {
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-3">
                   <div
-                    className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all"
+                    className="bg-gradient-to-r from-gray-900 to-gray-700 h-3 rounded-full transition-all"
                     style={{ width: `${(cat.average / 5) * 100}%` }}
                   />
                 </div>

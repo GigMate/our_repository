@@ -344,7 +344,7 @@ export default function ReferralProgram() {
       )}
 
       {/* Pro Tips */}
-      <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-6 border border-blue-600">
+      <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 border border-gray-300">
         <h3 className="text-lg font-bold text-gray-900 mb-3">💡 Pro Tips for More Referrals</h3>
         <ul className="space-y-2 text-sm text-gray-700">
           <li className="flex items-start gap-2">
@@ -367,7 +367,7 @@ export default function ReferralProgram() {
       </div>
 
       {/* How Credits Work */}
-      <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 border border-green-200">
+      <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 border border-gray-300">
         <h3 className="text-lg font-bold text-gray-900 mb-3">🎟️ How Your Credits Work</h3>
         <p className="text-sm text-gray-700 mb-3">
           <strong>Credits = Dollars!</strong> Your referral credits have real dollar value and can be used to buy tickets at any GigMate event.

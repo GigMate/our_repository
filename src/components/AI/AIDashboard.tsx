@@ -214,7 +214,7 @@ export default function AIDashboard() {
               </div>
             ) : activeTab === 'overview' ? (
               <div className="space-y-6">
-                <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6 border border-blue-600">
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6 border border-gray-300">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">AI System Status</h3>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex items-center gap-3">
