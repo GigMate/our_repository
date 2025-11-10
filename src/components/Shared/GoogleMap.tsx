@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Loader } from '@googlemaps/js-api-loader';
+import { importLibrary } from '@googlemaps/js-api-loader';
 import { MapPin, AlertCircle } from 'lucide-react';
 
 interface GoogleMapProps {
@@ -40,24 +40,20 @@ export default function GoogleMap({
       return;
     }
 
-    const loader = new Loader({
-      apiKey,
-      version: 'weekly',
-      libraries: ['places', 'marker'],
-    });
+    async function initMap() {
+      try {
+        const { Map } = await importLibrary('maps') as google.maps.MapsLibrary;
 
-    loader
-      .load()
-      .then(() => {
         if (!mapRef.current) return;
 
-        const map = new google.maps.Map(mapRef.current, {
+        const map = new Map(mapRef.current, {
           center,
           zoom,
           mapTypeControl: true,
           streetViewControl: true,
           fullscreenControl: true,
           zoomControl: true,
+          mapId: 'GIGMATE_MAP',
         });
 
         googleMapRef.current = map;
@@ -74,12 +70,14 @@ export default function GoogleMap({
         }
 
         setLoading(false);
-      })
-      .catch((err) => {
+      } catch (err) {
         console.error('Error loading Google Maps:', err);
         setError('Failed to load Google Maps. Please check your API key.');
         setLoading(false);
-      });
+      }
+    }
+
+    initMap();
   }, []);
 
   useEffect(() => {
