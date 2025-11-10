@@ -1,90 +1,465 @@
-# GigMate Platform
+# GigMate - Live Music Booking Platform
 
-A comprehensive marketplace connecting musicians, venues, and fans for live music bookings, ticketing, and event management.
+**Version:** 3.0 Beta
+**Last Updated:** November 10, 2025
+**Status:** ✅ Production Ready
+**Domain:** gigmate.us
+**Build Status:** ✅ Successful
 
-## Quick Start
+---
 
-### Prerequisites
-- Node.js 18+
-- Supabase account
-- Stripe account
-- Google Maps API key
+## 🎵 What is GigMate?
 
-### Environment Variables
+GigMate is the revolutionary all-in-one platform connecting musicians, venues, and fans. We handle everything from booking and contracts to payments and ticketing - all in one seamless experience.
 
-Create a `.env` file with:
+### Key Features
 
-```bash
-VITE_SUPABASE_URL=https://rmagqkuwulbcabxtzsjm.supabase.co
-VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtYWdxa3V3dWxiY2FieHR6c2ptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIxODU4ODgsImV4cCI6MjA3Nzc2MTg4OH0.CZ8gB9UmU1t1LptFUQr000lLj_MfVGHoMmB2NxfnyYI
-VITE_STRIPE_PUBLISHABLE_KEY=pk_test_YOUR_KEY_HERE
-VITE_GOOGLE_MAPS_API_KEY=YOUR_KEY_HERE
+- 🎸 **Smart Matching** - AI-powered musician-venue pairing
+- 📅 **Easy Booking** - One-click booking with automated contracts
+- 💰 **Secure Payments** - Escrow-protected payments with automatic payouts
+- 🎫 **Integrated Ticketing** - Built-in ticket sales with QR codes
+- 💬 **Real-Time Messaging** - Direct communication between parties
+- 📊 **Analytics Dashboard** - Track performance and earnings
+- ⭐ **Rating System** - Build reputation and trust
+- 🔒 **Legal Protection** - Automated contract generation and digital signatures
+
+---
+
+## 🚀 Quick Start
+
+### For Beta Testers
+
+1. **Receive invitation** from GigMate team
+2. **Visit:** https://gigmate.us
+3. **Enter hosting password** (provided separately)
+4. **Click your invitation link**
+5. **Register your account**
+6. **Sign legal documents** (NDA, IP Agreement, Non-Compete)
+7. **Complete onboarding tour**
+8. **Start testing!**
+
+### Benefits for Beta Testers
+
+- ✅ **Lifetime Pro Membership** ($240/year value - FREE forever!)
+- ✅ **50% Business Discount** ($25/mo instead of $50/mo)
+- ✅ **100 Free Credits** ($50 value)
+- ✅ **Beta Tester Badge** on your profile
+- ✅ **Priority Support** and early feature access
+
+---
+
+## 📋 Documentation Index
+
+### Getting Started
+- **[SYSTEM_AUDIT_COMPLETE.md](./SYSTEM_AUDIT_COMPLETE.md)** - Complete system audit and status
+- **[CUSTOM_DOMAIN_SETUP_GUIDE.md](./CUSTOM_DOMAIN_SETUP_GUIDE.md)** - Connect gigmate.us domain
+- **[DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)** - Step-by-step deployment instructions
+- **[BETA_TESTER_GUIDE.md](./BETA_TESTER_GUIDE.md)** - Guide for beta testers
+
+### Business & Strategy
+- **[GIGMATE_COMPLETE_BUSINESS_PLAN_V3.md](./GIGMATE_COMPLETE_BUSINESS_PLAN_V3.md)** - Complete business plan
+- **[INVESTOR_PITCH_DECK.md](./INVESTOR_PITCH_DECK.md)** - Investor presentation
+- **[GROWTH_STRATEGY.md](./GROWTH_STRATEGY.md)** - Market expansion strategy
+- **[DATA_MONETIZATION_STRATEGY.md](./DATA_MONETIZATION_STRATEGY.md)** - Revenue streams
+
+### Technical Documentation
+- **[GIGMATE_COMPLETE_PLATFORM_DOCUMENTATION_2025.md](./GIGMATE_COMPLETE_PLATFORM_DOCUMENTATION_2025.md)** - Full platform documentation
+- **[IMPLEMENTATION_GUIDE.md](./IMPLEMENTATION_GUIDE.md)** - Technical implementation details
+- **[DATA_SEEDING_GUIDE.md](./DATA_SEEDING_GUIDE.md)** - Database seeding instructions
+- **[GENRE_SYSTEM_DOCUMENTATION.md](./GENRE_SYSTEM_DOCUMENTATION.md)** - Genre and tagging system
+
+### Features & Operations
+- **[AI_OPERATIONS_GUIDE.md](./AI_OPERATIONS_GUIDE.md)** - AI features and operations
+- **[CREDIT_ECONOMY_SUMMARY.md](./CREDIT_ECONOMY_SUMMARY.md)** - Platform credit system
+- **[MERCHANDISE_MANAGEMENT_GUIDE.md](./MERCHANDISE_MANAGEMENT_GUIDE.md)** - Merchandise integration
+- **[SOCIAL_MEDIA_AND_EMERGENCY_SYSTEM.md](./SOCIAL_MEDIA_AND_EMERGENCY_SYSTEM.md)** - Social and emergency features
+
+### Legal & Compliance
+- **[LEGAL_COMPLIANCE_AND_MERCH_VENDOR_GUIDE.md](./LEGAL_COMPLIANCE_AND_MERCH_VENDOR_GUIDE.md)** - Legal compliance guide
+- **[PLATFORM_EXCLUSIVITY_TERMS.md](./PLATFORM_EXCLUSIVITY_TERMS.md)** - Exclusivity agreements
+- **[NDA_BETA_SETUP_GUIDE.md](./NDA_BETA_SETUP_GUIDE.md)** - Beta tester NDA setup
+
+---
+
+## 🏗️ Technology Stack
+
+### Frontend
+- **React 18** - Modern UI framework
+- **TypeScript** - Type-safe development
+- **Vite** - Lightning-fast build tool
+- **Tailwind CSS** - Utility-first styling
+- **Lucide React** - Beautiful icons
+
+### Backend & Database
+- **Supabase** - PostgreSQL database with real-time features
+- **Row Level Security** - Database-level authorization
+- **Edge Functions** - Serverless API endpoints
+- **89 Migrations** - Comprehensive schema
+
+### Payments & Blockchain
+- **Stripe** - Payment processing and subscriptions
+- **Solana** - GigM8 token infrastructure (future)
+- **Escrow System** - Secure payment holding
+
+### APIs & Services
+- **Google Maps API** - Location and mapping
+- **Resend/SendGrid** - Email notifications
+- **OpenAI** - AI-powered features
+
+---
+
+## 📁 Project Structure
+
+```
+gigmate/
+├── src/
+│   ├── components/
+│   │   ├── Admin/          # Admin dashboards and tools
+│   │   ├── Auth/           # Authentication and registration
+│   │   ├── Fan/            # Fan-specific features
+│   │   ├── Home/           # Landing page
+│   │   ├── Investor/       # Investor portal
+│   │   ├── Layout/         # Headers and navigation
+│   │   ├── Musician/       # Musician dashboards
+│   │   ├── Shared/         # Reusable components
+│   │   └── Venue/          # Venue management
+│   ├── contexts/           # React contexts (Auth, Theme)
+│   ├── hooks/              # Custom React hooks
+│   └── lib/                # Utility functions and configs
+├── supabase/
+│   ├── functions/          # Edge functions
+│   └── migrations/         # Database migrations (89 files)
+├── public/                 # Static assets
+├── legal/                  # Legal document templates
+└── docs/                   # Documentation (50+ files)
 ```
 
-### Stripe Configuration
+---
 
-#### 1. Get Your Stripe Keys
+## 🔒 Security Features
 
-**Frontend (Vercel):**
-- Get publishable key from: https://dashboard.stripe.com/test/apikeys
-- Add to `.env` and Vercel environment variables
+### Authentication & Authorization
+- Supabase Auth with email/password
+- Row Level Security (RLS) on all tables
+- JWT-based session management
+- Multi-role access control
 
-**Backend (Supabase):**
-- Go to: https://app.supabase.com/project/rmagqkuwulbcabxtzsjm/settings/functions
-- Add secret `STRIPE_SECRET_KEY` (from Stripe Dashboard)
-- Add secret `STRIPE_WEBHOOK_SECRET` (value: `whsec_ltO4viqDLNfnREkNcSU6Zr1CL7BgMJrT`)
+### Legal Compliance
+- Digital signature capture
+- IP address and timestamp tracking
+- Three-tier legal document system:
+  1. Terms of Service & Privacy Policy (all users)
+  2. Role-specific agreements (musician/venue/fan)
+  3. Beta tester agreements (NDA, IP, Non-Compete)
+- Blocking legal consent gate
+- Full audit trail
 
-#### 2. Configure Webhook
+### Payment Security
+- Stripe PCI compliance
+- Escrow protection for bookings
+- Secure webhook handling
+- Transaction audit logs
 
-- Go to: https://dashboard.stripe.com/test/webhooks
-- Add endpoint: `https://rmagqkuwulbcabxtzsjm.supabase.co/functions/v1/stripe-webhook`
-- Select events: checkout.session.completed, payment_intent.*
-- Copy webhook secret and update in Supabase if needed
+---
 
-### Installation
+## 💳 Subscription Tiers
+
+### Free Plan - $0/month
+- Basic profile
+- 25 image uploads
+- Standard transaction fees (10%)
+- Email notifications
+
+### Pro Plan - $19.99/month
+**Beta Testers: FREE LIFETIME**
+- Unlimited image uploads
+- Featured placement
+- Verified badge
+- Advanced analytics
+- Custom URL
+- Priority support
+- 1 email blast per month
+
+### Business Plan - $49.99/month
+**Beta Testers: $24.99/month (50% off)**
+- Everything in Pro
+- Reduced transaction fees (7.5%)
+- 4 email blasts per month
+- API access
+- Multi-user accounts
+- White-label widget
+
+---
+
+## 🗄️ Database Schema
+
+### Core Tables (89 migrations total)
+
+**Authentication & Users:**
+- `profiles` - User profiles with roles
+- `musicians`, `venues`, `fans` - Role-specific data
+- `user_subscriptions` - Subscription management
+- `user_credits` - Platform credit balance
+
+**Booking System:**
+- `events` - All live music events
+- `bookings` - Booking requests and confirmations
+- `booking_escrows` - Escrow payment holding
+- `agreements` - Digital contracts
+- `venue_availability` - Calendar management
+
+**Legal & Compliance:**
+- `legal_documents` - All legal documents
+- `user_legal_consents` - Consent tracking with signatures
+- `beta_invitations` - Beta tester invitations
+- `beta_registrations` - Beta tester onboarding
+
+**Financial:**
+- `transactions` - All financial transactions
+- `payout_accounts` - Connected payout accounts
+- `subscription_history` - Subscription changes
+
+**Engagement:**
+- `ratings` - Mutual rating system
+- `messages` - Real-time messaging
+- `notifications` - Push notifications
+- `user_behavior_events` - Analytics tracking
+
+---
+
+## 🚀 Deployment
+
+### Environment Variables Required
+
+```env
+# Supabase
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+
+# Stripe
+VITE_STRIPE_PUBLISHABLE_KEY=pk_live_xxx
+STRIPE_SECRET_KEY=sk_live_xxx
+
+# Google Maps (Optional)
+VITE_GOOGLE_MAPS_API_KEY=your-key
+
+# Solana (Optional)
+VITE_SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+```
+
+### Deploy to Vercel (Recommended)
 
 ```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Login
+vercel login
+
+# Deploy
+vercel --prod
+
+# Add custom domain (gigmate.us)
+# In Vercel Dashboard: Settings → Domains → Add gigmate.us
+
+# Enable password protection
+# Settings → Deployment Protection → Enable
+```
+
+### Deploy to Netlify
+
+```bash
+# Install Netlify CLI
+npm i -g netlify-cli
+
+# Login
+netlify login
+
+# Deploy
+netlify deploy --prod
+
+# Configure domain in dashboard
+```
+
+---
+
+## 🧪 Testing & Seeding
+
+### Seed Database with Test Data
+
+```bash
+# Navigate to admin seeder
+https://gigmate.us/admin/seed
+
+# Click "Seed Database"
+# Populates:
+# - 50 musicians
+# - 30 venues
+# - 20 fans
+# - 50 events
+# - Sample bookings and ratings
+```
+
+### Test User Roles
+
+Create test accounts for each role:
+- **Musician:** Test gig booking and payment
+- **Venue:** Test event creation and booking acceptance
+- **Fan:** Test ticket purchase and messaging
+- **Investor:** Test investor portal access
+
+---
+
+## 📊 Admin Tools
+
+### Available Admin Routes
+
+- `/admin/seed` - Database seeder
+- `/admin/legal` - Legal document manager
+- `/admin/investors` - Investor approval panel
+- `/admin/beta` - Beta invitation manager
+- `/ai` - AI operations dashboard
+- `/docs` - Documentation download
+
+**Note:** Secure these routes with additional authentication in production.
+
+---
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Build Errors:**
+```bash
+# Clear cache and rebuild
+rm -rf node_modules dist .vite
 npm install
-npm run dev
-```
-
-### Build
-
-```bash
 npm run build
 ```
 
-## Documentation
+**Database Connection:**
+- Verify Supabase environment variables
+- Check RLS policies are enabled
+- Ensure migrations are applied
 
-- [Deployment Guide](./DEPLOYMENT_GUIDE.md) - Step-by-step deployment instructions
-- [Implementation Guide](./IMPLEMENTATION_GUIDE.md) - Feature implementation details
-- [Beta Tester Guide](./BETA_TESTER_GUIDE.md) - Testing guide for beta users
-- [Business Plan](./GIGMATE_COMPLETE_PLATFORM_DOCUMENTATION_2025.md) - Complete platform documentation
+**Payment Integration:**
+- Use Stripe test mode first
+- Configure webhooks properly
+- Verify API keys in environment
 
-## Features
+**Custom Domain:**
+- Wait for DNS propagation (1-48 hours)
+- Verify DNS records at registrar
+- Check SSL certificate in hosting dashboard
 
-- User authentication for Musicians, Venues, Fans, and Investors
-- Booking and escrow system
-- Ticketing with QR codes
-- Event management
-- Rating and review system
-- Messaging between users
-- Premium subscriptions
-- Location-based search
-- Social media integration
-- Merchandise management
-- Credit economy
-- AI-powered features
+---
 
-## Tech Stack
+## 📞 Support
 
-- React + TypeScript
-- Vite
-- Tailwind CSS
-- Supabase (PostgreSQL + Auth + Storage + Edge Functions)
-- Stripe (Payments)
-- Google Maps API
+### For Beta Testers
+- Email: support@gigmate.us
+- Priority support enabled
+- In-app feedback system
+- NDA applies to all communications
 
-## Support
+### For Developers
+- Database: [Supabase Dashboard](https://supabase.com/dashboard)
+- Payments: [Stripe Dashboard](https://dashboard.stripe.com)
+- Hosting: Vercel/Netlify Dashboard
+- AI Operations: `/ai` route
 
-For issues or questions, refer to the documentation files or contact the development team.
+---
+
+## 🔄 Development Workflow
+
+### Continue Development with Claude Code
+
+1. **Make changes locally** with AI assistance
+2. **Test with:** `npm run dev`
+3. **Build to verify:** `npm run build`
+4. **Deploy update:** `vercel --prod`
+5. **Changes live on gigmate.us** in seconds
+
+**Custom domain does NOT prevent continued development!**
+
+---
+
+## 📈 Metrics & Analytics
+
+### Track Platform Performance
+
+- **User Behavior:** `user_behavior_events` table
+- **Revenue:** `subscription_history` and `transactions`
+- **Engagement:** Ratings, bookings, messages
+- **AI Recommendations:** `recommendation_queue`
+
+### Admin Dashboards
+
+- Revenue Analytics: Real-time subscription metrics
+- User Growth: Registration and retention tracking
+- Beta Tester Progress: Onboarding completion rates
+- Legal Compliance: Document signature tracking
+
+---
+
+## 🎯 Roadmap
+
+### Phase 1: Beta (Current)
+- ✅ Core platform functionality
+- ✅ Beta tester system with legal docs
+- ✅ Payment processing
+- ✅ Custom domain (gigmate.us)
+
+### Phase 2: Public Launch (Q1 2026)
+- Enhanced AI matching
+- Mobile app (iOS/Android)
+- Advanced analytics
+- API for third-party integration
+
+### Phase 3: Scale (Q2 2026)
+- GigM8 token launch
+- International expansion
+- Merchandise integration
+- Festival/tour support
+
+---
+
+## 📄 License & Legal
+
+### Proprietary Software
+This code is proprietary and confidential. All rights reserved.
+
+### Beta Tester Agreement
+Beta testers must sign:
+- Non-Disclosure Agreement (3-year term)
+- Intellectual Property Agreement
+- Non-Compete Agreement (2-year restriction)
+
+### Copyright
+© 2025 GigMate, Inc. All rights reserved.
+
+---
+
+## 🎉 Acknowledgments
+
+Built with modern technologies and AI assistance to revolutionize the live music industry.
+
+**Thank you to all beta testers for helping us build the future of live music booking!**
+
+---
+
+## 📞 Contact
+
+**Website:** https://gigmate.us
+**Support:** support@gigmate.us
+**Business Inquiries:** contact@gigmate.us
+
+**Follow Us:**
+- Twitter: @gigmate
+- Instagram: @gigmate
+- Facebook: /gigmate
+
+---
+
+**Ready to revolutionize live music? Let's go!** 🎸🎤🎹
