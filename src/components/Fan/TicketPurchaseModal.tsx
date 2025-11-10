@@ -118,12 +118,12 @@ export default function TicketPurchaseModal({
                   <h3 className="font-semibold text-gray-900">Use Your Credits</h3>
                 </div>
                 <span className="text-sm font-medium text-gray-600">
-                  Available: <span className="text-green-600 font-bold">${availableCredits.toFixed(2)}</span>
+                  Available: <span className="text-green-600 font-bold">{availableCredits.toFixed(2)} credits</span>
                 </span>
               </div>
 
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Credits to Use (Max: ${maxCreditsCanUse.toFixed(2)})
+                Credits to Use (Max: {maxCreditsCanUse.toFixed(2)})
               </label>
               <div className="flex items-center gap-3">
                 <input

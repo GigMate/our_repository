@@ -143,7 +143,7 @@ export default function ReferralProgram() {
             </div>
             <div>
               <h2 className="text-3xl font-bold">Refer & Earn Credits!</h2>
-              <p className="text-green-50">Share GigMate and earn ${rewardAmount} in credits per referral</p>
+              <p className="text-green-50">Share GigMate and earn {rewardAmount} credits per referral</p>
             </div>
           </div>
 
@@ -284,7 +284,7 @@ export default function ReferralProgram() {
             </div>
             <h4 className="font-semibold text-gray-900 mb-2">Earn Credits</h4>
             <p className="text-sm text-gray-600">
-              Get ${rewardAmount} in credits for each successful referral. Use at any GigMate event!
+              Get {rewardAmount} credits for each successful referral. Use at any GigMate event!
             </p>
           </div>
         </div>
@@ -326,7 +326,7 @@ export default function ReferralProgram() {
                       </span>
                     </td>
                     <td className="px-4 py-3 text-sm font-semibold text-green-600">
-                      ${Number(referral.reward_credits).toFixed(2)}
+                      {Number(referral.reward_credits).toFixed(2)} credits
                     </td>
                     <td className="px-4 py-3">
                       {referral.credits_awarded ? (
@@ -370,12 +370,12 @@ export default function ReferralProgram() {
       <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 border border-gray-300">
         <h3 className="text-lg font-bold text-gray-900 mb-3">🎟️ How Your Credits Work</h3>
         <p className="text-sm text-gray-700 mb-3">
-          <strong>Credits = Dollars!</strong> Your referral credits have real dollar value and can be used to buy tickets at any GigMate event.
+          <strong>Earn Credits!</strong> Your referral credits can be used to buy tickets at any GigMate event.
         </p>
         <ul className="space-y-2 text-sm text-gray-700">
           <li className="flex items-start gap-2">
             <span className="text-green-600 font-bold">✓</span>
-            <span><strong>1 Credit = $1 Value</strong> - Use them just like cash at events</span>
+            <span><strong>Use Credits for Event Tickets</strong> - Redeem at any GigMate event</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-600 font-bold">✓</span>
@@ -392,7 +392,7 @@ export default function ReferralProgram() {
         </ul>
         <div className="mt-4 p-3 bg-white rounded-lg border border-green-300">
           <p className="text-xs text-gray-600 text-center">
-            💡 <strong>Example:</strong> You have $50 in credits and tickets cost $40. You can use $40 in credits and pay $0, or save your credits for later!
+            💡 <strong>Example:</strong> You have credits available and can use them to offset ticket costs, or save them for later!
           </p>
         </div>
       </div>

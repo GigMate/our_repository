@@ -135,7 +135,7 @@ export default function MusicianDashboard() {
             className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg hover:shadow-xl font-semibold"
           >
             <Gift className="h-5 w-5" />
-            Earn $25 Per Referral!
+            Earn Credits - Refer Friends!
           </button>
           <button
             onClick={() => setShowSettings(!showSettings)}
