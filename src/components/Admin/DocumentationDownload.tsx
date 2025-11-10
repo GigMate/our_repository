@@ -68,6 +68,15 @@ export default function DocumentationDownload() {
       ]
     },
     {
+      name: 'Beta Launch',
+      description: 'Beta testing and launch guides',
+      files: [
+        { name: 'beta-launch-guide.html', path: '/beta-launch-guide.html', description: 'Complete beta launch guide with deployment steps', title: 'Beta Launch Guide' },
+        { name: 'BETA_LAUNCH_PLAN.md', path: '/BETA_LAUNCH_PLAN.md', description: '4-week beta testing strategy', title: 'Beta Launch Plan' },
+        { name: 'DEPLOY_NOW.md', path: '/DEPLOY_NOW.md', description: 'Quick deployment guide', title: 'Deploy Now Guide' },
+      ]
+    },
+    {
       name: 'Master Documentation',
       description: 'Complete documentation package',
       files: [
@@ -80,6 +89,26 @@ export default function DocumentationDownload() {
     setDownloading(fileName);
 
     try {
+      if (fileName.endsWith('.html')) {
+        const response = await fetch(filePath);
+        if (!response.ok) {
+          throw new Error('File not found');
+        }
+
+        const content = await response.text();
+        const blob = new Blob([content], { type: 'text/html' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+        setDownloaded(prev => new Set([...prev, fileName]));
+        return;
+      }
+
       if (format === 'pdf') {
         const title = docCategories
           .flatMap(cat => cat.files)
@@ -258,40 +287,62 @@ export default function DocumentationDownload() {
                             <p className="text-gray-600 text-sm mt-1 ml-7">{file.description}</p>
                           </div>
                           <div className="flex gap-2 flex-shrink-0">
-                            <button
-                              onClick={() => downloadFile(file.name, file.path, 'md')}
-                              disabled={downloading === file.name}
-                              className="px-3 py-2 bg-white border-2 border-blue-600 text-blue-600
-                                       rounded-lg hover:bg-blue-50 disabled:opacity-50 font-medium
-                                       flex items-center gap-2 text-xs transition-all"
-                              title="Download as Markdown"
-                            >
-                              {downloading === file.name ? (
-                                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
-                              ) : (
-                                <>
-                                  <Download className="w-4 h-4" />
-                                  MD
-                                </>
-                              )}
-                            </button>
-                            <button
-                              onClick={() => downloadFile(file.name, file.path, 'pdf')}
-                              disabled={downloading === file.name}
-                              className="px-3 py-2 bg-white border-2 border-red-600 text-red-600
-                                       rounded-lg hover:bg-red-50 disabled:opacity-50 font-medium
-                                       flex items-center gap-2 text-xs transition-all"
-                              title="Download as PDF"
-                            >
-                              {downloading === file.name ? (
-                                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-red-600"></div>
-                              ) : (
-                                <>
-                                  <FileType className="w-4 h-4" />
-                                  PDF
-                                </>
-                              )}
-                            </button>
+                            {file.name.endsWith('.html') ? (
+                              <button
+                                onClick={() => downloadFile(file.name, file.path)}
+                                disabled={downloading === file.name}
+                                className="px-3 py-2 bg-white border-2 border-green-600 text-green-600
+                                         rounded-lg hover:bg-green-50 disabled:opacity-50 font-medium
+                                         flex items-center gap-2 text-xs transition-all"
+                                title="Download HTML"
+                              >
+                                {downloading === file.name ? (
+                                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-green-600"></div>
+                                ) : (
+                                  <>
+                                    <Download className="w-4 h-4" />
+                                    HTML
+                                  </>
+                                )}
+                              </button>
+                            ) : (
+                              <>
+                                <button
+                                  onClick={() => downloadFile(file.name, file.path, 'md')}
+                                  disabled={downloading === file.name}
+                                  className="px-3 py-2 bg-white border-2 border-blue-600 text-blue-600
+                                           rounded-lg hover:bg-blue-50 disabled:opacity-50 font-medium
+                                           flex items-center gap-2 text-xs transition-all"
+                                  title="Download as Markdown"
+                                >
+                                  {downloading === file.name ? (
+                                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+                                  ) : (
+                                    <>
+                                      <Download className="w-4 h-4" />
+                                      MD
+                                    </>
+                                  )}
+                                </button>
+                                <button
+                                  onClick={() => downloadFile(file.name, file.path, 'pdf')}
+                                  disabled={downloading === file.name}
+                                  className="px-3 py-2 bg-white border-2 border-red-600 text-red-600
+                                           rounded-lg hover:bg-red-50 disabled:opacity-50 font-medium
+                                           flex items-center gap-2 text-xs transition-all"
+                                  title="Download as PDF"
+                                >
+                                  {downloading === file.name ? (
+                                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-red-600"></div>
+                                  ) : (
+                                    <>
+                                      <FileType className="w-4 h-4" />
+                                      PDF
+                                    </>
+                                  )}
+                                </button>
+                              </>
+                            )}
                           </div>
                         </div>
                       </div>
