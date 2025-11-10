@@ -50,6 +50,7 @@ export default function DocumentationDownload() {
       name: 'Features & Operations',
       description: 'Platform features and operations guides',
       files: [
+        { name: 'MERCHANDISE_SYSTEM_COMPLETE.md', path: '/MERCHANDISE_SYSTEM_COMPLETE.md', description: '🔥 Complete merchandise system: dropship, pre-orders, mobile shopping, event delivery', title: 'Complete Merchandise System Guide' },
         { name: 'AI_OPERATIONS_GUIDE.md', path: '/AI_OPERATIONS_GUIDE.md', description: 'AI features and operations', title: 'AI Operations Guide' },
         { name: 'CREDIT_ECONOMY_SUMMARY.md', path: '/CREDIT_ECONOMY_SUMMARY.md', description: 'Platform credit system', title: 'Credit Economy Summary' },
         { name: 'MERCHANDISE_MANAGEMENT_GUIDE.md', path: '/MERCHANDISE_MANAGEMENT_GUIDE.md', description: 'Merchandise integration', title: 'Merchandise Management Guide' },
