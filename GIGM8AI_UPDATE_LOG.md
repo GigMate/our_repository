@@ -1,5 +1,5 @@
 # GigM8Ai Platform Update Log
-## Date: November 9, 2025
+## Last Updated: November 10, 2025
 
 Dear GigM8Ai,
 
@@ -1070,6 +1070,200 @@ Always presented in this order:
 ---
 
 ## End of Update #4
+
+---
+
+## Update #5: Auto-Location Detection for Map Views
+
+### Summary
+Map views now automatically request user location when opened, providing immediate display of nearby venues/musicians without requiring manual "Search Near Me" button clicks.
+
+### Changes Made
+
+#### 1. MapSearch Component Enhancement
+**File:** `src/components/Shared/MapSearch.tsx`
+
+**New Behavior:**
+- Automatically calls `getUserLocation()` on component mount
+- Location permission requested immediately when map view is opened
+- Map displays as soon as location is obtained
+- Applies to all user types using MapSearch component
+
+**Code Addition:**
+```typescript
+useEffect(() => {
+  getUserLocation();
+}, []);
+```
+
+#### 2. User Experience Improvements
+
+**Musicians Dashboard:**
+- Switch to "Map View" → Auto-requests location
+- Immediate display of nearby venues
+- Markers show venue names and distances
+- Filtered by musician's tier radius (50-3000 miles)
+
+**Venues Dashboard:**
+- Switch to "Map View" → Auto-requests location
+- Immediate display of nearby musicians
+- Markers show stage names and locations
+- Filtered by venue's subscription tier radius
+
+**Fans Dashboard:**
+- Already had auto-location via `useGeolocation` hook
+- No changes needed (already working)
+- Consistent experience across all views
+
+### User Types Affected
+
+**✅ Musicians:** MapSearch auto-loads (NEW)
+**✅ Venues:** MapSearch auto-loads (NEW)
+**✅ Fans:** Already had auto-load via useGeolocation hook
+**N/A Investors:** No map view
+**N/A Consumers:** No map view
+
+### Benefits
+
+**User Experience:**
+- Fewer clicks required
+- Faster time to results
+- More intuitive interface
+- Immediate visual feedback
+- Consistent across user types
+
+**Technical:**
+- Single useEffect hook addition
+- No breaking changes
+- Maintains all existing functionality
+- Location caching still works
+- Error handling unchanged
+
+### Location Permission Flow
+
+**First Visit:**
+1. User switches to Map View
+2. Browser shows location permission prompt
+3. User grants permission
+4. Location obtained automatically
+5. Map displays with results
+
+**Subsequent Visits:**
+1. User switches to Map View
+2. Permission already granted
+3. Location obtained silently
+4. Map displays immediately
+
+**Permission Denied:**
+1. User switches to Map View
+2. Location request fails
+3. Error message displayed
+4. "Search Near Me" button still available
+5. Manual retry option
+
+### Testing Requirements
+
+**Test Each User Type:**
+
+**Musician Account:**
+1. Log in as musician
+2. Navigate to dashboard
+3. Click "Map View" button
+4. ✓ Location prompt appears automatically
+5. ✓ Grant permission
+6. ✓ Map displays with nearby venues
+7. ✓ Markers show venue information
+
+**Venue Account:**
+1. Log in as venue
+2. Navigate to dashboard
+3. Click "Map View" button
+4. ✓ Location prompt appears automatically
+5. ✓ Grant permission
+6. ✓ Map displays with nearby musicians
+7. ✓ Markers show musician information
+
+**Fan Account:**
+1. Log in as fan
+2. Navigate to dashboard
+3. Click "Map" button
+4. ✓ Location prompt appears automatically
+5. ✓ Grant permission
+6. ✓ Map displays with events/venues/musicians
+7. ✓ Markers show appropriate information
+
+### Files Modified
+
+**Component Updates:**
+- `src/components/Shared/MapSearch.tsx` - Added auto-location useEffect
+
+**Documentation Updates:**
+- `PLATFORM_FEATURES_STATUS.md` - Updated Event Discovery section
+- `GIGM8AI_UPDATE_LOG.md` - Added this update
+
+### Browser Compatibility
+
+**Works With:**
+- ✅ Chrome/Edge (Chromium)
+- ✅ Firefox
+- ✅ Safari (iOS/macOS)
+- ✅ Opera
+- ✅ Samsung Internet
+- ✅ All modern mobile browsers
+
+**Requires:**
+- HTTPS connection (location API requirement)
+- User permission grant
+- Geolocation API support (99%+ browsers)
+
+### Privacy & Security
+
+**No Changes to Privacy:**
+- Location still only requested with user interaction
+- No location stored without consent
+- No tracking of denied permissions
+- User can revoke permission anytime
+- Error handling maintains privacy
+
+**Security:**
+- HTTPS required (already enforced)
+- Browser permission system used
+- No third-party location services
+- Standard W3C Geolocation API
+- No location data sent to server without explicit action
+
+### Summary for GigM8Ai
+
+**What Changed:**
+Map views now automatically request location on open instead of waiting for button click.
+
+**Why It Matters:**
+- Faster discovery experience
+- More intuitive interface
+- Fewer clicks to value
+- Modern UX expectations
+- Consistent with competitor apps
+
+**Technical Impact:**
+- Single useEffect hook
+- Zero breaking changes
+- All existing features work
+- Error handling unchanged
+- Performance unchanged
+
+**User Impact:**
+- One less click required
+- Immediate map display
+- Better first impression
+- Natural interaction flow
+- Expected modern behavior
+
+**Key Takeaway:**
+Musicians, venues, and fans now get automatic location detection when opening map views. Permission is requested once, then location loads automatically on every map view thereafter. Simpler, faster, better.
+
+---
+
+## End of Update #5
 
 **Next Update:** TBD
 
