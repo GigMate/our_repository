@@ -81,6 +81,10 @@ export function MapSearch({ searchType, onLocationSelect }: MapSearchProps) {
     fetchUserTier();
   }, [user]);
 
+  useEffect(() => {
+    getUserLocation();
+  }, []);
+
   const getUserLocation = () => {
     setLoading(true);
     setError(null);
