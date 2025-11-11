@@ -47,12 +47,16 @@ Deno.serve(async (req: Request) => {
       }
     });
 
-    const { data: users, error: listError } = await supabase.auth.admin.listUsers();
+    const { data: profile, error: profileError } = await supabase
+      .from('profiles')
+      .select('id, email')
+      .eq('email', email)
+      .maybeSingle();
 
-    if (listError) {
-      console.error('Error listing users:', listError);
+    if (profileError) {
+      console.error('Error finding profile:', profileError);
       return new Response(
-        JSON.stringify({ error: 'Failed to verify user' }),
+        JSON.stringify({ error: 'Failed to verify user', details: profileError.message }),
         {
           status: 500,
           headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -60,9 +64,7 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    const user = users.users.find(u => u.email === email);
-
-    if (!user) {
+    if (!profile) {
       return new Response(
         JSON.stringify({ error: 'No account found with that email' }),
         {
@@ -71,6 +73,8 @@ Deno.serve(async (req: Request) => {
         }
       );
     }
+
+    const user = profile;
 
     const { error: updateError } = await supabase.auth.admin.updateUserById(
       user.id,
