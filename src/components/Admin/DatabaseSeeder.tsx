@@ -1,17 +1,24 @@
 import { useState, useEffect } from 'react';
 import { seedDatabase } from '../../lib/seedData';
 import AdminLogin from './AdminLogin';
+import { useAuth } from '../../contexts/AuthContext';
 
 export default function DatabaseSeeder() {
+  const { profile } = useAuth();
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (profile?.user_type === 'admin') {
+      setAuthenticated(true);
+      return;
+    }
+
     const isAuth = sessionStorage.getItem('admin_authenticated') === 'true';
     setAuthenticated(isAuth);
-  }, []);
+  }, [profile]);
 
   if (!authenticated) {
     return <AdminLogin onAuthenticated={() => setAuthenticated(true)} />;

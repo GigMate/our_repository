@@ -28,7 +28,7 @@ interface UserConsent {
 }
 
 export default function LegalDocumentManager() {
-  const { user } = useAuth();
+  const { user, profile } = useAuth();
   const [authenticated, setAuthenticated] = useState(false);
   const [documents, setDocuments] = useState<LegalDocument[]>([]);
   const [loading, setLoading] = useState(true);
@@ -45,12 +45,18 @@ export default function LegalDocumentManager() {
   });
 
   useEffect(() => {
+    if (profile?.user_type === 'admin') {
+      setAuthenticated(true);
+      loadDocuments();
+      return;
+    }
+
     const isAuth = sessionStorage.getItem('admin_authenticated') === 'true';
     setAuthenticated(isAuth);
     if (isAuth) {
       loadDocuments();
     }
-  }, []);
+  }, [profile]);
 
   async function loadDocuments() {
     setLoading(true);
