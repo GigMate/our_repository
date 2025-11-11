@@ -127,16 +127,16 @@ export default function DirectPasswordReset() {
           </div>
 
           {error && (
-            <div className="flex items-center gap-2 text-red-600 bg-red-50 p-4 rounded-lg">
+            <div className="flex items-center gap-2 text-red-700 bg-red-50 p-4 rounded-lg">
               <AlertCircle className="w-5 h-5 flex-shrink-0" />
-              <p className="text-sm">{error}</p>
+              <p className="text-sm font-medium">{error}</p>
             </div>
           )}
 
           {success && (
-            <div className="flex items-center gap-2 text-green-600 bg-green-50 p-4 rounded-lg">
+            <div className="flex items-center gap-2 text-green-700 bg-green-50 p-4 rounded-lg">
               <CheckCircle className="w-5 h-5 flex-shrink-0" />
-              <p className="text-sm">{success}</p>
+              <p className="text-sm font-medium">{success}</p>
             </div>
           )}
 
