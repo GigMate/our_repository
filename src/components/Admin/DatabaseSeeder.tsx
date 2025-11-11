@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { seedDatabase } from '../../lib/seedData';
 import AdminLogin from './AdminLogin';
 import { useAuth } from '../../contexts/AuthContext';
+import { supabase } from '../../lib/supabase';
 
 export default function DatabaseSeeder() {
   const { profile } = useAuth();
@@ -39,7 +40,15 @@ export default function DatabaseSeeder() {
       addStatus('Please wait, this may take a few minutes...');
       addStatus('');
 
-      const result = await seedDatabase();
+      // Refresh session before starting long operation
+      const { error: refreshError } = await supabase.auth.refreshSession();
+      if (refreshError) {
+        throw new Error('Session refresh failed. Please log in again.');
+      }
+
+      const result = await seedDatabase((message: string) => {
+        addStatus(message);
+      });
 
       if (result.success) {
         addStatus('');
@@ -123,10 +132,27 @@ export default function DatabaseSeeder() {
         <button
           onClick={handleSeedDatabase}
           disabled={loading}
-          className="bg-gigmate-blue text-white px-6 py-3 rounded-md hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors font-medium"
+          className="bg-gigmate-blue text-white px-6 py-3 rounded-md hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors font-medium flex items-center gap-2 mx-auto"
         >
-          {loading ? 'Seeding Database... (This may take several minutes)' : 'Seed Database with 300 Accounts'}
+          {loading && (
+            <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          )}
+          {loading ? 'Seeding Database... Please keep this page open!' : 'Seed Database with 300 Accounts'}
         </button>
+
+        {loading && (
+          <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-md">
+            <p className="text-sm text-yellow-800 font-medium">
+              ⚠️ IMPORTANT: Do not close this page or navigate away. The seeding process takes 5-10 minutes.
+            </p>
+            <p className="text-xs text-yellow-700 mt-1">
+              Your session will be automatically refreshed to prevent timeouts.
+            </p>
+          </div>
+        )}
 
         {error && (
           <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-md text-red-700">

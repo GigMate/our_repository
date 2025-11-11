@@ -101,17 +101,33 @@ function randomItems<T>(array: T[], count: number): T[] {
 }
 
 
-export async function seedDatabase() {
-  console.log('Starting database seeding...');
+export async function seedDatabase(onProgress?: (message: string) => void) {
+  const log = (message: string) => {
+    console.log(message);
+    if (onProgress) onProgress(message);
+  };
+
+  log('Starting database seeding...');
 
   try {
     const musicians = [];
     const venues = [];
     const fans = [];
 
+    // Refresh session periodically during long operation
+    let lastRefresh = Date.now();
+    const refreshIfNeeded = async () => {
+      if (Date.now() - lastRefresh > 4 * 60 * 1000) { // Every 4 minutes
+        log('Refreshing session...');
+        await supabase.auth.refreshSession();
+        lastRefresh = Date.now();
+      }
+    };
+
     // Create 100 Musicians
-    console.log('Creating 100 musicians...');
+    log('Creating 100 musicians...');
     for (let i = 0; i < 100; i++) {
+      await refreshIfNeeded();
       const firstName = randomItem(firstNames);
       const lastName = randomItem(lastNames);
       const city = randomItem(cities);
@@ -184,11 +200,12 @@ export async function seedDatabase() {
         });
       }
 
-      console.log(`Created musician ${i + 1}/100`);
+      log(`Created musician ${i + 1}/100`);
     }
 
-    console.log('Creating 100 venues (prioritizing real TX Hill Country venues)...');
+    log('Creating 100 venues (prioritizing real TX Hill Country venues)...');
     for (let i = 0; i < 100; i++) {
+      await refreshIfNeeded();
       const firstName = randomItem(firstNames);
       const lastName = randomItem(lastNames);
 
@@ -274,11 +291,12 @@ export async function seedDatabase() {
       });
 
       venues.push({ id: userId, name: venueName, email });
-      console.log(`Created venue ${i + 1}/100: ${venueName}`);
+      log(`Created venue ${i + 1}/100: ${venueName}`);
     }
 
-    console.log('Creating 100 fans...');
+    log('Creating 100 fans...');
     for (let i = 0; i < 100; i++) {
+      await refreshIfNeeded();
       const firstName = randomItem(firstNames);
       const lastName = randomItem(lastNames);
       const city = randomItem(cities);
@@ -325,10 +343,10 @@ export async function seedDatabase() {
       });
 
       fans.push({ id: userId, name: `${firstName} ${lastName}`, email });
-      console.log(`Created fan ${i + 1}/100`);
+      log(`Created fan ${i + 1}/100`);
     }
 
-    console.log('Creating events, bookings, and interactions...');
+    log('Creating events, bookings, and interactions...');
 
     for (let i = 0; i < 50; i++) {
       const venue = randomItem(venues);
@@ -373,7 +391,7 @@ export async function seedDatabase() {
       });
     }
 
-    console.log('Initializing credit accounts and subscriptions...');
+    log('Initializing credit accounts and subscriptions...');
     for (const musician of musicians) {
       await supabase.rpc('initialize_user_credits', { p_user_id: musician.id, p_tier: 'free' });
       await supabase.rpc('upsert_user_subscription', {
@@ -401,7 +419,7 @@ export async function seedDatabase() {
       });
     }
 
-    console.log('Creating sample message threads with credit tracking...');
+    log('Creating sample message threads with credit tracking...');
     const messageScenarios = [
       {
         from: randomItem(venues),
@@ -505,15 +523,15 @@ export async function seedDatabase() {
       }
     }
 
-    console.log('Running weekly platform refresh...');
+    log('Running weekly platform refresh...');
     await supabase.rpc('weekly_platform_refresh');
 
-    console.log('Database seeding completed!');
-    console.log('\nLogin format: lastname.musician#@gigmate.us');
-    console.log('Password: password123');
-    console.log('\nAll accounts are FREE with access to all features!');
-    console.log('\nCredit System: Initialized for all users');
-    console.log('Sample messages: Created with credit tracking');
+    log('Database seeding completed!');
+    log('\nLogin format: lastname.musician#@gigmate.us');
+    log('Password: password123');
+    log('\nAll accounts are FREE with access to all features!');
+    log('\nCredit System: Initialized for all users');
+    log('Sample messages: Created with credit tracking');
 
     return { success: true, musicians, venues, fans };
   } catch (error) {
