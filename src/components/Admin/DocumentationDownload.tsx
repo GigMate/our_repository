@@ -17,10 +17,14 @@ export default function DocumentationDownload() {
       name: 'Getting Started',
       description: 'Essential documents to get started',
       files: [
+        { name: 'VERCEL_READY.md', path: '/VERCEL_READY.md', description: '🚀 START HERE: 100% ready for deployment - quick deploy guide', title: '🚀 Vercel Ready - Deploy Now!' },
+        { name: 'DEPLOY_NOW_CHECKLIST.md', path: '/DEPLOY_NOW_CHECKLIST.md', description: '✅ 15-minute deployment checklist with commands', title: 'Deploy Now Checklist' },
+        { name: 'VERCEL_DEPLOYMENT_GUIDE.md', path: '/VERCEL_DEPLOYMENT_GUIDE.md', description: '📖 Complete Vercel deployment documentation', title: 'Complete Vercel Deployment Guide' },
         { name: 'README.md', path: '/README.md', description: 'Platform overview and quick start', title: 'GigMate Platform Overview' },
+        { name: 'PLATFORM_FEATURES_STATUS.md', path: '/PLATFORM_FEATURES_STATUS.md', description: '✅ Updated: Complete feature audit with ticket verification', title: 'Platform Features Status' },
         { name: 'SYSTEM_AUDIT_COMPLETE.md', path: '/SYSTEM_AUDIT_COMPLETE.md', description: 'Complete system audit and status', title: 'System Audit Report' },
         { name: 'CUSTOM_DOMAIN_SETUP_GUIDE.md', path: '/CUSTOM_DOMAIN_SETUP_GUIDE.md', description: 'Connect gigmate.us domain', title: 'Custom Domain Setup Guide' },
-        { name: 'DEPLOYMENT_GUIDE.md', path: '/DEPLOYMENT_GUIDE.md', description: 'Step-by-step deployment', title: 'Deployment Guide' },
+        { name: 'DEPLOYMENT_GUIDE.md', path: '/DEPLOYMENT_GUIDE.md', description: 'General deployment guide', title: 'General Deployment Guide' },
         { name: 'DEPLOYMENT_CHECKLIST_GIGMATE_US.md', path: '/DEPLOYMENT_CHECKLIST_GIGMATE_US.md', description: 'Pre-launch checklist', title: 'Deployment Checklist' },
       ]
     },
