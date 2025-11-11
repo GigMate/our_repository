@@ -20,9 +20,12 @@ export default function Header({ onLogoClick }: HeaderProps) {
             className="flex items-center hover:opacity-80 transition-opacity"
           >
             <img
-              src="/GigMate Pick 2.png"
+              src="/gigmate-logo.svg"
               alt="GigMate Logo"
               className="h-16 w-16"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
             />
             <span className="ml-3 text-3xl font-bold text-white">GigMate</span>
           </button>
