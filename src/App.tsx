@@ -203,25 +203,13 @@ function AppContent() {
     <ErrorBoundary>
       <LegalConsentGate>
         <div className="min-h-screen bg-gray-50">
-          <Header onLogoClick={() => setShowHome(true)} />
+          <Header onLogoClick={() => setShowHome(false)} />
           <main>
-            {showHome ? (
-              <HomePage
-                onGetStarted={() => setShowHome(false)}
-                onMusicianClick={() => setShowHome(false)}
-                onVenueClick={() => setShowHome(false)}
-                onFanClick={() => setShowHome(false)}
-                onInvestorClick={() => setShowHome(false)}
-              />
-            ) : (
-              <>
-                {profile.user_type === 'musician' && <MusicianDashboard />}
-                {profile.user_type === 'venue' && <VenueDashboard />}
-                {profile.user_type === 'fan' && <FanDashboard />}
-                {profile.user_type === 'investor' && <InvestorDashboard />}
-                {profile.user_type === 'admin' && <AdminDashboard />}
-              </>
-            )}
+            {profile.user_type === 'musician' && <MusicianDashboard />}
+            {profile.user_type === 'venue' && <VenueDashboard />}
+            {profile.user_type === 'fan' && <FanDashboard />}
+            {profile.user_type === 'investor' && <InvestorDashboard />}
+            {profile.user_type === 'admin' && <AdminDashboard />}
           </main>
         </div>
       </LegalConsentGate>
