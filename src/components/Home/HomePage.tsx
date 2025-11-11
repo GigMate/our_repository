@@ -592,13 +592,20 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
         <div className="mt-16 text-center text-white text-sm space-y-2">
           <p>© 2025 GigMate. Making live music better for everyone.</p>
           {!profile && onLogin && (
-            <p>
+            <p className="space-x-3">
               <button
                 onClick={onLogin}
                 className="hover:underline opacity-75 hover:opacity-100 transition-opacity text-white font-medium"
               >
                 Admin Login
               </button>
+              <span className="opacity-50">|</span>
+              <a
+                href="/password-reset"
+                className="hover:underline opacity-75 hover:opacity-100 transition-opacity text-white font-medium"
+              >
+                Reset Password
+              </a>
             </p>
           )}
           {profile?.user_type === 'admin' && (

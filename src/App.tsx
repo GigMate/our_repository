@@ -5,6 +5,7 @@ import Header from './components/Layout/Header';
 import LoginForm from './components/Auth/LoginForm';
 import SignUpForm from './components/Auth/SignUpForm';
 import PasswordResetForm from './components/Auth/PasswordResetForm';
+import DirectPasswordReset from './components/Auth/DirectPasswordReset';
 import MusicianAuthPage from './components/Auth/MusicianAuthPage';
 import VenueAuthPage from './components/Auth/VenueAuthPage';
 import FanAuthPage from './components/Auth/FanAuthPage';
@@ -35,6 +36,7 @@ function AppContent() {
   const [showRoleSelection, setShowRoleSelection] = useState(false);
   const [showSeeder, setShowSeeder] = useState(false);
   const [showPasswordReset, setShowPasswordReset] = useState(false);
+  const [showDirectPasswordReset, setShowDirectPasswordReset] = useState(false);
   const [showDocs, setShowDocs] = useState(false);
   const [showLegalManager, setShowLegalManager] = useState(false);
   const [showInvestorApproval, setShowInvestorApproval] = useState(false);
@@ -53,6 +55,8 @@ function AppContent() {
       setShowSeeder(true);
     } else if (path === '/reset-password') {
       setShowPasswordReset(true);
+    } else if (path === '/admin/reset' || path === '/password-reset') {
+      setShowDirectPasswordReset(true);
     } else if (path === '/docs' || path === '/documentation' || path === '/download') {
       setShowDocs(true);
     } else if (path === '/admin/legal') {
@@ -73,6 +77,10 @@ function AppContent() {
 
   if (showPasswordReset) {
     return <PasswordResetForm />;
+  }
+
+  if (showDirectPasswordReset) {
+    return <DirectPasswordReset />;
   }
 
   if (showDocs) {
