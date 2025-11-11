@@ -171,7 +171,7 @@ export default function LegalConsentGate({ children }: LegalConsentGateProps) {
               <Lock className="w-8 h-8" />
               <h1 className="text-2xl font-bold">Legal Agreement Required</h1>
             </div>
-            <p className="text-orange-500">
+            <p className="text-blue-100">
               Please review and accept the following document to continue
               ({currentDocIndex + 1} of {pendingDocuments.length})
             </p>
@@ -181,7 +181,7 @@ export default function LegalConsentGate({ children }: LegalConsentGateProps) {
             <div className="flex items-center gap-2 mb-4">
               <FileText className="w-6 h-6 text-blue-600" />
               <h2 className="text-xl font-bold text-gray-900">{currentDoc.title}</h2>
-              <span className="px-2 py-1 bg-gray-700 text-blue-800 text-xs rounded-full">
+              <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
                 v{currentDoc.version}
               </span>
             </div>
@@ -218,7 +218,7 @@ export default function LegalConsentGate({ children }: LegalConsentGateProps) {
               </div>
             )}
 
-            <div className="flex items-start gap-3 mb-6 p-4 bg-gray-800 border border-blue-600 rounded-lg">
+            <div className="flex items-start gap-3 mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
               <input
                 type="checkbox"
                 id="accept"
@@ -226,7 +226,7 @@ export default function LegalConsentGate({ children }: LegalConsentGateProps) {
                 onChange={(e) => setAccepted(e.target.checked)}
                 className="mt-1 w-5 h-5 text-blue-600"
               />
-              <label htmlFor="accept" className="text-sm text-gray-700 flex-1">
+              <label htmlFor="accept" className="text-sm text-gray-900 flex-1 font-medium">
                 I have read and agree to the terms outlined in this document. I understand that this agreement is legally binding and my acceptance will be recorded with my IP address and timestamp.
               </label>
             </div>
