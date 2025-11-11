@@ -34,74 +34,44 @@ export default function DatabaseSeeder() {
     setStatus([]);
     setError(null);
 
-    // Prevent page unload during seeding
-    const preventUnload = (e: BeforeUnloadEvent) => {
-      e.preventDefault();
-      e.returnValue = '';
-    };
-    window.addEventListener('beforeunload', preventUnload);
-
-    // Set up aggressive session refresh during seeding
-    const refreshInterval = setInterval(async () => {
-      try {
-        const { error } = await supabase.auth.refreshSession();
-        if (error) {
-          console.error('Session refresh error:', error);
-        } else {
-          addStatus('[System] Session refreshed to prevent timeout');
-        }
-      } catch (err) {
-        console.error('Failed to refresh session:', err);
-      }
-    }, 2 * 60 * 1000); // Every 2 minutes
-
     try {
-      addStatus('Starting comprehensive database seeding...');
-      addStatus('This will create 100 fans, 100 musicians, and 100 venues with proper tier distribution.');
-      addStatus('Please wait, this may take a few minutes...');
+      addStatus('Starting server-side database seeding...');
+      addStatus('This will create test accounts quickly using the Edge Function.');
+      addStatus('Please wait, this should only take 30-60 seconds...');
       addStatus('');
 
-      // Refresh session before starting long operation
-      const { error: refreshError } = await supabase.auth.refreshSession();
-      if (refreshError) {
-        clearInterval(refreshInterval);
-        throw new Error('Session refresh failed. Please log in again.');
-      }
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-      addStatus('[System] Session refreshed - starting seed process');
-
-      const result = await seedDatabase((message: string) => {
-        addStatus(message);
+      const response = await fetch(`${supabaseUrl}/functions/v1/seed-database`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseAnonKey}`,
+        },
+        body: JSON.stringify({ count: 30 }), // 30 of each type = 90 total
       });
 
-      if (result.success) {
+      const data = await response.json();
+
+      if (data.success) {
         addStatus('');
-        addStatus('✓ Database seeding completed successfully!');
+        data.messages.forEach((msg: string) => addStatus(msg));
         addStatus('');
-        addStatus('Created:');
-        addStatus('- 100 Musicians (25% bronze, 25% silver, 50% gold)');
-        addStatus('- 100 Venues (25% local, 25% regional, 25% state, 25% national)');
-        addStatus('- 100 Fans (25% bronze, 25% silver, 50% gold)');
-        addStatus('- 50 Events');
-        addStatus('- 30 Bookings');
-        addStatus('- Availability slots for all musicians');
+        addStatus('Login to any account:');
+        addStatus('- Musicians: musician1@test.gigmate.us through musician30@test.gigmate.us');
+        addStatus('- Venues: venue1@test.gigmate.us through venue30@test.gigmate.us');
+        addStatus('- Fans: fan1@test.gigmate.us through fan30@test.gigmate.us');
         addStatus('');
-        addStatus('Login Format Examples:');
-        addStatus('smith.musician1@gigmate.us');
-        addStatus('johnson.venue1@gigmate.us');
-        addStatus('williams.fan1@gigmate.us');
-        addStatus('');
-        addStatus('Password for all accounts: password123');
+        addStatus('Password for all test accounts: testpass123');
       } else {
-        throw new Error('Seeding failed');
+        throw new Error(data.error || 'Seeding failed');
       }
 
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
       addStatus(`✗ Fatal error: ${err instanceof Error ? err.message : 'Unknown error'}`);
     } finally {
-      clearInterval(refreshInterval);
-      window.removeEventListener('beforeunload', preventUnload);
       setLoading(false);
     }
   };
@@ -109,9 +79,9 @@ export default function DatabaseSeeder() {
   return (
     <div className="max-w-4xl mx-auto p-8">
       <div className="bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-2xl font-bold text-gigmate-blue mb-4">Database Seeder</h2>
+        <h2 className="text-2xl font-bold text-gigmate-blue mb-4">Database Seeder (Server-Side)</h2>
         <p className="text-gray-600 mb-6">
-          Populate the database with 300 total accounts (100 fans, 100 musicians, 100 venues) with proper tier distribution and full feature integration.
+          Quickly populate the database with 90 test accounts (30 musicians, 30 venues, 30 fans) using a server-side Edge Function. No session timeouts!
         </p>
 
         <div className="mb-6 p-4 bg-green-50 border-2 border-green-400 rounded-lg">
@@ -127,18 +97,13 @@ export default function DatabaseSeeder() {
         <div className="mb-6 p-4 bg-gray-800 border border-cyan-400 rounded-lg">
           <h3 className="font-semibold text-white mb-2">What will be created:</h3>
           <ul className="text-sm text-gray-100 space-y-1">
-            <li>• 100 Musicians with availability slots (25% bronze, 25% silver, 50% gold)</li>
-            <li>• 100 Venues - First 29 are REAL Texas Hill Country venues including:</li>
-            <li className="ml-6">- The Roundup, Gruene Hall, Luckenbach Texas</li>
-            <li className="ml-6">- Whitewater Amphitheatre, 11th Street Cowboy Bar</li>
-            <li className="ml-6">- Arkey Blue's Silver Dollar (legendary!)</li>
-            <li className="ml-6">- From Kendall, Gillespie, Blanco, Comal, Bandera, and Kerr counties</li>
-            <li>• 100 Fans with subscription tiers (25% bronze, 25% silver, 50% gold)</li>
-            <li>• 50 Events connecting venues and musicians</li>
-            <li>• 30 Bookings with various statuses</li>
-            <li>• All accounts with realistic geographic coordinates</li>
-            <li>• Login format: lastname.type#@gigmate.us (e.g., smith.musician1@gigmate.us)</li>
-            <li>• Password for all: password123</li>
+            <li>• 30 Musicians with profiles in Austin, TX</li>
+            <li>• 30 Venues with varying capacities</li>
+            <li>• 30 Fans ready to discover shows</li>
+            <li>• All accounts are fully functional and ready to use</li>
+            <li>• Login format: musician1@test.gigmate.us, venue1@test.gigmate.us, etc.</li>
+            <li>• Password for all test accounts: testpass123</li>
+            <li>• <strong>Server-side processing = NO session timeouts!</strong></li>
           </ul>
         </div>
 
@@ -166,16 +131,13 @@ export default function DatabaseSeeder() {
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
           )}
-          {loading ? 'Seeding Database... Please keep this page open!' : 'Seed Database with 300 Accounts'}
+          {loading ? 'Seeding Database...' : 'Seed Database with 90 Test Accounts'}
         </button>
 
         {loading && (
-          <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-md">
-            <p className="text-sm text-yellow-800 font-medium">
-              ⚠️ IMPORTANT: Do not close this page or navigate away. The seeding process takes 5-10 minutes.
-            </p>
-            <p className="text-xs text-yellow-700 mt-1">
-              Your session will be automatically refreshed to prevent timeouts.
+          <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-md">
+            <p className="text-sm text-blue-800 font-medium">
+              ⚡ Running on server... This should complete in 30-60 seconds.
             </p>
           </div>
         )}

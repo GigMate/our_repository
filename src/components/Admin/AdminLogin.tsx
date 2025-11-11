@@ -30,7 +30,7 @@ export default function AdminLogin({ onAuthenticated }: AdminLoginProps) {
         if (signInError) {
           // If admin user doesn't exist, create it
           console.log('Admin user not found, creating...');
-          const { error: signUpError } = await supabase.auth.signUp({
+          const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
             email: ADMIN_EMAIL,
             password: ADMIN_PASSWORD,
             options: {
@@ -42,6 +42,22 @@ export default function AdminLogin({ onAuthenticated }: AdminLoginProps) {
           });
 
           if (signUpError) throw signUpError;
+
+          // Create admin profile
+          if (signUpData.user) {
+            const { error: profileError } = await supabase
+              .from('profiles')
+              .insert({
+                id: signUpData.user.id,
+                email: ADMIN_EMAIL,
+                full_name: 'System Administrator',
+                user_type: 'admin',
+              });
+
+            if (profileError) {
+              console.error('Profile creation error:', profileError);
+            }
+          }
 
           // Sign in after creating
           const { error: retrySignInError } = await supabase.auth.signInWithPassword({
