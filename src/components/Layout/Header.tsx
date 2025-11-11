@@ -35,6 +35,15 @@ export default function Header({ onLogoClick }: HeaderProps) {
               <Home className="h-4 w-4" />
               <span className="hidden sm:inline">Home</span>
             </button>
+            {profile?.user_type === 'admin' && (
+              <a
+                href="/admin/seed"
+                className={`flex items-center space-x-2 px-3 py-2 ${colors.buttonBg} text-white rounded-md ${colors.buttonHover} transition-colors font-medium text-sm opacity-90`}
+              >
+                <Database className="h-4 w-4" />
+                <span className="hidden sm:inline">Seed Data</span>
+              </a>
+            )}
             {profile && (
               <>
                 <a
