@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { setOptions, importLibrary } from '@googlemaps/js-api-loader';
-import { MapPin, Loader2 } from 'lucide-react';
+import { MapPin, Loader2, AlertCircle } from 'lucide-react';
+import ManualAddressForm from './ManualAddressForm';
 
 interface AddressAutocompleteProps {
   onAddressSelect: (address: {
@@ -107,18 +108,17 @@ export default function AddressAutocomplete({
 
   if (error) {
     return (
-      <div className="space-y-2">
-        <input
-          ref={inputRef}
-          type="text"
-          defaultValue={defaultValue}
-          placeholder={placeholder}
-          className={`w-full px-4 py-2 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent ${className}`}
-        />
-        <p className="text-sm text-red-600 flex items-center gap-2">
-          <MapPin className="h-4 w-4" />
-          {error}
-        </p>
+      <div className="space-y-3">
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+          <div className="flex items-start gap-2">
+            <AlertCircle className="h-5 w-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+            <div className="text-sm">
+              <p className="font-medium text-yellow-800 mb-1">Google Maps Unavailable</p>
+              <p className="text-yellow-700">Please enter your address manually below.</p>
+            </div>
+          </div>
+        </div>
+        <ManualAddressForm onAddressSubmit={onAddressSelect} />
       </div>
     );
   }

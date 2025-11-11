@@ -142,10 +142,18 @@ export default function GoogleMap({
         className={`bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center ${className}`}
         style={{ height }}
       >
-        <div className="text-center p-6">
+        <div className="text-center p-6 max-w-md">
           <AlertCircle className="h-12 w-12 text-gray-400 mx-auto mb-3" />
-          <p className="text-gray-600 font-medium mb-2">Map unavailable</p>
-          <p className="text-sm text-gray-500">{error}</p>
+          <p className="text-gray-600 font-medium mb-2">Map Temporarily Unavailable</p>
+          <p className="text-sm text-gray-500 mb-3">{error}</p>
+          <div className="text-xs text-gray-400 bg-white rounded p-3 border border-gray-200">
+            <p className="font-medium mb-1">Google Maps requires:</p>
+            <ul className="text-left space-y-1">
+              <li>• Valid API key</li>
+              <li>• Maps JavaScript API enabled</li>
+              <li>• Billing enabled on Google Cloud</li>
+            </ul>
+          </div>
         </div>
       </div>
     );
