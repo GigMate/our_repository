@@ -42,7 +42,7 @@ export default function EventCard({ event, onBuyTickets }: EventCardProps) {
             SOLD OUT
           </span>
         ) : ticketsRemaining < 20 ? (
-          <span className="px-3 py-1 bg-gray-700 text-orange-700 rounded-full text-sm font-semibold">
+          <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold">
             {ticketsRemaining} LEFT
           </span>
         ) : null}

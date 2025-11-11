@@ -251,8 +251,8 @@ export function AgreementViewer({ agreementId, onClose }: AgreementViewerProps) 
       {agreement.refund_policy && (
         <div className="mb-6">
           <h3 className="font-bold text-gray-900 mb-3">Refund Policy</h3>
-          <div className="p-4 bg-gray-800 rounded-lg border border-blue-600">
-            <p className="text-sm text-gray-700">{agreement.refund_policy}</p>
+          <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <p className="text-sm text-gray-900">{agreement.refund_policy}</p>
           </div>
         </div>
       )}
@@ -322,9 +322,9 @@ export function AgreementViewer({ agreementId, onClose }: AgreementViewerProps) 
             />
           </div>
 
-          <div className="flex items-start gap-2 mb-4 p-4 bg-gray-800 rounded-lg">
+          <div className="flex items-start gap-2 mb-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
             <AlertCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-            <p className="text-sm text-blue-900">
+            <p className="text-sm text-gray-900">
               By signing this agreement, you acknowledge that you have read and agree to all terms and conditions outlined above. This is a legally binding electronic signature.
             </p>
           </div>

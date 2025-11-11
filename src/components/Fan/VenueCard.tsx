@@ -94,7 +94,7 @@ export default function VenueCard({ venue, onClick }: VenueCardProps) {
           {venue.amenities.slice(0, 3).map((amenity, index) => (
             <span
               key={index}
-              className="px-2 py-1 bg-gray-800 text-white rounded-full text-xs"
+              className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium"
             >
               {amenity}
             </span>

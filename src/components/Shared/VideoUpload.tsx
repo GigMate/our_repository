@@ -152,7 +152,7 @@ export default function VideoUpload({
           />
 
           <div className="flex flex-col items-center gap-3">
-            <div className="bg-gray-700 rounded-full p-4">
+            <div className="bg-blue-100 rounded-full p-4">
               <Video className="w-8 h-8 text-blue-600" />
             </div>
 

@@ -217,7 +217,7 @@ export default function ReferralProgram() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-white rounded-xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-3">
-            <div className="bg-gray-700 rounded-lg p-3">
+            <div className="bg-blue-100 rounded-lg p-3">
               <Users className="w-6 h-6 text-blue-600" />
             </div>
           </div>
@@ -312,7 +312,7 @@ export default function ReferralProgram() {
                       {new Date(referral.created_at).toLocaleDateString()}
                     </td>
                     <td className="px-4 py-3">
-                      <span className="px-2 py-1 text-xs font-medium rounded-full bg-gray-700 text-blue-800">
+                      <span className="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">
                         {referral.referee_type}
                       </span>
                     </td>

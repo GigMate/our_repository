@@ -123,8 +123,8 @@ export default function InvestorInterestForm({ onBack }: InvestorInterestFormPro
           <p className="text-gray-600 mb-6 text-lg">
             Thank you for your interest in investing in GigMate. Our team will review your submission and reach out to you shortly.
           </p>
-          <div className="bg-gray-800 border border-blue-600 rounded-lg p-4 mb-6">
-            <p className="text-sm text-blue-900">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+            <p className="text-sm text-gray-900">
               <strong>Next Steps:</strong> We will verify your information and legal agreements.
               If approved, you'll receive an invitation email with login credentials to access the investor portal.
             </p>

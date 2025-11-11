@@ -67,7 +67,7 @@ export default function InvestorAuthPage({ onBack }: InvestorAuthPageProps) {
           </button>
 
           <div className="bg-white rounded-2xl shadow-2xl p-8">
-            <div className="bg-gray-700 rounded-full p-4 w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+            <div className="bg-orange-100 rounded-full p-4 w-20 h-20 mx-auto mb-6 flex items-center justify-center">
               <TrendingUp className="w-10 h-10 text-orange-600" />
             </div>
 
@@ -106,7 +106,7 @@ export default function InvestorAuthPage({ onBack }: InvestorAuthPageProps) {
         </button>
 
         <div className="bg-white rounded-2xl shadow-2xl p-8">
-          <div className="bg-gray-700 rounded-full p-4 w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+          <div className="bg-orange-100 rounded-full p-4 w-20 h-20 mx-auto mb-6 flex items-center justify-center">
             <Lock className="w-10 h-10 text-orange-600" />
           </div>
 

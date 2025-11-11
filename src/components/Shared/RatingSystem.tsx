@@ -290,8 +290,8 @@ export function RatingSystem({
           </h3>
 
           {quotaRemaining !== null && userProfile?.fan_subscription_tier === 'free' && (
-            <div className="bg-gray-800 border border-blue-600 rounded-lg p-3 mb-4">
-              <p className="text-sm text-blue-800">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
+              <p className="text-sm text-gray-900 font-medium">
                 {quotaRemaining} free rating{quotaRemaining !== 1 ? 's' : ''} remaining this month
               </p>
             </div>
