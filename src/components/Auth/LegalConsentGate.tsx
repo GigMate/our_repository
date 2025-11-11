@@ -125,9 +125,13 @@ export default function LegalConsentGate({ children }: LegalConsentGateProps) {
         .insert({
           user_id: user.id,
           document_id: doc.id,
+          document_type: doc.document_type,
           document_version: doc.version,
-          ip_address: 'unknown',
+          consented_at: new Date().toISOString(),
+          ip_address: null,
           user_agent: navigator.userAgent,
+          consent_method: 'explicit_agreement',
+          is_active: true,
           signature_data: signature || null,
         });
 
