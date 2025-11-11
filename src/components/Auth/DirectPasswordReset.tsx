@@ -28,43 +28,36 @@ export default function DirectPasswordReset() {
     setLoading(true);
 
     try {
-      // First check if user exists
-      const { data: profiles, error: profileError } = await supabase
-        .from('profiles')
-        .select('id, email')
-        .eq('email', email)
-        .maybeSingle();
+      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-password-reset`;
 
-      if (profileError) throw profileError;
-      if (!profiles) {
-        setError('No account found with that email');
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({
+          email,
+          newPassword
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || 'Failed to reset password');
         return;
       }
 
-      // Update password using admin API simulation
-      // Since we can't directly update auth.users password from client,
-      // we'll need to use the auth API properly
-      const { error: updateError } = await supabase.auth.updateUser({
-        password: newPassword
-      });
-
-      if (updateError) {
-        // If that doesn't work, try signing up with same email (will update password)
-        const { error: signInError } = await supabase.auth.signInWithPassword({
-          email,
-          password: newPassword
-        });
-
-        if (signInError) {
-          setError('Unable to reset password. Please contact support.');
-          return;
-        }
-      }
-
-      setSuccess('Password reset successful! You can now login with your new password.');
+      setSuccess(data.message || 'Password reset successful! You can now login with your new password.');
       setEmail('');
       setNewPassword('');
       setConfirmPassword('');
+
+      // Redirect to home after 2 seconds
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 2000);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to reset password');
     } finally {
