@@ -289,3 +289,5 @@ export function RevenueAnalytics() {
     </div>
   );
 }
+
+export default RevenueAnalytics;

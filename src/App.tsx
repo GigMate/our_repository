@@ -14,6 +14,7 @@ import MusicianDashboard from './components/Musician/MusicianDashboard';
 import VenueDashboard from './components/Venue/VenueDashboard';
 import FanDashboard from './components/Fan/FanDashboard';
 import InvestorDashboard from './components/Investor/InvestorDashboard';
+import AdminDashboard from './components/Admin/AdminDashboard';
 import DatabaseSeeder from './components/Admin/DatabaseSeeder';
 import DocumentationDownload from './components/Admin/DocumentationDownload';
 import LegalDocumentManager from './components/Admin/LegalDocumentManager';
@@ -210,7 +211,7 @@ function AppContent() {
                 {profile.user_type === 'venue' && <VenueDashboard />}
                 {profile.user_type === 'fan' && <FanDashboard />}
                 {profile.user_type === 'investor' && <InvestorDashboard />}
-                {profile.user_type === 'admin' && <DatabaseSeeder />}
+                {profile.user_type === 'admin' && <AdminDashboard />}
               </>
             )}
           </main>

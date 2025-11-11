@@ -252,3 +252,5 @@ export function EmailQueueViewer() {
     </div>
   );
 }
+
+export default EmailQueueViewer;

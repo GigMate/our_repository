@@ -591,6 +591,16 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
         <div className="mt-16 text-center text-white text-sm space-y-2">
           <p>© 2025 GigMate. Making live music better for everyone.</p>
+          {!profile && onLogin && (
+            <p>
+              <button
+                onClick={onLogin}
+                className="hover:underline opacity-75 hover:opacity-100 transition-opacity text-white font-medium"
+              >
+                Admin Login
+              </button>
+            </p>
+          )}
           {profile?.user_type === 'admin' && (
             <p>
               <a href="/admin/seed" className="hover:underline opacity-75 hover:opacity-100 transition-opacity">
