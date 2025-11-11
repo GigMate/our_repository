@@ -6,7 +6,27 @@
 
 ## 🎯 Quick Deploy (Choose One)
 
-### Option 1: Vercel Website (Easiest - 10 minutes)
+### ⚡ Option 1: FULLY AUTOMATED (Recommended - 5 minutes)
+
+```bash
+./deploy-all.sh
+```
+
+**This ONE command does EVERYTHING:**
+- ✅ Sets up environment (asks for credentials)
+- ✅ Installs dependencies
+- ✅ Builds project
+- ✅ Deploys to Vercel
+- ✅ Deploys Edge Functions
+- ✅ Gives you your live URL
+
+**Just answer a few questions and wait 5 minutes!**
+
+📖 See: `AUTOMATION_SCRIPTS.md` for full details
+
+---
+
+### Option 2: Vercel Website (Manual - 10 minutes)
 
 1. **Visit:** https://vercel.com/new
 2. **Import** your GitHub repository
@@ -18,19 +38,17 @@
    ```
 5. **Click Deploy** → Wait 2 minutes → **DONE!**
 
-### Option 2: Vercel CLI (Fastest - 5 minutes)
+### Option 3: Semi-Automated Scripts
 
 ```bash
-# Install CLI
-npm install -g vercel
+# Setup environment interactively
+./setup-env.sh
 
-# Deploy
-vercel
+# Deploy to Vercel
+./deploy.sh
 
-# Add environment variables when prompted
-
-# Deploy to production
-vercel --prod
+# Deploy Edge Functions
+./deploy-functions.sh
 ```
 
 ---
