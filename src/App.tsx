@@ -210,6 +210,7 @@ function AppContent() {
                 {profile.user_type === 'venue' && <VenueDashboard />}
                 {profile.user_type === 'fan' && <FanDashboard />}
                 {profile.user_type === 'investor' && <InvestorDashboard />}
+                {profile.user_type === 'admin' && <DatabaseSeeder />}
               </>
             )}
           </main>
