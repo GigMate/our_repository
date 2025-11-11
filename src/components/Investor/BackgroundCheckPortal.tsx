@@ -148,11 +148,11 @@ export default function BackgroundCheckPortal({
 
       {/* Status Display */}
       {backgroundCheckStatus === 'uploaded' && (
-        <div className="bg-gray-800 border border-blue-600 rounded-lg p-4 mb-6 flex items-start gap-3">
-          <Clock className="w-5 h-5 text-blue-600 mt-0.5" />
+        <div className="bg-gray-800 border border-cyan-400 rounded-lg p-4 mb-6 flex items-start gap-3">
+          <Clock className="w-5 h-5 text-cyan-400 mt-0.5" />
           <div>
-            <h3 className="font-semibold text-blue-900">Under Review</h3>
-            <p className="text-sm text-blue-700">
+            <h3 className="font-semibold text-white">Under Review</h3>
+            <p className="text-sm text-gray-200">
               Your background check has been uploaded and is being reviewed by our team.
               You'll receive an email once the review is complete.
             </p>
@@ -305,8 +305,8 @@ export default function BackgroundCheckPortal({
               </ul>
             </div>
 
-            <div className="bg-gray-800 border border-blue-600 rounded-lg p-3 mb-4">
-              <p className="text-xs text-blue-800">
+            <div className="bg-gray-800 border border-cyan-400 rounded-lg p-3 mb-4">
+              <p className="text-xs text-gray-200">
                 <strong>Privacy Notice:</strong> Your KYC information will be securely transmitted
                 to our authorized third-party investigation service for verification purposes only.
               </p>

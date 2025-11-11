@@ -118,10 +118,10 @@ CANCELLATION:
         Create Digital Agreement
       </h2>
 
-      <div className="mb-6 p-4 bg-gray-800 border border-blue-600 rounded-lg">
+      <div className="mb-6 p-4 bg-gray-800 border border-cyan-400 rounded-lg">
         <div className="flex items-start gap-2">
-          <AlertCircle className="w-5 h-5 text-blue-600 mt-0.5" />
-          <div className="text-sm text-blue-900">
+          <AlertCircle className="w-5 h-5 text-cyan-400 mt-0.5" />
+          <div className="text-sm text-white">
             <p className="font-medium mb-1">About Digital Agreements</p>
             <p>This legally binding agreement will require signatures from both parties. Payment will be processed according to the schedule you select.</p>
           </div>

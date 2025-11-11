@@ -240,9 +240,9 @@ export function EmailQueueViewer() {
         )}
       </div>
 
-      <div className="bg-gray-800 border border-blue-600 rounded-lg p-6">
-        <h3 className="font-bold text-blue-900 mb-2">About Email Queue</h3>
-        <ul className="text-sm text-blue-800 space-y-1">
+      <div className="bg-gray-800 border border-cyan-400 rounded-lg p-6">
+        <h3 className="font-bold text-white mb-2">About Email Queue</h3>
+        <ul className="text-sm text-gray-100 space-y-1">
           <li>• Emails are automatically queued when events occur (bookings, purchases, etc.)</li>
           <li>• The queue processor can be run manually or scheduled via cron job</li>
           <li>• Failed emails will be retried up to 3 times</li>

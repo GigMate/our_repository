@@ -38,11 +38,11 @@ export default function BookingEscrow({ booking, isVenue, onUpdate }: BookingEsc
 
   const statusConfig = {
     pending: { icon: Clock, color: 'text-yellow-600', bg: 'bg-rose-50', label: 'Pending Acceptance' },
-    accepted: { icon: Clock, color: 'text-blue-600', bg: 'bg-gray-800', label: 'Payment Pending' },
+    accepted: { icon: Clock, color: 'text-cyan-400', bg: 'bg-gray-800', label: 'Payment Pending' },
     escrowed: { icon: Shield, color: 'text-purple-600', bg: 'bg-purple-50', label: 'In Escrow' },
     completed: { icon: CheckCircle, color: 'text-green-600', bg: 'bg-green-50', label: 'Completed' },
     disputed: { icon: AlertCircle, color: 'text-red-600', bg: 'bg-red-50', label: 'Disputed' },
-    mediation: { icon: AlertCircle, color: 'text-orange-600', bg: 'bg-gray-800', label: 'In Mediation' },
+    mediation: { icon: AlertCircle, color: 'text-yellow-400', bg: 'bg-gray-800', label: 'In Mediation' },
     cancelled: { icon: AlertCircle, color: 'text-gray-600', bg: 'bg-gray-50', label: 'Cancelled' }
   };
 
@@ -119,14 +119,14 @@ export default function BookingEscrow({ booking, isVenue, onUpdate }: BookingEsc
 
       {booking.status === 'escrowed' && (
         <div className="space-y-4">
-          <div className="bg-gray-800 border border-blue-600 rounded-lg p-4">
+          <div className="bg-gray-800 border border-cyan-400 rounded-lg p-4">
             <div className="flex items-start space-x-3">
-              <Shield className="h-5 w-5 text-blue-600 mt-0.5" />
+              <Shield className="h-5 w-5 text-cyan-400 mt-0.5" />
               <div className="flex-1">
-                <p className="text-sm text-blue-900 font-medium mb-1">
+                <p className="text-sm text-white font-medium mb-1">
                   Funds Held in Escrow
                 </p>
-                <p className="text-xs text-blue-700">
+                <p className="text-xs text-gray-200">
                   Both parties must rate each other 4 stars or higher to release funds. Ratings below 4 stars trigger automatic mediation with a 10% fee.
                 </p>
               </div>
@@ -262,16 +262,16 @@ export default function BookingEscrow({ booking, isVenue, onUpdate }: BookingEsc
       )}
 
       {booking.status === 'disputed' || booking.status === 'mediation' && (
-        <div className="bg-gray-800 border border-orange-600 rounded-lg p-4">
+        <div className="bg-gray-800 border border-orange-400 rounded-lg p-4">
           <div className="flex items-start space-x-3">
-            <AlertCircle className="h-6 w-6 text-orange-600 mt-0.5" />
+            <AlertCircle className="h-6 w-6 text-orange-400 mt-0.5" />
             <div>
-              <p className="font-semibold text-orange-900">Dispute Filed</p>
-              <p className="text-sm text-orange-700 mb-2">
+              <p className="font-semibold text-white">Dispute Filed</p>
+              <p className="text-sm text-gray-200 mb-2">
                 GigMate is reviewing this booking. A 10% mediation fee will be applied.
               </p>
               {booking.mediation_fee > 0 && (
-                <p className="text-xs text-orange-600 font-medium">
+                <p className="text-xs text-orange-400 font-medium">
                   Additional Fee: ${booking.mediation_fee.toFixed(2)}
                 </p>
               )}

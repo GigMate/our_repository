@@ -172,7 +172,7 @@ export default function LegalDocumentViewer({
               onClick={() => setCurrentDocIndex(idx)}
               className={`flex-1 px-4 py-4 font-medium transition-colors flex items-center justify-center gap-2 ${
                 currentDocIndex === idx
-                  ? 'bg-gray-800 text-orange-600 border-b-2 border-orange-600'
+                  ? 'bg-gray-800 text-orange-400 border-b-2 border-orange-400'
                   : 'text-gray-600 hover:bg-gray-50'
               }`}
             >

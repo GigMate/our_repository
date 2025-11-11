@@ -161,12 +161,12 @@ export function MerchandiseManager() {
 
       {/* Low Stock Alert */}
       {lowStockItems.length > 0 && (
-        <div className="bg-gray-800 border border-orange-600 rounded-lg p-4">
+        <div className="bg-gray-800 border border-orange-400 rounded-lg p-4">
           <div className="flex items-start gap-3">
-            <AlertCircle className="w-5 h-5 text-orange-600 mt-0.5" />
+            <AlertCircle className="w-5 h-5 text-orange-400 mt-0.5" />
             <div>
-              <h3 className="font-semibold text-orange-900 mb-2">Low Stock Alert</h3>
-              <p className="text-sm text-orange-800">
+              <h3 className="font-semibold text-white mb-2">Low Stock Alert</h3>
+              <p className="text-sm text-gray-200">
                 {lowStockItems.length} item{lowStockItems.length !== 1 ? 's' : ''} running low on stock.
                 Consider restocking soon.
               </p>
@@ -176,12 +176,12 @@ export function MerchandiseManager() {
       )}
 
       {/* Management Type Banner */}
-      <div className="bg-gray-800 border border-blue-600 rounded-lg p-4">
+      <div className="bg-gray-800 border border-cyan-400 rounded-lg p-4">
         <div className="flex items-start gap-3">
-          <Package className="w-5 h-5 text-blue-600 mt-0.5" />
+          <Package className="w-5 h-5 text-cyan-400 mt-0.5" />
           <div className="flex-1">
-            <h3 className="font-semibold text-blue-900 mb-2">Merchandise Management Options</h3>
-            <p className="text-sm text-blue-800 mb-3">
+            <h3 className="font-semibold text-white mb-2">Merchandise Management Options</h3>
+            <p className="text-sm text-gray-200 mb-3">
               Currently managing your merchandise: <strong>Self-Service</strong>
             </p>
             <div className="bg-white border border-blue-700 rounded-lg p-3">

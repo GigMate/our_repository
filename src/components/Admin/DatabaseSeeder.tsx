@@ -89,9 +89,9 @@ export default function DatabaseSeeder() {
           </p>
         </div>
 
-        <div className="mb-6 p-4 bg-gray-800 border border-blue-600 rounded-lg">
-          <h3 className="font-semibold text-blue-900 mb-2">What will be created:</h3>
-          <ul className="text-sm text-blue-800 space-y-1">
+        <div className="mb-6 p-4 bg-gray-800 border border-cyan-400 rounded-lg">
+          <h3 className="font-semibold text-white mb-2">What will be created:</h3>
+          <ul className="text-sm text-gray-100 space-y-1">
             <li>• 100 Musicians with availability slots (25% bronze, 25% silver, 50% gold)</li>
             <li>• 100 Venues - First 29 are REAL Texas Hill Country venues including:</li>
             <li className="ml-6">- The Roundup, Gruene Hall, Luckenbach Texas</li>

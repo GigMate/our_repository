@@ -202,11 +202,11 @@ export default function TokenBalanceDisplay() {
         </div>
       )}
 
-      <div className="bg-gray-800 border border-blue-600 rounded-lg p-4">
+      <div className="bg-gray-800 border border-cyan-400 rounded-lg p-4">
         <div className="flex items-start gap-2">
-          <ArrowUpRight className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-          <div className="text-sm text-gray-700">
-            <p className="font-semibold text-gray-900 mb-1">Earn More Tokens</p>
+          <ArrowUpRight className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+          <div className="text-sm text-gray-100">
+            <p className="font-semibold text-white mb-1">Earn More Tokens</p>
             <ul className="space-y-1 text-xs">
               <li>• Refer friends: Up to 50 {config.token_symbol}</li>
               <li>• Attend events: Token rewards</li>
