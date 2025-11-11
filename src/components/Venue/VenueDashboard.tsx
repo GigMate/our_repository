@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Search, Music, Map, Settings, Gift, Calendar } from 'lucide-react';
+import { Search, Music, Map, Settings, Gift, Calendar, Scan } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useTheme } from '../../contexts/ThemeContext';
 import MusicianCard from '../Fan/MusicianCard';
@@ -8,6 +8,7 @@ import { MapSearch } from '../Shared/MapSearch';
 import ImageUpload from '../Shared/ImageUpload';
 import ReferralProgram from '../Shared/ReferralProgram';
 import VenueCalendar from '../Shared/VenueCalendar';
+import { TicketScanner } from './TicketScanner';
 import { useAuth } from '../../contexts/AuthContext';
 
 interface Musician {
@@ -35,6 +36,7 @@ export default function VenueDashboard() {
   const [showSettings, setShowSettings] = useState(false);
   const [showReferrals, setShowReferrals] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
+  const [showScanner, setShowScanner] = useState(false);
   const [venueId, setVenueId] = useState<string | null>(null);
   const [venueName, setVenueName] = useState<string>('');
 
@@ -165,8 +167,21 @@ export default function VenueDashboard() {
             <Settings className="h-5 w-5" />
             {showSettings ? 'Hide' : 'Manage'} Venue Images
           </button>
+          <button
+            onClick={() => setShowScanner(!showScanner)}
+            className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+          >
+            <Scan className="h-5 w-5" />
+            {showScanner ? 'Hide' : 'Open'} Ticket Scanner
+          </button>
         </div>
       </div>
+
+      {showScanner && (
+        <div className="mb-8">
+          <TicketScanner />
+        </div>
+      )}
 
       {showSettings && venueId && (
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
