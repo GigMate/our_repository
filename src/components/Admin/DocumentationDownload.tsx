@@ -28,8 +28,10 @@ export default function DocumentationDownload() {
       name: 'Business & Strategy',
       description: 'Business plans and growth strategy',
       files: [
+        { name: 'INVESTOR_PITCH_DECK_V2_MERCHANDISE.md', path: '/INVESTOR_PITCH_DECK_V2_MERCHANDISE.md', description: '🔥 NEW: Updated pitch deck with merchandise as primary revenue driver ($78M by Year 5)', title: 'Investor Pitch Deck v2 - Merchandise Focus' },
+        { name: 'MERCHANDISE_REVENUE_FINANCIAL_PROJECTIONS.md', path: '/MERCHANDISE_REVENUE_FINANCIAL_PROJECTIONS.md', description: '🔥 NEW: Detailed merchandise financial model & projections ($3.9M Y2 → $78M Y5)', title: 'Merchandise Financial Projections' },
         { name: 'GIGMATE_COMPLETE_BUSINESS_PLAN_V3.md', path: '/GIGMATE_COMPLETE_BUSINESS_PLAN_V3.md', description: 'Complete business plan', title: 'GigMate Business Plan v3' },
-        { name: 'INVESTOR_PITCH_DECK.md', path: '/INVESTOR_PITCH_DECK.md', description: 'Investor presentation', title: 'Investor Pitch Deck' },
+        { name: 'INVESTOR_PITCH_DECK.md', path: '/INVESTOR_PITCH_DECK.md', description: 'Original investor presentation', title: 'Investor Pitch Deck v1' },
         { name: 'GROWTH_STRATEGY.md', path: '/GROWTH_STRATEGY.md', description: 'Market expansion strategy', title: 'Growth Strategy' },
         { name: 'DATA_MONETIZATION_STRATEGY.md', path: '/DATA_MONETIZATION_STRATEGY.md', description: 'Revenue streams', title: 'Data Monetization Strategy' },
         { name: 'COMPREHENSIVE_BUSINESS_PLAN.md', path: '/COMPREHENSIVE_BUSINESS_PLAN.md', description: 'Extended business analysis', title: 'Comprehensive Business Plan' },
