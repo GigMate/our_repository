@@ -1,25 +1,68 @@
 import { useState } from 'react';
 import { Lock } from 'lucide-react';
+import { supabase } from '../../lib/supabase';
 
 interface AdminLoginProps {
   onAuthenticated: () => void;
 }
 
+const ADMIN_EMAIL = 'admin@gigmate.us';
 const ADMIN_PASSWORD = 'gigmate2025admin';
 
 export default function AdminLogin({ onAuthenticated }: AdminLoginProps) {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+    setError('');
 
-    if (password === ADMIN_PASSWORD) {
-      sessionStorage.setItem('admin_authenticated', 'true');
-      onAuthenticated();
-    } else {
-      setError('Incorrect password');
-      setPassword('');
+    try {
+      if (password === ADMIN_PASSWORD) {
+        // Try to sign in as admin user
+        const { error: signInError } = await supabase.auth.signInWithPassword({
+          email: ADMIN_EMAIL,
+          password: ADMIN_PASSWORD,
+        });
+
+        if (signInError) {
+          // If admin user doesn't exist, create it
+          console.log('Admin user not found, creating...');
+          const { error: signUpError } = await supabase.auth.signUp({
+            email: ADMIN_EMAIL,
+            password: ADMIN_PASSWORD,
+            options: {
+              data: {
+                full_name: 'System Administrator',
+                user_type: 'admin'
+              }
+            }
+          });
+
+          if (signUpError) throw signUpError;
+
+          // Sign in after creating
+          const { error: retrySignInError } = await supabase.auth.signInWithPassword({
+            email: ADMIN_EMAIL,
+            password: ADMIN_PASSWORD,
+          });
+
+          if (retrySignInError) throw retrySignInError;
+        }
+
+        sessionStorage.setItem('admin_authenticated', 'true');
+        onAuthenticated();
+      } else {
+        setError('Incorrect password');
+        setPassword('');
+      }
+    } catch (err) {
+      console.error('Admin login error:', err);
+      setError(err instanceof Error ? err.message : 'Failed to authenticate');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -66,9 +109,10 @@ export default function AdminLogin({ onAuthenticated }: AdminLoginProps) {
 
           <button
             type="submit"
-            className="w-full bg-gigmate-blue text-white py-3 rounded-lg font-semibold hover:bg-gigmate-blue-dark transition-colors"
+            disabled={loading}
+            className="w-full bg-gigmate-blue text-white py-3 rounded-lg font-semibold hover:bg-gigmate-blue-dark transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
-            Access Admin Panel
+            {loading ? 'Authenticating...' : 'Access Admin Panel'}
           </button>
         </form>
 

@@ -117,9 +117,12 @@ export async function seedDatabase(onProgress?: (message: string) => void) {
     // Refresh session periodically during long operation
     let lastRefresh = Date.now();
     const refreshIfNeeded = async () => {
-      if (Date.now() - lastRefresh > 4 * 60 * 1000) { // Every 4 minutes
-        log('Refreshing session...');
-        await supabase.auth.refreshSession();
+      if (Date.now() - lastRefresh > 90 * 1000) { // Every 90 seconds
+        log('[System] Refreshing session to prevent timeout...');
+        const { error } = await supabase.auth.refreshSession();
+        if (error) {
+          log(`[Warning] Session refresh failed: ${error.message}`);
+        }
         lastRefresh = Date.now();
       }
     };

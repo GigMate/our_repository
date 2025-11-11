@@ -34,6 +34,27 @@ export default function DatabaseSeeder() {
     setStatus([]);
     setError(null);
 
+    // Prevent page unload during seeding
+    const preventUnload = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+      e.returnValue = '';
+    };
+    window.addEventListener('beforeunload', preventUnload);
+
+    // Set up aggressive session refresh during seeding
+    const refreshInterval = setInterval(async () => {
+      try {
+        const { error } = await supabase.auth.refreshSession();
+        if (error) {
+          console.error('Session refresh error:', error);
+        } else {
+          addStatus('[System] Session refreshed to prevent timeout');
+        }
+      } catch (err) {
+        console.error('Failed to refresh session:', err);
+      }
+    }, 2 * 60 * 1000); // Every 2 minutes
+
     try {
       addStatus('Starting comprehensive database seeding...');
       addStatus('This will create 100 fans, 100 musicians, and 100 venues with proper tier distribution.');
@@ -43,8 +64,11 @@ export default function DatabaseSeeder() {
       // Refresh session before starting long operation
       const { error: refreshError } = await supabase.auth.refreshSession();
       if (refreshError) {
+        clearInterval(refreshInterval);
         throw new Error('Session refresh failed. Please log in again.');
       }
+
+      addStatus('[System] Session refreshed - starting seed process');
 
       const result = await seedDatabase((message: string) => {
         addStatus(message);
@@ -76,6 +100,8 @@ export default function DatabaseSeeder() {
       setError(err instanceof Error ? err.message : 'An error occurred');
       addStatus(`✗ Fatal error: ${err instanceof Error ? err.message : 'Unknown error'}`);
     } finally {
+      clearInterval(refreshInterval);
+      window.removeEventListener('beforeunload', preventUnload);
       setLoading(false);
     }
   };
