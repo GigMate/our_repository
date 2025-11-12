@@ -8,6 +8,7 @@ export default function DatabaseSeeder() {
   const { profile } = useAuth();
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [loadingEvents, setLoadingEvents] = useState(false);
   const [status, setStatus] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -27,6 +28,46 @@ export default function DatabaseSeeder() {
 
   const addStatus = (message: string) => {
     setStatus(prev => [...prev, message]);
+  };
+
+  const handleGenerateEvents = async () => {
+    setLoadingEvents(true);
+    setStatus([]);
+    setError(null);
+
+    try {
+      addStatus('Calling auto-event generation system...');
+      addStatus('');
+
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+      const response = await fetch(`${supabaseUrl}/functions/v1/auto-generate-events`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseAnonKey}`,
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        addStatus(`✓ Generated ${data.events_generated} new events!`);
+        addStatus(`✓ Cleaned up ${data.events_cleaned} old events`);
+        addStatus(`✓ Total upcoming events: ${data.total_upcoming_events}`);
+        addStatus('');
+        addStatus('Events are now live on the platform!');
+      } else {
+        throw new Error(data.error || 'Event generation failed');
+      }
+
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
+      addStatus(`✗ Fatal error: ${err instanceof Error ? err.message : 'Unknown error'}`);
+    } finally {
+      setLoadingEvents(false);
+    }
   };
 
   const handleSeedDatabase = async () => {
@@ -119,31 +160,44 @@ export default function DatabaseSeeder() {
         </div>
 
         <div className="mb-6 p-4 bg-purple-50 border border-purple-200 rounded-lg">
-          <h3 className="font-semibold text-purple-900 mb-2">After Seeding - Next Steps:</h3>
+          <h3 className="font-semibold text-purple-900 mb-2">Event Generation:</h3>
           <ol className="text-sm text-purple-800 space-y-2">
-            <li>1. Run this SQL in Supabase to generate initial events:</li>
-            <li className="ml-6 font-mono bg-white p-2 rounded border border-purple-200">
-              SELECT weekly_platform_refresh();
-            </li>
-            <li>2. This will create 100-300 events matched within 20-mile radius</li>
-            <li>3. Events auto-regenerate every Monday at 3 AM UTC (no manual work!)</li>
-            <li>4. Featured venues/musicians rotate weekly for fair visibility</li>
+            <li>✓ Events are automatically generated during database seeding</li>
+            <li>✓ Creates 100-300 events matched within 20-mile radius</li>
+            <li>✓ Events auto-regenerate every Monday at 3 AM UTC</li>
+            <li>✓ You can also manually trigger event generation below</li>
           </ol>
         </div>
 
-        <button
-          onClick={handleSeedDatabase}
-          disabled={loading}
-          className="bg-gigmate-blue text-white px-6 py-3 rounded-md hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors font-medium flex items-center gap-2 mx-auto"
-        >
-          {loading && (
-            <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-          )}
-          {loading ? 'Seeding Database...' : 'Seed Database with 370 Accounts (Realistic Ratios)'}
-        </button>
+        <div className="flex gap-4 justify-center">
+          <button
+            onClick={handleSeedDatabase}
+            disabled={loading || loadingEvents}
+            className="bg-gigmate-blue text-white px-6 py-3 rounded-md hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors font-medium flex items-center gap-2"
+          >
+            {loading && (
+              <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            )}
+            {loading ? 'Seeding Database...' : 'Seed Database with 370 Accounts'}
+          </button>
+
+          <button
+            onClick={handleGenerateEvents}
+            disabled={loading || loadingEvents}
+            className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors font-medium flex items-center gap-2"
+          >
+            {loadingEvents && (
+              <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            )}
+            {loadingEvents ? 'Generating Events...' : 'Generate Events Now'}
+          </button>
+        </div>
 
         {loading && (
           <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-md">

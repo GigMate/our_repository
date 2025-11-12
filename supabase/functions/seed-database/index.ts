@@ -281,12 +281,29 @@ Deno.serve(async (req: Request) => {
     }
     log(`✓ Created ${sponsors} sponsors`);
 
+    log('✓ All accounts created! Now generating events...');
+    log('');
+
+    // Generate events for the next 4 weeks using all musicians and venues
+    log('Calling auto-event generation system...');
+    const { data: eventData, error: eventError } = await supabase.rpc('generate_upcoming_events', {
+      weeks_ahead: 4
+    });
+
+    if (eventError) {
+      log(`⚠ Warning: Event generation failed: ${eventError.message}`);
+    } else {
+      log(`✓ Generated ${eventData} events for the next 4 weeks!`);
+    }
+
+    log('');
     log('✓ Database seeding completed successfully!');
     log(`Total: ${musicians + venues + fans + sponsors} accounts created`);
     log(`  - ${venues} venues (${realVenues.length} real Texas Hill Country venues!)`);
     log(`  - ${musicians} musicians`);
     log(`  - ${fans} fans`);
     log(`  - ${sponsors} sponsors`);
+    log(`  - ${eventData || 0} events generated`);
     log('Password for all test accounts: testpass123');
 
     return new Response(
