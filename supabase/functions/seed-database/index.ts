@@ -32,7 +32,7 @@ Deno.serve(async (req: Request) => {
       },
     });
 
-    const { musicians = 250, venues = 60, fans = 2000, sponsors = 25 } = await req.json() as SeedRequest;
+    const { musicians = 100, venues = 50, fans = 200, sponsors = 20 } = await req.json() as SeedRequest;
 
     const messages: string[] = [];
     const log = (msg: string) => {

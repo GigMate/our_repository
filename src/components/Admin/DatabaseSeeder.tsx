@@ -36,8 +36,8 @@ export default function DatabaseSeeder() {
 
     try {
       addStatus('Starting server-side database seeding with REALISTIC ratios...');
-      addStatus('Creating 250 musicians, 60 venues (30 REAL!), 2,000 fans, 25 sponsors...');
-      addStatus('Please wait, this will take 3-5 minutes for 2,335 total accounts...');
+      addStatus('Creating 100 musicians, 50 venues (30 REAL!), 200 fans, 20 sponsors...');
+      addStatus('Please wait, this will take 1-2 minutes for 370 total accounts...');
       addStatus('');
 
       const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -50,10 +50,10 @@ export default function DatabaseSeeder() {
           'Authorization': `Bearer ${supabaseAnonKey}`,
         },
         body: JSON.stringify({
-          musicians: 250,
-          venues: 60,
-          fans: 2000,
-          sponsors: 25
+          musicians: 100,
+          venues: 50,
+          fans: 200,
+          sponsors: 20
         }),
       });
 
@@ -64,11 +64,11 @@ export default function DatabaseSeeder() {
         data.messages.forEach((msg: string) => addStatus(msg));
         addStatus('');
         addStatus('Login to any account:');
-        addStatus('- Musicians: musician1@test.gigmate.us through musician250@test.gigmate.us');
-        addStatus('- Fans: fan1@test.gigmate.us through fan2000@test.gigmate.us');
+        addStatus('- Musicians: musician1@test.gigmate.us through musician100@test.gigmate.us');
+        addStatus('- Fans: fan1@test.gigmate.us through fan200@test.gigmate.us');
         addStatus('- Real Venues: gruenehall@venue.gigmate.us, theroundup@venue.gigmate.us, etc.');
-        addStatus('- Synthetic Venues: venue31@test.gigmate.us through venue60@test.gigmate.us');
-        addStatus('- Sponsors: sponsor1@test.gigmate.us through sponsor25@test.gigmate.us');
+        addStatus('- Synthetic Venues: venue31@test.gigmate.us through venue50@test.gigmate.us');
+        addStatus('- Sponsors: sponsor1@test.gigmate.us through sponsor20@test.gigmate.us');
         addStatus('');
         addStatus('Password for all test accounts: testpass123');
       } else {
@@ -88,7 +88,7 @@ export default function DatabaseSeeder() {
       <div className="bg-white rounded-lg shadow-lg p-6">
         <h2 className="text-2xl font-bold text-gigmate-blue mb-4">Database Seeder (Server-Side)</h2>
         <p className="text-gray-600 mb-6">
-          Populate the database with 2,335 realistic accounts using server-side processing. Includes 30 REAL Texas Hill Country venues!
+          Populate the database with 370 realistic accounts using server-side processing. Includes 30 REAL Texas Hill Country venues!
         </p>
 
         <div className="mb-6 p-4 bg-green-50 border-2 border-green-400 rounded-lg">
@@ -104,13 +104,13 @@ export default function DatabaseSeeder() {
         <div className="mb-6 p-4 bg-gray-800 border border-cyan-400 rounded-lg">
           <h3 className="font-semibold text-white mb-2">What will be created (REALISTIC RATIOS):</h3>
           <ul className="text-sm text-gray-100 space-y-1">
-            <li>• <strong>60 Venues</strong> including 30 REAL Texas Hill Country venues:</li>
+            <li>• <strong>50 Venues</strong> including 30 REAL Texas Hill Country venues:</li>
             <li className="ml-6">- Gruene Hall, Luckenbach Texas, Arkey Blue's Silver Dollar</li>
             <li className="ml-6">- Whitewater Amphitheatre, The Roundup, Sam's Burger Joint</li>
-            <li className="ml-6">- Plus 30 additional synthetic venues</li>
-            <li>• <strong>250 Musicians</strong> across Texas Hill Country cities</li>
-            <li>• <strong>2,000 Fans</strong> ready to discover shows</li>
-            <li>• <strong>25 Sponsors</strong> (Shiner Beer, Real Ale Brewing, etc.)</li>
+            <li className="ml-6">- Plus 20 additional synthetic venues</li>
+            <li>• <strong>100 Musicians</strong> across Texas Hill Country cities</li>
+            <li>• <strong>200 Fans</strong> ready to discover shows</li>
+            <li>• <strong>20 Sponsors</strong> (Shiner Beer, Real Ale Brewing, etc.)</li>
             <li>• Login: musician1@test.gigmate.us, fan1@test.gigmate.us, etc.</li>
             <li>• Real venues: gruenehall@venue.gigmate.us, theroundup@venue.gigmate.us, etc.</li>
             <li>• Password for ALL accounts: testpass123</li>
@@ -142,13 +142,13 @@ export default function DatabaseSeeder() {
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
           )}
-          {loading ? 'Seeding Database...' : 'Seed Database with 2,335 Accounts (Realistic Ratios)'}
+          {loading ? 'Seeding Database...' : 'Seed Database with 370 Accounts (Realistic Ratios)'}
         </button>
 
         {loading && (
           <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-md">
             <p className="text-sm text-blue-800 font-medium">
-              ⚡ Running on server... This will take 3-5 minutes for 2,335 accounts.
+              ⚡ Running on server... This will take 1-2 minutes for 370 accounts.
             </p>
           </div>
         )}
