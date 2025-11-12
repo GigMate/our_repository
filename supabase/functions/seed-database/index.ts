@@ -48,7 +48,6 @@ Deno.serve(async (req: Request) => {
 
     const randomItem = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
 
-    // Real Texas Hill Country Venues (30 real venues)
     const realVenues = [
       { name: 'Gruene Hall', city: 'New Braunfels', capacity: 600, lat: 29.7374, lng: -98.1029, county: 'Comal', state: 'TX' },
       { name: 'The Roundup', city: 'Bandera', capacity: 350, lat: 29.7220, lng: -99.0734, county: 'Bandera', state: 'TX' },
@@ -82,7 +81,6 @@ Deno.serve(async (req: Request) => {
       { name: 'Gruene River Grill', city: 'New Braunfels', capacity: 200, lat: 29.7368, lng: -98.1034, county: 'Comal', state: 'TX' },
     ];
 
-    // Create real venues first
     log(`Creating ${realVenues.length} real Texas Hill Country venues...`);
     for (let i = 0; i < realVenues.length; i++) {
       const venue = realVenues[i];
@@ -122,7 +120,6 @@ Deno.serve(async (req: Request) => {
     }
     log(`✓ Created ${realVenues.length} real venues`);
 
-    // Create additional synthetic venues if needed
     const remainingVenues = venues - realVenues.length;
     if (remainingVenues > 0) {
       log(`Creating ${remainingVenues} additional venues...`);
@@ -170,7 +167,6 @@ Deno.serve(async (req: Request) => {
       }
     }
 
-    // Create musicians
     log(`Creating ${musicians} musicians...`);
     for (let i = 0; i < musicians; i++) {
       const email = `musician${i + 1}@test.gigmate.us`;
@@ -210,7 +206,6 @@ Deno.serve(async (req: Request) => {
       }
     }
 
-    // Create fans
     log(`Creating ${fans} fans...`);
     for (let i = 0; i < fans; i++) {
       const email = `fan${i + 1}@test.gigmate.us`;
@@ -245,7 +240,6 @@ Deno.serve(async (req: Request) => {
       }
     }
 
-    // Create sponsors
     log(`Creating ${sponsors} sponsors...`);
     const sponsorBusinesses = [
       'Shiner Beer', 'Real Ale Brewing', 'Lone Star Beer', 'Pearl Brewing', 'Ranger Creek Brewing',
