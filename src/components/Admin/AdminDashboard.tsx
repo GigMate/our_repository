@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Database, FileDown, Users, TrendingUp, Settings, LogOut, Shield } from 'lucide-react';
+import { Database, FileDown, Users, TrendingUp, Settings, LogOut, Shield, Rocket } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import DatabaseSeeder from './DatabaseSeeder';
 import DocumentationDownload from './DocumentationDownload';
@@ -9,14 +9,16 @@ import BetaInvitationManager from './BetaInvitationManager';
 import RevenueAnalytics from './RevenueAnalytics';
 import EmailQueueViewer from './EmailQueueViewer';
 import TokenManager from './TokenManager';
+import DeploymentManager from './DeploymentManager';
 
-type AdminView = 'seeder' | 'docs' | 'legal' | 'investors' | 'beta' | 'revenue' | 'email' | 'tokens';
+type AdminView = 'seeder' | 'docs' | 'legal' | 'investors' | 'beta' | 'revenue' | 'email' | 'tokens' | 'deploy';
 
 export default function AdminDashboard() {
   const { profile, signOut } = useAuth();
   const [currentView, setCurrentView] = useState<AdminView>('seeder');
 
   const menuItems = [
+    { id: 'deploy' as AdminView, label: 'Deploy to Production', icon: Rocket },
     { id: 'seeder' as AdminView, label: 'Database Seeder', icon: Database },
     { id: 'docs' as AdminView, label: 'Documentation', icon: FileDown },
     { id: 'legal' as AdminView, label: 'Legal Documents', icon: Settings },
@@ -77,6 +79,7 @@ export default function AdminDashboard() {
 
         {/* Main Content */}
         <div className="flex-1 p-8">
+          {currentView === 'deploy' && <DeploymentManager />}
           {currentView === 'seeder' && <DatabaseSeeder />}
           {currentView === 'docs' && <DocumentationDownload />}
           {currentView === 'legal' && <LegalDocumentManager />}
