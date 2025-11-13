@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { Rocket, CheckCircle, XCircle, Loader, AlertCircle, ExternalLink } from 'lucide-react';
+import { Rocket, CheckCircle, XCircle, Loader, AlertCircle, ExternalLink, Key } from 'lucide-react';
+import EnvironmentVariablesGuide from './EnvironmentVariablesGuide';
 
 export default function DeploymentManager() {
   const [status, setStatus] = useState<'idle' | 'building' | 'success' | 'error'>('idle');
   const [buildOutput, setBuildOutput] = useState<string[]>([]);
   const [showInstructions, setShowInstructions] = useState(true);
+  const [showEnvVars, setShowEnvVars] = useState(false);
 
   const handleBuild = async () => {
     setStatus('building');
@@ -218,23 +220,33 @@ export default function DeploymentManager() {
 
         {/* Environment Variables Notice */}
         <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-          <div className="flex items-start space-x-3">
-            <AlertCircle className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-            <div>
-              <h4 className="font-semibold text-yellow-900 mb-1">Important: Environment Variables</h4>
-              <p className="text-yellow-800 text-sm">
-                Make sure all environment variables from your .env file are set in your Vercel project settings:
-              </p>
-              <ul className="mt-2 space-y-1 text-yellow-800 text-sm">
-                <li>• VITE_SUPABASE_URL</li>
-                <li>• VITE_SUPABASE_ANON_KEY</li>
-                <li>• VITE_STRIPE_PUBLISHABLE_KEY</li>
-                <li>• VITE_GOOGLE_MAPS_API_KEY</li>
-              </ul>
+          <div className="flex items-start justify-between">
+            <div className="flex items-start space-x-3">
+              <Key className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <h4 className="font-semibold text-yellow-900 mb-1">Important: Environment Variables Required</h4>
+                <p className="text-yellow-800 text-sm">
+                  Before deploying, you need to add your environment variables to Vercel.
+                </p>
+              </div>
             </div>
+            <button
+              onClick={() => setShowEnvVars(!showEnvVars)}
+              className="flex items-center space-x-2 px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition-colors text-sm font-medium whitespace-nowrap"
+            >
+              <Key className="h-4 w-4" />
+              <span>{showEnvVars ? 'Hide' : 'Show'} Variables</span>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Environment Variables Guide */}
+      {showEnvVars && (
+        <div className="animate-fadeIn">
+          <EnvironmentVariablesGuide />
+        </div>
+      )}
     </div>
   );
 }
