@@ -3,51 +3,88 @@ import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 
+// Create debug panel
+const debugPanel = document.createElement('div');
+debugPanel.id = 'debug-panel';
+debugPanel.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; background: black; color: lime; padding: 1rem; font-family: monospace; font-size: 14px; z-index: 9999; max-height: 50vh; overflow: auto;';
+document.body.appendChild(debugPanel);
+
+const logs: string[] = [];
+const addLog = (message: string) => {
+  const timestamp = new Date().toLocaleTimeString();
+  logs.push(`[${timestamp}] ${message}`);
+  debugPanel.innerHTML = logs.join('<br>');
+};
+
+addLog('=== GigMate Debug Panel ===');
+addLog('Starting initialization...');
+
+// Override console methods
+const originalConsoleLog = console.log;
+const originalConsoleError = console.error;
+
+console.log = (...args) => {
+  addLog('LOG: ' + args.join(' '));
+  originalConsoleLog(...args);
+};
+
+console.error = (...args) => {
+  addLog('ERROR: ' + args.join(' '));
+  originalConsoleError(...args);
+};
+
 // Add global error handler
 window.addEventListener('error', (event) => {
-  console.error('Global error:', event.error);
-  document.body.innerHTML = `
-    <div style="min-height: 100vh; background: #fef2f2; display: flex; align-items: center; justify-content: center; padding: 1rem; font-family: system-ui, -apple-system, sans-serif;">
-      <div style="background: white; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); max-width: 32rem;">
-        <h1 style="font-size: 1.5rem; font-weight: bold; color: #dc2626; margin-bottom: 1rem;">Runtime Error</h1>
-        <p style="color: #374151; margin-bottom: 1rem;">The application encountered an error:</p>
-        <pre style="font-size: 0.75rem; background: #f3f4f6; padding: 1rem; border-radius: 0.25rem; overflow: auto; margin-bottom: 1rem;">${event.error?.message || event.message}</pre>
-        <button onclick="window.location.reload()" style="width: 100%; background: #2563eb; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; border: none; cursor: pointer;">Reload</button>
-      </div>
-    </div>
-  `;
+  addLog('RUNTIME ERROR: ' + (event.error?.message || event.message));
+  addLog('Stack: ' + (event.error?.stack || 'No stack trace'));
 });
 
 window.addEventListener('unhandledrejection', (event) => {
-  console.error('Unhandled promise rejection:', event.reason);
+  addLog('PROMISE REJECTION: ' + event.reason);
 });
+
+addLog('Checking environment variables...');
+addLog('VITE_SUPABASE_URL: ' + (import.meta.env.VITE_SUPABASE_URL ? 'SET' : 'MISSING'));
+addLog('VITE_SUPABASE_ANON_KEY: ' + (import.meta.env.VITE_SUPABASE_ANON_KEY ? 'SET' : 'MISSING'));
 
 try {
   const rootElement = document.getElementById('root');
+  addLog('Root element found: ' + (rootElement ? 'YES' : 'NO'));
 
   if (!rootElement) {
     throw new Error('Root element not found');
   }
 
-  console.log('Starting GigMate application...');
+  addLog('Creating React root...');
+  const root = createRoot(rootElement);
 
-  createRoot(rootElement).render(
+  addLog('Rendering App component...');
+  root.render(
     <StrictMode>
       <App />
     </StrictMode>
   );
 
-  console.log('GigMate application rendered successfully');
+  addLog('✓ App rendered successfully!');
+
+  // Hide debug panel after 5 seconds if no errors
+  setTimeout(() => {
+    if (!logs.some(log => log.includes('ERROR'))) {
+      debugPanel.style.display = 'none';
+
+      // Add a toggle button
+      const toggleBtn = document.createElement('button');
+      toggleBtn.textContent = 'Show Debug';
+      toggleBtn.style.cssText = 'position: fixed; top: 10px; right: 10px; z-index: 9999; padding: 8px 16px; background: black; color: lime; border: 1px solid lime; border-radius: 4px; font-family: monospace; cursor: pointer;';
+      toggleBtn.onclick = () => {
+        debugPanel.style.display = debugPanel.style.display === 'none' ? 'block' : 'none';
+      };
+      document.body.appendChild(toggleBtn);
+    }
+  }, 5000);
 } catch (error) {
-  console.error('Failed to render application:', error);
-  document.body.innerHTML = `
-    <div style="min-height: 100vh; background: #fef2f2; display: flex; align-items: center; justify-content: center; padding: 1rem; font-family: system-ui, -apple-system, sans-serif;">
-      <div style="background: white; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); max-width: 32rem;">
-        <h1 style="font-size: 1.5rem; font-weight: bold; color: #dc2626; margin-bottom: 1rem;">Initialization Error</h1>
-        <p style="color: #374151; margin-bottom: 1rem;">Failed to start the application:</p>
-        <pre style="font-size: 0.75rem; background: #f3f4f6; padding: 1rem; border-radius: 0.25rem; overflow: auto; margin-bottom: 1rem;">${error instanceof Error ? error.message : String(error)}</pre>
-        <button onclick="window.location.reload()" style="width: 100%; background: #2563eb; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; border: none; cursor: pointer;">Reload</button>
-      </div>
-    </div>
-  `;
+  addLog('INITIALIZATION ERROR: ' + (error instanceof Error ? error.message : String(error)));
+  if (error instanceof Error && error.stack) {
+    addLog('Stack: ' + error.stack);
+  }
 }
