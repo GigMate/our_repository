@@ -33,36 +33,52 @@ export default function ContentEditor() {
 
   useEffect(() => {
     loadPages();
-    loadContent(selectedPage);
+  }, []);
+
+  useEffect(() => {
+    if (selectedPage) {
+      loadContent(selectedPage);
+    }
   }, [selectedPage]);
 
   const loadPages = async () => {
-    const { data, error } = await supabase
-      .from('site_content')
-      .select('page_key')
-      .order('page_key');
+    try {
+      const { data, error } = await supabase
+        .from('site_content')
+        .select('page_key')
+        .order('page_key');
 
-    if (!error && data) {
-      const uniquePages = [...new Set(data.map(item => item.page_key))];
-      setPages(uniquePages);
+      if (!error && data && data.length > 0) {
+        const uniquePages = [...new Set(data.map(item => item.page_key))];
+        setPages(uniquePages);
+        if (uniquePages.length > 0 && !selectedPage) {
+          setSelectedPage(uniquePages[0]);
+        }
+      }
+    } catch (err) {
+      console.error('Error loading pages:', err);
     }
   };
 
   const loadContent = async (pageKey: string) => {
-    const { data, error } = await supabase
-      .from('site_content')
-      .select('*')
-      .eq('page_key', pageKey)
-      .order('section_key');
+    try {
+      const { data, error } = await supabase
+        .from('site_content')
+        .select('*')
+        .eq('page_key', pageKey)
+        .order('section_key');
 
-    if (!error && data) {
-      setContent(data);
-      // Initialize edited content
-      const initial: Record<string, string> = {};
-      data.forEach(item => {
-        initial[item.id] = item.content;
-      });
-      setEditedContent(initial);
+      if (!error && data) {
+        setContent(data);
+        // Initialize edited content
+        const initial: Record<string, string> = {};
+        data.forEach(item => {
+          initial[item.id] = item.content;
+        });
+        setEditedContent(initial);
+      }
+    } catch (err) {
+      console.error('Error loading content:', err);
     }
   };
 
