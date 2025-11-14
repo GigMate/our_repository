@@ -131,7 +131,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
+    <div className="min-h-screen bg-gray-50">
       <div className="relative w-full h-96 mb-8 overflow-hidden">
         <div className="absolute inset-0">
           {VENUE_IMAGES.map((image, index) => (
