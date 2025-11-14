@@ -218,13 +218,34 @@ function AppContent() {
 }
 
 function App() {
-  return (
-    <AuthProvider>
-      <ThemeProvider>
-        <AppContent />
-      </ThemeProvider>
-    </AuthProvider>
-  );
+  try {
+    return (
+      <AuthProvider>
+        <ThemeProvider>
+          <AppContent />
+        </ThemeProvider>
+      </AuthProvider>
+    );
+  } catch (error) {
+    console.error('App rendering error:', error);
+    return (
+      <div className="min-h-screen bg-red-50 flex items-center justify-center p-4">
+        <div className="bg-white p-8 rounded-lg shadow-lg max-w-md">
+          <h1 className="text-2xl font-bold text-red-600 mb-4">Application Error</h1>
+          <p className="text-gray-700 mb-4">An error occurred while loading the application.</p>
+          <pre className="text-xs bg-gray-100 p-4 rounded overflow-auto">
+            {error instanceof Error ? error.message : String(error)}
+          </pre>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+          >
+            Reload Page
+          </button>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
