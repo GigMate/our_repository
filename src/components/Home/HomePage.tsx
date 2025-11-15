@@ -159,11 +159,6 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
         <div className="relative z-10 h-full flex items-center justify-center py-12">
           <div className="text-center px-4">
-            <img
-              src="/GigMate Pick 2.png"
-              alt="GigMate Logo"
-              className="h-28 w-28 mx-auto mb-8 drop-shadow-2xl"
-            />
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
               Welcome to GigMate
             </h1>
