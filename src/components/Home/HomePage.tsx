@@ -118,7 +118,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % VENUE_IMAGES.length);
-    }, 5000);
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
 
@@ -227,7 +227,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div className="relative h-64 md:h-full min-h-[300px]">
+                  <div className="relative h-80">
                     <img
                       src={VENUE_IMAGES[Math.floor(Math.random() * VENUE_IMAGES.length)]}
                       alt={featuredEvent.venue_name}
@@ -240,7 +240,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                     </div>
                   </div>
 
-                  <div className="relative h-64 md:h-full min-h-[300px]">
+                  <div className="relative h-80">
                     <LeafletMap
                       center={{ lat: featuredEvent.venue_latitude, lng: featuredEvent.venue_longitude }}
                       zoom={14}
