@@ -17,7 +17,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   },
 });
 
-export type UserType = 'musician' | 'venue' | 'fan' | 'investor' | 'consumer' | 'admin';
+export type UserType = 'musician' | 'venue' | 'fan' | 'investor' | 'admin';
 
 export interface Profile {
   id: string;
