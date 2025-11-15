@@ -157,23 +157,23 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           ))}
         </div>
 
-        <div className="relative z-10 h-full flex items-center justify-center pt-8">
+        <div className="relative z-10 h-full flex items-center justify-center py-12">
           <div className="text-center px-4">
             <img
               src="/GigMate Pick 2.png"
               alt="GigMate Logo"
-              className="h-28 w-28 mx-auto mb-6 drop-shadow-2xl"
+              className="h-28 w-28 mx-auto mb-8 drop-shadow-2xl"
             />
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-3 drop-shadow-lg">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
               Welcome to GigMate
             </h1>
-            <p className="text-2xl md:text-3xl font-semibold text-yellow-300 mb-5 drop-shadow-lg">
+            <p className="text-2xl md:text-3xl font-semibold text-yellow-300 mb-6 drop-shadow-lg">
               Empowering live music communities, one gig at a time.
             </p>
-            <p className="text-lg md:text-xl text-white mb-16 max-w-3xl mx-auto drop-shadow-md">
+            <p className="text-lg md:text-xl text-white mb-10 max-w-3xl mx-auto drop-shadow-md">
               Where fans discover live music, shop local, and support the artists they&nbsp;love
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-24">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={onGetStarted}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gigmate-red text-white text-lg font-semibold rounded-lg hover:bg-gigmate-red-dark transition-all transform hover:scale-105 shadow-2xl"
