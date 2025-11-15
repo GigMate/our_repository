@@ -245,7 +245,7 @@ The platform has **significantly more functionality than initially assessed**. M
 - ✅ Share event functionality
 
 **Discovery Features:**
-- ✅ Featured events on homepage
+- ✅ Featured events on homepage (100-mile radius)
 - ✅ Recommendation feed
 - ✅ Smart matching algorithm
 - ✅ User behavior tracking

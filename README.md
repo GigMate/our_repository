@@ -27,6 +27,7 @@ GigMate is the revolutionary all-in-one platform connecting musicians, venues, a
 - 📊 **Analytics Dashboard** - Track performance and earnings
 - ⭐ **Rating System** - Build reputation and trust
 - 🔒 **Legal Protection** - Automated contract generation and digital signatures
+- 🎯 **Event Discovery** - Find live music within 100-mile radius on homepage
 
 ---
 

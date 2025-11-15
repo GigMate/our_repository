@@ -50,7 +50,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
     setLoadingEvent(true);
     try {
-      const radiusMiles = 50;
+      const radiusMiles = 100;
       const milesPerDegree = 69;
       const latRange = radiusMiles / milesPerDegree;
       const lngRange = radiusMiles / (milesPerDegree * Math.cos((latitude * Math.PI) / 180));
@@ -349,7 +349,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
               <Music className="w-10 h-10 text-white mx-auto mb-3" />
               <h3 className="text-lg font-bold text-white mb-2">No Upcoming Events Nearby</h3>
               <p className="text-white/90 mb-3 text-sm">
-                We couldn't find any live music events within 50 miles of your location right now.
+                We couldn't find any live music events within 100 miles of your location right now.
               </p>
               <button
                 onClick={onFanClick || onGetStarted}
