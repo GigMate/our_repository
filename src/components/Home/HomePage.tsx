@@ -49,14 +49,10 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
   const longitude = userLng || -98.4936;
 
   const loadFeaturedEvent = useCallback(async () => {
-    if (!latitude || !longitude) return;
-
     setLoadingEvent(true);
     try {
       const radiusMiles = 100;
       const milesPerDegree = 69;
-      const latRange = radiusMiles / milesPerDegree;
-      const lngRange = radiusMiles / (milesPerDegree * Math.cos((latitude * Math.PI) / 180));
 
       const { data: events, error } = await supabase
         .from('events')
@@ -70,22 +66,19 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           musicians!inner(stage_name, genres)
         `)
         .gte('event_date', new Date().toISOString().split('T')[0])
-        .gte('venues.latitude', latitude - latRange)
-        .lte('venues.latitude', latitude + latRange)
-        .gte('venues.longitude', longitude - lngRange)
-        .lte('venues.longitude', longitude + lngRange)
+        .not('venues.latitude', 'is', null)
+        .not('venues.longitude', 'is', null)
         .order('event_date', { ascending: true })
-        .limit(20);
+        .limit(100);
 
       if (error) throw error;
 
       if (events && events.length > 0) {
-        // Calculate distance for each event and find the nearest one
         const eventsWithDistance = events.map(event => {
           const venue = Array.isArray(event.venues) ? event.venues[0] : event.venues;
           const musician = Array.isArray(event.musicians) ? event.musicians[0] : event.musicians;
-          const venueLat = venue?.latitude || 0;
-          const venueLng = venue?.longitude || 0;
+          const venueLat = parseFloat(venue?.latitude) || 0;
+          const venueLng = parseFloat(venue?.longitude) || 0;
 
           const distance = Math.sqrt(
             Math.pow((latitude - venueLat) * milesPerDegree, 2) +
@@ -105,11 +98,12 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             genres: musician?.genres || [],
             distance_miles: distance,
           };
-        });
+        }).filter(event => event.distance_miles <= radiusMiles);
 
-        // Sort by distance and get the nearest one
-        const nearestEvent = eventsWithDistance.sort((a, b) => a.distance_miles - b.distance_miles)[0];
-        setFeaturedEvent(nearestEvent);
+        if (eventsWithDistance.length > 0) {
+          const nearestEvent = eventsWithDistance.sort((a, b) => a.distance_miles - b.distance_miles)[0];
+          setFeaturedEvent(nearestEvent);
+        }
       }
     } catch (error) {
       console.error('Error loading featured event:', error);
@@ -126,10 +120,8 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
   }, []);
 
   useEffect(() => {
-    if (latitude && longitude) {
-      loadFeaturedEvent();
-    }
-  }, [latitude, longitude, loadFeaturedEvent]);
+    loadFeaturedEvent();
+  }, [loadFeaturedEvent]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % VENUE_IMAGES.length);
@@ -603,7 +595,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
         </div>
 
         <div className="bg-gradient-to-br from-slate-900 via-gray-900 to-black rounded-2xl shadow-2xl p-8 text-center text-white text-sm space-y-2">
-          <p>© 2025 GigMate. Making live music better for everyone.</p>
+          <p>© 2025 GigMate. Empowering live music communities, one gig at a time.</p>
           {!profile && onLogin && (
             <p className="space-x-3">
               <button
