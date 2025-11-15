@@ -18,6 +18,8 @@ export default function BetaInvitationManager() {
   const [loading, setLoading] = useState(true);
   const [sending, setSending] = useState(false);
   const [email, setEmail] = useState('');
+  const [bulkEmails, setBulkEmails] = useState('');
+  const [isBulkMode, setIsBulkMode] = useState(false);
   const [senderEmail, setSenderEmail] = useState('');
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
@@ -49,15 +51,62 @@ export default function BetaInvitationManager() {
     setSending(true);
 
     try {
-      const { data, error } = await supabase.rpc('create_beta_invitation', {
-        p_email: email,
-        p_invited_by_email: senderEmail || 'admin@gigmate.com'
-      });
+      if (isBulkMode) {
+        // Parse multiple emails (comma, semicolon, or newline separated)
+        const emailList = bulkEmails
+          .split(/[,;\n]+/)
+          .map(e => e.trim())
+          .filter(e => e.length > 0);
 
-      if (error) throw error;
+        if (emailList.length === 0) {
+          throw new Error('Please enter at least one email address');
+        }
 
-      setSuccess(`Invitation created! Code: ${data.invitation_code}`);
-      setEmail('');
+        // Validate all emails
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const invalidEmails = emailList.filter(e => !emailRegex.test(e));
+        if (invalidEmails.length > 0) {
+          throw new Error(`Invalid email addresses: ${invalidEmails.join(', ')}`);
+        }
+
+        // Send invitations for all emails
+        const results = [];
+        for (const recipientEmail of emailList) {
+          const { data, error } = await supabase.rpc('create_beta_invitation', {
+            p_email: recipientEmail,
+            p_invited_by_email: senderEmail || 'admin@gigmate.com'
+          });
+
+          if (error) {
+            results.push({ email: recipientEmail, success: false, error: error.message });
+          } else {
+            results.push({ email: recipientEmail, success: true, code: data.invitation_code });
+          }
+        }
+
+        const successful = results.filter(r => r.success).length;
+        const failed = results.filter(r => !r.success).length;
+
+        if (failed > 0) {
+          const failedList = results.filter(r => !r.success).map(r => r.email).join(', ');
+          setError(`${failed} invitation(s) failed: ${failedList}`);
+        }
+
+        setSuccess(`Successfully sent ${successful} invitation(s)!`);
+        setBulkEmails('');
+      } else {
+        // Single invitation
+        const { data, error } = await supabase.rpc('create_beta_invitation', {
+          p_email: email,
+          p_invited_by_email: senderEmail || 'admin@gigmate.com'
+        });
+
+        if (error) throw error;
+
+        setSuccess(`Invitation created! Code: ${data.invitation_code}`);
+        setEmail('');
+      }
+
       loadInvitations();
     } catch (err: any) {
       setError(err.message);
@@ -126,6 +175,31 @@ export default function BetaInvitationManager() {
           Send New Invitation
         </h2>
 
+        <div className="mb-4 flex gap-2">
+          <button
+            type="button"
+            onClick={() => setIsBulkMode(false)}
+            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+              !isBulkMode
+                ? 'bg-blue-600 text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
+            Single Invitation
+          </button>
+          <button
+            type="button"
+            onClick={() => setIsBulkMode(true)}
+            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+              isBulkMode
+                ? 'bg-blue-600 text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
+            Bulk Invitations
+          </button>
+        </div>
+
         <form onSubmit={handleSendInvite} className="space-y-4">
           {success && (
             <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-start gap-3">
@@ -141,34 +215,68 @@ export default function BetaInvitationManager() {
             </div>
           )}
 
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Recipient Email *
-              </label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="beta-tester@example.com"
-                required
-              />
-            </div>
+          {isBulkMode ? (
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Recipient Emails *
+                </label>
+                <textarea
+                  value={bulkEmails}
+                  onChange={(e) => setBulkEmails(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
+                  placeholder="Enter multiple emails (comma, semicolon, or newline separated)&#10;&#10;Example:&#10;john@example.com&#10;jane@example.com, bob@example.com&#10;alice@example.com; charlie@example.com"
+                  rows={8}
+                  required
+                />
+                <p className="mt-2 text-sm text-gray-600">
+                  Separate emails with commas, semicolons, or new lines
+                </p>
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Your Email (Optional)
-              </label>
-              <input
-                type="email"
-                value={senderEmail}
-                onChange={(e) => setSenderEmail(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="your@email.com"
-              />
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Your Email (Optional)
+                </label>
+                <input
+                  type="email"
+                  value={senderEmail}
+                  onChange={(e) => setSenderEmail(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="your@email.com"
+                />
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Recipient Email *
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="beta-tester@example.com"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Your Email (Optional)
+                </label>
+                <input
+                  type="email"
+                  value={senderEmail}
+                  onChange={(e) => setSenderEmail(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="your@email.com"
+                />
+              </div>
+            </div>
+          )}
 
           <button
             type="submit"
@@ -183,7 +291,7 @@ export default function BetaInvitationManager() {
             ) : (
               <>
                 <Mail className="w-5 h-5" />
-                Generate Invitation
+                {isBulkMode ? 'Generate Bulk Invitations' : 'Generate Invitation'}
               </>
             )}
           </button>
