@@ -579,7 +579,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           </div>
         </div>
 
-        <div className="text-center">
+        <div className="bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 rounded-2xl shadow-2xl p-12 mb-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Ready to Join the GigMate Community?
           </h2>
@@ -595,7 +595,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           </button>
         </div>
 
-        <div className="mt-16 text-center text-white text-sm space-y-2">
+        <div className="bg-gradient-to-br from-slate-900 via-gray-900 to-black rounded-2xl shadow-2xl p-8 text-center text-white text-sm space-y-2">
           <p>© 2025 GigMate. Making live music better for everyone.</p>
           {!profile && onLogin && (
             <p className="space-x-3">
