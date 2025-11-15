@@ -1,5 +1,7 @@
 # Task 1: Enable Email Confirmation in Supabase
 
+**Empowering live music communities, one gig at a time.**
+
 ## Overview
 Email confirmation ensures users verify their email address before accessing the platform. This prevents spam accounts and validates user contact information.
 
@@ -48,7 +50,9 @@ Email confirmation ensures users verify their email address before accessing the
    Body:
    Hi {{ .Name }},
 
-   Welcome to GigMate! Please confirm your email address by clicking the button below:
+   Welcome to GigMate - Empowering live music communities, one gig at a time.
+
+   Please confirm your email address by clicking the button below:
 
    {{ .ConfirmationURL }}
 

@@ -1,5 +1,7 @@
 # GoDaddy SMTP Setup for Supabase - GigMate
 
+**Empowering live music communities, one gig at a time.**
+
 ## Your Email Configuration
 - **Email Address:** admin@gigmate.us
 - **Provider:** GoDaddy
@@ -164,7 +166,9 @@ Subject: Confirm Your Email - GigMate
 Body:
 Hi there,
 
-Welcome to GigMate! Please confirm your email address to activate your account.
+Welcome to GigMate - Empowering live music communities, one gig at a time.
+
+Please confirm your email address to activate your account.
 
 {{ .ConfirmationURL }}
 

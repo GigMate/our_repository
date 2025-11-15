@@ -24,7 +24,10 @@ export default function Header({ onLogoClick }: HeaderProps) {
               alt="GigMate Logo"
               className="h-16 w-16"
             />
-            <span className="ml-3 text-3xl font-bold text-white">GigMate</span>
+            <div className="ml-3">
+              <div className="text-3xl font-bold text-white">GigMate</div>
+              <div className="text-xs text-yellow-300 font-medium -mt-1">Empowering live music communities</div>
+            </div>
           </button>
 
           <div className="flex items-center space-x-4">

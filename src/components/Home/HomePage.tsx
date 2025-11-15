@@ -164,10 +164,13 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
               alt="GigMate Logo"
               className="h-24 w-24 mx-auto mb-4 drop-shadow-2xl"
             />
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-2 drop-shadow-lg">
               Welcome to GigMate
             </h1>
-            <p className="text-xl md:text-2xl text-white mb-6 max-w-3xl mx-auto drop-shadow-md whitespace-nowrap">
+            <p className="text-2xl md:text-3xl font-semibold text-yellow-300 mb-4 drop-shadow-lg">
+              Empowering live music communities, one gig at a time.
+            </p>
+            <p className="text-lg md:text-xl text-white mb-6 max-w-3xl mx-auto drop-shadow-md">
               Where fans discover live music, shop local, and support the artists they&nbsp;love
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">

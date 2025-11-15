@@ -1,5 +1,7 @@
 # GigMate - Live Music Booking Platform
 
+**Empowering live music communities, one gig at a time.**
+
 **Version:** 3.0 Beta
 **Last Updated:** November 11, 2025
 **Status:** ✅ Production Ready - 100% Automated Deployment
@@ -10,6 +12,8 @@
 ---
 
 ## 🎵 What is GigMate?
+
+**Empowering live music communities, one gig at a time.**
 
 GigMate is the revolutionary all-in-one platform connecting musicians, venues, and fans. We handle everything from booking and contracts to payments and ticketing - all in one seamless experience.
 
