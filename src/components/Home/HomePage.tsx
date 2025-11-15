@@ -21,8 +21,10 @@ interface FeaturedEvent {
   start_time: string;
   ticket_price: number;
   venue_name: string;
+  venue_address: string;
   venue_city: string;
   venue_state: string;
+  venue_zip: string;
   venue_latitude: number;
   venue_longitude: number;
   musician_name: string;
@@ -63,7 +65,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           event_date,
           show_starts,
           ticket_price,
-          venues!inner(venue_name, city, state, latitude, longitude),
+          venues!inner(venue_name, address, city, state, zip_code, latitude, longitude),
           musicians!inner(stage_name, genres)
         `)
         .gte('event_date', new Date().toISOString().split('T')[0])
@@ -93,8 +95,10 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             start_time: event.show_starts,
             ticket_price: Math.ceil(event.ticket_price),
             venue_name: venue?.venue_name || '',
+            venue_address: venue?.address || '',
             venue_city: venue?.city || '',
             venue_state: venue?.state || '',
+            venue_zip: venue?.zip_code || '',
             venue_latitude: venueLat,
             venue_longitude: venueLng,
             musician_name: musician?.stage_name || '',
@@ -275,12 +279,15 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-2 text-gray-700">
-                          <MapPin className="w-4 h-4 text-red-700 flex-shrink-0" />
+                        <div className="flex items-start gap-2 text-gray-700">
+                          <MapPin className="w-4 h-4 text-red-700 flex-shrink-0 mt-0.5" />
                           <div>
                             <div className="font-semibold text-sm">{featuredEvent.venue_name}</div>
+                            <div className="text-xs text-gray-600">
+                              {featuredEvent.venue_address}
+                            </div>
                             <div className="text-xs text-gray-500">
-                              {featuredEvent.venue_city}, {featuredEvent.venue_state} • {featuredEvent.distance_miles.toFixed(1)} mi away
+                              {featuredEvent.venue_city}, {featuredEvent.venue_state} {featuredEvent.venue_zip} • {featuredEvent.distance_miles.toFixed(1)} mi away
                             </div>
                           </div>
                         </div>
