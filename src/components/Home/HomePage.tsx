@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Music, Users, Calendar, DollarSign, Star, ArrowRight, ChevronLeft, ChevronRight, TrendingUp, MapPin, Clock, Ticket, Lock, LogIn } from 'lucide-react';
+import { Music, Users, Calendar, DollarSign, Star, ArrowRight, ChevronLeft, ChevronRight, TrendingUp, MapPin, Clock, Ticket, LogIn } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useGeolocation } from '../../hooks/useGeolocation';
 import { useAuth } from '../../contexts/AuthContext';
@@ -42,8 +42,6 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
   const [loadingEvent, setLoadingEvent] = useState(false);
   const { latitude: userLat, longitude: userLng } = useGeolocation();
   const { profile } = useAuth();
-
-  const isPremiumUser = profile?.subscription_tier === 'premium';
 
   const latitude = userLat || 29.4241;
   const longitude = userLng || -98.4936;
@@ -217,15 +215,8 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
       {(featuredEvent || loadingEvent || (latitude && longitude && !featuredEvent && !loadingEvent)) && (
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
-          {isPremiumUser && featuredEvent ? (
+          {featuredEvent ? (
             <div className="bg-gradient-to-br from-orange-600 via-red-600 to-rose-700 rounded-2xl shadow-2xl p-6 border-4 border-orange-400">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold">
-                  PREMIUM EXCLUSIVE
-                </div>
-                <Star className="w-4 h-4 text-yellow-300 animate-pulse" />
-              </div>
-
               <h2 className="text-2xl font-bold text-white mb-1">Nearest Event to You</h2>
               <p className="text-white/90 mb-4 text-sm">Closest upcoming live music show</p>
 
@@ -300,35 +291,6 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                       Get Tickets
                     </button>
                   </div>
-                </div>
-              </div>
-            </div>
-          ) : !isPremiumUser && featuredEvent ? (
-            <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl shadow-2xl p-6 relative overflow-hidden">
-              <div className="absolute inset-0 backdrop-blur-sm bg-white/30"></div>
-
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-3">
-                  <h2 className="text-2xl font-bold text-gray-900">Nearest Event to You</h2>
-                  <Lock className="w-6 h-6 text-gray-400" />
-                </div>
-
-                <div className="bg-white/50 backdrop-blur-md rounded-xl p-4 mb-4 filter blur-sm pointer-events-none">
-                  <div className="h-24 bg-gray-300 animate-pulse rounded-lg"></div>
-                </div>
-
-                <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-xl p-4 text-center">
-                  <Star className="w-10 h-10 mx-auto mb-2" />
-                  <h3 className="text-xl font-bold mb-2">Upgrade to Premium</h3>
-                  <p className="text-white/90 mb-3 text-sm">
-                    See the nearest live music event to your location! Premium members get instant access to nearby shows sorted by distance.
-                  </p>
-                  <button
-                    onClick={onGetStarted}
-                    className="px-6 py-2 bg-gray-900 text-white font-bold text-sm rounded-lg hover:bg-gray-800 transition-all shadow-lg"
-                  >
-                    Upgrade Now
-                  </button>
                 </div>
               </div>
             </div>
