@@ -45,19 +45,6 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
   const isPremiumUser = profile?.subscription_tier === 'premium';
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % VENUE_IMAGES.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    if (latitude && longitude) {
-      loadFeaturedEvent();
-    }
-  }, [latitude, longitude, loadFeaturedEvent]);
-
   const loadFeaturedEvent = useCallback(async () => {
     if (!latitude || !longitude) return;
 
@@ -121,6 +108,19 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
       setLoadingEvent(false);
     }
   }, [latitude, longitude]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % VENUE_IMAGES.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (latitude && longitude) {
+      loadFeaturedEvent();
+    }
+  }, [latitude, longitude, loadFeaturedEvent]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % VENUE_IMAGES.length);
