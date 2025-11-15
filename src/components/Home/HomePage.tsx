@@ -3,6 +3,7 @@ import { Music, Users, Calendar, DollarSign, Star, ArrowRight, ChevronLeft, Chev
 import { supabase } from '../../lib/supabase';
 import { useGeolocation } from '../../hooks/useGeolocation';
 import { useAuth } from '../../contexts/AuthContext';
+import LeafletMap from '../Shared/LeafletMap';
 
 interface HomePageProps {
   onGetStarted: () => void;
@@ -240,13 +241,18 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                   </div>
 
                   <div className="relative h-64 md:h-full min-h-[300px]">
-                    <iframe
-                      width="100%"
+                    <LeafletMap
+                      center={{ lat: featuredEvent.venue_latitude, lng: featuredEvent.venue_longitude }}
+                      zoom={14}
+                      markers={[
+                        {
+                          id: featuredEvent.id,
+                          position: { lat: featuredEvent.venue_latitude, lng: featuredEvent.venue_longitude },
+                          title: featuredEvent.venue_name,
+                          subtitle: `${featuredEvent.venue_city}, ${featuredEvent.venue_state}`,
+                        }
+                      ]}
                       height="100%"
-                      frameBorder="0"
-                      style={{ border: 0 }}
-                      src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${featuredEvent.venue_latitude},${featuredEvent.venue_longitude}&zoom=14`}
-                      allowFullScreen
                     />
                   </div>
                 </div>
