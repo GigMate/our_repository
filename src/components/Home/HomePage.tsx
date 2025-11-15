@@ -40,10 +40,13 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [featuredEvent, setFeaturedEvent] = useState<FeaturedEvent | null>(null);
   const [loadingEvent, setLoadingEvent] = useState(false);
-  const { latitude, longitude } = useGeolocation();
+  const { latitude: userLat, longitude: userLng } = useGeolocation();
   const { profile } = useAuth();
 
   const isPremiumUser = profile?.subscription_tier === 'premium';
+
+  const latitude = userLat || 29.4241;
+  const longitude = userLng || -98.4936;
 
   const loadFeaturedEvent = useCallback(async () => {
     if (!latitude || !longitude) return;
@@ -344,12 +347,12 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                 <p className="text-gray-600 text-sm">Finding nearest live music...</p>
               </div>
             </div>
-          ) : latitude && longitude ? (
+          ) : (
             <div className="bg-gradient-to-br from-gray-700 to-gray-600 rounded-2xl shadow-xl p-6 text-center">
               <Music className="w-10 h-10 text-white mx-auto mb-3" />
               <h3 className="text-lg font-bold text-white mb-2">No Upcoming Events Nearby</h3>
               <p className="text-white/90 mb-3 text-sm">
-                We couldn't find any live music events within 100 miles of your location right now.
+                We couldn't find any live music events within 100 miles {userLat ? 'of your location' : 'of San Antonio, TX'} right now.
               </p>
               <button
                 onClick={onFanClick || onGetStarted}
@@ -358,7 +361,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                 Browse All Events
               </button>
             </div>
-          ) : null}
+          )}
         </div>
       )}
 
