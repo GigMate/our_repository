@@ -27,8 +27,6 @@ interface FeaturedEvent {
   musician_name: string;
   genres: string[];
   distance_miles: number;
-  venue_image?: string;
-  musician_image?: string;
 }
 
 const VENUE_IMAGES = [
@@ -64,8 +62,8 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           event_date,
           show_starts,
           ticket_price,
-          venues!inner(venue_name, city, state, latitude, longitude, profile_image_url),
-          musicians!inner(stage_name, genres, profile_image_url)
+          venues!inner(venue_name, city, state, latitude, longitude),
+          musicians!inner(stage_name, genres)
         `)
         .gte('event_date', new Date().toISOString().split('T')[0])
         .not('venues.latitude', 'is', null)
@@ -98,9 +96,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             venue_state: venue?.state || '',
             venue_latitude: venueLat,
             venue_longitude: venueLng,
-            venue_image: venue?.profile_image_url,
             musician_name: musician?.stage_name || '',
-            musician_image: musician?.profile_image_url,
             genres: musician?.genres || [],
             distance_miles: distance,
           };
@@ -231,17 +227,11 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="relative h-64 md:h-full min-h-[300px]">
-                    {(featuredEvent.venue_image || featuredEvent.musician_image) ? (
-                      <img
-                        src={featuredEvent.venue_image || featuredEvent.musician_image}
-                        alt={featuredEvent.venue_name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                        <Music className="w-20 h-20 text-gray-600" />
-                      </div>
-                    )}
+                    <img
+                      src={VENUE_IMAGES[Math.floor(Math.random() * VENUE_IMAGES.length)]}
+                      alt={featuredEvent.venue_name}
+                      className="w-full h-full object-cover"
+                    />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                       <div className="text-white text-xs font-semibold uppercase tracking-wide">
                         {featuredEvent.venue_name}
