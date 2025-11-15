@@ -27,6 +27,7 @@ import BetaRegistrationPage from './components/Auth/BetaRegistrationPage';
 import OnboardingTour from './components/Auth/OnboardingTour';
 import LegalConsentGate from './components/Auth/LegalConsentGate';
 import ErrorBoundary from './components/Shared/ErrorBoundary';
+import NotFoundPage from './components/Shared/NotFoundPage';
 
 type AuthPage = 'musician' | 'venue' | 'fan' | 'investor' | null;
 
@@ -45,6 +46,7 @@ function AppContent() {
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [showAIDashboard, setShowAIDashboard] = useState(false);
   const [showHome, setShowHome] = useState(true);
+  const [show404, setShow404] = useState(false);
   const [authPage, setAuthPage] = useState<AuthPage>(null);
 
   useEffect(() => {
@@ -72,8 +74,15 @@ function AppContent() {
       setShowOnboarding(true);
     } else if (path === '/ai' || path === '/ai/dashboard') {
       setShowAIDashboard(true);
+    } else if (path !== '/' && path !== '') {
+      setShow404(true);
+      setShowHome(false);
     }
   }, []);
+
+  if (show404) {
+    return <NotFoundPage onGoHome={() => { setShow404(false); setShowHome(true); window.history.pushState({}, '', '/'); }} />;
+  }
 
   if (showPasswordReset) {
     return <PasswordResetForm />;
