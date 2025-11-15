@@ -22,9 +22,13 @@ interface FeaturedEvent {
   venue_name: string;
   venue_city: string;
   venue_state: string;
+  venue_latitude: number;
+  venue_longitude: number;
   musician_name: string;
   genres: string[];
   distance_miles: number;
+  venue_image?: string;
+  musician_image?: string;
 }
 
 const VENUE_IMAGES = [
@@ -60,8 +64,8 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           event_date,
           show_starts,
           ticket_price,
-          venues!inner(venue_name, city, state, latitude, longitude),
-          musicians!inner(stage_name, genres)
+          venues!inner(venue_name, city, state, latitude, longitude, profile_image_url),
+          musicians!inner(stage_name, genres, profile_image_url)
         `)
         .gte('event_date', new Date().toISOString().split('T')[0])
         .not('venues.latitude', 'is', null)
@@ -88,11 +92,15 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             title: event.title,
             event_date: event.event_date,
             start_time: event.show_starts,
-            ticket_price: event.ticket_price,
+            ticket_price: Math.ceil(event.ticket_price),
             venue_name: venue?.venue_name || '',
             venue_city: venue?.city || '',
             venue_state: venue?.state || '',
+            venue_latitude: venueLat,
+            venue_longitude: venueLng,
+            venue_image: venue?.profile_image_url,
             musician_name: musician?.stage_name || '',
+            musician_image: musician?.profile_image_url,
             genres: musician?.genres || [],
             distance_miles: distance,
           };
@@ -220,76 +228,110 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
               <h2 className="text-2xl font-bold text-white mb-1">Nearest Event to You</h2>
               <p className="text-white/90 mb-4 text-sm">Closest upcoming live music show</p>
 
-              <div className="bg-white rounded-xl shadow-lg p-4">
-                <div className="flex flex-col md:flex-row gap-4">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{featuredEvent.title}</h3>
-
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2 text-gray-700">
-                        <Music className="w-4 h-4 text-gray-900 flex-shrink-0" />
-                        <div>
-                          <span className="font-semibold text-sm">{featuredEvent.musician_name}</span>
-                          {featuredEvent.genres.length > 0 && (
-                            <span className="text-xs text-gray-500 ml-2">
-                              {featuredEvent.genres.slice(0, 2).join(', ')}
-                            </span>
-                          )}
-                        </div>
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="relative h-64 md:h-full min-h-[300px]">
+                    {(featuredEvent.venue_image || featuredEvent.musician_image) ? (
+                      <img
+                        src={featuredEvent.venue_image || featuredEvent.musician_image}
+                        alt={featuredEvent.venue_name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
+                        <Music className="w-20 h-20 text-gray-600" />
                       </div>
-
-                      <div className="flex items-center gap-2 text-gray-700">
-                        <MapPin className="w-4 h-4 text-red-700 flex-shrink-0" />
-                        <div>
-                          <div className="font-semibold text-sm">{featuredEvent.venue_name}</div>
-                          <div className="text-xs text-gray-500">
-                            {featuredEvent.venue_city}, {featuredEvent.venue_state} • {featuredEvent.distance_miles.toFixed(1)} mi away
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-2 text-gray-700">
-                        <Calendar className="w-4 h-4 text-green-700 flex-shrink-0" />
-                        <div>
-                          <span className="font-semibold text-sm">
-                            {new Date(featuredEvent.event_date).toLocaleDateString('en-US', {
-                              weekday: 'short',
-                              month: 'short',
-                              day: 'numeric'
-                            })}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-2 text-gray-700">
-                        <Clock className="w-4 h-4 text-gray-900 flex-shrink-0" />
-                        <span className="font-semibold text-sm">{featuredEvent.start_time}</span>
-                      </div>
-
-                      <div className="flex items-center gap-2 text-gray-700">
-                        <Ticket className="w-4 h-4 text-orange-700 flex-shrink-0" />
-                        <span className="font-semibold text-base text-gray-900">
-                          ${featuredEvent.ticket_price.toFixed(2)}
-                        </span>
+                    )}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                      <div className="text-white text-xs font-semibold uppercase tracking-wide">
+                        {featuredEvent.venue_name}
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex flex-col justify-between md:min-w-[140px]">
-                    <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-lg p-3 mb-3">
-                      <MapPin className="w-6 h-6 text-white mx-auto mb-1" />
-                      <div className="text-center">
-                        <div className="text-xl font-bold text-white">{featuredEvent.distance_miles.toFixed(1)}</div>
-                        <div className="text-xs text-white/90">miles</div>
+                  <div className="relative h-64 md:h-full min-h-[300px]">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      frameBorder="0"
+                      style={{ border: 0 }}
+                      src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${featuredEvent.venue_latitude},${featuredEvent.venue_longitude}&zoom=14`}
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
+
+                <div className="p-4">
+                  <div className="flex flex-col md:flex-row gap-4">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{featuredEvent.title}</h3>
+
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-gray-700">
+                          <Music className="w-4 h-4 text-gray-900 flex-shrink-0" />
+                          <div>
+                            <span className="font-semibold text-sm">{featuredEvent.musician_name}</span>
+                            {featuredEvent.genres.length > 0 && (
+                              <span className="text-xs text-gray-500 ml-2">
+                                {featuredEvent.genres.slice(0, 2).join(', ')}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-2 text-gray-700">
+                          <MapPin className="w-4 h-4 text-red-700 flex-shrink-0" />
+                          <div>
+                            <div className="font-semibold text-sm">{featuredEvent.venue_name}</div>
+                            <div className="text-xs text-gray-500">
+                              {featuredEvent.venue_city}, {featuredEvent.venue_state} • {featuredEvent.distance_miles.toFixed(1)} mi away
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-2 text-gray-700">
+                          <Calendar className="w-4 h-4 text-green-700 flex-shrink-0" />
+                          <div>
+                            <span className="font-semibold text-sm">
+                              {new Date(featuredEvent.event_date).toLocaleDateString('en-US', {
+                                weekday: 'short',
+                                month: 'short',
+                                day: 'numeric'
+                              })}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-2 text-gray-700">
+                          <Clock className="w-4 h-4 text-gray-900 flex-shrink-0" />
+                          <span className="font-semibold text-sm">{featuredEvent.start_time}</span>
+                        </div>
+
+                        <div className="flex items-center gap-2 text-gray-700">
+                          <Ticket className="w-4 h-4 text-orange-700 flex-shrink-0" />
+                          <span className="font-semibold text-base text-gray-900">
+                            ${featuredEvent.ticket_price.toFixed(0)}
+                          </span>
+                        </div>
                       </div>
                     </div>
 
-                    <button
-                      onClick={onFanClick || onGetStarted}
-                      className="px-4 py-2 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold text-sm rounded-lg hover:from-gray-800 hover:to-gray-700 transition-all shadow-lg hover:shadow-xl"
-                    >
-                      Get Tickets
-                    </button>
+                    <div className="flex flex-col justify-between md:min-w-[140px]">
+                      <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-lg p-3 mb-3">
+                        <MapPin className="w-6 h-6 text-white mx-auto mb-1" />
+                        <div className="text-center">
+                          <div className="text-xl font-bold text-white">{featuredEvent.distance_miles.toFixed(1)}</div>
+                          <div className="text-xs text-white/90">miles</div>
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={onFanClick || onGetStarted}
+                        className="px-4 py-2 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold text-sm rounded-lg hover:from-gray-800 hover:to-gray-700 transition-all shadow-lg hover:shadow-xl"
+                      >
+                        Get Tickets
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
