@@ -50,7 +50,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
     setLoadingEvent(true);
     try {
-      const radiusMiles = 2;
+      const radiusMiles = 50;
       const milesPerDegree = 69;
       const latRange = radiusMiles / milesPerDegree;
       const lngRange = radiusMiles / (milesPerDegree * Math.cos((latitude * Math.PI) / 180));
@@ -72,35 +72,41 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
         .gte('venues.longitude', longitude - lngRange)
         .lte('venues.longitude', longitude + lngRange)
         .order('event_date', { ascending: true })
-        .limit(1);
+        .limit(20);
 
       if (error) throw error;
 
       if (events && events.length > 0) {
-        const event = events[0];
-        const venue = Array.isArray(event.venues) ? event.venues[0] : event.venues;
-        const musician = Array.isArray(event.musicians) ? event.musicians[0] : event.musicians;
-        const venueLat = venue?.latitude || 0;
-        const venueLng = venue?.longitude || 0;
+        // Calculate distance for each event and find the nearest one
+        const eventsWithDistance = events.map(event => {
+          const venue = Array.isArray(event.venues) ? event.venues[0] : event.venues;
+          const musician = Array.isArray(event.musicians) ? event.musicians[0] : event.musicians;
+          const venueLat = venue?.latitude || 0;
+          const venueLng = venue?.longitude || 0;
 
-        const distance = Math.sqrt(
-          Math.pow((latitude - venueLat) * milesPerDegree, 2) +
-          Math.pow((longitude - venueLng) * milesPerDegree * Math.cos((latitude * Math.PI) / 180), 2)
-        );
+          const distance = Math.sqrt(
+            Math.pow((latitude - venueLat) * milesPerDegree, 2) +
+            Math.pow((longitude - venueLng) * milesPerDegree * Math.cos((latitude * Math.PI) / 180), 2)
+          );
 
-        setFeaturedEvent({
-          id: event.id,
-          title: event.title,
-          event_date: event.event_date,
-          start_time: event.show_starts,
-          ticket_price: event.ticket_price,
-          venue_name: venue?.venue_name || '',
-          venue_city: venue?.city || '',
-          venue_state: venue?.state || '',
-          musician_name: musician?.stage_name || '',
-          genres: musician?.genres || [],
-          distance_miles: distance,
+          return {
+            id: event.id,
+            title: event.title,
+            event_date: event.event_date,
+            start_time: event.show_starts,
+            ticket_price: event.ticket_price,
+            venue_name: venue?.venue_name || '',
+            venue_city: venue?.city || '',
+            venue_state: venue?.state || '',
+            musician_name: musician?.stage_name || '',
+            genres: musician?.genres || [],
+            distance_miles: distance,
+          };
         });
+
+        // Sort by distance and get the nearest one
+        const nearestEvent = eventsWithDistance.sort((a, b) => a.distance_miles - b.distance_miles)[0];
+        setFeaturedEvent(nearestEvent);
       }
     } catch (error) {
       console.error('Error loading featured event:', error);
@@ -217,86 +223,86 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
       </div>
 
       {(featuredEvent || loadingEvent || (latitude && longitude && !featuredEvent && !loadingEvent)) && (
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
           {isPremiumUser && featuredEvent ? (
-            <div className="bg-gradient-to-br from-orange-600 via-red-600 to-rose-700 rounded-2xl shadow-2xl p-8 border-4 border-orange-400">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">
-                  PREMIUM MEMBER EXCLUSIVE
+            <div className="bg-gradient-to-br from-orange-600 via-red-600 to-rose-700 rounded-2xl shadow-2xl p-6 border-4 border-orange-400">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold">
+                  PREMIUM EXCLUSIVE
                 </div>
-                <Star className="w-5 h-5 text-yellow-300 animate-pulse" />
+                <Star className="w-4 h-4 text-yellow-300 animate-pulse" />
               </div>
 
-              <h2 className="text-3xl font-bold text-white mb-2">Live Music Near You</h2>
-              <p className="text-white/90 mb-6">Happening within 2 miles of your location</p>
+              <h2 className="text-2xl font-bold text-white mb-1">Nearest Event to You</h2>
+              <p className="text-white/90 mb-4 text-sm">Closest upcoming live music show</p>
 
-              <div className="bg-white rounded-xl shadow-lg p-6">
-                <div className="flex flex-col md:flex-row gap-6">
+              <div className="bg-white rounded-xl shadow-lg p-4">
+                <div className="flex flex-col md:flex-row gap-4">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{featuredEvent.title}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{featuredEvent.title}</h3>
 
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3 text-gray-700">
-                        <Music className="w-5 h-5 text-gray-900 flex-shrink-0" />
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2 text-gray-700">
+                        <Music className="w-4 h-4 text-gray-900 flex-shrink-0" />
                         <div>
-                          <span className="font-semibold">{featuredEvent.musician_name}</span>
+                          <span className="font-semibold text-sm">{featuredEvent.musician_name}</span>
                           {featuredEvent.genres.length > 0 && (
-                            <span className="text-sm text-gray-500 ml-2">
+                            <span className="text-xs text-gray-500 ml-2">
                               {featuredEvent.genres.slice(0, 2).join(', ')}
                             </span>
                           )}
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-3 text-gray-700">
-                        <MapPin className="w-5 h-5 text-red-700 flex-shrink-0" />
+                      <div className="flex items-center gap-2 text-gray-700">
+                        <MapPin className="w-4 h-4 text-red-700 flex-shrink-0" />
                         <div>
-                          <div className="font-semibold">{featuredEvent.venue_name}</div>
-                          <div className="text-sm text-gray-500">
+                          <div className="font-semibold text-sm">{featuredEvent.venue_name}</div>
+                          <div className="text-xs text-gray-500">
                             {featuredEvent.venue_city}, {featuredEvent.venue_state} • {featuredEvent.distance_miles.toFixed(1)} mi away
                           </div>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-3 text-gray-700">
-                        <Calendar className="w-5 h-5 text-green-700 flex-shrink-0" />
+                      <div className="flex items-center gap-2 text-gray-700">
+                        <Calendar className="w-4 h-4 text-green-700 flex-shrink-0" />
                         <div>
-                          <span className="font-semibold">
+                          <span className="font-semibold text-sm">
                             {new Date(featuredEvent.event_date).toLocaleDateString('en-US', {
-                              weekday: 'long',
-                              month: 'long',
+                              weekday: 'short',
+                              month: 'short',
                               day: 'numeric'
                             })}
                           </span>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-3 text-gray-700">
-                        <Clock className="w-5 h-5 text-gray-900 flex-shrink-0" />
-                        <span className="font-semibold">{featuredEvent.start_time}</span>
+                      <div className="flex items-center gap-2 text-gray-700">
+                        <Clock className="w-4 h-4 text-gray-900 flex-shrink-0" />
+                        <span className="font-semibold text-sm">{featuredEvent.start_time}</span>
                       </div>
 
-                      <div className="flex items-center gap-3 text-gray-700">
-                        <Ticket className="w-5 h-5 text-orange-700 flex-shrink-0" />
-                        <span className="font-semibold text-lg text-gray-900">
+                      <div className="flex items-center gap-2 text-gray-700">
+                        <Ticket className="w-4 h-4 text-orange-700 flex-shrink-0" />
+                        <span className="font-semibold text-base text-gray-900">
                           ${featuredEvent.ticket_price.toFixed(2)}
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex flex-col justify-between">
-                    <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-lg p-4 mb-4">
-                      <MapPin className="w-8 h-8 text-white mx-auto mb-2" />
+                  <div className="flex flex-col justify-between md:min-w-[140px]">
+                    <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-lg p-3 mb-3">
+                      <MapPin className="w-6 h-6 text-white mx-auto mb-1" />
                       <div className="text-center">
-                        <div className="text-2xl font-bold text-white">{featuredEvent.distance_miles.toFixed(1)}</div>
-                        <div className="text-sm text-white/90">miles away</div>
+                        <div className="text-xl font-bold text-white">{featuredEvent.distance_miles.toFixed(1)}</div>
+                        <div className="text-xs text-white/90">miles</div>
                       </div>
                     </div>
 
                     <button
                       onClick={onFanClick || onGetStarted}
-                      className="px-6 py-3 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold rounded-lg hover:from-gray-800 hover:to-gray-700 transition-all shadow-lg hover:shadow-xl"
+                      className="px-4 py-2 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold text-sm rounded-lg hover:from-gray-800 hover:to-gray-700 transition-all shadow-lg hover:shadow-xl"
                     >
                       Get Tickets
                     </button>
@@ -305,28 +311,28 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
               </div>
             </div>
           ) : !isPremiumUser && featuredEvent ? (
-            <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl shadow-2xl p-8 relative overflow-hidden">
+            <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl shadow-2xl p-6 relative overflow-hidden">
               <div className="absolute inset-0 backdrop-blur-sm bg-white/30"></div>
 
               <div className="relative z-10">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-3xl font-bold text-gray-900">Live Music Near You</h2>
-                  <Lock className="w-8 h-8 text-gray-400" />
+                <div className="flex items-center justify-between mb-3">
+                  <h2 className="text-2xl font-bold text-gray-900">Nearest Event to You</h2>
+                  <Lock className="w-6 h-6 text-gray-400" />
                 </div>
 
-                <div className="bg-white/50 backdrop-blur-md rounded-xl p-6 mb-6 filter blur-sm pointer-events-none">
-                  <div className="h-32 bg-gray-300 animate-pulse rounded-lg"></div>
+                <div className="bg-white/50 backdrop-blur-md rounded-xl p-4 mb-4 filter blur-sm pointer-events-none">
+                  <div className="h-24 bg-gray-300 animate-pulse rounded-lg"></div>
                 </div>
 
-                <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-xl p-6 text-center">
-                  <Star className="w-12 h-12 mx-auto mb-3" />
-                  <h3 className="text-2xl font-bold mb-2">Upgrade to Premium</h3>
-                  <p className="text-white/90 mb-4">
-                    Discover live music events happening within 2 miles of your location. Premium members get priority access to nearby shows!
+                <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-xl p-4 text-center">
+                  <Star className="w-10 h-10 mx-auto mb-2" />
+                  <h3 className="text-xl font-bold mb-2">Upgrade to Premium</h3>
+                  <p className="text-white/90 mb-3 text-sm">
+                    See the nearest live music event to your location! Premium members get instant access to nearby shows sorted by distance.
                   </p>
                   <button
                     onClick={onGetStarted}
-                    className="px-8 py-3 bg-gray-900 text-white font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg"
+                    className="px-6 py-2 bg-gray-900 text-white font-bold text-sm rounded-lg hover:bg-gray-800 transition-all shadow-lg"
                   >
                     Upgrade Now
                   </button>
@@ -334,22 +340,22 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
               </div>
             </div>
           ) : loadingEvent ? (
-            <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+            <div className="bg-white rounded-2xl shadow-xl p-6 text-center">
               <div className="animate-pulse">
-                <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-4 animate-bounce" />
-                <p className="text-gray-600">Finding live music near you...</p>
+                <MapPin className="w-10 h-10 text-gray-400 mx-auto mb-3 animate-bounce" />
+                <p className="text-gray-600 text-sm">Finding nearest live music...</p>
               </div>
             </div>
           ) : latitude && longitude ? (
-            <div className="bg-gradient-to-br from-gray-700 to-gray-600 rounded-2xl shadow-xl p-8 text-center">
-              <Music className="w-12 h-12 text-white mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">No Upcoming Events Nearby</h3>
-              <p className="text-white/90 mb-4">
-                We couldn't find any live music events within 2 miles of your location right now.
+            <div className="bg-gradient-to-br from-gray-700 to-gray-600 rounded-2xl shadow-xl p-6 text-center">
+              <Music className="w-10 h-10 text-white mx-auto mb-3" />
+              <h3 className="text-lg font-bold text-white mb-2">No Upcoming Events Nearby</h3>
+              <p className="text-white/90 mb-3 text-sm">
+                We couldn't find any live music events within 50 miles of your location right now.
               </p>
               <button
                 onClick={onFanClick || onGetStarted}
-                className="px-6 py-3 bg-gigmate-blue text-white font-semibold rounded-lg hover:bg-gigmate-blue-dark transition-colors"
+                className="px-4 py-2 bg-gigmate-blue text-white font-semibold text-sm rounded-lg hover:bg-gigmate-blue-dark transition-colors"
               >
                 Browse All Events
               </button>
