@@ -550,29 +550,35 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           </div>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-12 mb-8">
-          <h2 className="text-3xl font-bold text-white mb-6 text-center">
+        <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-800 rounded-2xl shadow-2xl p-12 mb-8">
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">
             Trust & Safety Through Mutual Ratings
           </h2>
-          <div className="grid md:grid-cols-3 gap-6 text-white">
-            <div className="text-center">
-              <Star className="h-12 w-12 mx-auto mb-3 text-yellow-600" />
-              <h3 className="font-bold mb-2">Everyone Gets Rated</h3>
-              <p className="text-sm text-white/90">
+          <div className="grid md:grid-cols-3 gap-8 text-white">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center hover:bg-white/20 transition-all">
+              <div className="bg-yellow-500/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <Star className="h-10 w-10 text-yellow-400" />
+              </div>
+              <h3 className="font-bold text-lg mb-3">Everyone Gets Rated</h3>
+              <p className="text-sm text-white/90 leading-relaxed">
                 Musicians, venues, and fans all participate in our rating system, ensuring accountability for all.
               </p>
             </div>
-            <div className="text-center">
-              <Users className="h-12 w-12 mx-auto mb-3 text-yellow-600" />
-              <h3 className="font-bold mb-2">Reputation Protection</h3>
-              <p className="text-sm text-white/90">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center hover:bg-white/20 transition-all">
+              <div className="bg-blue-500/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <Users className="h-10 w-10 text-blue-400" />
+              </div>
+              <h3 className="font-bold text-lg mb-3">Reputation Protection</h3>
+              <p className="text-sm text-white/90 leading-relaxed">
                 No single entity can damage the platform's reputation—our mutual rating system keeps everyone honest.
               </p>
             </div>
-            <div className="text-center">
-              <Star className="h-12 w-12 mx-auto mb-3 text-yellow-600" />
-              <h3 className="font-bold mb-2">Quality Community</h3>
-              <p className="text-sm text-white/90">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center hover:bg-white/20 transition-all">
+              <div className="bg-green-500/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <Star className="h-10 w-10 text-green-400" />
+              </div>
+              <h3 className="font-bold text-lg mb-3">Quality Community</h3>
+              <p className="text-sm text-white/90 leading-relaxed">
                 Bad actors get filtered out naturally. Great musicians, venues, and fans rise to the top.
               </p>
             </div>
