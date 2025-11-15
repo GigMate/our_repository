@@ -56,7 +56,7 @@ export default function LoginForm({ onToggle, onBack, userType }: LoginFormProps
     return (
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
         <div className="flex items-center justify-center mb-6">
-          <img src="/GigMate Pick 2.png" alt="GigMate" className="h-20 w-20" />
+          <img src="/gigmate-pick.svg" alt="GigMate" className="h-20 w-20" />
         </div>
         <h2 className="text-3xl font-bold text-gigmate-blue mb-6 text-center">Reset Password</h2>
 
@@ -138,7 +138,7 @@ export default function LoginForm({ onToggle, onBack, userType }: LoginFormProps
         </button>
       )}
       <div className="flex items-center justify-center mb-6">
-        <img src="/GigMate Pick 2.png" alt="GigMate" className="h-20 w-20" />
+        <img src="/gigmate-pick.svg" alt="GigMate" className="h-20 w-20" />
       </div>
       <h2 className="text-3xl font-bold text-gigmate-blue mb-6 text-center">
         {userType ? `${userType.charAt(0).toUpperCase() + userType.slice(1)} Login` : 'Welcome Back'}

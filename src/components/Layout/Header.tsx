@@ -20,7 +20,7 @@ export default function Header({ onLogoClick }: HeaderProps) {
             className="flex items-center hover:opacity-80 transition-opacity"
           >
             <img
-              src="/gigmate-pick.png"
+              src="/gigmate-pick.svg"
               alt="GigMate Logo"
               className="h-16 w-16"
             />
