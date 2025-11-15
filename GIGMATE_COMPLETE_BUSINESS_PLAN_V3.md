@@ -134,24 +134,22 @@ GigMate is the complete operating system for live music: **booking, messaging, t
 **Three Fan Tiers:**
 
 **Free ($0/month):**
-- 3 free messages to any artist
+- Limited complimentary messages per month
 - Unlimited venue inquiries (always free)
 - Event discovery
-- $0.99 per message after free tier
+- Pay-per-message or packages after free limit
 
 **Premium ($4.99/month):**
-- 50 artist messages/month ($0.10 each)
+- **Unlimited artist messages**
 - Unlimited venue inquiries
-- Fan-to-fan messaging ($0.49 each)
 - Priority in artist feeds
-- Early event access
-- Profile badge
+- Early event notifications
+- Premium profile badge
 
 **VIP ($9.99/month):**
 - **Unlimited artist messages**
-- **Free fan-to-fan messaging**
 - **Priority artist responses** (highlighted)
-- Crown VIP badge
+- **Crown VIP badge**
 - Exclusive backstage content
 - Early ticket access (first dibs)
 - 10% merchandise discount
@@ -159,8 +157,11 @@ GigMate is the complete operating system for live music: **booking, messaging, t
 
 **Pay-Per-Message Options:**
 - Single message: $0.99
-- 24-hour pass: $2.99 (up to 20 messages)
-- 7-day pass: $9.99 (up to 100 messages)
+- 5-Message Pack: $4.99 (30 days)
+- 20-Message Pack: $14.99 (30 days)
+- 100-Message Pack: $49.99 (90 days)
+
+**Key Point:** Artists receive messages at NO COST. GigMate retains 100% of fan messaging revenue as this is separate from booking transaction fees (10% general, 12.5% tickets).
 
 **Revenue Projections:**
 - Year 2 (10K fans): $627K
@@ -340,9 +341,15 @@ Components:
 **Year 3:** $1.5M
 
 Components:
-- Booking commissions (5-10%)
+- Booking commissions (10% general, 7.5% Business tier, 12.5% tickets)
 - Payment processing
 - Escrow services
+- Platform fees on all transactions
+
+**Fee Schedule:**
+- Free/Pro Tier: 10% on general transactions, 12.5% on ticket sales
+- Business Tier: 7.5% on general transactions, 12.5% on ticket sales
+- Credit purchases: 10% platform fee
 
 #### 6. Event Ticketing
 **Year 1:** $50K

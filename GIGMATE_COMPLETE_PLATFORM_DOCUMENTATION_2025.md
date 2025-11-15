@@ -85,22 +85,23 @@ Empower musicians to earn sustainable income, help venues thrive, enrich fan exp
 
 **Revenue & Payments**
 - Secure escrow-protected payments
-- Transparent fee structure (15% standard, 10% premium, 5% platinum)
+- Transparent fee structure (10% general, 7.5% Business tier, 12.5% tickets)
 - Multiple revenue streams (performance fees, tips, ticket sales, merchandise)
 - Instant payout after event completion
 - Performance analytics and earnings reports
 
 **Fan Engagement**
-- Premium direct messaging (fans pay $5 per message)
+- Premium direct messaging (fans pay $4.99-$9.99/month or per message)
+- Artists receive fan messages at no cost
 - Event promotion and ticket sharing
 - Merchandise sales integration
 - Fan analytics and insights
 - Email marketing tools
 
 **Premium Memberships**
-- **Standard (Free):** Basic features, 15% platform fee
-- **Premium ($49/month):** 10% fee, priority placement, advanced analytics
-- **Platinum ($199/month):** 5% fee, featured listings, dedicated support, marketing tools
+- **Free Tier:** Basic features, 10% transaction fee, 12.5% ticket fee
+- **Pro Tier ($49/month):** 10% transaction fee, priority placement, advanced analytics
+- **Business Tier ($199/month):** 7.5% transaction fee, 12.5% ticket fee, featured listings, dedicated support
 
 ### For Venues
 
@@ -150,7 +151,8 @@ Empower musicians to earn sustainable income, help venues thrive, enrich fan exp
 **Engagement**
 - Favorite artists and venues
 - Event reminders and notifications
-- Premium messaging to artists ($5/message)
+- Premium messaging to artists (Free tier: limited messages, Premium $4.99/month, VIP $9.99/month)
+- Pay-per-message options ($0.99-$49.99 packages)
 - Review and rate shows
 - Social sharing
 
@@ -203,10 +205,10 @@ Empower musicians to earn sustainable income, help venues thrive, enrich fan exp
 - Industry credibility through verified reviews
 
 **Revenue Potential:**
-- Average gig: $300-2,000 per show
+- Average gig: $300-2,000 per show (after 10% or 7.5% platform fee)
 - Merchandise sales: $100-500 per show
-- Premium messages: $5 per message (unlimited potential)
-- Ticket revenue share: 70% of ticket sales
+- Fan messages: Artists receive at no cost (platform generates revenue from fans)
+- Ticket revenue share: 87.5% to artist/venue (12.5% platform fee)
 - Tips and donations: Direct to artist
 
 ### Venues

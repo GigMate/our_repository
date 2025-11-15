@@ -18,11 +18,10 @@ GigMate's premium fan messaging system transforms direct artist communication in
 - ✅ Event discovery and browsing
 - ✅ Ticket purchasing
 - ✅ Public artist following
-- ✅ 3 free messages to any artist
+- ✅ Limited complimentary messages per month
 
 **Limitations:**
-- ❌ Must pay $0.99 per message after first 3
-- ❌ Cannot message other fans
+- ❌ Must pay per message after free limit
 - ❌ No priority placement
 - ❌ Standard event access only
 
@@ -31,14 +30,13 @@ GigMate's premium fan messaging system transforms direct artist communication in
 ### Fan Premium - $4.99/month
 
 **Included:**
-- ✅ 50 artist messages per month ($0.10 each)
+- ✅ Unlimited direct messaging to artists
 - ✅ Unlimited venue inquiries
-- ✅ Fan-to-fan messaging ($0.49 per message)
 - ✅ Priority in artist feeds
 - ✅ Early event notifications
-- ✅ Profile badge
+- ✅ Premium profile badge
 
-**Value:** Pay $4.99, get $50 worth of messages
+**Value:** Unlimited artist access for less than the cost of 5 pay-per-messages
 
 ---
 
@@ -46,15 +44,15 @@ GigMate's premium fan messaging system transforms direct artist communication in
 
 **Included:**
 - ✅ **Unlimited artist messages**
-- ✅ **Free fan-to-fan messaging**
-- ✅ **Priority artist responses**
-- ✅ Crown VIP badge
+- ✅ **Priority artist responses (highlighted messages)**
+- ✅ **Crown VIP badge**
 - ✅ Exclusive content access
 - ✅ Early ticket access
 - ✅ 10% merchandise discount
 - ✅ Meet & greet opportunities
+- ✅ All Premium tier benefits
 
-**Value:** Unlimited access for less than 11 pay-per-messages
+**Value:** Premium features plus VIP perks and priority treatment
 
 ---
 
@@ -63,8 +61,11 @@ GigMate's premium fan messaging system transforms direct artist communication in
 | Option | Price | Messages | Duration | Best For |
 |--------|-------|----------|----------|----------|
 | Single Message | $0.99 | 1 | N/A | Quick question |
-| 24-Hour Pass | $2.99 | 20 | 24 hours | Conversation |
-| 7-Day Pass | $9.99 | 100 | 7 days | Building relationship |
+| 5-Message Pack | $4.99 | 5 | 30 days | Occasional contact |
+| 20-Message Pack | $14.99 | 20 | 30 days | Regular conversation |
+| 100-Message Pack | $49.99 | 100 | 90 days | Super fan |
+
+**Note:** Artists pay nothing to receive or respond to fan messages. GigMate retains 100% of fan messaging revenue as this is separate from booking transaction fees.
 
 ---
 
@@ -123,10 +124,16 @@ GigMate's premium fan messaging system transforms direct artist communication in
 
 ### For GigMate
 - High-margin recurring revenue (85%+)
+- 100% of fan messaging revenue (separate from booking fees)
 - Network effects drive growth
 - Scalable with minimal costs
 - Premium positioning
 - Multiple monetization paths
+
+**Platform Fee Schedule Reminder:**
+- Artists/Venues: 10% on general transactions, 12.5% on tickets (Free/Pro)
+- Business Tier: 7.5% on general transactions, 12.5% on tickets
+- Fan Messaging: 100% platform revenue (no cost to artists)
 
 ---
 
