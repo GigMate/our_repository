@@ -221,7 +221,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
       {(featuredEvent || loadingEvent || (latitude && longitude && !featuredEvent && !loadingEvent)) && (
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
           {featuredEvent ? (
-            <div className="bg-gradient-to-br from-orange-600 via-red-600 to-rose-700 rounded-2xl shadow-2xl p-6 border-4 border-orange-400">
+            <div className="bg-gradient-to-br from-red-600 via-red-700 to-rose-700 rounded-2xl shadow-2xl p-6 border-4 border-red-400">
               <h2 className="text-2xl font-bold text-white mb-1">Nearest Event to You</h2>
               <p className="text-white/90 mb-4 text-sm">Closest upcoming live music show</p>
 
@@ -304,7 +304,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                         </div>
 
                         <div className="flex items-center gap-2 text-gray-700">
-                          <Ticket className="w-4 h-4 text-orange-700 flex-shrink-0" />
+                          <Ticket className="w-4 h-4 text-red-700 flex-shrink-0" />
                           <span className="font-semibold text-base text-gray-900">
                             ${featuredEvent.ticket_price.toFixed(0)}
                           </span>
@@ -313,7 +313,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                     </div>
 
                     <div className="flex flex-col justify-between md:min-w-[140px]">
-                      <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-lg p-3 mb-3">
+                      <div className="bg-gradient-to-br from-red-500 to-red-700 rounded-lg p-3 mb-3">
                         <MapPin className="w-6 h-6 text-white mx-auto mb-1" />
                         <div className="text-center">
                           <div className="text-xl font-bold text-white">{featuredEvent.distance_miles.toFixed(1)}</div>
@@ -457,10 +457,10 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           </div>
 
           <div className="bg-white rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-transform">
-            <div className="bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center shadow-lg">
+            <div className="bg-gradient-to-br from-red-600 to-red-800 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center shadow-lg">
               <TrendingUp className="h-8 w-8 text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-orange-600 mb-3">For Investors</h3>
+            <h3 className="text-2xl font-bold text-red-600 mb-3">For Investors</h3>
             <p className="text-gray-600 mb-4">
               By invitation only. Access platform analytics, revenue metrics, and growth insights.
             </p>
@@ -480,7 +480,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
             </ul>
             <button
               onClick={onInvestorClick || onGetStarted}
-              className="w-full px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors mt-6"
+              className="w-full px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors mt-6"
             >
               Request Access
             </button>
