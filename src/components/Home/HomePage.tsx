@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Music, Users, Calendar, DollarSign, Star, ArrowRight, ChevronLeft, ChevronRight, TrendingUp, MapPin, Clock, Ticket, Lock, LogIn } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useGeolocation } from '../../hooks/useGeolocation';
@@ -56,9 +56,9 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
     if (latitude && longitude) {
       loadFeaturedEvent();
     }
-  }, [latitude, longitude]);
+  }, [latitude, longitude, loadFeaturedEvent]);
 
-  async function loadFeaturedEvent() {
+  const loadFeaturedEvent = useCallback(async () => {
     if (!latitude || !longitude) return;
 
     setLoadingEvent(true);
@@ -120,7 +120,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
     } finally {
       setLoadingEvent(false);
     }
-  }
+  }, [latitude, longitude]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % VENUE_IMAGES.length);

@@ -6,7 +6,7 @@ interface AuthContextType {
   user: User | null;
   profile: Profile | null;
   loading: boolean;
-  signUp: (email: string, password: string, userData: { full_name: string; user_type: 'musician' | 'venue' | 'fan'; genres?: string[]; location?: any; referred_by_code?: string }) => Promise<void>;
+  signUp: (email: string, password: string, userData: { full_name: string; user_type: 'musician' | 'venue' | 'fan' | 'consumer'; genres?: string[]; location?: any; referred_by_code?: string }) => Promise<void>;
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
 }

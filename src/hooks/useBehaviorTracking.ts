@@ -29,7 +29,7 @@ export function useBehaviorTracking() {
     targetId,
     metadata = {}
   }: TrackEventParams) => {
-    if (!user) return;
+    if (!user?.id) return;
 
     try {
       await supabase.from('user_behavior_events').insert({
@@ -76,13 +76,15 @@ export function useBehaviorTracking() {
   }, [trackEvent]);
 
   const trackSearch = useCallback(async (query: string, searchType: string, filters?: any) => {
+    if (!user?.id) return;
+
     trackEvent({
       eventType: 'search',
       eventCategory: 'discovery',
       metadata: { query, search_type: searchType, filters }
     });
 
-    if (user) {
+    try {
       await supabase.from('search_history').insert({
         user_id: user.id,
         search_query: query,
@@ -90,6 +92,8 @@ export function useBehaviorTracking() {
         filters_applied: filters || {},
         session_id: generateSessionId(),
       });
+    } catch (error) {
+      console.error('Search tracking error:', error);
     }
   }, [user, trackEvent, generateSessionId]);
 
@@ -99,6 +103,8 @@ export function useBehaviorTracking() {
     targetId?: string,
     targetType?: string
   ) => {
+    if (!user?.id) return;
+
     trackEvent({
       eventType: 'payment_complete',
       eventCategory: 'transaction',
@@ -107,7 +113,7 @@ export function useBehaviorTracking() {
       metadata: { amount, purchase_type: purchaseType }
     });
 
-    if (user) {
+    try {
       await supabase.from('purchase_patterns').insert({
         user_id: user.id,
         purchase_type: purchaseType,
@@ -116,6 +122,8 @@ export function useBehaviorTracking() {
         target_type: targetType,
         last_purchase_at: new Date().toISOString(),
       });
+    } catch (error) {
+      console.error('Purchase tracking error:', error);
     }
   }, [user, trackEvent]);
 

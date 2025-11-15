@@ -7,15 +7,44 @@ interface GeolocationState {
   loading: boolean;
 }
 
+const CACHE_KEY = 'gigmate_geolocation';
+const CACHE_DURATION = 30 * 60 * 1000;
+
+interface CachedLocation {
+  latitude: number;
+  longitude: number;
+  timestamp: number;
+}
+
 export function useGeolocation() {
-  const [location, setLocation] = useState<GeolocationState>({
-    latitude: null,
-    longitude: null,
-    error: null,
-    loading: true,
+  const [location, setLocation] = useState<GeolocationState>(() => {
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+      try {
+        const parsed: CachedLocation = JSON.parse(cached);
+        if (Date.now() - parsed.timestamp < CACHE_DURATION) {
+          return {
+            latitude: parsed.latitude,
+            longitude: parsed.longitude,
+            error: null,
+            loading: false,
+          };
+        }
+      } catch {}
+    }
+    return {
+      latitude: null,
+      longitude: null,
+      error: null,
+      loading: true,
+    };
   });
 
   useEffect(() => {
+    if (location.latitude !== null && !location.loading) {
+      return;
+    }
+
     if (!navigator.geolocation) {
       setLocation({
         latitude: null,
@@ -28,12 +57,20 @@ export function useGeolocation() {
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        setLocation({
+        const newLocation = {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
           error: null,
           loading: false,
-        });
+        };
+        setLocation(newLocation);
+
+        const cached: CachedLocation = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          timestamp: Date.now(),
+        };
+        localStorage.setItem(CACHE_KEY, JSON.stringify(cached));
       },
       (error) => {
         let errorMessage = 'Unable to retrieve your location';
@@ -58,12 +95,12 @@ export function useGeolocation() {
         });
       },
       {
-        enableHighAccuracy: true,
+        enableHighAccuracy: false,
         timeout: 10000,
-        maximumAge: 0,
+        maximumAge: CACHE_DURATION,
       }
     );
-  }, []);
+  }, [location.latitude, location.loading]);
 
   return location;
 }
