@@ -93,7 +93,7 @@ export default function LeafletMap({
       markersRef.current.push(marker);
     });
 
-    if (markers.length > 0) {
+    if (markers.length > 1) {
       const bounds = L.latLngBounds(markers.map(m => [m.position.lat, m.position.lng]));
       leafletMapRef.current.fitBounds(bounds, { padding: [50, 50] });
     }
