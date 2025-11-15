@@ -74,7 +74,7 @@ export default function PasswordResetForm() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gigmate-blue to-gigmate-red p-4">
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
         <div className="flex items-center justify-center mb-6">
-          <img src="/gigmate-pick.svg" alt="GigMate" className="h-20 w-20" />
+          <img src="/GigMate Pick 2.png" alt="GigMate" className="h-20 w-20" />
         </div>
         <h2 className="text-3xl font-bold text-gigmate-blue mb-6 text-center">Set New Password</h2>
 
