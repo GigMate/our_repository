@@ -253,56 +253,56 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
       </div>
 
       {(featuredEvent || loadingEvent || (latitude && longitude && !featuredEvent && !loadingEvent)) && (
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 relative z-10">
           {featuredEvent ? (
-            <div className="bg-gradient-to-br from-red-600 via-red-700 to-rose-700 rounded-2xl shadow-2xl p-6 border-4 border-red-400">
-              <div className="flex items-center justify-between mb-4">
+            <div className="bg-gradient-to-br from-red-600 via-red-700 to-rose-700 rounded-xl sm:rounded-2xl shadow-2xl p-3 sm:p-6 border-2 sm:border-4 border-red-400">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 mb-4">
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-1">Nearest Events to You</h2>
-                  <p className="text-white/90 text-sm">Closest upcoming live music shows</p>
+                  <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1">Nearest Events to You</h2>
+                  <p className="text-white/90 text-xs sm:text-sm">Closest upcoming live music shows</p>
                 </div>
                 {featuredEvents.length > 1 && (
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 justify-center">
                     <button
                       onClick={prevEvent}
-                      className="bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-all"
+                      className="bg-white/20 hover:bg-white/40 backdrop-blur-sm p-1.5 sm:p-2 rounded-full transition-all"
                       aria-label="Previous event"
                     >
-                      <ChevronLeft className="w-5 h-5 text-white" />
+                      <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     </button>
-                    <span className="text-white font-semibold text-sm px-3">
+                    <span className="text-white font-semibold text-xs sm:text-sm px-2 sm:px-3 whitespace-nowrap">
                       {currentEventIndex + 1} / {featuredEvents.length}
                     </span>
                     <button
                       onClick={nextEvent}
-                      className="bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-all"
+                      className="bg-white/20 hover:bg-white/40 backdrop-blur-sm p-1.5 sm:p-2 rounded-full transition-all"
                       aria-label="Next event"
                     >
-                      <ChevronRight className="w-5 h-5 text-white" />
+                      <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     </button>
                   </div>
                 )}
               </div>
 
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="relative h-80">
+              <div className="bg-white rounded-lg sm:rounded-xl shadow-lg overflow-hidden">
+                <div className="grid md:grid-cols-2 gap-0 md:gap-4">
+                  <div className="relative h-48 sm:h-64 md:h-80">
                     <img
                       src={VENUE_IMAGES[currentEventIndex % VENUE_IMAGES.length]}
                       alt={featuredEvent.venue_name}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                      <div className="text-white text-lg font-bold">
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2 sm:p-4">
+                      <div className="text-white text-sm sm:text-base md:text-lg font-bold">
                         {featuredEvent.venue_name}
                       </div>
-                      <div className="text-white/90 text-sm">
+                      <div className="text-white/90 text-xs sm:text-sm">
                         {featuredEvent.venue_city}, {featuredEvent.venue_state}
                       </div>
                     </div>
                   </div>
 
-                  <div className="relative h-80">
+                  <div className="relative h-48 sm:h-64 md:h-80">
                     <LeafletMap
                       center={{ lat: featuredEvent.venue_latitude, lng: featuredEvent.venue_longitude }}
                       zoom={14}
@@ -319,10 +319,10 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                   </div>
                 </div>
 
-                <div className="p-4">
-                  <div className="flex flex-col md:flex-row gap-4">
+                <div className="p-3 sm:p-4">
+                  <div className="flex flex-col md:flex-row gap-3 sm:gap-4">
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{featuredEvent.title}</h3>
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-2">{featuredEvent.title}</h3>
 
                       <div className="space-y-2">
                         <div className="flex items-center gap-2 text-gray-700">
@@ -377,18 +377,18 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
                       </div>
                     </div>
 
-                    <div className="flex flex-col justify-between md:min-w-[140px]">
-                      <div className="bg-gradient-to-br from-red-500 to-red-700 rounded-lg p-3 mb-3">
-                        <MapPin className="w-6 h-6 text-white mx-auto mb-1" />
+                    <div className="flex flex-row md:flex-col justify-between items-center md:items-stretch gap-3 md:gap-0 md:min-w-[140px]">
+                      <div className="bg-gradient-to-br from-red-500 to-red-700 rounded-lg p-2 sm:p-3 md:mb-3 flex-shrink-0">
+                        <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-white mx-auto mb-1" />
                         <div className="text-center">
-                          <div className="text-xl font-bold text-white">{featuredEvent.distance_miles.toFixed(1)}</div>
-                          <div className="text-xs text-white/90">miles</div>
+                          <div className="text-lg sm:text-xl font-bold text-white">{featuredEvent.distance_miles.toFixed(1)}</div>
+                          <div className="text-[10px] sm:text-xs text-white/90">miles</div>
                         </div>
                       </div>
 
                       <button
                         onClick={onFanClick || onGetStarted}
-                        className="px-4 py-2 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold text-sm rounded-lg hover:from-gray-800 hover:to-gray-700 transition-all shadow-lg hover:shadow-xl"
+                        className="px-4 py-2 sm:py-3 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold text-xs sm:text-sm rounded-lg hover:from-gray-800 hover:to-gray-700 transition-all shadow-lg hover:shadow-xl flex-1 md:flex-initial whitespace-nowrap"
                       >
                         Get Tickets
                       </button>
