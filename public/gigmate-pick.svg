@@ -1,13 +1,13 @@
 <svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="pickGradient" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#8B5CF6"/>
-      <stop offset="100%" stop-color="#EC4899"/>
+      <stop offset="0%" stop-color="#1e40af"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
     </linearGradient>
   </defs>
 
   <!-- Guitar Pick Shape -->
-  <path d="M64 10 C 90 10, 110 25, 115 45 C 120 65, 115 85, 105 100 C 95 115, 75 125, 64 125 C 53 125, 33 115, 23 100 C 13 85, 8 65, 13 45 C 18 25, 38 10, 64 10 Z" fill="url(#pickGradient)" stroke="#7C3AED" stroke-width="2"/>
+  <path d="M64 10 C 90 10, 110 25, 115 45 C 120 65, 115 85, 105 100 C 95 115, 75 125, 64 125 C 53 125, 33 115, 23 100 C 13 85, 8 65, 13 45 C 18 25, 38 10, 64 10 Z" fill="url(#pickGradient)" stroke="#1d4ed8" stroke-width="2"/>
 
   <!-- Musical Note -->
   <circle cx="64" cy="70" r="8" fill="white" opacity="0.95"/>
