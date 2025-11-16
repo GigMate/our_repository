@@ -1,6 +1,7 @@
-import { Music, MapPin, Calendar, Image } from 'lucide-react';
+import { Music, MapPin, Calendar, Image, Video } from 'lucide-react';
 import { useState } from 'react';
 import ImageGallery from '../Shared/ImageGallery';
+import VideoGallery from '../Shared/VideoGallery';
 
 interface Musician {
   id: string;
@@ -21,22 +22,40 @@ interface MusicianCardProps {
 
 export default function MusicianCard({ musician }: MusicianCardProps) {
   const [showGallery, setShowGallery] = useState(false);
+  const [showVideos, setShowVideos] = useState(false);
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
       <div className="flex items-start justify-between mb-2">
         <h3 className="text-xl font-bold text-gigmate-blue">{musician.stage_name}</h3>
-        <button
-          onClick={() => setShowGallery(!showGallery)}
-          className="text-gray-500 hover:text-gigmate-blue transition-colors"
-          title="View images"
-        >
-          <Image className="h-5 w-5" />
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={() => setShowVideos(!showVideos)}
+            className="text-gray-500 hover:text-red-600 transition-colors"
+            title="View videos"
+          >
+            <Video className="h-5 w-5" />
+          </button>
+          <button
+            onClick={() => setShowGallery(!showGallery)}
+            className="text-gray-500 hover:text-gigmate-blue transition-colors"
+            title="View images"
+          >
+            <Image className="h-5 w-5" />
+          </button>
+        </div>
       </div>
+
+      {showVideos && (
+        <div className="mb-4">
+          <h4 className="text-sm font-semibold text-gray-700 mb-2">Videos</h4>
+          <VideoGallery entityType="musician" entityId={musician.id} />
+        </div>
+      )}
 
       {showGallery && (
         <div className="mb-4">
+          <h4 className="text-sm font-semibold text-gray-700 mb-2">Photos</h4>
           <ImageGallery entityType="musician" entityId={musician.id} />
         </div>
       )}

@@ -6,6 +6,8 @@ import MusicianCard from '../Fan/MusicianCard';
 import AdBanner from '../Shared/AdBanner';
 import { MapSearch } from '../Shared/MapSearch';
 import ImageUpload from '../Shared/ImageUpload';
+import VideoUpload from '../Shared/VideoUpload';
+import VideoGallery from '../Shared/VideoGallery';
 import ReferralProgram from '../Shared/ReferralProgram';
 import VenueCalendar from '../Shared/VenueCalendar';
 import { TicketScanner } from './TicketScanner';
@@ -165,7 +167,7 @@ export default function VenueDashboard() {
             className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
           >
             <Settings className="h-5 w-5" />
-            {showSettings ? 'Hide' : 'Manage'} Venue Images
+            {showSettings ? 'Hide' : 'Manage'} Venue Media
           </button>
           <button
             onClick={() => setShowScanner(!showScanner)}
@@ -185,8 +187,23 @@ export default function VenueDashboard() {
 
       {showSettings && venueId && (
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Venue Image Gallery</h2>
-          <ImageUpload entityType="venue" entityId={venueId} />
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Venue Profile Media</h2>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">Upload Videos</h3>
+              <VideoUpload entityType="venue" entityId={venueId} maxVideos={5} />
+              <div className="mt-6">
+                <h4 className="text-md font-semibold text-gray-700 mb-3">Your Videos</h4>
+                <VideoGallery entityType="venue" entityId={venueId} editable={true} />
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">Upload Photos</h3>
+              <ImageUpload entityType="venue" entityId={venueId} />
+            </div>
+          </div>
         </div>
       )}
 

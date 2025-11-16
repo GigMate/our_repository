@@ -1,6 +1,7 @@
-import { MapPin, Users, Music, Image } from 'lucide-react';
+import { MapPin, Users, Music, Image, Video } from 'lucide-react';
 import { useState } from 'react';
 import ImageGallery from '../Shared/ImageGallery';
+import VideoGallery from '../Shared/VideoGallery';
 
 interface Venue {
   id: string;
@@ -23,6 +24,7 @@ interface VenueCardProps {
 
 export default function VenueCard({ venue, onClick }: VenueCardProps) {
   const [showGallery, setShowGallery] = useState(false);
+  const [showVideos, setShowVideos] = useState(false);
 
   return (
     <div
@@ -31,21 +33,41 @@ export default function VenueCard({ venue, onClick }: VenueCardProps) {
     >
       <div className="flex items-start justify-between mb-2">
         <h3 className="text-xl font-bold text-gigmate-blue">{venue.venue_name}</h3>
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setShowGallery(!showGallery);
-          }}
-          className="text-gray-500 hover:text-gigmate-blue transition-colors"
-          title="View images"
-        >
-          <Image className="h-5 w-5" />
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowVideos(!showVideos);
+            }}
+            className="text-gray-500 hover:text-red-600 transition-colors"
+            title="View videos"
+          >
+            <Video className="h-5 w-5" />
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowGallery(!showGallery);
+            }}
+            className="text-gray-500 hover:text-gigmate-blue transition-colors"
+            title="View images"
+          >
+            <Image className="h-5 w-5" />
+          </button>
+        </div>
       </div>
       <p className="text-sm text-gray-500 mb-3">{venue.venue_type}</p>
 
+      {showVideos && (
+        <div className="mb-4" onClick={(e) => e.stopPropagation()}>
+          <h4 className="text-sm font-semibold text-gray-700 mb-2">Videos</h4>
+          <VideoGallery entityType="venue" entityId={venue.id} />
+        </div>
+      )}
+
       {showGallery && (
-        <div className="mb-4">
+        <div className="mb-4" onClick={(e) => e.stopPropagation()}>
+          <h4 className="text-sm font-semibold text-gray-700 mb-2">Photos</h4>
           <ImageGallery entityType="venue" entityId={venue.id} />
         </div>
       )}
