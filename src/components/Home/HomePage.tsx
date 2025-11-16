@@ -44,7 +44,8 @@ const VENUE_IMAGES = [
 
 export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, onFanClick, onInvestorClick, onLogin }: HomePageProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [featuredEvent, setFeaturedEvent] = useState<FeaturedEvent | null>(null);
+  const [featuredEvents, setFeaturedEvents] = useState<FeaturedEvent[]>([]);
+  const [currentEventIndex, setCurrentEventIndex] = useState(0);
   const [loadingEvent, setLoadingEvent] = useState(false);
   const { latitude: userLat, longitude: userLng } = useGeolocation();
   const { profile } = useAuth();
@@ -109,8 +110,8 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
         }).filter(event => event.distance_miles <= radiusMiles);
 
         if (eventsWithDistance.length > 0) {
-          const nearestEvent = eventsWithDistance.sort((a, b) => a.distance_miles - b.distance_miles)[0];
-          setFeaturedEvent(nearestEvent);
+          const sortedEvents = eventsWithDistance.sort((a, b) => a.distance_miles - b.distance_miles);
+          setFeaturedEvents(sortedEvents.slice(0, 10));
         }
       }
     } catch (error) {
@@ -131,6 +132,15 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
     loadFeaturedEvent();
   }, [loadFeaturedEvent]);
 
+  useEffect(() => {
+    if (featuredEvents.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentEventIndex((prev) => (prev + 1) % featuredEvents.length);
+      }, 8000);
+      return () => clearInterval(interval);
+    }
+  }, [featuredEvents.length]);
+
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % VENUE_IMAGES.length);
   };
@@ -138,6 +148,16 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + VENUE_IMAGES.length) % VENUE_IMAGES.length);
   };
+
+  const nextEvent = () => {
+    setCurrentEventIndex((prev) => (prev + 1) % featuredEvents.length);
+  };
+
+  const prevEvent = () => {
+    setCurrentEventIndex((prev) => (prev - 1 + featuredEvents.length) % featuredEvents.length);
+  };
+
+  const featuredEvent = featuredEvents[currentEventIndex];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -227,20 +247,48 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
           {featuredEvent ? (
             <div className="bg-gradient-to-br from-red-600 via-red-700 to-rose-700 rounded-2xl shadow-2xl p-6 border-4 border-red-400">
-              <h2 className="text-2xl font-bold text-white mb-1">Nearest Event to You</h2>
-              <p className="text-white/90 mb-4 text-sm">Closest upcoming live music show</p>
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h2 className="text-2xl font-bold text-white mb-1">Nearest Events to You</h2>
+                  <p className="text-white/90 text-sm">Closest upcoming live music shows</p>
+                </div>
+                {featuredEvents.length > 1 && (
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={prevEvent}
+                      className="bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-all"
+                      aria-label="Previous event"
+                    >
+                      <ChevronLeft className="w-5 h-5 text-white" />
+                    </button>
+                    <span className="text-white font-semibold text-sm px-3">
+                      {currentEventIndex + 1} / {featuredEvents.length}
+                    </span>
+                    <button
+                      onClick={nextEvent}
+                      className="bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-all"
+                      aria-label="Next event"
+                    >
+                      <ChevronRight className="w-5 h-5 text-white" />
+                    </button>
+                  </div>
+                )}
+              </div>
 
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="relative h-80">
                     <img
-                      src={VENUE_IMAGES[Math.floor(Math.random() * VENUE_IMAGES.length)]}
+                      src={VENUE_IMAGES[currentEventIndex % VENUE_IMAGES.length]}
                       alt={featuredEvent.venue_name}
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                      <div className="text-white text-xs font-semibold uppercase tracking-wide">
+                      <div className="text-white text-lg font-bold">
                         {featuredEvent.venue_name}
+                      </div>
+                      <div className="text-white/90 text-sm">
+                        {featuredEvent.venue_city}, {featuredEvent.venue_state}
                       </div>
                     </div>
                   </div>
