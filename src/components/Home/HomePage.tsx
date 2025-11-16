@@ -73,6 +73,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
   const loadVenuesWithBookings = useCallback(async () => {
     setLoadingVenues(true);
+    console.log('🔍 Loading venues with bookings...');
     try {
       const radiusMiles = 100;
       const milesPerDegree = 69;
@@ -93,9 +94,11 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
         .limit(50);
 
       if (error) {
-        console.error('Error fetching bookings:', error);
+        console.error('❌ Error fetching bookings:', error);
         throw error;
       }
+
+      console.log('📊 Fetched bookings:', bookings?.length || 0);
 
       if (bookings && bookings.length > 0) {
         const venueMap = new Map<string, VenueWithBooking>();
@@ -151,10 +154,13 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
         const venuesList = Array.from(venueMap.values())
           .sort((a, b) => a.distance_miles - b.distance_miles);
 
+        console.log('✅ Found venues with bookings:', venuesList.length);
         setVenuesWithBookings(venuesList);
+      } else {
+        console.log('⚠️ No venues with bookings found');
       }
     } catch (error) {
-      console.error('Error loading venues with bookings:', error);
+      console.error('❌ Error loading venues with bookings:', error);
     } finally {
       setLoadingVenues(false);
     }
