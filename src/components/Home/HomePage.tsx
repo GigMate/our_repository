@@ -67,19 +67,28 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           event_date,
           show_starts,
           ticket_price,
+          venue_id,
+          musician_id,
           venues!inner(venue_name, address, city, state, zip_code, latitude, longitude),
           musicians!inner(stage_name, genres)
         `)
+        .eq('status', 'upcoming')
         .gte('event_date', new Date().toISOString().split('T')[0])
-        .not('venues.latitude', 'is', null)
-        .not('venues.longitude', 'is', null)
         .order('event_date', { ascending: true })
         .limit(100);
 
-      if (error) throw error;
+      if (error) {
+        console.error('Error fetching events:', error);
+        throw error;
+      }
 
       if (events && events.length > 0) {
-        const eventsWithDistance = events.map(event => {
+        const eventsWithDistance = events
+          .filter(event => {
+            const venue = Array.isArray(event.venues) ? event.venues[0] : event.venues;
+            return venue && venue.latitude && venue.longitude;
+          })
+          .map(event => {
           const venue = Array.isArray(event.venues) ? event.venues[0] : event.venues;
           const musician = Array.isArray(event.musicians) ? event.musicians[0] : event.musicians;
           const venueLat = parseFloat(venue?.latitude) || 0;
