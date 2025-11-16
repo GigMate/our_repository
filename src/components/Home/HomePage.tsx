@@ -87,8 +87,8 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           venue_id,
           musician_id,
           event_id,
-          venues!inner(id, venue_name, address, city, state, zip_code, latitude, longitude),
-          events!inner(id, title, event_date, show_starts)
+          venues(id, venue_name, address, city, state, zip_code, latitude, longitude),
+          events(id, title, event_date, show_starts)
         `)
         .in('status', ['accepted', 'escrowed'])
         .limit(50);
@@ -98,7 +98,7 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
         throw error;
       }
 
-      console.log('📊 Fetched bookings:', bookings?.length || 0);
+      console.log('📊 Fetched bookings:', bookings?.length || 0, bookings);
 
       if (bookings && bookings.length > 0) {
         const venueMap = new Map<string, VenueWithBooking>();
