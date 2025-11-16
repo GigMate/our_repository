@@ -83,18 +83,19 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           id,
           agreed_rate,
           status,
+          venue_id,
+          musician_id,
+          event_id,
           venues!inner(id, venue_name, address, city, state, zip_code, latitude, longitude),
-          musicians!inner(id),
           events!inner(id, title, event_date, show_starts)
         `)
         .in('status', ['accepted', 'escrowed'])
-        .not('venues.latitude', 'is', null)
-        .not('venues.longitude', 'is', null)
-        .gte('events.event_date', new Date().toISOString().split('T')[0])
-        .order('events.event_date', { ascending: true })
         .limit(50);
 
-      if (error) throw error;
+      if (error) {
+        console.error('Error fetching bookings:', error);
+        throw error;
+      }
 
       if (bookings && bookings.length > 0) {
         const venueMap = new Map<string, VenueWithBooking>();
@@ -102,9 +103,11 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
         for (const booking of bookings) {
           const venue = Array.isArray(booking.venues) ? booking.venues[0] : booking.venues;
           const event = Array.isArray(booking.events) ? booking.events[0] : booking.events;
-          const musician = Array.isArray(booking.musicians) ? booking.musicians[0] : booking.musicians;
 
-          if (!venue || !event) continue;
+          if (!venue || !event || !venue.latitude || !venue.longitude) continue;
+
+          const eventDate = new Date(event.event_date);
+          if (eventDate < new Date()) continue;
 
           const venueLat = parseFloat(venue.latitude) || 0;
           const venueLng = parseFloat(venue.longitude) || 0;
@@ -119,8 +122,8 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           const { data: musicianProfile } = await supabase
             .from('profiles')
             .select('full_name')
-            .eq('id', musician.id)
-            .single();
+            .eq('id', booking.musician_id)
+            .maybeSingle();
 
           if (!venueMap.has(venue.id)) {
             venueMap.set(venue.id, {
