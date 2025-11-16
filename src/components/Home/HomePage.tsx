@@ -32,6 +32,23 @@ interface FeaturedEvent {
   distance_miles: number;
 }
 
+interface VenueWithBooking {
+  venue_id: string;
+  venue_name: string;
+  venue_address: string;
+  venue_city: string;
+  venue_state: string;
+  venue_zip: string;
+  venue_latitude: number;
+  venue_longitude: number;
+  booking_count: number;
+  next_show_date: string;
+  next_show_title: string;
+  musician_name: string;
+  agreed_rate: number;
+  distance_miles: number;
+}
+
 const VENUE_IMAGES = [
   'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg',
   'https://images.pexels.com/photos/2147029/pexels-photo-2147029.jpeg',
@@ -45,11 +62,100 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [featuredEvent, setFeaturedEvent] = useState<FeaturedEvent | null>(null);
   const [loadingEvent, setLoadingEvent] = useState(false);
+  const [venuesWithBookings, setVenuesWithBookings] = useState<VenueWithBooking[]>([]);
+  const [currentVenueIndex, setCurrentVenueIndex] = useState(0);
+  const [loadingVenues, setLoadingVenues] = useState(false);
   const { latitude: userLat, longitude: userLng } = useGeolocation();
   const { profile } = useAuth();
 
   const latitude = userLat || 29.4241;
   const longitude = userLng || -98.4936;
+
+  const loadVenuesWithBookings = useCallback(async () => {
+    setLoadingVenues(true);
+    try {
+      const radiusMiles = 100;
+      const milesPerDegree = 69;
+
+      const { data: bookings, error } = await supabase
+        .from('bookings')
+        .select(`
+          id,
+          agreed_rate,
+          status,
+          venues!inner(id, venue_name, address, city, state, zip_code, latitude, longitude),
+          musicians!inner(id),
+          events!inner(id, title, event_date, show_starts)
+        `)
+        .in('status', ['accepted', 'escrowed'])
+        .not('venues.latitude', 'is', null)
+        .not('venues.longitude', 'is', null)
+        .gte('events.event_date', new Date().toISOString().split('T')[0])
+        .order('events.event_date', { ascending: true })
+        .limit(50);
+
+      if (error) throw error;
+
+      if (bookings && bookings.length > 0) {
+        const venueMap = new Map<string, VenueWithBooking>();
+
+        for (const booking of bookings) {
+          const venue = Array.isArray(booking.venues) ? booking.venues[0] : booking.venues;
+          const event = Array.isArray(booking.events) ? booking.events[0] : booking.events;
+          const musician = Array.isArray(booking.musicians) ? booking.musicians[0] : booking.musicians;
+
+          if (!venue || !event) continue;
+
+          const venueLat = parseFloat(venue.latitude) || 0;
+          const venueLng = parseFloat(venue.longitude) || 0;
+
+          const distance = Math.sqrt(
+            Math.pow((latitude - venueLat) * milesPerDegree, 2) +
+            Math.pow((longitude - venueLng) * milesPerDegree * Math.cos((latitude * Math.PI) / 180), 2)
+          );
+
+          if (distance > radiusMiles) continue;
+
+          const { data: musicianProfile } = await supabase
+            .from('profiles')
+            .select('full_name')
+            .eq('id', musician.id)
+            .single();
+
+          if (!venueMap.has(venue.id)) {
+            venueMap.set(venue.id, {
+              venue_id: venue.id,
+              venue_name: venue.venue_name,
+              venue_address: venue.address,
+              venue_city: venue.city,
+              venue_state: venue.state,
+              venue_zip: venue.zip_code,
+              venue_latitude: venueLat,
+              venue_longitude: venueLng,
+              booking_count: 1,
+              next_show_date: event.event_date,
+              next_show_title: event.title,
+              musician_name: musicianProfile?.full_name || 'Unknown Artist',
+              agreed_rate: booking.agreed_rate,
+              distance_miles: distance,
+            });
+          } else {
+            const existing = venueMap.get(venue.id)!;
+            existing.booking_count += 1;
+          }
+        }
+
+        const venuesList = Array.from(venueMap.values())
+          .sort((a, b) => a.distance_miles - b.distance_miles);
+
+        setVenuesWithBookings(venuesList);
+      }
+    } catch (error) {
+      console.error('Error loading venues with bookings:', error);
+    } finally {
+      setLoadingVenues(false);
+    }
+  }, [latitude, longitude]);
 
   const loadFeaturedEvent = useCallback(async () => {
     setLoadingEvent(true);
@@ -127,8 +233,18 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
   }, []);
 
   useEffect(() => {
+    loadVenuesWithBookings();
     loadFeaturedEvent();
-  }, [loadFeaturedEvent]);
+  }, [loadVenuesWithBookings, loadFeaturedEvent]);
+
+  useEffect(() => {
+    if (venuesWithBookings.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentVenueIndex((prev) => (prev + 1) % venuesWithBookings.length);
+      }, 8000);
+      return () => clearInterval(interval);
+    }
+  }, [venuesWithBookings.length]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % VENUE_IMAGES.length);
@@ -137,6 +253,16 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + VENUE_IMAGES.length) % VENUE_IMAGES.length);
   };
+
+  const nextVenue = () => {
+    setCurrentVenueIndex((prev) => (prev + 1) % venuesWithBookings.length);
+  };
+
+  const prevVenue = () => {
+    setCurrentVenueIndex((prev) => (prev - 1 + venuesWithBookings.length) % venuesWithBookings.length);
+  };
+
+  const currentVenue = venuesWithBookings[currentVenueIndex];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -221,6 +347,152 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           ))}
         </div>
       </div>
+
+      {venuesWithBookings.length > 0 && currentVenue && (
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+          <div className="bg-gradient-to-br from-gigmate-blue via-blue-700 to-blue-900 rounded-2xl shadow-2xl p-6 border-4 border-blue-400 mb-8">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h2 className="text-2xl font-bold text-white mb-1">Venues with Booked Shows</h2>
+                <p className="text-white/90 text-sm">Live music happening now at local venues</p>
+              </div>
+              {venuesWithBookings.length > 1 && (
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={prevVenue}
+                    className="bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-all"
+                    aria-label="Previous venue"
+                  >
+                    <ChevronLeft className="w-5 h-5 text-white" />
+                  </button>
+                  <span className="text-white font-semibold text-sm px-3">
+                    {currentVenueIndex + 1} / {venuesWithBookings.length}
+                  </span>
+                  <button
+                    onClick={nextVenue}
+                    className="bg-white/20 hover:bg-white/40 backdrop-blur-sm p-2 rounded-full transition-all"
+                    aria-label="Next venue"
+                  >
+                    <ChevronRight className="w-5 h-5 text-white" />
+                  </button>
+                </div>
+              )}
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="relative h-80">
+                  <img
+                    src={VENUE_IMAGES[currentVenueIndex % VENUE_IMAGES.length]}
+                    alt={currentVenue.venue_name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                    <div className="text-white text-lg font-bold">
+                      {currentVenue.venue_name}
+                    </div>
+                    <div className="text-white/90 text-sm">
+                      {currentVenue.booking_count} {currentVenue.booking_count === 1 ? 'booking' : 'bookings'} confirmed
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative h-80">
+                  <LeafletMap
+                    center={{ lat: currentVenue.venue_latitude, lng: currentVenue.venue_longitude }}
+                    zoom={14}
+                    markers={[
+                      {
+                        id: currentVenue.venue_id,
+                        position: { lat: currentVenue.venue_latitude, lng: currentVenue.venue_longitude },
+                        title: currentVenue.venue_name,
+                        subtitle: `${currentVenue.venue_city}, ${currentVenue.venue_state}`,
+                      }
+                    ]}
+                    height="100%"
+                  />
+                </div>
+              </div>
+
+              <div className="p-4">
+                <div className="flex flex-col md:flex-row gap-4">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Next Show: {currentVenue.next_show_title}</h3>
+
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2 text-gray-700">
+                        <Music className="w-4 h-4 text-gray-900 flex-shrink-0" />
+                        <span className="font-semibold text-sm">{currentVenue.musician_name}</span>
+                      </div>
+
+                      <div className="flex items-start gap-2 text-gray-700">
+                        <MapPin className="w-4 h-4 text-gigmate-blue flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-sm">{currentVenue.venue_name}</div>
+                          <div className="text-xs text-gray-600">
+                            {currentVenue.venue_address}
+                          </div>
+                          <div className="text-xs text-gray-500">
+                            {currentVenue.venue_city}, {currentVenue.venue_state} {currentVenue.venue_zip} • {currentVenue.distance_miles.toFixed(1)} mi away
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-2 text-gray-700">
+                        <Calendar className="w-4 h-4 text-green-700 flex-shrink-0" />
+                        <span className="font-semibold text-sm">
+                          {new Date(currentVenue.next_show_date).toLocaleDateString('en-US', {
+                            weekday: 'long',
+                            month: 'long',
+                            day: 'numeric',
+                            year: 'numeric'
+                          })}
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-2 text-gray-700">
+                        <DollarSign className="w-4 h-4 text-green-700 flex-shrink-0" />
+                        <div>
+                          <span className="font-semibold text-sm">Booking Rate: ${currentVenue.agreed_rate.toFixed(0)}</span>
+                          <span className="text-xs text-gray-500 ml-2">This venue books quality talent</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col justify-between md:min-w-[140px]">
+                    <div className="bg-gradient-to-br from-gigmate-blue to-blue-700 rounded-lg p-3 mb-3">
+                      <MapPin className="w-6 h-6 text-white mx-auto mb-1" />
+                      <div className="text-center">
+                        <div className="text-xl font-bold text-white">{currentVenue.distance_miles.toFixed(1)}</div>
+                        <div className="text-xs text-white/90">miles</div>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={onVenueClick || onGetStarted}
+                      className="px-4 py-2 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold text-sm rounded-lg hover:from-gray-800 hover:to-gray-700 transition-all shadow-lg hover:shadow-xl"
+                    >
+                      Explore Venue
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {loadingVenues && !venuesWithBookings.length && (
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+          <div className="bg-white rounded-2xl shadow-xl p-6 text-center">
+            <div className="animate-pulse">
+              <Users className="w-10 h-10 text-gray-400 mx-auto mb-3 animate-bounce" />
+              <p className="text-gray-600 text-sm">Finding venues with bookings...</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {(featuredEvent || loadingEvent || (latitude && longitude && !featuredEvent && !loadingEvent)) && (
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
