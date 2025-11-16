@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Database, FileDown, Users, TrendingUp, Settings, LogOut, Shield, Rocket, Edit3 } from 'lucide-react';
+import { Database, FileDown, Users, TrendingUp, Settings, LogOut, Shield, Rocket, Edit3, Mail } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import DatabaseSeeder from './DatabaseSeeder';
 import DocumentationDownload from './DocumentationDownload';
@@ -8,11 +8,12 @@ import InvestorApprovalPanel from './InvestorApprovalPanel';
 import BetaInvitationManager from './BetaInvitationManager';
 import RevenueAnalytics from './RevenueAnalytics';
 import EmailQueueViewer from './EmailQueueViewer';
+import EmailTester from './EmailTester';
 import TokenManager from './TokenManager';
 import DeploymentManager from './DeploymentManager';
 import ContentEditor from './ContentEditor';
 
-type AdminView = 'seeder' | 'docs' | 'legal' | 'investors' | 'beta' | 'revenue' | 'email' | 'tokens' | 'deploy' | 'content';
+type AdminView = 'seeder' | 'docs' | 'legal' | 'investors' | 'beta' | 'revenue' | 'email' | 'emailtest' | 'tokens' | 'deploy' | 'content';
 
 export default function AdminDashboard() {
   const { profile, signOut } = useAuth();
@@ -27,6 +28,7 @@ export default function AdminDashboard() {
     { id: 'investors' as AdminView, label: 'Investor Approval', icon: Users },
     { id: 'beta' as AdminView, label: 'Beta Invitations', icon: Shield },
     { id: 'revenue' as AdminView, label: 'Revenue Analytics', icon: TrendingUp },
+    { id: 'emailtest' as AdminView, label: 'Test Emails', icon: Mail },
     { id: 'email' as AdminView, label: 'Email Queue', icon: Settings },
     { id: 'tokens' as AdminView, label: 'Token Manager', icon: Settings },
   ];
@@ -89,6 +91,7 @@ export default function AdminDashboard() {
           {currentView === 'investors' && <InvestorApprovalPanel />}
           {currentView === 'beta' && <BetaInvitationManager />}
           {currentView === 'revenue' && <RevenueAnalytics />}
+          {currentView === 'emailtest' && <EmailTester />}
           {currentView === 'email' && <EmailQueueViewer />}
           {currentView === 'tokens' && <TokenManager />}
         </div>
