@@ -275,6 +275,16 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* DEBUG INFO */}
+      <div className="bg-yellow-100 p-4 text-xs">
+        <div>venuesWithBookings: {venuesWithBookings.length}</div>
+        <div>loadingVenues: {loadingVenues.toString()}</div>
+        <div>featuredEvent: {featuredEvent ? 'YES' : 'NO'}</div>
+        <div>loadingEvent: {loadingEvent.toString()}</div>
+        <div>latitude: {latitude}</div>
+        <div>longitude: {longitude}</div>
+      </div>
+
       <div className="relative w-full h-96 mb-8 overflow-hidden">
         <div className="absolute inset-0">
           {VENUE_IMAGES.map((image, index) => (
