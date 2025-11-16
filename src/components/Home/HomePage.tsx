@@ -189,31 +189,31 @@ export default function HomePage({ onGetStarted, onMusicianClick, onVenueClick, 
           ))}
         </div>
 
-        <div className="relative z-10 h-full flex items-center justify-center py-12">
-          <div className="text-center px-4">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+        <div className="relative z-10 h-full flex items-center justify-center py-8 sm:py-12">
+          <div className="text-center px-4 w-full max-w-4xl">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-3 sm:mb-4 drop-shadow-lg">
               Welcome to GigMate
             </h1>
-            <p className="text-2xl md:text-3xl font-semibold text-yellow-300 mb-6 drop-shadow-lg">
+            <p className="text-lg sm:text-xl md:text-3xl font-semibold text-yellow-300 mb-4 sm:mb-6 drop-shadow-lg">
               Empowering live music communities, one gig at a time.
             </p>
-            <p className="text-lg md:text-xl text-white mb-10 max-w-3xl mx-auto drop-shadow-md">
+            <p className="text-sm sm:text-base md:text-xl text-white mb-6 sm:mb-10 max-w-3xl mx-auto drop-shadow-md px-2">
               Where fans discover live music, shop local, and support the artists they&nbsp;love
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center px-4">
               <button
                 onClick={onGetStarted}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gigmate-red text-white text-lg font-semibold rounded-lg hover:bg-gigmate-red-dark transition-all transform hover:scale-105 shadow-2xl"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gigmate-red text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-gigmate-red-dark transition-all transform hover:scale-105 shadow-2xl w-full sm:w-auto"
               >
                 Get Started
-                <ArrowRight className="h-6 w-6" />
+                <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6" />
               </button>
               {onLogin && (
                 <button
                   onClick={onLogin}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-gigmate-blue text-lg font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-2xl"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-gigmate-blue text-base sm:text-lg font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-2xl w-full sm:w-auto"
                 >
-                  <LogIn className="h-6 w-6" />
+                  <LogIn className="h-5 w-5 sm:h-6 sm:w-6" />
                   Login
                 </button>
               )}
