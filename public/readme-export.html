@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GigMate - Complete Documentation</title>
+    <style>
+        @media print {
+            @page {
+                margin: 2cm;
+                size: A4;
+            }
+            body {
+                font-size: 10pt;
+            }
+            h1 {
+                page-break-before: always;
+            }
+            h1:first-of-type {
+                page-break-before: avoid;
+            }
+            pre, code {
+                page-break-inside: avoid;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #1a1a1a;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        h2 {
+            color: #2563eb;
+            margin-top: 30px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: #4b5563;
+            margin-top: 20px;
+        }
+
+        code {
+            background-color: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: #1f2937;
+            color: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        strong {
+            color: #1f2937;
+        }
+
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border-radius: 8px;
+        }
+
+        .header-section h1 {
+            color: white;
+            border: none;
+            margin: 0;
+        }
+
+        .header-section p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .metadata {
+            background-color: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .metadata p {
+            margin: 5px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+        }
+
+        .toc {
+            background-color: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin: 8px 0;
+        }
+
+        .toc a {
+            display: block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .toc a:hover {
+            background-color: #e5e7eb;
+            text-decoration: none;
+        }
+
+        .no-print {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 4px;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-section">
+        <h1>GigMate</h1>
+        <p><strong>Live Music Booking Platform</strong></p>
+        <p>Empowering live music communities, one gig at a time.</p>
+    </div>
+
+    <div class="metadata">
+        <p><strong>Version:</strong> 3.0 Beta</p>
+        <p><strong>Last Updated:</strong> November 11, 2025</p>
+        <p><strong>Status:</strong> Production Ready - 100% Automated Deployment</p>
+        <p><strong>Domain:</strong> <a href="https://gigmate.us">gigmate.us</a></p>
+        <p><strong>Build Status:</strong> Successful (10.27s)</p>
+        <p><strong>Deployment:</strong> Fully Automated (One Command)</p>
+    </div>
+
+    <div class="no-print">
+        <strong>To save as PDF:</strong> Press Ctrl+P (or Cmd+P on Mac) and select "Save as PDF" as your destination.
+    </div>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#what-is-gigmate">What is GigMate</a></li>
+            <li><a href="#quick-start">Quick Start</a></li>
+            <li><a href="#documentation-index">Documentation Index</a></li>
+            <li><a href="#technology-stack">Technology Stack</a></li>
+            <li><a href="#project-structure">Project Structure</a></li>
+            <li><a href="#security-features">Security Features</a></li>
+            <li><a href="#subscription-tiers">Subscription Tiers</a></li>
+            <li><a href="#database-schema">Database Schema</a></li>
+            <li><a href="#deployment">Deployment</a></li>
+            <li><a href="#testing">Testing & Seeding</a></li>
+            <li><a href="#admin-tools">Admin Tools</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <h2 id="what-is-gigmate">What is GigMate</h2>
+    <p><strong>Empowering live music communities, one gig at a time.</strong></p>
+    <p>GigMate is the revolutionary all-in-one platform connecting musicians, venues, and fans. We handle everything from booking and contracts to payments and ticketing - all in one seamless experience.</p>
+
+    <h3>Key Features</h3>
+    <ul>
+        <li><strong>Smart Matching</strong> - AI-powered musician-venue pairing</li>
+        <li><strong>Easy Booking</strong> - One-click booking with automated contracts</li>
+        <li><strong>Secure Payments</strong> - Escrow-protected payments with automatic payouts</li>
+        <li><strong>Integrated Ticketing</strong> - Built-in ticket sales with QR codes</li>
+        <li><strong>Real-Time Messaging</strong> - Direct communication between parties</li>
+        <li><strong>Analytics Dashboard</strong> - Track performance and earnings</li>
+        <li><strong>Rating System</strong> - Build reputation and trust</li>
+        <li><strong>Legal Protection</strong> - Automated contract generation and digital signatures</li>
+        <li><strong>Event Discovery</strong> - Find live music within 100-mile radius on homepage</li>
+    </ul>
+
+    <h2 id="quick-start">Quick Start</h2>
+
+    <h3>Automated Deployment (NEW!)</h3>
+    <p><strong>Deploy your entire platform with ONE command:</strong></p>
+    <pre><code>./deploy-all.sh</code></pre>
+
+    <p><strong>That's it!</strong> The script does everything:</p>
+    <ul>
+        <li>Sets up environment (asks for Supabase credentials)</li>
+        <li>Installs all dependencies</li>
+        <li>Builds the project</li>
+        <li>Deploys to Vercel</li>
+        <li>Deploys Edge Functions</li>
+        <li>Shows your live URL</li>
+    </ul>
+
+    <p><strong>Time:</strong> 5 minutes | <strong>Complexity:</strong> Zero</p>
+
+    <h3>For Beta Testers</h3>
+    <ol>
+        <li><strong>Receive invitation</strong> from GigMate team</li>
+        <li><strong>Visit:</strong> https://gigmate.us</li>
+        <li><strong>Enter hosting password</strong> (provided separately)</li>
+        <li><strong>Click your invitation link</strong></li>
+        <li><strong>Register your account</strong></li>
+        <li><strong>Sign legal documents</strong> (NDA, IP Agreement, Non-Compete)</li>
+        <li><strong>Complete onboarding tour</strong></li>
+        <li><strong>Start testing!</strong></li>
+    </ol>
+
+    <h3>Benefits for Beta Testers</h3>
+    <ul>
+        <li><strong>Lifetime Pro Membership</strong> ($240/year value - FREE forever!)</li>
+        <li><strong>50% Business Discount</strong> ($25/mo instead of $50/mo)</li>
+        <li><strong>100 Free Credits</strong> ($50 value)</li>
+        <li><strong>Beta Tester Badge</strong> on your profile</li>
+        <li><strong>Priority Support</strong> and early feature access</li>
+    </ul>
+
+    <h2 id="documentation-index">Documentation Index</h2>
+
+    <h3>Deployment</h3>
+    <ul>
+        <li><strong>START_HERE.md</strong> - Deploy in 5 minutes</li>
+        <li><strong>AUTOMATION_SCRIPTS.md</strong> - How automation works</li>
+        <li><strong>AUTOMATION_COMPLETE.md</strong> - What's automated</li>
+        <li><strong>README_DEPLOY.md</strong> - Deployment overview</li>
+        <li><strong>VERCEL_DEPLOYMENT_GUIDE.md</strong> - Complete manual guide</li>
+    </ul>
+
+    <h3>Business & Strategy</h3>
+    <ul>
+        <li><strong>GIGMATE_COMPLETE_BUSINESS_PLAN_V3.md</strong> - Complete business plan</li>
+        <li><strong>INVESTOR_PITCH_DECK.md</strong> - Investor presentation</li>
+        <li><strong>GROWTH_STRATEGY.md</strong> - Market expansion strategy</li>
+    </ul>
+
+    <h2 id="technology-stack">Technology Stack</h2>
+
+    <h3>Frontend</h3>
+    <ul>
+        <li><strong>React 18</strong> - Modern UI framework</li>
+        <li><strong>TypeScript</strong> - Type-safe development</li>
+        <li><strong>Vite</strong> - Lightning-fast build tool</li>
+        <li><strong>Tailwind CSS</strong> - Utility-first styling</li>
+        <li><strong>Lucide React</strong> - Beautiful icons</li>
+    </ul>
+
+    <h3>Backend & Database</h3>
+    <ul>
+        <li><strong>Supabase</strong> - PostgreSQL database with real-time features</li>
+        <li><strong>Row Level Security</strong> - Database-level authorization</li>
+        <li><strong>Edge Functions</strong> - Serverless API endpoints</li>
+        <li><strong>89 Migrations</strong> - Comprehensive schema</li>
+    </ul>
+
+    <h3>Payments & Blockchain</h3>
+    <ul>
+        <li><strong>Stripe</strong> - Payment processing and subscriptions</li>
+        <li><strong>Solana</strong> - GigM8 token infrastructure (future)</li>
+        <li><strong>Escrow System</strong> - Secure payment holding</li>
+    </ul>
+
+    <h2 id="project-structure">Project Structure</h2>
+    <pre><code>gigmate/
++-- src/
+|   +-- components/
+|   |   +-- Admin/          # Admin dashboards and tools
+|   |   +-- Auth/           # Authentication and registration
+|   |   +-- Fan/            # Fan-specific features
+|   |   +-- Home/           # Landing page
+|   |   +-- Investor/       # Investor portal
+|   |   +-- Musician/       # Musician dashboards
+|   |   +-- Shared/         # Reusable components
+|   |   +-- Venue/          # Venue management
+|   +-- contexts/           # React contexts (Auth, Theme)
+|   +-- hooks/              # Custom React hooks
+|   +-- lib/                # Utility functions and configs
++-- supabase/
+|   +-- functions/          # Edge functions
+|   +-- migrations/         # Database migrations (89 files)
++-- public/                 # Static assets
++-- legal/                  # Legal document templates</code></pre>
+
+    <h2 id="security-features">Security Features</h2>
+
+    <h3>Authentication & Authorization</h3>
+    <ul>
+        <li>Supabase Auth with email/password</li>
+        <li>Row Level Security (RLS) on all tables</li>
+        <li>JWT-based session management</li>
+        <li>Multi-role access control</li>
+    </ul>
+
+    <h3>Legal Compliance</h3>
+    <ul>
+        <li>Digital signature capture</li>
+        <li>IP address and timestamp tracking</li>
+        <li>Three-tier legal document system</li>
+        <li>Blocking legal consent gate</li>
+        <li>Full audit trail</li>
+    </ul>
+
+    <h3>Payment Security</h3>
+    <ul>
+        <li>Stripe PCI compliance</li>
+        <li>Escrow protection for bookings</li>
+        <li>Secure webhook handling</li>
+        <li>Transaction audit logs</li>
+    </ul>
+
+    <h2 id="subscription-tiers">Subscription Tiers</h2>
+
+    <h3>Free Plan - $0/month</h3>
+    <ul>
+        <li>Basic profile</li>
+        <li>25 image uploads</li>
+        <li>Standard transaction fees (10%)</li>
+        <li>Email notifications</li>
+    </ul>
+
+    <h3>Pro Plan - $19.99/month</h3>
+    <p><strong>Beta Testers: FREE LIFETIME</strong></p>
+    <ul>
+        <li>Unlimited image uploads</li>
+        <li>Featured placement</li>
+        <li>Verified badge</li>
+        <li>Advanced analytics</li>
+        <li>Priority support</li>
+    </ul>
+
+    <h3>Business Plan - $49.99/month</h3>
+    <p><strong>Beta Testers: $24.99/month (50% off)</strong></p>
+    <ul>
+        <li>Everything in Pro</li>
+        <li>Reduced transaction fees (7.5%)</li>
+        <li>API access</li>
+        <li>Multi-user accounts</li>
+        <li>White-label widget</li>
+    </ul>
+
+    <h2 id="database-schema">Database Schema</h2>
+
+    <h3>Core Tables (89 migrations total)</h3>
+
+    <h4>Authentication & Users</h4>
+    <ul>
+        <li><code>profiles</code> - User profiles with roles</li>
+        <li><code>musicians</code>, <code>venues</code>, <code>fans</code> - Role-specific data</li>
+        <li><code>user_subscriptions</code> - Subscription management</li>
+    </ul>
+
+    <h4>Booking System</h4>
+    <ul>
+        <li><code>events</code> - All live music events</li>
+        <li><code>bookings</code> - Booking requests and confirmations</li>
+        <li><code>booking_escrows</code> - Escrow payment holding</li>
+        <li><code>agreements</code> - Digital contracts</li>
+    </ul>
+
+    <h4>Financial</h4>
+    <ul>
+        <li><code>transactions</code> - All financial transactions</li>
+        <li><code>payout_accounts</code> - Connected payout accounts</li>
+        <li><code>subscription_history</code> - Subscription changes</li>
+    </ul>
+
+    <h2 id="deployment">Deployment</h2>
+
+    <h3>Environment Variables Required</h3>
+    <pre><code># Supabase
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+
+# Stripe
+VITE_STRIPE_PUBLISHABLE_KEY=pk_live_xxx
+STRIPE_SECRET_KEY=sk_live_xxx
+
+# Google Maps (Optional)
+VITE_GOOGLE_MAPS_API_KEY=your-key</code></pre>
+
+    <h3>Deploy to Vercel</h3>
+    <pre><code>npm i -g vercel
+vercel login
+vercel --prod</code></pre>
+
+    <h2 id="testing">Testing & Seeding</h2>
+
+    <h3>Seed Database with Test Data</h3>
+    <p>Navigate to the admin seeder at <code>https://gigmate.us/admin/seed</code></p>
+    <p>Click "Seed Database" to populate:</p>
+    <ul>
+        <li>50 musicians</li>
+        <li>30 venues</li>
+        <li>20 fans</li>
+        <li>50 events</li>
+        <li>Sample bookings and ratings</li>
+    </ul>
+
+    <h2 id="admin-tools">Admin Tools</h2>
+
+    <h3>Available Admin Routes</h3>
+    <ul>
+        <li><code>/admin/seed</code> - Database seeder</li>
+        <li><code>/admin/legal</code> - Legal document manager</li>
+        <li><code>/admin/investors</code> - Investor approval panel</li>
+        <li><code>/admin/beta</code> - Beta invitation manager</li>
+        <li><code>/ai</code> - AI operations dashboard</li>
+    </ul>
+
+    <h2 id="troubleshooting">Troubleshooting</h2>
+
+    <h3>Build Errors</h3>
+    <pre><code>rm -rf node_modules dist .vite
+npm install
+npm run build</code></pre>
+
+    <h3>Database Connection</h3>
+    <ul>
+        <li>Verify Supabase environment variables</li>
+        <li>Check RLS policies are enabled</li>
+        <li>Ensure migrations are applied</li>
+    </ul>
+
+    <h2 id="support">Support</h2>
+
+    <h3>For Beta Testers</h3>
+    <ul>
+        <li>Email: support@gigmate.us</li>
+        <li>Priority support enabled</li>
+        <li>In-app feedback system</li>
+    </ul>
+
+    <h3>For Developers</h3>
+    <ul>
+        <li>Database: Supabase Dashboard</li>
+        <li>Payments: Stripe Dashboard</li>
+        <li>Hosting: Vercel/Netlify Dashboard</li>
+    </ul>
+
+    <h2 id="roadmap">Roadmap</h2>
+
+    <h3>Phase 1: Beta (Current)</h3>
+    <ul>
+        <li>Core platform functionality</li>
+        <li>Beta tester system with legal docs</li>
+        <li>Payment processing</li>
+        <li>Custom domain (gigmate.us)</li>
+    </ul>
+
+    <h3>Phase 2: Public Launch (Q1 2026)</h3>
+    <ul>
+        <li>Enhanced AI matching</li>
+        <li>Mobile app (iOS/Android)</li>
+        <li>Advanced analytics</li>
+        <li>API for third-party integration</li>
+    </ul>
+
+    <h3>Phase 3: Scale (Q2 2026)</h3>
+    <ul>
+        <li>GigM8 token launch</li>
+        <li>International expansion</li>
+        <li>Merchandise integration</li>
+        <li>Festival/tour support</li>
+    </ul>
+
+    <h2 id="contact">Contact</h2>
+    <p><strong>Website:</strong> <a href="https://gigmate.us">https://gigmate.us</a></p>
+    <p><strong>Support:</strong> support@gigmate.us</p>
+    <p><strong>Business Inquiries:</strong> contact@gigmate.us</p>
+
+    <div style="margin-top: 40px; padding: 20px; background-color: #f3f4f6; border-radius: 8px; text-align: center;">
+        <p><strong>Ready to revolutionize live music? Let's go!</strong></p>
+        <p style="color: #6b7280; font-size: 0.9em; margin-top: 10px;">© 2025 GigMate, Inc. All rights reserved.</p>
+    </div>
+</body>
+</html>
