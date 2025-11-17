@@ -68,7 +68,16 @@ export default function AdminLogin({ onAuthenticated }: AdminLoginProps) {
           if (retrySignInError) throw retrySignInError;
 
           sessionStorage.setItem('admin_authenticated', 'true');
-          onAuthenticated();
+
+          // Check if we need to redirect to home for admin dashboard
+          const path = window.location.pathname;
+          if (path === '/admin/seed' || path === '/admin/legal' || path === '/admin/investors' || path === '/admin/beta') {
+            // For these specific admin pages, just call the callback
+            onAuthenticated();
+          } else {
+            // Redirect to home for the admin dashboard
+            window.location.href = '/';
+          }
         } else {
           setError('Incorrect password');
           setPassword('');
@@ -76,7 +85,16 @@ export default function AdminLogin({ onAuthenticated }: AdminLoginProps) {
       } else {
         // Successfully signed in
         sessionStorage.setItem('admin_authenticated', 'true');
-        onAuthenticated();
+
+        // Check if we need to redirect to home for admin dashboard
+        const path = window.location.pathname;
+        if (path === '/admin/seed' || path === '/admin/legal' || path === '/admin/investors' || path === '/admin/beta') {
+          // For these specific admin pages, just call the callback
+          onAuthenticated();
+        } else {
+          // Redirect to home for the admin dashboard
+          window.location.href = '/';
+        }
       }
     } catch (err) {
       console.error('Admin login error:', err);

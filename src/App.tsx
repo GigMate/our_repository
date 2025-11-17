@@ -16,6 +16,7 @@ import VenueDashboard from './components/Venue/VenueDashboard';
 import FanDashboard from './components/Fan/FanDashboard';
 import InvestorDashboard from './components/Investor/InvestorDashboard';
 import AdminDashboard from './components/Admin/AdminDashboard';
+import AdminLogin from './components/Admin/AdminLogin';
 import DatabaseSeeder from './components/Admin/DatabaseSeeder';
 import DocumentationDownload from './components/Admin/DocumentationDownload';
 import LegalDocumentManager from './components/Admin/LegalDocumentManager';
@@ -45,6 +46,7 @@ function AppContent() {
   const [showBetaRegistration, setShowBetaRegistration] = useState(false);
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [showAIDashboard, setShowAIDashboard] = useState(false);
+  const [showAdminLogin, setShowAdminLogin] = useState(false);
   const [showHome, setShowHome] = useState(true);
   const [show404, setShow404] = useState(false);
   const [authPage, setAuthPage] = useState<AuthPage>(null);
@@ -53,7 +55,10 @@ function AppContent() {
     const path = window.location.pathname;
     const searchParams = new URLSearchParams(window.location.search);
 
-    if (path === '/admin/seed') {
+    if (path === '/admin' || path === '/admin/login') {
+      setShowAdminLogin(true);
+      setShowHome(false);
+    } else if (path === '/admin/seed') {
       setShowSeeder(true);
     } else if (path === '/reset-password') {
       setShowPasswordReset(true);
@@ -82,6 +87,12 @@ function AppContent() {
 
   if (show404) {
     return <NotFoundPage onGoHome={() => { setShow404(false); setShowHome(true); window.history.pushState({}, '', '/'); }} />;
+  }
+
+  if (showAdminLogin) {
+    return <AdminLogin onAuthenticated={() => {
+      window.location.href = '/';
+    }} />;
   }
 
   if (showPasswordReset) {
