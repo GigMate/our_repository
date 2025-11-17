@@ -7,7 +7,7 @@ interface AdminLoginProps {
 }
 
 const ADMIN_EMAIL = 'admin@gigmate.us';
-const ADMIN_PASSWORD = 'gigmate2025admin';
+const ADMIN_PASSWORD = '@dM!n111525';
 
 export default function AdminLogin({ onAuthenticated }: AdminLoginProps) {
   const [password, setPassword] = useState('');
