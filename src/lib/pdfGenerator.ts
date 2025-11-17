@@ -1,6 +1,24 @@
 import jsPDF from 'jspdf';
 import { marked } from 'marked';
 
+// Function to replace unicode characters with ASCII equivalents
+function sanitizeText(text: string): string {
+  return text
+    .replace(/[\u2018\u2019]/g, "'")  // Smart quotes
+    .replace(/[\u201C\u201D]/g, '"')  // Smart double quotes
+    .replace(/[\u2013\u2014]/g, '-')  // En/em dashes
+    .replace(/\u2026/g, '...')        // Ellipsis
+    .replace(/\u2022/g, '*')          // Bullet point
+    .replace(/\u00A9/g, '(c)')        // Copyright
+    .replace(/\u00AE/g, '(R)')        // Registered
+    .replace(/\u2122/g, '(TM)')       // Trademark
+    .replace(/\u00B0/g, ' degrees')   // Degree symbol
+    .replace(/[\u2190-\u21FF]/g, '-') // Arrows
+    .replace(/[\u2200-\u22FF]/g, '')  // Math symbols
+    .replace(/[\u2500-\u257F]/g, '-') // Box drawing
+    .replace(/[^\x00-\x7F]/g, '');    // Remove any remaining non-ASCII
+}
+
 export async function convertMarkdownToPDF(
   markdownContent: string,
   filename: string,
@@ -20,7 +38,7 @@ export async function convertMarkdownToPDF(
 
   pdf.setFont('helvetica', 'bold');
   pdf.setFontSize(20);
-  pdf.text(title, margin, yPosition);
+  pdf.text(sanitizeText(title), margin, yPosition);
   yPosition += 15;
 
   pdf.setFont('helvetica', 'normal');
@@ -41,7 +59,7 @@ export async function convertMarkdownToPDF(
   pdf.setTextColor(0, 0, 0);
 
   for (let i = 0; i < lines.length; i++) {
-    let line = lines[i];
+    let line = sanitizeText(lines[i]);
 
     if (yPosition > pageHeight - margin) {
       pdf.addPage();
@@ -71,7 +89,7 @@ export async function convertMarkdownToPDF(
     } else if (line.startsWith('- ') || line.startsWith('* ')) {
       pdf.setFont('helvetica', 'normal');
       pdf.setFontSize(10);
-      line = '  • ' + line.substring(2);
+      line = '  * ' + line.substring(2);
     } else if (line.startsWith('> ')) {
       pdf.setFont('helvetica', 'italic');
       pdf.setFontSize(10);
@@ -203,7 +221,7 @@ export async function generateCombinedPDF(
 
       pdf.setFont('helvetica', 'bold');
       pdf.setFontSize(20);
-      pdf.text(file.title, margin, yPosition);
+      pdf.text(sanitizeText(file.title), margin, yPosition);
       yPosition += 15;
 
       pdf.setFont('helvetica', 'normal');
@@ -224,7 +242,7 @@ export async function generateCombinedPDF(
           yPosition = margin;
         }
 
-        let processedLine = line;
+        let processedLine = sanitizeText(line);
         let fontSize = 10;
         let fontStyle: 'normal' | 'bold' | 'italic' = 'normal';
 
@@ -243,7 +261,7 @@ export async function generateCombinedPDF(
           fontSize = 14;
           processedLine = line.replace(/^### /, '');
         } else if (line.startsWith('- ') || line.startsWith('* ')) {
-          processedLine = '  • ' + line.substring(2);
+          processedLine = '  * ' + processedLine.substring(2);
         }
 
         pdf.setFont('helvetica', fontStyle);
