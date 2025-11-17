@@ -1,10 +1,10 @@
-# 🚀 GigMate - Vercel Deployment Guide
+#  GigMate - Vercel Deployment Guide
 
 **Complete step-by-step guide to deploy GigMate to Vercel**
 
 ---
 
-## ✅ Pre-Deployment Checklist
+##  Pre-Deployment Checklist
 
 Before deploying, ensure you have:
 
@@ -18,7 +18,7 @@ Before deploying, ensure you have:
 
 ---
 
-## 📋 Step 1: Prepare Environment Variables
+##  Step 1: Prepare Environment Variables
 
 You'll need these environment variables for Vercel. Get them from your Supabase project:
 
@@ -55,7 +55,7 @@ MAYDAY_API_KEY=your_key_here
 
 ---
 
-## 🌐 Step 2: Deploy to Vercel
+##  Step 2: Deploy to Vercel
 
 ### Option A: Deploy via GitHub (Recommended)
 
@@ -130,11 +130,11 @@ MAYDAY_API_KEY=your_key_here
 
 ---
 
-## 🔧 Step 3: Configure Supabase for Production
+##  Step 3: Configure Supabase for Production
 
 ### Update Supabase Auth Settings:
 
-1. **Go to Supabase Dashboard** → Authentication → URL Configuration
+1. **Go to Supabase Dashboard** -> Authentication -> URL Configuration
 
 2. **Add your Vercel URL to Site URL:**
    ```
@@ -174,9 +174,9 @@ done
 
 ---
 
-## 🎯 Step 4: Configure Stripe Webhooks (If Using Payments)
+##  Step 4: Configure Stripe Webhooks (If Using Payments)
 
-1. **Go to Stripe Dashboard** → Developers → Webhooks
+1. **Go to Stripe Dashboard** -> Developers -> Webhooks
 
 2. **Add Endpoint:**
    ```
@@ -200,9 +200,9 @@ done
 
 ---
 
-## 🗺️ Step 5: Configure Google Maps API (If Using Maps)
+## ? Step 5: Configure Google Maps API (If Using Maps)
 
-1. **Go to Google Cloud Console** → APIs & Services → Credentials
+1. **Go to Google Cloud Console** -> APIs & Services -> Credentials
 
 2. **Create API Key** (if you don't have one)
 
@@ -217,36 +217,36 @@ done
    - Add: `http://localhost:5173/*` (for local dev)
 
 5. **Add to Vercel:**
-   - Vercel Dashboard → Settings → Environment Variables
+   - Vercel Dashboard -> Settings -> Environment Variables
    - Add `VITE_GOOGLE_MAPS_API_KEY`
 
 ---
 
-## ✅ Step 6: Verify Deployment
+##  Step 6: Verify Deployment
 
 ### Test These Features:
 
-1. **Homepage loads** ✓
+1. **Homepage loads** ?
    - Visit `https://your-project.vercel.app`
    - Should see GigMate homepage
 
-2. **Authentication works** ✓
+2. **Authentication works** ?
    - Try to sign up/login
    - Check email verification
 
-3. **Database queries work** ✓
+3. **Database queries work** ?
    - Browse musicians/venues
    - Should load data from Supabase
 
-4. **Payments work** (if configured) ✓
+4. **Payments work** (if configured) ?
    - Try to purchase credits/tickets
    - Should redirect to Stripe
 
-5. **Maps work** (if configured) ✓
+5. **Maps work** (if configured) ?
    - Open map search
    - Should display Google Maps
 
-6. **Edge Functions work** ✓
+6. **Edge Functions work** ?
    - Test email sending
    - Test any API calls
 
@@ -254,7 +254,7 @@ done
 
 **Issue:** "Failed to fetch" errors
 - **Fix:** Check CORS settings in Supabase
-- Go to Supabase Dashboard → Settings → API
+- Go to Supabase Dashboard -> Settings -> API
 - Add Vercel URL to allowed origins
 
 **Issue:** Environment variables not working
@@ -270,12 +270,12 @@ done
 
 ---
 
-## 🔄 Step 7: Set Up Automatic Deployments
+## ? Step 7: Set Up Automatic Deployments
 
 ### With GitHub (Recommended):
 
 1. **Every push to `main` automatically deploys**
-   - Commit code → Push → Vercel deploys
+   - Commit code -> Push -> Vercel deploys
    - No manual steps needed
 
 2. **Preview Deployments:**
@@ -292,7 +292,7 @@ vercel --prod
 
 ---
 
-## 📊 Step 8: Monitor Your Deployment
+##  Step 8: Monitor Your Deployment
 
 ### Vercel Dashboard:
 
@@ -330,12 +330,12 @@ vercel --prod
 
 ---
 
-## 🎨 Step 9: Add Custom Domain (Optional)
+## ? Step 9: Add Custom Domain (Optional)
 
 1. **Buy domain** (Namecheap, GoDaddy, etc.)
 
 2. **In Vercel:**
-   - Settings → Domains
+   - Settings -> Domains
    - Add domain: `gigmate.com`
    - Add `www.gigmate.com`
 
@@ -353,7 +353,7 @@ vercel --prod
 
 ---
 
-## 🔐 Security Checklist
+## ? Security Checklist
 
 Before going live:
 
@@ -370,7 +370,7 @@ Before going live:
 
 ---
 
-## 📱 Step 10: Test on Mobile
+## ? Step 10: Test on Mobile
 
 Your app is responsive, but test these on mobile:
 
@@ -386,17 +386,17 @@ Your app is responsive, but test these on mobile:
    - Maps functionality
 
 3. **Add to Home Screen:**
-   - iOS: Share → Add to Home Screen
-   - Android: Menu → Add to Home Screen
+   - iOS: Share -> Add to Home Screen
+   - Android: Menu -> Add to Home Screen
 
 ---
 
-## 🚀 Performance Optimization
+##  Performance Optimization
 
 ### Vercel Settings:
 
 1. **Enable Speed Insights:**
-   - Vercel Dashboard → Analytics
+   - Vercel Dashboard -> Analytics
    - Monitor Core Web Vitals
 
 2. **Configure Headers:**
@@ -414,7 +414,7 @@ Your app is responsive, but test these on mobile:
 
 ---
 
-## 🐛 Troubleshooting
+## ? Troubleshooting
 
 ### Build Fails:
 
@@ -459,7 +459,7 @@ supabase secrets list
 
 ---
 
-## 📞 Support Resources
+## ? Support Resources
 
 - **Vercel Docs:** https://vercel.com/docs
 - **Supabase Docs:** https://supabase.com/docs
@@ -468,7 +468,7 @@ supabase secrets list
 
 ---
 
-## ✅ Deployment Complete!
+##  Deployment Complete!
 
 Your GigMate platform is now live at:
 - **Production:** `https://your-project.vercel.app`
@@ -498,7 +498,7 @@ Your GigMate platform is now live at:
 
 ---
 
-**🎉 Congratulations! Your platform is LIVE!** 🎉
+** Congratulations! Your platform is LIVE!** 
 
 ---
 

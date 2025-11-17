@@ -5,7 +5,7 @@
 
 ---
 
-## 🚀 Step 1: Deploy to Vercel (5 minutes)
+##  Step 1: Deploy to Vercel (5 minutes)
 
 ```bash
 # Install Vercel CLI globally
@@ -25,13 +25,13 @@ vercel --prod
 
 ---
 
-## 🔐 Step 2: Add Password Protection (2 minutes)
+## ? Step 2: Add Password Protection (2 minutes)
 
 **Why:** Keep beta private until you're ready for public launch
 
 1. Go to [Vercel Dashboard](https://vercel.com/dashboard)
 2. Click on your project
-3. Go to **Settings** → **Deployment Protection**
+3. Go to **Settings** -> **Deployment Protection**
 4. Enable **"Password Protection"**
 5. Set password: Choose something memorable for beta testers
    - Example: `GigMate2025Beta!`
@@ -39,10 +39,10 @@ vercel --prod
 
 ---
 
-## 🌐 Step 3: Connect gigmate.us Domain (10 minutes)
+##  Step 3: Connect gigmate.us Domain (10 minutes)
 
 ### In Vercel:
-1. Go to **Settings** → **Domains**
+1. Go to **Settings** -> **Domains**
 2. Click **"Add Domain"**
 3. Enter: `gigmate.us`
 4. Click **"Add"**
@@ -76,9 +76,9 @@ TTL: 3600
 
 ---
 
-## ⚙️ Step 4: Add Environment Variables (3 minutes)
+##  Step 4: Add Environment Variables (3 minutes)
 
-In Vercel Dashboard → Your Project → **Settings** → **Environment Variables**
+In Vercel Dashboard -> Your Project -> **Settings** -> **Environment Variables**
 
 Add these variables (get values from your Supabase dashboard):
 
@@ -102,7 +102,7 @@ After adding variables, click **"Redeploy"** in Deployments tab.
 
 ---
 
-## ✅ Step 5: Verify Deployment (5 minutes)
+##  Step 5: Verify Deployment (5 minutes)
 
 ### Test Checklist:
 
@@ -128,7 +128,7 @@ After adding variables, click **"Redeploy"** in Deployments tab.
 
 ---
 
-## 📧 Step 6: Generate Beta Codes (5 minutes)
+## ? Step 6: Generate Beta Codes (5 minutes)
 
 1. Log into your deployed site
 2. Visit: `https://gigmate.us/admin/beta` (or your Vercel URL + `/admin/beta`)
@@ -140,7 +140,7 @@ After adding variables, click **"Redeploy"** in Deployments tab.
 
 ---
 
-## 📨 Step 7: Invite Beta Testers (Same Day)
+## ? Step 7: Invite Beta Testers (Same Day)
 
 Use this email template:
 
@@ -164,10 +164,10 @@ GETTING STARTED:
 5. Sign the NDA and create your account
 
 As a beta tester, you get:
-✅ Lifetime premium features (free forever)
-✅ 0.5% transaction fee (vs 2.5% standard)
-✅ Priority support
-✅ Voice in product direction
+ Lifetime premium features (free forever)
+ 0.5% transaction fee (vs 2.5% standard)
+ Priority support
+ Voice in product direction
 
 Questions? Reply to this email.
 
@@ -176,7 +176,7 @@ Welcome to GigMate!
 
 ---
 
-## 🐛 Step 8: Set Up Feedback Collection
+## ? Step 8: Set Up Feedback Collection
 
 **Option 1: Simple Email**
 Create a new email: `beta@gigmate.us`
@@ -198,7 +198,7 @@ Create private server with channels:
 
 ---
 
-## 📊 Monitor During Beta
+##  Monitor During Beta
 
 ### Daily Tasks:
 - [ ] Check for new registrations
@@ -214,7 +214,7 @@ Create private server with channels:
 
 ---
 
-## ⚠️ Troubleshooting Common Issues
+## ? Troubleshooting Common Issues
 
 ### "Site not loading after deployment"
 - Check environment variables are set
@@ -238,18 +238,18 @@ Create private server with channels:
 
 ---
 
-## 🎉 You're Done!
+##  You're Done!
 
 After completing these steps:
-- ✅ Site is live at gigmate.us
-- ✅ Protected by password (private beta)
-- ✅ Environment variables configured
-- ✅ Beta codes generated
-- ✅ Ready to invite testers
+-  Site is live at gigmate.us
+-  Protected by password (private beta)
+-  Environment variables configured
+-  Beta codes generated
+-  Ready to invite testers
 
 ---
 
-## 📞 Need Help?
+## ? Need Help?
 
 If you get stuck:
 1. Check Vercel deployment logs
@@ -259,7 +259,7 @@ If you get stuck:
 
 ---
 
-## 🚦 Next Steps After Deployment
+## ? Next Steps After Deployment
 
 **Today:**
 - Deploy (Steps 1-4)

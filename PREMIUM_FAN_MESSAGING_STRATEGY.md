@@ -14,27 +14,27 @@ GigMate's premium fan messaging system transforms direct artist communication in
 ### Free Tier (No Monthly Fee)
 
 **Included:**
-- ✅ Unlimited venue inquiries (always free)
-- ✅ Event discovery and browsing
-- ✅ Ticket purchasing
-- ✅ Public artist following
-- ✅ Limited complimentary messages per month
+-  Unlimited venue inquiries (always free)
+-  Event discovery and browsing
+-  Ticket purchasing
+-  Public artist following
+-  Limited complimentary messages per month
 
 **Limitations:**
-- ❌ Must pay per message after free limit
-- ❌ No priority placement
-- ❌ Standard event access only
+- ? Must pay per message after free limit
+- ? No priority placement
+- ? Standard event access only
 
 ---
 
 ### Fan Premium - $4.99/month
 
 **Included:**
-- ✅ Unlimited direct messaging to artists
-- ✅ Unlimited venue inquiries
-- ✅ Priority in artist feeds
-- ✅ Early event notifications
-- ✅ Premium profile badge
+-  Unlimited direct messaging to artists
+-  Unlimited venue inquiries
+-  Priority in artist feeds
+-  Early event notifications
+-  Premium profile badge
 
 **Value:** Unlimited artist access for less than the cost of 5 pay-per-messages
 
@@ -43,14 +43,14 @@ GigMate's premium fan messaging system transforms direct artist communication in
 ### Fan VIP - $9.99/month
 
 **Included:**
-- ✅ **Unlimited artist messages**
-- ✅ **Priority artist responses (highlighted messages)**
-- ✅ **Crown VIP badge**
-- ✅ Exclusive content access
-- ✅ Early ticket access
-- ✅ 10% merchandise discount
-- ✅ Meet & greet opportunities
-- ✅ All Premium tier benefits
+-  **Unlimited artist messages**
+-  **Priority artist responses (highlighted messages)**
+-  **Crown VIP badge**
+-  Exclusive content access
+-  Early ticket access
+-  10% merchandise discount
+-  Meet & greet opportunities
+-  All Premium tier benefits
 
 **Value:** Premium features plus VIP perks and priority treatment
 
@@ -161,9 +161,9 @@ GigMate's premium fan messaging system transforms direct artist communication in
 ## Key Metrics
 
 **Conversion Targets:**
-- Free → Premium: 15%
-- Premium → VIP: 30%
-- Pay-per-message → Subscription: 40%
+- Free -> Premium: 15%
+- Premium -> VIP: 30%
+- Pay-per-message -> Subscription: 40%
 
 **Revenue Targets:**
 - Year 2: $627K

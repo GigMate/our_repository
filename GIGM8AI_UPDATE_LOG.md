@@ -55,15 +55,15 @@ Added comprehensive Know Your Customer (KYC) verification system for investor po
 **KYC Consent Legal Language:**
 ```
 I hereby consent and authorize GigMate to:
-• Conduct comprehensive background investigations regarding my identity,
+o Conduct comprehensive background investigations regarding my identity,
   financial history, and investment credentials
-• Verify the accuracy of all information provided in this application
-• Contact references, financial institutions, and other entities to verify
+o Verify the accuracy of all information provided in this application
+o Contact references, financial institutions, and other entities to verify
   my suitability as an investor
-• Perform identity verification through third-party services and databases
-• Retain records of this verification process as required by applicable
+o Perform identity verification through third-party services and databases
+o Retain records of this verification process as required by applicable
   laws and regulations
-• Use the provided information solely for investor verification and due
+o Use the provided information solely for investor verification and due
   diligence purposes
 
 I understand that providing false information or withholding material facts
@@ -123,7 +123,7 @@ Admin can now verify:
    - Check company legitimacy
    - Google investor name
    - Perform due diligence
-5. Admin approves → Auto-generates password → Sends email
+5. Admin approves -> Auto-generates password -> Sends email
 6. Investor logs in with credentials
 
 ### Files Modified
@@ -409,11 +409,11 @@ View current cron job configuration
 **Investigation Process:**
 ```
 5:00 AM Daily:
-  ↓
+  ?
 1. pg_cron triggers function
-  ↓
+  ?
 2. Calls osint-investigator
-  ↓
+  ?
 3. For each pending investor:
    - Check email (disposable? domain age?)
    - Validate phone (real number? carrier?)
@@ -421,25 +421,25 @@ View current cron job configuration
    - Research company (exists? website? LinkedIn?)
    - Find LinkedIn profile (professional presence?)
    - Check IP location (matches claimed address?)
-  ↓
+  ?
 4. Calculate risk score (0-100)
-  ↓
+  ?
 5. Determine risk level (Low/Medium/High/Critical)
-  ↓
+  ?
 6. Generate recommendation (Approve/Deny/More Info)
-  ↓
+  ?
 7. Write detailed reasoning
-  ↓
+  ?
 8. Store in osint_investigations table
-  ↓
+  ?
 9. Collect all reports from last 24h
-  ↓
+  ?
 10. Generate beautiful HTML email
-  ↓
+  ?
 11. Send to admin email
-  ↓
+  ?
 12. Admin reviews recommendations in email
-  ↓
+  ?
 13. Admin makes final decision in dashboard
 ```
 
@@ -464,13 +464,13 @@ View current cron job configuration
 **Investment:** $100k-$250k
 
 **Findings:**
-- ✓ Email verified (but free provider, not company domain)
-- ✓ Phone valid (mobile carrier)
-- ✓ Address validated (real residential address)
-- ✓ Company exists (found website and LinkedIn)
-- ✓ LinkedIn profile found (500+ connections, verified)
-- ✓ IP location matches Texas
-- ✗ Using Gmail instead of company email
+- ? Email verified (but free provider, not company domain)
+- ? Phone valid (mobile carrier)
+- ? Address validated (real residential address)
+- ? Company exists (found website and LinkedIn)
+- ? LinkedIn profile found (500+ connections, verified)
+- ? IP location matches Texas
+- ? Using Gmail instead of company email
 
 **Risk Score:** 15/100 (Low Risk)
 **Risk Level:** Low
@@ -709,53 +709,53 @@ Automatically within seconds after $50 payment succeeds via Stripe.
 
 ```
 Investor clicks "Pay $50 for Background Check"
-  ↓
+  ?
 Stripe Checkout opens
-  ↓
+  ?
 Investor pays $50.00
-  ↓
+  ?
 Stripe webhook: checkout.session.completed
-  ↓
+  ?
 System detects metadata.type === "background_check"
-  ↓
+  ?
 Database updated:
   - mayday_check_paid = true
   - mayday_check_payment_date = now()
   - background_check_status = "mayday_paid"
-  ↓
+  ?
 Transaction record created ($50)
-  ↓
+  ?
 Auto-invoke: request-mayday-background-check function
-  ↓
+  ?
 Generate professional HTML email with ALL KYC data
-  ↓
+  ?
 Send to: jon@maydaypi.com, jt@maydaypi.com
-  ↓
+  ?
 Email includes:
-  ✓ Full personal information
-  ✓ Both addresses
-  ✓ KYC consent documentation  
-  ✓ Payment confirmation ($50)
-  ✓ Investigation instructions
-  ↓
+  ? Full personal information
+  ? Both addresses
+  ? KYC consent documentation  
+  ? Payment confirmation ($50)
+  ? Investigation instructions
+  ?
 Mayday performs investigation (5-7 days)
-  ↓
+  ?
 Mayday sends report to admin@gigmate.com
-  ↓
+  ?
 Admin reviews and makes final decision
 ```
 
 ### OSINT Report Integration
 
-Daily email reports now include for investors with risk ≥ 25:
+Daily email reports now include for investors with risk >= 25:
 
 ```
-💡 Background Check Options Available
+ Background Check Options Available
 
 Due to elevated risk factors, this investor may improve their standing by:
 
-• Option 1: Upload existing background check (within last 2 weeks)
-• Option 2: Pay $50 for professional check by Mayday Investigations, LLC
+o Option 1: Upload existing background check (within last 2 weeks)
+o Option 2: Pay $50 for professional check by Mayday Investigations, LLC
 
 If Option 2 selected, KYC information automatically sent to:
 - jon@maydaypi.com
@@ -830,20 +830,20 @@ mayday_check_request_date timestamptz
 
 ### Testing Requirements
 
-✓ Upload check within 14 days  
-✓ Upload check older than 14 days (error)  
-✓ $50 payment via Stripe  
-✓ Payment triggers KYC email  
-✓ Email sent to both Mayday contacts  
-✓ All KYC data included in email  
-✓ Transaction recorded ($50)  
-✓ Status updates correctly  
-✓ Check expires after 14 days  
-✓ OSINT report shows option when risk ≥ 25  
+? Upload check within 14 days  
+? Upload check older than 14 days (error)  
+? $50 payment via Stripe  
+? Payment triggers KYC email  
+? Email sent to both Mayday contacts  
+? All KYC data included in email  
+? Transaction recorded ($50)  
+? Status updates correctly  
+? Check expires after 14 days  
+? OSINT report shows option when risk >= 25  
 
 ### Summary for GigM8Ai
 
-**When You See Risk Score ≥ 25:**
+**When You See Risk Score >= 25:**
 
 Include in your daily email report:
 - Background check recommendation
@@ -965,14 +965,14 @@ AND (
 ### User Experience Impact
 
 **Before:**
-- Fan signs up → Sees 8 different legal documents
+- Fan signs up -> Sees 8 different legal documents
 - Must sign NDAs, artist agreements, venue agreements
 - Confusing and overwhelming
 - Takes 10+ minutes
 - Poor conversion rate
 
 **After:**
-- Fan signs up → Sees 4 relevant documents
+- Fan signs up -> Sees 4 relevant documents
 - Privacy Policy, Terms of Service, Fan Terms, Payment Terms
 - Clear and appropriate
 - Takes 3-5 minutes
@@ -1005,38 +1005,38 @@ AND (
 Test each user type sees correct documents:
 
 **Fan Account:**
-✓ Privacy Policy
-✓ Terms of Service
-✓ Fan Terms
-✓ Payment Terms
-✗ Artist Agreement
-✗ Venue Agreement
-✗ Merch Vendor Agreement
-✗ Dropship Terms
+? Privacy Policy
+? Terms of Service
+? Fan Terms
+? Payment Terms
+? Artist Agreement
+? Venue Agreement
+? Merch Vendor Agreement
+? Dropship Terms
 
 **Musician Account:**
-✓ Privacy Policy
-✓ Terms of Service
-✓ Artist Agreement
-✓ Payment Terms
-✗ Fan Terms
-✗ Venue Agreement
-✗ Merch Vendor Agreement
+? Privacy Policy
+? Terms of Service
+? Artist Agreement
+? Payment Terms
+? Fan Terms
+? Venue Agreement
+? Merch Vendor Agreement
 
 **Venue Account:**
-✓ Privacy Policy
-✓ Terms of Service
-✓ Venue Agreement
-✓ Payment Terms
-✗ Fan Terms
-✗ Artist Agreement
+? Privacy Policy
+? Terms of Service
+? Venue Agreement
+? Payment Terms
+? Fan Terms
+? Artist Agreement
 
 **Merch Vendor:**
-✓ Privacy Policy
-✓ Terms of Service
-✓ Merch Vendor Agreement
-✓ Dropship Terms
-✓ Payment Terms
+? Privacy Policy
+? Terms of Service
+? Merch Vendor Agreement
+? Dropship Terms
+? Payment Terms
 
 ### Summary for GigM8Ai
 
@@ -1099,13 +1099,13 @@ useEffect(() => {
 #### 2. User Experience Improvements
 
 **Musicians Dashboard:**
-- Switch to "Map View" → Auto-requests location
+- Switch to "Map View" -> Auto-requests location
 - Immediate display of nearby venues
 - Markers show venue names and distances
 - Filtered by musician's tier radius (50-3000 miles)
 
 **Venues Dashboard:**
-- Switch to "Map View" → Auto-requests location
+- Switch to "Map View" -> Auto-requests location
 - Immediate display of nearby musicians
 - Markers show stage names and locations
 - Filtered by venue's subscription tier radius
@@ -1117,9 +1117,9 @@ useEffect(() => {
 
 ### User Types Affected
 
-**✅ Musicians:** MapSearch auto-loads (NEW)
-**✅ Venues:** MapSearch auto-loads (NEW)
-**✅ Fans:** Already had auto-load via useGeolocation hook
+** Musicians:** MapSearch auto-loads (NEW)
+** Venues:** MapSearch auto-loads (NEW)
+** Fans:** Already had auto-load via useGeolocation hook
 **N/A Investors:** No map view
 **N/A Fans:** No map view
 
@@ -1169,28 +1169,28 @@ useEffect(() => {
 1. Log in as musician
 2. Navigate to dashboard
 3. Click "Map View" button
-4. ✓ Location prompt appears automatically
-5. ✓ Grant permission
-6. ✓ Map displays with nearby venues
-7. ✓ Markers show venue information
+4. ? Location prompt appears automatically
+5. ? Grant permission
+6. ? Map displays with nearby venues
+7. ? Markers show venue information
 
 **Venue Account:**
 1. Log in as venue
 2. Navigate to dashboard
 3. Click "Map View" button
-4. ✓ Location prompt appears automatically
-5. ✓ Grant permission
-6. ✓ Map displays with nearby musicians
-7. ✓ Markers show musician information
+4. ? Location prompt appears automatically
+5. ? Grant permission
+6. ? Map displays with nearby musicians
+7. ? Markers show musician information
 
 **Fan Account:**
 1. Log in as fan
 2. Navigate to dashboard
 3. Click "Map" button
-4. ✓ Location prompt appears automatically
-5. ✓ Grant permission
-6. ✓ Map displays with events/venues/musicians
-7. ✓ Markers show appropriate information
+4. ? Location prompt appears automatically
+5. ? Grant permission
+6. ? Map displays with events/venues/musicians
+7. ? Markers show appropriate information
 
 ### Files Modified
 
@@ -1204,12 +1204,12 @@ useEffect(() => {
 ### Browser Compatibility
 
 **Works With:**
-- ✅ Chrome/Edge (Chromium)
-- ✅ Firefox
-- ✅ Safari (iOS/macOS)
-- ✅ Opera
-- ✅ Samsung Internet
-- ✅ All modern mobile browsers
+-  Chrome/Edge (Chromium)
+-  Firefox
+-  Safari (iOS/macOS)
+-  Opera
+-  Samsung Internet
+-  All modern mobile browsers
 
 **Requires:**
 - HTTPS connection (location API requirement)

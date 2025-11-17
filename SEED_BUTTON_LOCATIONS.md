@@ -1,6 +1,6 @@
 # Seed Button Locations
 
-## All Seed Database Buttons Are Correctly Configured ✅
+## All Seed Database Buttons Are Correctly Configured 
 
 ### 1. Header (Logged In Users)
 **Location:** Top-right of every page (when logged in)
@@ -100,7 +100,7 @@ If not previously authenticated in this session:
 
 ### Step 2: Seeding Interface
 You'll see:
-- 🚀 Green banner: "NEW: Auto-Generation System Active!"
+-  Green banner: "NEW: Auto-Generation System Active!"
 - Blue info box: What will be created (300 accounts)
 - Purple instruction box: Next steps after seeding
 - Large blue button: "Seed Database with 300 Accounts"
@@ -116,13 +116,13 @@ You'll see:
   ...
   Creating 100 venues...
   ...
-  ✓ Database seeding completed successfully!
+  ? Database seeding completed successfully!
   ```
 
 ### Step 4: Success Message
 After 2-3 minutes, you'll see:
 ```
-✓ Database seeding completed successfully!
+? Database seeding completed successfully!
 
 Created:
 - 100 Musicians (25% bronze, 25% silver, 50% gold)
@@ -176,22 +176,22 @@ This creates 100-300 events matched within 20-mile radius!
 
 ## Important Notes
 
-### ⚠️ Only Run in Development/Staging
+### ? Only Run in Development/Staging
 - **Never** seed production database
 - Demo accounts pollute real user data
 - Use for local dev, demos, and testing only
 
-### ✅ Safe to Run Multiple Times?
+###  Safe to Run Multiple Times?
 - **NO** - Will try to create duplicate emails
 - **Result:** Error messages for existing accounts
 - **Solution:** Reset database first if you want to re-seed
 
-### 🔒 Authentication Required
+###  Authentication Required
 - Admin password required on first access
 - Session stored for convenience
 - Protects against accidental seeding
 
-### 📊 After Seeding
+###  After Seeding
 1. Run `SELECT weekly_platform_refresh();` in Supabase
 2. Platform will have 100-300 events
 3. Weekly automation takes over (every Monday 3 AM)
@@ -232,10 +232,10 @@ This creates 100-300 events matched within 20-mile radius!
 ## Summary
 
 **All buttons correctly point to `/admin/seed`**
-- ✅ Header button (green, always visible when logged in)
-- ✅ Footer link (home page bottom)
-- ✅ Login form link (development helper)
-- ✅ Seeder page button (main action button)
+-  Header button (green, always visible when logged in)
+-  Footer link (home page bottom)
+-  Login form link (development helper)
+-  Seeder page button (main action button)
 
 **They all work the same way:**
 1. Navigate to `/admin/seed`
@@ -246,7 +246,7 @@ This creates 100-300 events matched within 20-mile radius!
 6. Done! Platform is populated and auto-generating
 
 **Next Action Required:**
-🎯 Click any of these buttons to seed your database!
+ Click any of these buttons to seed your database!
 
 ---
 

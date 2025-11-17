@@ -80,16 +80,16 @@ See DEMO_ACCOUNTS.md for test user credentials across all user types.
 - Full audit logging active
 
 ### Known Working Features
-✅ User registration and authentication
-✅ Event browsing (anonymous and authenticated)
-✅ Booking system with escrow
-✅ Rating system
-✅ Messaging system
-✅ Merchandise management
-✅ Email notifications (ready to send)
-✅ Admin dashboard
-✅ Investor portal
-✅ Beta tester system
+ User registration and authentication
+ Event browsing (anonymous and authenticated)
+ Booking system with escrow
+ Rating system
+ Messaging system
+ Merchandise management
+ Email notifications (ready to send)
+ Admin dashboard
+ Investor portal
+ Beta tester system
 
 ### Deployment Status
 - Frontend: Ready for Vercel

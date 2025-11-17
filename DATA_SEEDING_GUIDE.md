@@ -12,7 +12,7 @@ Database seeding populates your empty database with realistic test data. Think o
 
 ## When Should You Seed Data?
 
-### ✅ **SEED DATA WHEN:**
+###  **SEED DATA WHEN:**
 
 #### 1. **Fresh Development Environment**
 - You just cloned the project on a new machine
@@ -59,7 +59,7 @@ http://localhost:5173/admin/seed
 
 ---
 
-### ❌ **DO NOT SEED DATA WHEN:**
+### ? **DO NOT SEED DATA WHEN:**
 
 #### 1. **Production Environment - NEVER**
 - Real users exist
@@ -99,7 +99,7 @@ http://localhost:5173/admin/seed
 ### Current Seed Data (as of your DatabaseSeeder.tsx):
 
 **300 Total Accounts:**
-- ✅ **100 Musicians**
+-  **100 Musicians**
   - 25 Bronze tier (entry-level)
   - 25 Silver tier (mid-level)
   - 50 Gold tier (premium)
@@ -107,7 +107,7 @@ http://localhost:5173/admin/seed
   - Distributed across music genres
   - Geographic coordinates (Texas Hill Country focus)
 
-- ✅ **100 Venues**
+-  **100 Venues**
   - **First 29 are REAL venues** in Texas Hill Country:
     - The Roundup (New Braunfels)
     - Gruene Hall (Gruene)
@@ -119,17 +119,17 @@ http://localhost:5173/admin/seed
   - Subscription tiers: Local, Regional, State, National
   - All have realistic addresses and coordinates
 
-- ✅ **100 Fans**
+-  **100 Fans**
   - 25 Bronze tier
   - 25 Silver tier
   - 50 Gold tier
   - Ready to browse events and purchase tickets
 
 **Related Data:**
-- ✅ **50 Events** (connecting venues and musicians)
-- ✅ **30 Bookings** (various statuses: pending, confirmed, completed)
-- ✅ **Availability Slots** for all musicians
-- ✅ **Geographic data** (latitude/longitude for mapping)
+-  **50 Events** (connecting venues and musicians)
+-  **30 Bookings** (various statuses: pending, confirmed, completed)
+-  **Availability Slots** for all musicians
+-  **Geographic data** (latitude/longitude for mapping)
 
 **Credentials:**
 - Email format: `lastname.type#@gigmate.us`
@@ -165,7 +165,7 @@ npm run dev
 
 **Step 5: Verify Success**
 ```
-✓ Database seeding completed successfully!
+? Database seeding completed successfully!
 
 Created:
 - 100 Musicians (25% bronze, 25% silver, 50% gold)
@@ -206,9 +206,9 @@ async function main() {
   const result = await seedDatabase();
 
   if (result.success) {
-    console.log('✓ Seeding completed successfully!');
+    console.log('? Seeding completed successfully!');
   } else {
-    console.error('✗ Seeding failed');
+    console.error('? Seeding failed');
     process.exit(1);
   }
 }
@@ -227,7 +227,7 @@ npx tsx scripts/seed.ts
 
 Sometimes you want to wipe everything and re-seed:
 
-### ⚠️ **DANGEROUS: This Deletes ALL Data**
+### ? **DANGEROUS: This Deletes ALL Data**
 
 **Method 1: Using Supabase Dashboard**
 1. Go to your Supabase project dashboard
@@ -272,20 +272,20 @@ supabase db reset
 
 ## Seeding Strategy by Environment
 
-### 🟢 **Local Development**
+### ? **Local Development**
 - **Seed:** YES, every time you start fresh
 - **How often:** Whenever you reset your database
 - **Data volume:** 300 accounts (current default)
 - **Purpose:** Testing and feature development
 
-### 🟡 **Staging/QA Environment**
+### ? **Staging/QA Environment**
 - **Seed:** YES, once after deployment
 - **How often:** After each major deployment
 - **Data volume:** 300-1000 accounts (can customize)
 - **Purpose:** QA testing, demos, presentations
 - **Add flag:** Consider marking as `is_test_data: true`
 
-### 🔴 **Production**
+### ? **Production**
 - **Seed:** NEVER
 - **Real users only**
 - **Data comes from:** Actual signups and activity
@@ -340,7 +340,7 @@ const tier =
 
 ## Seed Data Best Practices
 
-### ✅ **DO:**
+###  **DO:**
 
 1. **Seed in development** - Makes testing easier
 2. **Use realistic data** - Better for demos
@@ -350,7 +350,7 @@ const tier =
 6. **Document credentials** - Keep list of test accounts handy
 7. **Add timestamps** - Realistic created_at/updated_at dates
 
-### ❌ **DON'T:**
+### ? **DON'T:**
 
 1. **Seed in production** - Ever. Period.
 2. **Use real emails** - All test emails should be @example.com or @gigmate.us
@@ -419,11 +419,11 @@ await supabase.rpc('upsert_user_subscription', {
 
 | Environment | Seed Data? | When? | Volume |
 |------------|-----------|-------|--------|
-| **Local Dev** | ✅ YES | Every fresh clone | 300 accounts |
-| **Staging** | ✅ YES | After deployment | 300-1000 |
-| **Production** | ❌ NEVER | Never | Real users only |
-| **CI/CD Tests** | ✅ YES | Before test run | Minimal (10-20) |
-| **Demos** | ✅ YES | Before presentation | 300 accounts |
+| **Local Dev** |  YES | Every fresh clone | 300 accounts |
+| **Staging** |  YES | After deployment | 300-1000 |
+| **Production** | ? NEVER | Never | Real users only |
+| **CI/CD Tests** |  YES | Before test run | Minimal (10-20) |
+| **Demos** |  YES | Before presentation | 300 accounts |
 
 **Seed Command:**
 ```
@@ -467,4 +467,4 @@ TRUNCATE profiles, musicians, venues, fans CASCADE;
 
 ---
 
-**You're ready to seed!** Just remember: development only, never production. 🌱
+**You're ready to seed!** Just remember: development only, never production. ?

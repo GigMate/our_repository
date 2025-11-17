@@ -11,18 +11,18 @@
 
 ### The Vision
 
-GigMate is the complete operating system for live music: **booking, messaging, ticketing, merchandise fulfillment, payments, and legal compliance—all in one platform**. We handle everything from artist discovery to event-day merchandise delivery.
+GigMate is the complete operating system for live music: **booking, messaging, ticketing, merchandise fulfillment, payments, and legal compliance--all in one platform**. We handle everything from artist discovery to event-day merchandise delivery.
 
 ### What Makes Us Different
 
 **We Handle Everything:**
-- ✅ Booking and contracts
-- ✅ Leveraged advertising and promotion
-- ✅ Premium fan messaging ($0.99-9.99/month)
-- ✅ Merchandise vendor marketplace
-- ✅ Dropship fulfillment (day-before & overnight)
-- ✅ Payments and receipts
-- ✅ Legal consent and compliance
+-  Booking and contracts
+-  Leveraged advertising and promotion
+-  Premium fan messaging ($0.99-9.99/month)
+-  Merchandise vendor marketplace
+-  Dropship fulfillment (day-before & overnight)
+-  Payments and receipts
+-  Legal consent and compliance
 
 **No other platform does all of this.**
 
@@ -271,7 +271,7 @@ Every user type consents to role-specific agreements:
 **Professional Credits (Musicians/Venues):**
 
 Used for business-to-business communications:
-- Venue → Musician: 2 credits initial, 1 credit reply
+- Venue -> Musician: 2 credits initial, 1 credit reply
 - Booking request: 3 credits
 - Contract sharing: 2 credits
 - Priority message: 5 credits
@@ -284,7 +284,7 @@ Used for business-to-business communications:
 - Silver ($19.99): 150/month (rollover 75)
 - Gold ($49.99): 500/month (rollover 250)
 
-**À la carte purchases:**
+**? la carte purchases:**
 - 25 credits: $4.99
 - 100 credits: $14.99 (most popular)
 - 250 credits: $29.99 (best value)
@@ -457,11 +457,11 @@ Components:
 
 ### Key Assumptions
 
-- Merchandise GMV grows 10x Year 2→3
-- Fan premium conversion: 20% → 30% over 3 years
+- Merchandise GMV grows 10x Year 2->3
+- Fan premium conversion: 20% -> 30% over 3 years
 - Vendor adoption: 20% of musicians become vendors
 - Churn rate: 15% annually (paid tiers), 40% (free)
-- Gross margins improve from 65% → 85% as scale increases
+- Gross margins improve from 65% -> 85% as scale increases
 
 ---
 
@@ -643,12 +643,12 @@ Components:
 ## Strategic Roadmap
 
 ### Year 1: Foundation & Launch
-- ✅ Core platform operational
-- ✅ Credit economy designed
-- ✅ Legal consent system
-- ✅ Merch vendor infrastructure
-- → Premium messaging launch (Month 7)
-- → 5K users, $600K revenue
+-  Core platform operational
+-  Credit economy designed
+-  Legal consent system
+-  Merch vendor infrastructure
+- -> Premium messaging launch (Month 7)
+- -> 5K users, $600K revenue
 
 ### Year 2: Premium Features & Growth
 - Premium messaging at scale
@@ -668,7 +668,7 @@ Components:
 - Major metros (NY, LA, Chicago, Seattle)
 - Platform licensing begins
 - Enterprise venue partnerships
-- $70M → $100M revenue
+- $70M -> $100M revenue
 - Category leader status
 
 ---
@@ -762,10 +762,10 @@ Components:
 ### Milestones for Seed
 
 **Month 6 (Current):**
-- ✅ Platform launched
-- ✅ 300 test accounts
-- ✅ Legal consent system
-- ✅ Merch vendor infrastructure
+-  Platform launched
+-  300 test accounts
+-  Legal consent system
+-  Merch vendor infrastructure
 
 **Month 12:**
 - 5,000 registered users
@@ -795,15 +795,15 @@ Components:
 ### Return Scenarios
 
 **Conservative (5-year exit):**
-- $50M revenue × 3x multiple = $150M valuation
+- $50M revenue x 3x multiple = $150M valuation
 - Investors: 15-20x return
 
 **Base Case (5-year exit):**
-- $100M revenue × 5x multiple = $500M valuation
+- $100M revenue x 5x multiple = $500M valuation
 - Investors: 50-75x return
 
 **Optimistic (7-year IPO):**
-- $250M+ revenue × 8-10x multiple = $2B+ valuation
+- $250M+ revenue x 8-10x multiple = $2B+ valuation
 - Investors: 200x+ return
 
 ---
@@ -812,14 +812,14 @@ Components:
 
 GigMate is uniquely positioned to capture the $32B live music market by being the **only platform that handles everything**:
 
-✅ Booking and contracts
-✅ Premium fan messaging ($14M+ annual revenue potential)
-✅ Event ticketing
-✅ Merchandise marketplace ($78M+ annual revenue potential)
-✅ Dropship fulfillment (day-before & overnight delivery)
-✅ Legal compliance (GDPR/CCPA ready)
-✅ Payments and receipts
-✅ Leveraged advertising and promotion
+ Booking and contracts
+ Premium fan messaging ($14M+ annual revenue potential)
+ Event ticketing
+ Merchandise marketplace ($78M+ annual revenue potential)
+ Dropship fulfillment (day-before & overnight delivery)
+ Legal compliance (GDPR/CCPA ready)
+ Payments and receipts
+ Leveraged advertising and promotion
 
 **No competitor comes close to this comprehensive offering.**
 
@@ -875,4 +875,4 @@ GigMate is uniquely positioned to capture the $32B live music market by being th
 
 ---
 
-*Making live music better for everyone—one gig, one message, one t-shirt at a time.*
+*Making live music better for everyone--one gig, one message, one t-shirt at a time.*

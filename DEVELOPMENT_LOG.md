@@ -97,7 +97,7 @@ Venue subscriptions should be based on what level of musician database access th
 
 **3. Database Enums**
 - Created `venue_subscription_tier` enum: (local, regional, state, national)
-- Updated `tier_level` enum: added 'bronze', migrated 'standard' → 'bronze'
+- Updated `tier_level` enum: added 'bronze', migrated 'standard' -> 'bronze'
 - Added `venue_subscription_tier` column to profiles table
 
 **4. Helper Functions**
@@ -203,7 +203,7 @@ Venue subscriptions should be based on what level of musician database access th
 1. **Immediate Actions:**
    - Add Google Maps API key to production environment
    - Populate latitude/longitude for existing venues and musicians
-   - Set up geocoding service for address → coordinates conversion
+   - Set up geocoding service for address -> coordinates conversion
    - Configure Stripe for venue subscription payments
 
 2. **Future Enhancements:**
@@ -266,7 +266,7 @@ ELSE Bronze
 ## SESSION END MARKER
 
 **Status**: All features implemented and tested successfully
-**Build Status**: ✅ Passing
+**Build Status**:  Passing
 **Date**: November 4, 2025
 **Time**: Session 1 Complete
 
@@ -361,7 +361,7 @@ Added "Investor" as a 4th user category to the GigMate platform, alongside Music
    - Blue accent color
 
 2. **Average Revenue Per User (ARPU)**
-   - Calculated: Platform fees ÷ Total users
+   - Calculated: Platform fees ? Total users
    - Monthly platform fees per user
    - Green accent color
 
@@ -457,9 +457,9 @@ const events = await supabase
 #### Key Calculations:
 - **Total Revenue**: Sum of all transaction amounts
 - **Platform Fees**: Sum of all platform_fee values
-- **ARPU**: Platform fees ÷ Total users
-- **Average Transaction**: Total revenue ÷ Transaction count
-- **User Distribution %**: (User type count ÷ Total users) × 100
+- **ARPU**: Platform fees ? Total users
+- **Average Transaction**: Total revenue ? Transaction count
+- **User Distribution %**: (User type count ? Total users) x 100
 
 ---
 
@@ -520,14 +520,14 @@ const events = await supabase
 
 ### Testing Completed
 
-✅ Database user type enum includes 'investor'
-✅ 5 investor demo accounts created successfully
-✅ Investor authentication flow works end-to-end
-✅ Dashboard loads real data from database
-✅ All calculations render correctly
-✅ Responsive design on mobile and desktop
-✅ Navigation between home and dashboard
-✅ Build passes without errors
+ Database user type enum includes 'investor'
+ 5 investor demo accounts created successfully
+ Investor authentication flow works end-to-end
+ Dashboard loads real data from database
+ All calculations render correctly
+ Responsive design on mobile and desktop
+ Navigation between home and dashboard
+ Build passes without errors
 
 ---
 
@@ -591,7 +591,7 @@ const events = await supabase
 ## SESSION END MARKER
 
 **Status**: Investor portal fully implemented and tested
-**Build Status**: ✅ Passing
+**Build Status**:  Passing
 **Date**: November 6, 2025
 **Time**: Session 2 Complete
 

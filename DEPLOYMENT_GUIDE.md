@@ -14,9 +14,9 @@
 
 ### Prerequisites
 
-- ✅ GitHub account
-- ✅ Vercel account (free - sign up at vercel.com)
-- ✅ Your GigMate code ready
+-  GitHub account
+-  Vercel account (free - sign up at vercel.com)
+-  Your GigMate code ready
 
 ---
 
@@ -81,11 +81,11 @@ Vercel should auto-detect these settings:
 - **Output Directory**: `dist`
 - **Install Command**: `npm install`
 
-✅ **Leave these as default** - they're already correct!
+ **Leave these as default** - they're already correct!
 
 ### Step 4: Add Environment Variables
 
-⚠️ **CRITICAL STEP** - Your app won't work without these!
+? **CRITICAL STEP** - Your app won't work without these!
 
 Click **"Environment Variables"** and add each one:
 
@@ -104,7 +104,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtYWdxa3V
 pk_test_YOUR_STRIPE_PUBLISHABLE_KEY_HERE
 ```
 
-⚠️ **You must add your own Stripe publishable key from https://dashboard.stripe.com/test/apikeys**
+? **You must add your own Stripe publishable key from https://dashboard.stripe.com/test/apikeys**
 
 **VITE_GOOGLE_MAPS_API_KEY**
 ```
@@ -112,17 +112,17 @@ YOUR_GOOGLE_MAPS_API_KEY_HERE
 ```
 
 **Important Notes:**
-- ⚠️ These are test/development keys - replace Stripe key with production key when going live
-- ⚠️ You need to get a real Google Maps API key from Google Cloud Console
-- ⚠️ You MUST get your own Stripe publishable key from https://dashboard.stripe.com/test/apikeys
-- ✅ Supabase keys are already configured and working
+- ? These are test/development keys - replace Stripe key with production key when going live
+- ? You need to get a real Google Maps API key from Google Cloud Console
+- ? You MUST get your own Stripe publishable key from https://dashboard.stripe.com/test/apikeys
+-  Supabase keys are already configured and working
 
 ### Step 5: Deploy!
 
 1. Click **"Deploy"**
 2. Wait 2-3 minutes while Vercel builds your app
 3. You'll see a progress screen with build logs
-4. When complete, you'll get a live URL! 🎉
+4. When complete, you'll get a live URL! 
 
 Your app will be at something like:
 ```
@@ -185,7 +185,7 @@ Your Vercel URL needs to be allowed in Supabase:
 
 1. **Go to Supabase Dashboard**: https://app.supabase.com
 2. **Select your project**: `rmagqkuwulbcabxtzsjm`
-3. **Go to Authentication → URL Configuration**
+3. **Go to Authentication -> URL Configuration**
 4. **Add your Vercel URL to "Site URL"**:
    ```
    https://your-app-name.vercel.app
@@ -203,12 +203,12 @@ This allows Supabase authentication to work on your deployed app.
 
 ### Basic Tests:
 
-1. ✅ **Visit your Vercel URL**
-2. ✅ **Homepage loads correctly**
-3. ✅ **Try to sign up** as a musician/venue/fan
-4. ✅ **Check if NDA screen appears** (if you added one)
-5. ✅ **Login works**
-6. ✅ **Dashboard loads**
+1.  **Visit your Vercel URL**
+2.  **Homepage loads correctly**
+3.  **Try to sign up** as a musician/venue/fan
+4.  **Check if NDA screen appears** (if you added one)
+5.  **Login works**
+6.  **Dashboard loads**
 
 ### If Something Doesn't Work:
 
@@ -221,16 +221,16 @@ This allows Supabase authentication to work on your deployed app.
 
 **Common Issues:**
 
-❌ **"Blank page"**
+? **"Blank page"**
 - Check browser console for errors
 - Verify environment variables are set correctly
 - Make sure Supabase URL is in the allowlist
 
-❌ **"Authentication not working"**
+? **"Authentication not working"**
 - Check Supabase redirect URLs
 - Verify VITE_SUPABASE_ANON_KEY is correct
 
-❌ **"Payments failing"**
+? **"Payments failing"**
 - Check Stripe publishable key is correct in Vercel environment variables
 - Verify Stripe secret key is set in Supabase Edge Functions secrets
 - Verify webhook endpoint is configured in Stripe Dashboard
@@ -240,7 +240,7 @@ This allows Supabase authentication to work on your deployed app.
 
 ## Automatic Deployments
 
-🎉 **Great news!** Every time you push to GitHub, Vercel will automatically:
+ **Great news!** Every time you push to GitHub, Vercel will automatically:
 1. Build your app
 2. Deploy the new version
 3. Give you a preview URL
@@ -263,7 +263,7 @@ Want `gigmate.com` instead of the Vercel subdomain?
 1. **Buy a domain** (Namecheap, GoDaddy, Google Domains, etc.)
 2. **In Vercel Dashboard**:
    - Go to your project
-   - Click "Settings" → "Domains"
+   - Click "Settings" -> "Domains"
    - Click "Add"
    - Enter your domain: `gigmate.com`
 3. **Update DNS records** (Vercel will show you exactly what to add)
@@ -292,18 +292,18 @@ Before going fully live:
 ## Cost Estimate
 
 ### Vercel (Free Tier):
-- ✅ Unlimited personal projects
-- ✅ 100GB bandwidth/month
-- ✅ Automatic HTTPS
-- ✅ Preview deployments
+-  Unlimited personal projects
+-  100GB bandwidth/month
+-  Automatic HTTPS
+-  Preview deployments
 
 ### Supabase (Free Tier):
-- ✅ 500MB database
-- ✅ 1GB file storage
-- ✅ 2GB bandwidth
-- ✅ 50,000 monthly active users
+-  500MB database
+-  1GB file storage
+-  2GB bandwidth
+-  50,000 monthly active users
 
-**Total Cost for Beta: $0/month** 🎉
+**Total Cost for Beta: $0/month** 
 
 ---
 
@@ -336,6 +336,6 @@ https://vercel.com/dashboard
 
 ---
 
-🚀 **You're ready to deploy GigMate!**
+ **You're ready to deploy GigMate!**
 
 Follow these steps and you'll have a live app in under 30 minutes.

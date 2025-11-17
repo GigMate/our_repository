@@ -211,37 +211,37 @@ To maintain fairness and avoid being overly restrictive:
 
 **During Signup:**
 ```
-☑️ I agree to GigMate's Terms of Service
+? I agree to GigMate's Terms of Service
 
 [ View Platform Exclusivity Terms ]
 
 Key Points:
-• Transactions from GigMate connections must use GigMate for 12 months
-• Direct communication is OK, but payments go through platform
-• Protects your escrow, insurance, and ratings
-• After 12 months, you may transact directly
+o Transactions from GigMate connections must use GigMate for 12 months
+o Direct communication is OK, but payments go through platform
+o Protects your escrow, insurance, and ratings
+o After 12 months, you may transact directly
 ```
 
 **In Messaging System:**
 ```
-💡 Reminder: Keep payments on platform
+ Reminder: Keep payments on platform
 When you book through GigMate, you get:
-✓ Escrow protection
-✓ Refund guarantees
-✓ Insurance coverage
-✓ Rating/review system
-✓ Customer support
+? Escrow protection
+? Refund guarantees
+? Insurance coverage
+? Rating/review system
+? Customer support
 
 Moving payments off-platform voids these protections.
 ```
 
 **In Booking Confirmation:**
 ```
-⚠️ IMPORTANT: Payment Terms
+? IMPORTANT: Payment Terms
 This booking must be paid through GigMate to be covered by:
-• Our escrow system
-• Cancellation protection
-• Platform guarantees
+o Our escrow system
+o Cancellation protection
+o Platform guarantees
 
 Off-platform payments violate Terms of Service and may result in
 account suspension. Need help? Contact support@gigmate.us

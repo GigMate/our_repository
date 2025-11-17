@@ -3,7 +3,7 @@
 
 ---
 
-## 📊 Executive Summary
+##  Executive Summary
 
 **One Sentence Pitch:**
 GigMate is the Uber for live music - a marketplace connecting musicians, venues, and fans with built-in payments, ticketing, contracts, and AI-powered discovery.
@@ -15,11 +15,11 @@ The $28B live music industry is stuck in the 1990s. Musicians book gigs via phon
 A modern platform where musicians find gigs, venues discover talent, and fans buy tickets - all in one place with fair fees (10% vs 20-30% competitors), escrow protection, and emergency replacement when musicians cancel.
 
 **Traction:**
-- ✅ Platform built and deployed
-- ✅ 100 beta testers signed up
-- ✅ 12 real bookings completed
-- ✅ $8,400 GMV in pre-launch
-- ✅ 4.9★ average rating
+-  Platform built and deployed
+-  100 beta testers signed up
+-  12 real bookings completed
+-  $8,400 GMV in pre-launch
+-  4.9? average rating
 
 **The Ask:**
 $2M Seed Round at $10M post-money valuation
@@ -32,7 +32,7 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## 🎯 The Problem
+##  The Problem
 
 ### Musicians Struggle to Find Gigs
 
@@ -44,11 +44,11 @@ $2M Seed Round at $10M post-money valuation
 5. Repeat monthly forever
 
 **Pain Points:**
-- ❌ 20+ hours/month prospecting
-- ❌ 30% of bookings fall through
-- ❌ 15% never get paid
-- ❌ No contract = no recourse
-- ❌ Competitors take 20-30% fee
+- ? 20+ hours/month prospecting
+- ? 30% of bookings fall through
+- ? 15% never get paid
+- ? No contract = no recourse
+- ? Competitors take 20-30% fee
 
 ### Venues Need Reliable Entertainment
 
@@ -62,11 +62,11 @@ $2M Seed Round at $10M post-money valuation
 7. Cancel show, lose $10K+ revenue
 
 **Pain Points:**
-- ❌ No way to verify talent quality
-- ❌ No protection if musician no-shows
-- ❌ No easy way to promote events
-- ❌ Ticketing platforms charge 15-20%
-- ❌ Payment disputes waste time
+- ? No way to verify talent quality
+- ? No protection if musician no-shows
+- ? No easy way to promote events
+- ? Ticketing platforms charge 15-20%
+- ? Payment disputes waste time
 
 ### Fans Miss Great Shows
 
@@ -78,15 +78,15 @@ $2M Seed Round at $10M post-money valuation
 5. Tickets sold out on bots
 
 **Pain Points:**
-- ❌ No single place to discover shows
-- ❌ Hidden fees at checkout
-- ❌ Support shady ticket resellers
-- ❌ Miss favorite bands in town
-- ❌ No easy way to support local music
+- ? No single place to discover shows
+- ? Hidden fees at checkout
+- ? Support shady ticket resellers
+- ? Miss favorite bands in town
+- ? No easy way to support local music
 
 ---
 
-## 💡 Our Solution
+##  Our Solution
 
 ### One Platform, Three User Types
 
@@ -120,26 +120,26 @@ $2M Seed Round at $10M post-money valuation
 ### Key Differentiators
 
 **vs. GigSalad / Thumbtack:**
-- ✅ Built specifically for music (they do everything)
-- ✅ 10% fee vs 20-30%
-- ✅ Escrow protection (they don't have)
-- ✅ Fan ticketing (they don't have)
-- ✅ Emergency replacement (unique to GigMate)
+-  Built specifically for music (they do everything)
+-  10% fee vs 20-30%
+-  Escrow protection (they don't have)
+-  Fan ticketing (they don't have)
+-  Emergency replacement (unique to GigMate)
 
 **vs. Bandsintown / Songkick:**
-- ✅ We handle booking + payment (they only list events)
-- ✅ Musicians can be discovered (not just followed)
-- ✅ Venues can search and book (not just post)
-- ✅ Direct relationship with all parties (not aggregation)
+-  We handle booking + payment (they only list events)
+-  Musicians can be discovered (not just followed)
+-  Venues can search and book (not just post)
+-  Direct relationship with all parties (not aggregation)
 
 **vs. Eventbrite / Ticketmaster:**
-- ✅ We connect musicians with venues (they only sell tickets)
-- ✅ Fair fees (10% vs 15-25%)
-- ✅ Built for recurring local shows (not one-off mega events)
+-  We connect musicians with venues (they only sell tickets)
+-  Fair fees (10% vs 15-25%)
+-  Built for recurring local shows (not one-off mega events)
 
 ---
 
-## 📈 Market Opportunity
+## ? Market Opportunity
 
 ### Total Addressable Market (TAM)
 
@@ -190,7 +190,7 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## 🚀 Business Model
+##  Business Model
 
 ### Revenue Streams
 
@@ -257,7 +257,7 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## 💰 Financial Projections
+##  Financial Projections
 
 ### 3-Year Revenue Forecast
 
@@ -294,7 +294,7 @@ $2M Seed Round at $10M post-money valuation
 - 15% MoM growth (Year 3)
 - 90% musician retention
 - 95% venue retention
-- 8 bookings/musician/year → 12 by Year 3
+- 8 bookings/musician/year -> 12 by Year 3
 
 **Market Expansion:**
 - Year 1: Texas only
@@ -303,7 +303,7 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## 🎯 Go-To-Market Strategy
+##  Go-To-Market Strategy
 
 ### Phase 1: Texas Hill Country (Months 1-6)
 
@@ -371,9 +371,9 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## 🛠️ Product Roadmap
+## ? Product Roadmap
 
-### ✅ Completed (Beta - Q1 2025)
+###  Completed (Beta - Q1 2025)
 
 - [x] User authentication (musicians, venues, fans)
 - [x] Profile management (photos, videos, bios)
@@ -391,7 +391,7 @@ $2M Seed Round at $10M post-money valuation
 - [x] Premium fan messaging
 - [x] Merchandise management
 
-### 🚧 In Development (Q2 2025)
+### ? In Development (Q2 2025)
 
 - [ ] Native mobile apps (iOS, Android)
 - [ ] Live chat support
@@ -401,7 +401,7 @@ $2M Seed Round at $10M post-money valuation
 - [ ] Calendar sync (Google, Apple)
 - [ ] Payment splits (band members)
 
-### 📅 Planned (Q3-Q4 2025)
+###  Planned (Q3-Q4 2025)
 
 - [ ] AI-powered recommendations
 - [ ] Dynamic pricing for tickets
@@ -413,7 +413,7 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## 👥 Team
+## ? Team
 
 ### Founders
 
@@ -464,13 +464,13 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## 🏆 Traction & Milestones
+## ? Traction & Milestones
 
 ### Current Status (January 2025)
 
 **Users:**
 - 100 beta testers (35 musicians, 15 venues, 50 fans)
-- 4.9★ average rating
+- 4.9? average rating
 - 85% weekly active users (beta)
 
 **Activity:**
@@ -496,20 +496,20 @@ $2M Seed Round at $10M post-money valuation
 ### Key Milestones Achieved
 
 **2024:**
-- ✅ Q1: Idea validation, customer interviews (100+)
-- ✅ Q2: MVP development
-- ✅ Q3: Beta platform launch
-- ✅ Q4: First paying customers, product-market fit validation
+-  Q1: Idea validation, customer interviews (100+)
+-  Q2: MVP development
+-  Q3: Beta platform launch
+-  Q4: First paying customers, product-market fit validation
 
 **2025 (Planned):**
-- 🎯 Q1: Raise seed round, 500 users
-- 🎯 Q2: Launch mobile apps, 2,000 users
-- 🎯 Q3: Expand to California, 5,000 users
-- 🎯 Q4: $100K MRR, Series A prep
+-  Q1: Raise seed round, 500 users
+-  Q2: Launch mobile apps, 2,000 users
+-  Q3: Expand to California, 5,000 users
+-  Q4: $100K MRR, Series A prep
 
 ---
 
-## 📊 Competitive Landscape
+##  Competitive Landscape
 
 ### Direct Competitors
 
@@ -548,7 +548,7 @@ $2M Seed Round at $10M post-money valuation
 
 ### Competitive Moats
 
-1. **Network Effects**: More musicians → more venues → more fans → more musicians
+1. **Network Effects**: More musicians -> more venues -> more fans -> more musicians
 2. **Data Moat**: Ratings, booking history, preference data
 3. **Switching Costs**: Established profiles, ratings, contracts
 4. **Brand**: "The platform for live music"
@@ -556,56 +556,56 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## ⚖️ Risks & Mitigation
+## ? Risks & Mitigation
 
 ### Risk 1: Chicken-and-Egg Problem
 
 **Risk:** Need musicians to attract venues, need venues to attract musicians
 **Mitigation:**
-- ✅ Focus on music-dense cities (Austin first)
-- ✅ Founder has network of 1,000+ venues (co-founder Jane)
-- ✅ Referral bonuses ($50 per musician)
-- ✅ Free tier for venues (low barrier)
+-  Focus on music-dense cities (Austin first)
+-  Founder has network of 1,000+ venues (co-founder Jane)
+-  Referral bonuses ($50 per musician)
+-  Free tier for venues (low barrier)
 
 ### Risk 2: Low-Trust Transactions
 
 **Risk:** Musicians/venues afraid to transact online
 **Mitigation:**
-- ✅ Escrow system (money held until after show)
-- ✅ Mutual rating system (bad actors filtered)
-- ✅ Digital contracts (legally binding)
-- ✅ Insurance partnerships (planned)
+-  Escrow system (money held until after show)
+-  Mutual rating system (bad actors filtered)
+-  Digital contracts (legally binding)
+-  Insurance partnerships (planned)
 
 ### Risk 3: Competitive Response
 
 **Risk:** GigSalad or others lower fees
 **Mitigation:**
-- ✅ Network effects (hard to replicate)
-- ✅ Superior product (ticketing, emergency, social)
-- ✅ Music-specific (they can't pivot easily)
-- ✅ Strong brand in music community
+-  Network effects (hard to replicate)
+-  Superior product (ticketing, emergency, social)
+-  Music-specific (they can't pivot easily)
+-  Strong brand in music community
 
 ### Risk 4: Regulatory Issues
 
 **Risk:** Labor classification, licensing, taxes
 **Mitigation:**
-- ✅ Musicians are independent contractors (clear)
-- ✅ Legal counsel from day one
-- ✅ State-by-state compliance review
-- ✅ Partnership with music unions
+-  Musicians are independent contractors (clear)
+-  Legal counsel from day one
+-  State-by-state compliance review
+-  Partnership with music unions
 
 ### Risk 5: Economic Downturn
 
 **Risk:** Live music is discretionary spending
 **Mitigation:**
-- ✅ Focus on affordable local shows (not expensive tours)
-- ✅ Platform reduces costs (efficiency)
-- ✅ Credit system allows flexible payment
-- ✅ Diversified revenue (subscriptions + transactions)
+-  Focus on affordable local shows (not expensive tours)
+-  Platform reduces costs (efficiency)
+-  Credit system allows flexible payment
+-  Diversified revenue (subscriptions + transactions)
 
 ---
 
-## 💼 Investment Opportunity
+## ? Investment Opportunity
 
 ### The Ask
 
@@ -641,14 +641,14 @@ $2M Seed Round at $10M post-money valuation
 ### Milestones (12-18 Months)
 
 **With $2M Funding:**
-- ✅ 3,000 active musicians
-- ✅ 500 active venues
-- ✅ 36,000 bookings/year
-- ✅ $3.6M revenue
-- ✅ 10% EBITDA margin
-- ✅ Launch in 5 states
-- ✅ Mobile apps live (iOS, Android)
-- ✅ Series A ready ($500K+ MRR)
+-  3,000 active musicians
+-  500 active venues
+-  36,000 bookings/year
+-  $3.6M revenue
+-  10% EBITDA margin
+-  Launch in 5 states
+-  Mobile apps live (iOS, Android)
+-  Series A ready ($500K+ MRR)
 
 ### Series A Strategy (18-24 months)
 
@@ -657,7 +657,7 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## 📞 Contact & Next Steps
+## ? Contact & Next Steps
 
 ### Founders
 
@@ -674,12 +674,12 @@ $2M Seed Round at $10M post-money valuation
 ### Investor Materials
 
 **Available Upon Request:**
-- 📊 Detailed financial model (Excel)
-- 📈 User cohort analysis
-- 📄 Legal documents (incorporation, IP assignments)
-- 🔐 Data room access (codebase, contracts, etc.)
-- 📹 Product demo video
-- 📝 Customer testimonials & case studies
+-  Detailed financial model (Excel)
+- ? User cohort analysis
+- ? Legal documents (incorporation, IP assignments)
+- ? Data room access (codebase, contracts, etc.)
+- ? Product demo video
+- ? Customer testimonials & case studies
 
 ### How to Invest
 
@@ -693,7 +693,7 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## 🎸 Why Now?
+##  Why Now?
 
 ### Market Timing
 
@@ -739,22 +739,22 @@ We're not just building software. We're creating the infrastructure for the next
 
 ---
 
-## 🤝 Join Us
+## ? Join Us
 
 **"The best time to invest in GigMate was yesterday. The second best time is today."**
 
 We're not looking for just capital. We're looking for partners who:
-- ✅ Believe in the power of live music
-- ✅ Understand marketplace dynamics
-- ✅ Have experience scaling platforms
-- ✅ Can help with sales, partnerships, hiring
-- ✅ Share our vision of a better music industry
+-  Believe in the power of live music
+-  Understand marketplace dynamics
+-  Have experience scaling platforms
+-  Can help with sales, partnerships, hiring
+-  Share our vision of a better music industry
 
 **Interested in learning more?**
 
-📧 Email: invest@gigmate.com
-📞 Call: (512) 555-1234
-🌐 Web: gigmate.com/invest
+? Email: invest@gigmate.com
+? Call: (512) 555-1234
+ Web: gigmate.com/invest
 
 **Let's make live music better for everyone. Let's build GigMate together.**
 
@@ -762,4 +762,4 @@ We're not looking for just capital. We're looking for partners who:
 
 *This pitch deck is confidential and proprietary. Do not distribute without permission.*
 
-*© 2025 GigMate, Inc. All rights reserved.*
+*(C) 2025 GigMate, Inc. All rights reserved.*

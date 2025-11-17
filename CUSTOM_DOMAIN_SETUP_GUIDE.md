@@ -32,7 +32,7 @@ vercel --prod
 
 1. Go to [vercel.com/dashboard](https://vercel.com/dashboard)
 2. Select your GigMate project
-3. Click **"Settings"** → **"Domains"**
+3. Click **"Settings"** -> **"Domains"**
 4. Click **"Add Domain"**
 5. Enter: `gigmate.us`
 6. Click **"Add"**
@@ -72,13 +72,13 @@ TTL: 3600
 
 #### Step 5: Verify Domain in Vercel
 
-1. Return to Vercel Dashboard → Domains
+1. Return to Vercel Dashboard -> Domains
 2. Wait for verification (green checkmark)
 3. Your site will be live at gigmate.us!
 
 #### Step 6: Enable Password Protection
 
-1. In Vercel Dashboard, go to **Settings** → **Deployment Protection**
+1. In Vercel Dashboard, go to **Settings** -> **Deployment Protection**
 2. Enable **"Password Protection"**
 3. Set a strong password
 4. Share password only with beta testers
@@ -126,7 +126,7 @@ TTL: 3600
 
 #### Step 4: Enable Password Protection
 
-1. Go to Site Settings → Visitor Access
+1. Go to Site Settings -> Visitor Access
 2. Enable **"Password Protection"**
 3. Set password
 4. Save
@@ -137,21 +137,21 @@ TTL: 3600
 
 Both Vercel and Netlify automatically provision free SSL certificates via Let's Encrypt:
 
-- ✅ Certificate issued within minutes of domain verification
-- ✅ Auto-renewal every 90 days
-- ✅ Forces HTTPS (redirects HTTP automatically)
-- ✅ No configuration needed
+-  Certificate issued within minutes of domain verification
+-  Auto-renewal every 90 days
+-  Forces HTTPS (redirects HTTP automatically)
+-  No configuration needed
 
 Your site will be accessible at:
-- `https://gigmate.us` ✅
-- `https://www.gigmate.us` ✅
-- `http://gigmate.us` → redirects to HTTPS ✅
+- `https://gigmate.us` 
+- `https://www.gigmate.us` 
+- `http://gigmate.us` -> redirects to HTTPS 
 
 ---
 
 ## Part 3: Continuing Development with Custom Domain
 
-### ✅ YES - You Can Still Use Claude Code!
+###  YES - You Can Still Use Claude Code!
 
 **Using a custom domain does NOT prevent you from continuing development.** Here's how it works:
 
@@ -171,10 +171,10 @@ netlify deploy --prod
 ```
 
 **With this approach:**
-- ✅ Claude Code can modify files directly
-- ✅ Test changes locally before deployment
-- ✅ Deploy when ready
-- ✅ Custom domain shows latest deployed version
+-  Claude Code can modify files directly
+-  Test changes locally before deployment
+-  Deploy when ready
+-  Custom domain shows latest deployed version
 
 ### Scenario 2: Direct Production Updates
 
@@ -209,11 +209,11 @@ git push -u origin main
 ```
 
 **Benefits:**
-- ✅ Version control of all changes
-- ✅ Auto-deploy on git push
-- ✅ Easy rollback if needed
-- ✅ Claude Code can still help you make changes
-- ✅ Preview deployments for testing
+-  Version control of all changes
+-  Auto-deploy on git push
+-  Easy rollback if needed
+-  Claude Code can still help you make changes
+-  Preview deployments for testing
 
 ---
 
@@ -254,7 +254,7 @@ git push -u origin main
 Your environment variables remain secure:
 
 ### For Vercel:
-1. Go to Project Settings → Environment Variables
+1. Go to Project Settings -> Environment Variables
 2. Add all variables from your `.env` file:
    ```
    VITE_SUPABASE_URL
@@ -265,7 +265,7 @@ Your environment variables remain secure:
 3. Redeploy for changes to take effect
 
 ### For Netlify:
-1. Go to Site Settings → Environment Variables
+1. Go to Site Settings -> Environment Variables
 2. Add all variables
 3. Redeploy
 
@@ -305,7 +305,7 @@ If something breaks:
 **Vercel:**
 1. Go to Deployments tab
 2. Find previous working deployment
-3. Click "..." → "Promote to Production"
+3. Click "..." -> "Promote to Production"
 
 **Netlify:**
 1. Go to Deploys tab
@@ -355,32 +355,32 @@ open https://gigmate.us
 
 ```
 1. Local Development (with Claude Code)
-   ↓
+   ?
 2. Test with npm run dev
-   ↓
+   ?
 3. Make more changes as needed
-   ↓
+   ?
 4. Run npm run build (verify no errors)
-   ↓
+   ?
 5. Deploy to production
-   ↓
+   ?
 6. Changes live on gigmate.us
-   ↓
+   ?
 7. Test on live site
-   ↓
+   ?
 8. Repeat as needed
 ```
 
 ### Claude Code Can Still Help You:
 
-- ✅ Add new features
-- ✅ Fix bugs
-- ✅ Update database migrations
-- ✅ Modify components
-- ✅ Update legal documents
-- ✅ Create new admin tools
-- ✅ Optimize performance
-- ✅ Everything else!
+-  Add new features
+-  Fix bugs
+-  Update database migrations
+-  Modify components
+-  Update legal documents
+-  Create new admin tools
+-  Optimize performance
+-  Everything else!
 
 **The custom domain just changes WHERE the code is deployed, not HOW you develop it.**
 
@@ -452,7 +452,7 @@ netlify status
 
 ## Summary
 
-### ✅ Yes, You Can Use gigmate.us AND Continue Development
+###  Yes, You Can Use gigmate.us AND Continue Development
 
 **The custom domain is just a pointer to your deployed code.** You continue to:
 1. Write code locally (with Claude Code's help)
@@ -462,12 +462,12 @@ netlify status
 
 ### Next Steps:
 
-1. ✅ Deploy to Vercel/Netlify
-2. ✅ Add gigmate.us in domain settings
-3. ✅ Configure DNS at your registrar
-4. ✅ Enable password protection
-5. ✅ Generate beta invitations
-6. ✅ Continue development with Claude Code
-7. ✅ Deploy updates as needed
+1.  Deploy to Vercel/Netlify
+2.  Add gigmate.us in domain settings
+3.  Configure DNS at your registrar
+4.  Enable password protection
+5.  Generate beta invitations
+6.  Continue development with Claude Code
+7.  Deploy updates as needed
 
 **Your custom domain does NOT lock you out of development. It makes your platform look professional while you continue improving it!**

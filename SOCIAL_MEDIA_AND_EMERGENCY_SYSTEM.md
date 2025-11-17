@@ -190,12 +190,12 @@ async function postToAllPlatforms(post) {
 #### **For Original Owners:**
 
 **You Keep:**
-- ✅ Full ownership
-- ✅ Copyright
-- ✅ Right to use anywhere
-- ✅ Right to sell/license
-- ✅ Credit/attribution
-- ✅ Can delete from GigMate anytime
+-  Full ownership
+-  Copyright
+-  Right to use anywhere
+-  Right to sell/license
+-  Credit/attribution
+-  Can delete from GigMate anytime
 
 **You Grant GigMate:**
 - Non-exclusive license
@@ -257,25 +257,25 @@ async function postToAllPlatforms(post) {
 **On First Upload:**
 
 ```
-┌─────────────────────────────────────────┐
-│  Content Rights Agreement               │
-├─────────────────────────────────────────┤
-│                                         │
-│  By uploading content to GigMate, you:  │
-│                                         │
-│  ✓ Retain full ownership                │
-│  ✓ Grant GigMate usage rights           │
-│  ✓ Allow derivative works               │
-│  ✓ Enable commercial use                │
-│  ✓ Permit marketing usage               │
-│                                         │
-│  You can delete content anytime.        │
-│  GigMate will credit you when possible. │
-│                                         │
-│  [✓] I understand and agree             │
-│                                         │
-│  [Continue]  [Cancel]                   │
-└─────────────────────────────────────────┘
++-----------------------------------------+
+|  Content Rights Agreement               |
++-----------------------------------------+
+|                                         |
+|  By uploading content to GigMate, you:  |
+|                                         |
+|  ? Retain full ownership                |
+|  ? Grant GigMate usage rights           |
+|  ? Allow derivative works               |
+|  ? Enable commercial use                |
+|  ? Permit marketing usage               |
+|                                         |
+|  You can delete content anytime.        |
+|  GigMate will credit you when possible. |
+|                                         |
+|  [?] I understand and agree             |
+|                                         |
+|  [Continue]  [Cancel]                   |
++-----------------------------------------+
 ```
 
 **Checkbox Required:**
@@ -396,12 +396,12 @@ SELECT * FROM find_emergency_replacement_musicians(
 
 **Algorithm finds musicians who:**
 
-1. ✅ Have emergency availability enabled
-2. ✅ Match required genres
-3. ✅ Are not booked that date
-4. ✅ Emergency rate <= max_emergency_rate
-5. ✅ Within search radius
-6. ✅ Available on short notice
+1.  Have emergency availability enabled
+2.  Match required genres
+3.  Are not booked that date
+4.  Emergency rate <= max_emergency_rate
+5.  Within search radius
+6.  Available on short notice
 
 **Scoring:**
 
@@ -412,8 +412,8 @@ match_score = (
 
 // Example:
 // Required: [Rock, Blues, Country]
-// Musician A: [Rock, Blues, Jazz] → 66% match
-// Musician B: [Rock, Blues, Country, Folk] → 100% match
+// Musician A: [Rock, Blues, Jazz] -> 66% match
+// Musician B: [Rock, Blues, Country, Folk] -> 100% match
 // Musician B ranked higher
 ```
 
@@ -428,36 +428,36 @@ match_score = (
 **Venue receives notification:**
 
 ```
-┌────────────────────────────────────────────┐
-│  🚨 Emergency Replacement Needed           │
-├────────────────────────────────────────────┤
-│                                            │
-│  Original: The Blue Notes (cancelled)      │
-│  Event: Friday 9pm                         │
-│  Original Rate: $500                       │
-│                                            │
-│  8 AVAILABLE REPLACEMENTS FOUND:           │
-│                                            │
-│  1. Johnny's Band                          │
-│     • 100% genre match (Rock, Blues)       │
-│     • Emergency Rate: $600 ($100 more)     │
-│     • 4.8★ rating (45 gigs)                │
-│     • 35 miles away                        │
-│     • Can be there in 60 minutes           │
-│     [View Profile] [Book Now]              │
-│                                            │
-│  2. The Roadhouse Kings                    │
-│     • 66% genre match (Rock, Country)      │
-│     • Emergency Rate: $550 ($50 more)      │
-│     • 4.6★ rating (32 gigs)                │
-│     • 42 miles away                        │
-│     • Can be there in 90 minutes           │
-│     [View Profile] [Book Now]              │
-│                                            │
-│  ... 6 more candidates                     │
-│                                            │
-│  Expires in: 3 hours 45 minutes            │
-└────────────────────────────────────────────┘
++--------------------------------------------+
+|  ? Emergency Replacement Needed           |
++--------------------------------------------+
+|                                            |
+|  Original: The Blue Notes (cancelled)      |
+|  Event: Friday 9pm                         |
+|  Original Rate: $500                       |
+|                                            |
+|  8 AVAILABLE REPLACEMENTS FOUND:           |
+|                                            |
+|  1. Johnny's Band                          |
+|     o 100% genre match (Rock, Blues)       |
+|     o Emergency Rate: $600 ($100 more)     |
+|     o 4.8? rating (45 gigs)                |
+|     o 35 miles away                        |
+|     o Can be there in 60 minutes           |
+|     [View Profile] [Book Now]              |
+|                                            |
+|  2. The Roadhouse Kings                    |
+|     o 66% genre match (Rock, Country)      |
+|     o Emergency Rate: $550 ($50 more)      |
+|     o 4.6? rating (32 gigs)                |
+|     o 42 miles away                        |
+|     o Can be there in 90 minutes           |
+|     [View Profile] [Book Now]              |
+|                                            |
+|  ... 6 more candidates                     |
+|                                            |
+|  Expires in: 3 hours 45 minutes            |
++--------------------------------------------+
 ```
 
 #### Step 5: Booking Confirmation
@@ -559,7 +559,7 @@ match_score = (
 
 **Venue's Max Rate:**
 - System calculates: original_rate * 1.5
-- Example: $500 booking → max $750 emergency
+- Example: $500 booking -> max $750 emergency
 - Prevents price gouging
 - Fair for both parties
 
@@ -613,9 +613,9 @@ FROM emergency_replacements;
 - Brand awareness (GigMate watermark on shared content)
 
 **Network Effects:**
-- User posts → followers see GigMate events
+- User posts -> followers see GigMate events
 - Followers sign up for GigMate
-- More users → more content → more shares
+- More users -> more content -> more shares
 - Flywheel effect
 
 **Revenue Impact:**
@@ -725,56 +725,56 @@ FROM emergency_replacements;
 **Account Connection Screen:**
 
 ```
-┌──────────────────────────────────────┐
-│  Connect Social Media Accounts       │
-├──────────────────────────────────────┤
-│                                      │
-│  📘 Facebook     [Connected ✓]       │
-│     @johnsband                       │
-│     Last synced: 2 hours ago         │
-│     [Disconnect]                     │
-│                                      │
-│  📷 Instagram    [Connect]           │
-│                                      │
-│  🐦 Twitter      [Connect]           │
-│                                      │
-│  🎵 TikTok       [Connect]           │
-│                                      │
-│  ▶️  YouTube     [Connect]           │
-│                                      │
-│  🎵 Spotify      [Connected ✓]       │
-│     @johnsband                       │
-│     [Disconnect]                     │
-│                                      │
-└──────────────────────────────────────┘
++--------------------------------------+
+|  Connect Social Media Accounts       |
++--------------------------------------+
+|                                      |
+|  ? Facebook     [Connected ?]       |
+|     @johnsband                       |
+|     Last synced: 2 hours ago         |
+|     [Disconnect]                     |
+|                                      |
+|  ? Instagram    [Connect]           |
+|                                      |
+|  ? Twitter      [Connect]           |
+|                                      |
+|   TikTok       [Connect]           |
+|                                      |
+|  ?  YouTube     [Connect]           |
+|                                      |
+|   Spotify      [Connected ?]       |
+|     @johnsband                       |
+|     [Disconnect]                     |
+|                                      |
++--------------------------------------+
 ```
 
 **Post Creation Screen:**
 
 ```
-┌────────────────────────────────────────┐
-│  Create Post                           │
-├────────────────────────────────────────┤
-│                                        │
-│  Post to:                              │
-│  [✓] Facebook  [✓] Instagram  [ ] Twitter
-│                                        │
-│  ┌──────────────────────────────────┐ │
-│  │ Live at The Saxon Pub tonight!   │ │
-│  │ 9pm showtime. Come see us!      │ │
-│  │                                  │ │
-│  │ #livemusic #austin #gig         │ │
-│  └──────────────────────────────────┘ │
-│                                        │
-│  📷 Add Photos  🎥 Add Video           │
-│                                        │
-│  🔗 Link Event: Friday Night Live      │
-│                                        │
-│  ⏰ Post Now  📅 Schedule for Later    │
-│                                        │
-│  [Post]                                │
-│                                        │
-└────────────────────────────────────────┘
++----------------------------------------+
+|  Create Post                           |
++----------------------------------------+
+|                                        |
+|  Post to:                              |
+|  [?] Facebook  [?] Instagram  [ ] Twitter
+|                                        |
+|  +----------------------------------+ |
+|  | Live at The Saxon Pub tonight!   | |
+|  | 9pm showtime. Come see us!      | |
+|  |                                  | |
+|  | #livemusic #austin #gig         | |
+|  +----------------------------------+ |
+|                                        |
+|  ? Add Photos  ? Add Video           |
+|                                        |
+|  ? Link Event: Friday Night Live      |
+|                                        |
+|  ? Post Now   Schedule for Later    |
+|                                        |
+|  [Post]                                |
+|                                        |
++----------------------------------------+
 ```
 
 ### Emergency Availability UI
@@ -782,52 +782,52 @@ FROM emergency_replacements;
 **Musician Settings:**
 
 ```
-┌──────────────────────────────────────────┐
-│  Emergency Availability Settings         │
-├──────────────────────────────────────────┤
-│                                          │
-│  Status: [ON]  [OFF]                     │
-│                                          │
-│  Emergency Rate: $________               │
-│  (Your normal rate: $500)                │
-│  Recommended: $650-750                   │
-│                                          │
-│  Max Distance: [___] miles               │
-│  Current: 75 miles                       │
-│                                          │
-│  Response Time: [___] minutes            │
-│  (How quickly can you respond?)          │
-│                                          │
-│  Minimum Notice: [___] hours             │
-│  (How much advance warning do you need?) │
-│                                          │
-│  Requirements (optional):                │
-│  ┌────────────────────────────────────┐ │
-│  │ • PA system must be provided       │ │
-│  │ • Load-in help needed              │ │
-│  │ • Parking for van                  │ │
-│  └────────────────────────────────────┘ │
-│                                          │
-│  Equipment Needed:                       │
-│  ┌────────────────────────────────────┐ │
-│  │ • Full drum kit                    │ │
-│  │ • Bass amp (minimum 300W)          │ │
-│  │ • 4 microphones                    │ │
-│  └────────────────────────────────────┘ │
-│                                          │
-│  Additional Notes:                       │
-│  ┌────────────────────────────────────┐ │
-│  │ Available for country, rock, and   │ │
-│  │ blues gigs. Can bring full 4-piece │ │
-│  │ band on short notice.              │ │
-│  └────────────────────────────────────┘ │
-│                                          │
-│  Total Emergency Bookings: 12            │
-│  Last Emergency Gig: 2 weeks ago         │
-│                                          │
-│  [Save Settings]                         │
-│                                          │
-└──────────────────────────────────────────┘
++------------------------------------------+
+|  Emergency Availability Settings         |
++------------------------------------------+
+|                                          |
+|  Status: [ON]  [OFF]                     |
+|                                          |
+|  Emergency Rate: $________               |
+|  (Your normal rate: $500)                |
+|  Recommended: $650-750                   |
+|                                          |
+|  Max Distance: [___] miles               |
+|  Current: 75 miles                       |
+|                                          |
+|  Response Time: [___] minutes            |
+|  (How quickly can you respond?)          |
+|                                          |
+|  Minimum Notice: [___] hours             |
+|  (How much advance warning do you need?) |
+|                                          |
+|  Requirements (optional):                |
+|  +------------------------------------+ |
+|  | o PA system must be provided       | |
+|  | o Load-in help needed              | |
+|  | o Parking for van                  | |
+|  +------------------------------------+ |
+|                                          |
+|  Equipment Needed:                       |
+|  +------------------------------------+ |
+|  | o Full drum kit                    | |
+|  | o Bass amp (minimum 300W)          | |
+|  | o 4 microphones                    | |
+|  +------------------------------------+ |
+|                                          |
+|  Additional Notes:                       |
+|  +------------------------------------+ |
+|  | Available for country, rock, and   | |
+|  | blues gigs. Can bring full 4-piece | |
+|  | band on short notice.              | |
+|  +------------------------------------+ |
+|                                          |
+|  Total Emergency Bookings: 12            |
+|  Last Emergency Gig: 2 weeks ago         |
+|                                          |
+|  [Save Settings]                         |
+|                                          |
++------------------------------------------+
 ```
 
 ### Content Rights Flow
@@ -927,4 +927,4 @@ These two premium features transform GigMate from "booking platform" into "compl
 
 ---
 
-**Making live music better—and easier—for everyone.**
+**Making live music better--and easier--for everyone.**

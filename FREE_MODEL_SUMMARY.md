@@ -39,28 +39,28 @@ When fans purchase credits to message artists:
 ### What This Means for Users
 
 #### **For Musicians**
-- ✅ FREE account with full access to all features
-- ✅ No monthly subscription fees
-- ✅ Create unlimited events
-- ✅ Sell unlimited merchandise
-- ✅ Access all platform tools
-- ✅ Only pay when you earn (via ticket/merch sales)
+-  FREE account with full access to all features
+-  No monthly subscription fees
+-  Create unlimited events
+-  Sell unlimited merchandise
+-  Access all platform tools
+-  Only pay when you earn (via ticket/merch sales)
 
 #### **For Venues**
-- ✅ FREE account with full access to all features
-- ✅ No monthly subscription fees
-- ✅ Post unlimited events
-- ✅ Access all booking tools
-- ✅ Full analytics and reporting
-- ✅ Only pay when you process transactions
+-  FREE account with full access to all features
+-  No monthly subscription fees
+-  Post unlimited events
+-  Access all booking tools
+-  Full analytics and reporting
+-  Only pay when you process transactions
 
 #### **For Fans**
-- ✅ FREE account forever
-- ✅ Browse all events
-- ✅ Purchase tickets
-- ✅ Buy merchandise
-- ✅ Message artists
-- ✅ No hidden fees (only standard platform fees on purchases)
+-  FREE account forever
+-  Browse all events
+-  Purchase tickets
+-  Buy merchandise
+-  Message artists
+-  No hidden fees (only standard platform fees on purchases)
 
 ### Fee Transparency
 

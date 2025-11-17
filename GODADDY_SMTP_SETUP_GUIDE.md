@@ -44,7 +44,7 @@ Sender Name: GigMate
 ### Option C: Check Your Exact Settings
 
 1. Log in to https://account.godaddy.com
-2. Go to **"Email & Office"** → **"My Email"**
+2. Go to **"Email & Office"** -> **"My Email"**
 3. Find your email: admin@gigmate.us
 4. Click **"Manage"** or **"Settings"**
 5. Look for **"SMTP Settings"** or **"Email Settings"**
@@ -211,9 +211,9 @@ admin@gigmate.us
 
 ### Verify in Supabase
 1. Go back to Supabase Dashboard
-2. Click **"Authentication"** → **"Users"**
+2. Click **"Authentication"** -> **"Users"**
 3. Find your test user
-4. Check **"Confirmed"** column - should show ✓
+4. Check **"Confirmed"** column - should show ?
 5. Click user to see **"email_confirmed_at"** timestamp
 
 ---
@@ -317,8 +317,8 @@ If GoDaddy SMTP has issues, consider switching to SendGrid:
 Improves email deliverability:
 
 1. Go to GoDaddy account
-2. Navigate to **"Domains"** → **"My Domains"**
-3. Find **gigmate.us** → Click **"DNS"**
+2. Navigate to **"Domains"** -> **"My Domains"**
+3. Find **gigmate.us** -> Click **"DNS"**
 4. Add **TXT Record**:
    ```
    Type: TXT
@@ -333,7 +333,7 @@ Improves email deliverability:
 
 ## Next Steps After Email Setup
 
-1. ✅ Mark Task 1 complete in todo list
+1.  Mark Task 1 complete in todo list
 2. Move to **Task 2: Configure CAPTCHA Protection**
 3. Monitor email delivery during beta testing
 4. Set up email analytics (open rates, delivery rates)

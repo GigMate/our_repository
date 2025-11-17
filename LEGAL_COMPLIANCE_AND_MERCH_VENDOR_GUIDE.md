@@ -146,13 +146,13 @@ GigMate implements comprehensive legal consent tracking for all user types and a
 ### Vendor Types
 
 **Any user can become a merch vendor:**
-- ✅ Musicians selling their own merch
-- ✅ Venues selling venue-branded items
-- ✅ Fans who become vendors
-- ✅ Independent merchandise companies
-- ✅ Print-on-demand services
-- ✅ Equipment suppliers
-- ✅ Distributors
+-  Musicians selling their own merch
+-  Venues selling venue-branded items
+-  Fans who become vendors
+-  Independent merchandise companies
+-  Print-on-demand services
+-  Equipment suppliers
+-  Distributors
 
 ### Vendor Profile Fields
 
@@ -196,12 +196,12 @@ GigMate implements comprehensive legal consent tracking for all user types and a
 6. Bank account verification
 
 **Benefits of Verification:**
-- ✅ Verified badge
-- ✅ Higher placement in search
-- ✅ Featured vendor opportunities
-- ✅ Access to dropship partners
-- ✅ GigMate warehousing eligibility
-- ✅ Lower commission rates (negotiable)
+-  Verified badge
+-  Higher placement in search
+-  Featured vendor opportunities
+-  Access to dropship partners
+-  GigMate warehousing eligibility
+-  Lower commission rates (negotiable)
 
 ---
 
@@ -397,9 +397,9 @@ GigMate implements comprehensive legal consent tracking for all user types and a
 - Average orders: 20/vendor/month = 20,000 orders
 - Average order value: $75
 - Monthly GMV: $1,500,000
-- Self-fulfillment (70%): $1,050,000 × 15% = $157,500
-- Dropship (30%): $450,000 × 18% = $81,000
-- Dropship fees: 6,000 orders × $15 avg = $90,000
+- Self-fulfillment (70%): $1,050,000 x 15% = $157,500
+- Dropship (30%): $450,000 x 18% = $81,000
+- Dropship fees: 6,000 orders x $15 avg = $90,000
 - **Total Monthly: $328,500 ($3,942,000/year)**
 
 **Year 3 (5,000 vendors):**
@@ -532,20 +532,20 @@ GigMate implements comprehensive legal consent tracking for all user types and a
 
 ### GDPR Compliance
 
-✅ **Right to Access:** Users can export all consent records
-✅ **Right to Rectify:** Users can update consent preferences
-✅ **Right to Delete:** Account deletion removes PII, keeps audit log
-✅ **Right to Port:** Data exportable in JSON format
-✅ **Consent Requirements:** Clear, specific, informed consent
-✅ **Lawful Basis:** Contract performance, legal obligation, legitimate interest
+ **Right to Access:** Users can export all consent records
+ **Right to Rectify:** Users can update consent preferences
+ **Right to Delete:** Account deletion removes PII, keeps audit log
+ **Right to Port:** Data exportable in JSON format
+ **Consent Requirements:** Clear, specific, informed consent
+ **Lawful Basis:** Contract performance, legal obligation, legitimate interest
 
 ### CCPA Compliance
 
-✅ **Notice at Collection:** Privacy policy at signup
-✅ **Right to Know:** Users can request data
-✅ **Right to Delete:** Deletion process available
-✅ **Right to Opt-Out:** Email preferences, data sharing controls
-✅ **Non-Discrimination:** No penalty for exercising rights
+ **Notice at Collection:** Privacy policy at signup
+ **Right to Know:** Users can request data
+ **Right to Delete:** Deletion process available
+ **Right to Opt-Out:** Email preferences, data sharing controls
+ **Non-Discrimination:** No penalty for exercising rights
 
 ### Security Measures
 
@@ -607,10 +607,10 @@ GigMate implements comprehensive legal consent tracking for all user types and a
 ## Future Enhancements
 
 ### Phase 1 (Current)
-- ✅ Legal consent system
-- ✅ Separate vendor profiles
-- ✅ Dropship infrastructure
-- ✅ Basic order management
+-  Legal consent system
+-  Separate vendor profiles
+-  Dropship infrastructure
+-  Basic order management
 
 ### Phase 2 (6-12 months)
 - GigMate fulfillment centers
@@ -639,4 +639,4 @@ The legal consent system ensures GigMate operates with full compliance and trans
 - Better artist/fan experience
 - Competitive differentiation
 
-This positions GigMate as the complete platform for the live music industry: booking, ticketing, messaging, AND merchandise—all in one place.
+This positions GigMate as the complete platform for the live music industry: booking, ticketing, messaging, AND merchandise--all in one place.

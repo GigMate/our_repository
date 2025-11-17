@@ -100,9 +100,9 @@ AI predicts likelihood to purchase using:
 **Formula:**
 ```
 Purchase Likelihood =
-  (Purchase Rate × 0.4) +
-  (Recent Activity × 0.3) +
-  (Has Previous Purchase × 0.3)
+  (Purchase Rate x 0.4) +
+  (Recent Activity x 0.3) +
+  (Has Previous Purchase x 0.3)
 ```
 
 ---
@@ -174,23 +174,23 @@ Each recommendation includes:
 ### Dynamic Pricing Signals
 
 AI identifies optimal pricing opportunities:
-- Users with high purchase likelihood → show premium options
-- Price-sensitive users → highlight discounts
-- Impulse buyers → time-limited offers
-- Premium tier users → VIP experiences
+- Users with high purchase likelihood -> show premium options
+- Price-sensitive users -> highlight discounts
+- Impulse buyers -> time-limited offers
+- Premium tier users -> VIP experiences
 
 ### Cross-Sell & Upsell
 
 **Cross-Sell Examples:**
-- Bought ticket → suggest merchandise
-- Booked show → recommend similar upcoming events
-- Fan subscription → suggest artist meet & greet
+- Bought ticket -> suggest merchandise
+- Booked show -> recommend similar upcoming events
+- Fan subscription -> suggest artist meet & greet
 
 **Upsell Examples:**
-- General admission → VIP upgrade
-- Single ticket → group package
-- Free tier → paid subscription
-- One-time booking → recurring partnership
+- General admission -> VIP upgrade
+- Single ticket -> group package
+- Free tier -> paid subscription
+- One-time booking -> recurring partnership
 
 ### Churn Prevention
 
@@ -235,12 +235,12 @@ The system supports continuous improvement:
 **Transaction Commissions:**
 - 5-10% of ticket sales
 - 10-15% of merchandise sales
-- Booking fees (venue ↔ musician)
+- Booking fees (venue <-> musician)
 - Payment processing fees
 
 **Subscription Upgrades:**
-- Bronze → Silver: $19.99/mo
-- Silver → Gold: additional $30/mo
+- Bronze -> Silver: $19.99/mo
+- Silver -> Gold: additional $30/mo
 - Venue tiers: $19.99 - $199.99/mo
 
 **Premium Features:**

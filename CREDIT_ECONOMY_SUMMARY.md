@@ -25,15 +25,15 @@ GigMate implements a credit-based communication system that prevents spam, ensur
 Users can buy more credits anytime:
 
 - **25 credits:** $4.99 ($0.20 per credit)
-- **100 credits:** $14.99 ($0.15 per credit) ⭐ Most Popular
-- **250 credits:** $29.99 ($0.12 per credit) 💎 Best Value
+- **100 credits:** $14.99 ($0.15 per credit)  Most Popular
+- **250 credits:** $29.99 ($0.12 per credit) ? Best Value
 - **1,000 credits:** $99.99 ($0.10 per credit)
 
 ---
 
 ## Message Cost Structure
 
-### Musician ↔ Venue Communications
+### Musician <-> Venue Communications
 
 **Initial Contact:** 2 credits
 - First message to establish connection
@@ -65,7 +65,7 @@ Users can buy more credits anytime:
 - Push notification sent
 - Guaranteed visibility
 
-### Musician ↔ Musician (Peer Networking)
+### Musician <-> Musician (Peer Networking)
 
 **Initial Contact:** 1 credit
 - Collaboration inquiries
@@ -77,7 +77,7 @@ Users can buy more credits anytime:
 - Builds community
 - No barriers to collaboration
 
-### Venue ↔ Venue (Industry Networking)
+### Venue <-> Venue (Industry Networking)
 
 **Initial Contact:** 1 credit
 - Referrals and recommendations
@@ -91,12 +91,12 @@ Users can buy more credits anytime:
 
 ### Fan Communications
 
-**Fan → Musician/Venue:**
+**Fan -> Musician/Venue:**
 - **First 3 messages:** FREE
 - **Additional messages:** 1 credit each
 - **Inquiries/quotes:** 2 credits
 
-**Musician/Venue → Fan:**
+**Musician/Venue -> Fan:**
 - **Replies to fan messages:** FREE (encourages engagement)
 - **Individual direct message:** 1 credit
 - **Broadcast to followers (per 100 fans):** 10 credits
@@ -234,23 +234,23 @@ Users can buy more credits anytime:
 ### Monthly Revenue Projections (5,000 Active Users)
 
 **Subscription Revenue:**
-- Free tier: 3,000 users × $0 = $0
-- Bronze: 500 users × $9.99 = $4,995
-- Silver: 750 users × $19.99 = $14,993
-- Gold: 750 users × $49.99 = $37,493
+- Free tier: 3,000 users x $0 = $0
+- Bronze: 500 users x $9.99 = $4,995
+- Silver: 750 users x $19.99 = $14,993
+- Gold: 750 users x $49.99 = $37,493
 - **Subtotal: $57,481/month**
 
 **Credit Purchase Revenue:**
 - 40% of users purchase additional credits
-- 2,000 users × $14.99 average = $29,980
+- 2,000 users x $14.99 average = $29,980
 - **Subtotal: $29,980/month**
 
 **Promotional Credits:**
 - 5% of musicians boost profiles weekly
-- 50 musicians × 20 credits × 4 weeks = 4,000 credits
+- 50 musicians x 20 credits x 4 weeks = 4,000 credits
 - 2% of venues feature events
-- 10 venues × 50 credits × 2 events = 1,000 credits
-- 5,000 credits × $0.15 = $750
+- 10 venues x 50 credits x 2 events = 1,000 credits
+- 5,000 credits x $0.15 = $750
 - **Subtotal: $750/month**
 
 **Total Credit Economy Revenue: $88,211/month ($1,058,532/year)**
@@ -498,7 +498,7 @@ GigMate's credit economy transforms communication into a revenue-generating asse
 **Key Success Factors:**
 
 1. **Fair Value Exchange:** Credits reflect real value of professional attention
-2. **Flexible Options:** Free, subscription, and à la carte purchases
+2. **Flexible Options:** Free, subscription, and ? la carte purchases
 3. **Community Encouragement:** Peer networking remains affordable
 4. **Spam Prevention:** Self-regulating quality control
 5. **Recurring Revenue:** Predictable monthly income

@@ -1,11 +1,11 @@
 # Quick Start: Seed Your Database
 
-## 🎯 Goal
+##  Goal
 Populate GigMate with 100 venues, 100 musicians, and 100 fans so the platform looks established and busy.
 
 ---
 
-## ⚡ Fast Track (3 Minutes)
+## ? Fast Track (3 Minutes)
 
 ### Step 1: Click the Seed Button
 **Three ways to access:**
@@ -33,34 +33,34 @@ Open Supabase SQL Editor and run:
 SELECT weekly_platform_refresh();
 ```
 
-**Done!** ✅
+**Done!** 
 
 ---
 
-## 📊 What You Get
+##  What You Get
 
 **Immediately after seeding:**
-- ✅ 100 musicians (all genres, realistic profiles)
-- ✅ 100 venues (29 are REAL Texas Hill Country locations!)
-- ✅ 100 fans ready to browse
-- ✅ All with geographic coordinates
+-  100 musicians (all genres, realistic profiles)
+-  100 venues (29 are REAL Texas Hill Country locations!)
+-  100 fans ready to browse
+-  All with geographic coordinates
 
 **After running SQL command:**
-- ✅ 100-300 events (matched within 20-mile radius)
-- ✅ 10 featured venues
-- ✅ 20 featured musicians
-- ✅ Platform looks busy and established
+-  100-300 events (matched within 20-mile radius)
+-  10 featured venues
+-  20 featured musicians
+-  Platform looks busy and established
 
 **Every Monday at 3 AM UTC (automatic):**
-- ✅ New events generate
-- ✅ Old events clean up
-- ✅ Featured users rotate
-- ✅ Activity timestamps refresh
-- ✅ Zero manual work!
+-  New events generate
+-  Old events clean up
+-  Featured users rotate
+-  Activity timestamps refresh
+-  Zero manual work!
 
 ---
 
-## 🎸 Test Accounts
+##  Test Accounts
 
 **Login with any of these:**
 
@@ -88,7 +88,7 @@ Password for ALL: password123
 
 ---
 
-## 🗺️ Real Venues Included (First 29)
+## ? Real Venues Included (First 29)
 
 **Texas Hill Country legends:**
 - Gruene Hall (oldest dance hall in Texas!)
@@ -105,24 +105,24 @@ Kendall, Gillespie, Blanco, Comal, Bandera, Kerr
 
 ---
 
-## 🚀 Why This Matters
+##  Why This Matters
 
 **Breaks the Death Spiral:**
-- Most platforms: No events → No fans → No musicians → Dead
-- GigMate: Always has events → Looks established → Attracts real users
+- Most platforms: No events -> No fans -> No musicians -> Dead
+- GigMate: Always has events -> Looks established -> Attracts real users
 
 **Competitive Advantage:**
 - Manual competitors: Hours to create fake activity
 - GigMate: 3 minutes + auto-renewal weekly
 
 **Network Effects:**
-- New venue joins → Sees busy calendar → Stays
-- New musician joins → Sees gig opportunities → Stays
-- New fan joins → Sees active community → Stays
+- New venue joins -> Sees busy calendar -> Stays
+- New musician joins -> Sees gig opportunities -> Stays
+- New fan joins -> Sees active community -> Stays
 
 ---
 
-## ⚠️ Important
+## ? Important
 
 **Only for Development/Staging:**
 - Never seed production
@@ -140,27 +140,27 @@ Kendall, Gillespie, Blanco, Comal, Bandera, Kerr
 
 ---
 
-## 🎯 Success Metrics
+##  Success Metrics
 
 **You'll know it worked when:**
-- ✅ 100 venues show in database
-- ✅ 100 musicians show in database  
-- ✅ 100-300 events on calendar
-- ✅ Events span next 4 weeks
-- ✅ All events within 20-mile radius of venue
-- ✅ Platform looks established
+-  100 venues show in database
+-  100 musicians show in database  
+-  100-300 events on calendar
+-  Events span next 4 weeks
+-  All events within 20-mile radius of venue
+-  Platform looks established
 
 ---
 
 ## Next Steps After Seeding
 
-1. ✅ Browse as fan (see events near you)
-2. ✅ Login as musician (see gig opportunities)
-3. ✅ Login as venue (see your auto-generated events)
-4. ✅ Check featured users (rotates weekly)
-5. ✅ Wait until Monday 3 AM UTC → magic happens automatically!
+1.  Browse as fan (see events near you)
+2.  Login as musician (see gig opportunities)
+3.  Login as venue (see your auto-generated events)
+4.  Check featured users (rotates weekly)
+5.  Wait until Monday 3 AM UTC -> magic happens automatically!
 
 ---
 
-**Ready? Click the green "Seed Data" button now!** 🚀
+**Ready? Click the green "Seed Data" button now!** 
 

@@ -48,7 +48,7 @@ GigMate provides musicians and artists with flexible merchandise management opti
 ### How Musicians Use It
 
 1. **Add Products:**
-   - Go to Dashboard → Merchandise
+   - Go to Dashboard -> Merchandise
    - Click "Add Product"
    - Enter product details
    - Upload images
@@ -262,20 +262,20 @@ When GigMate Managed becomes available, migrating is simple:
 ## Decision Guide
 
 ### Choose Self-Service If You:
-- ✅ Have time to manage merchandise
-- ✅ Sell fewer than 50 items/month
-- ✅ Enjoy direct customer interaction
-- ✅ Have storage and fulfillment capacity
-- ✅ Want maximum profit per item
-- ✅ Like hands-on control
+-  Have time to manage merchandise
+-  Sell fewer than 50 items/month
+-  Enjoy direct customer interaction
+-  Have storage and fulfillment capacity
+-  Want maximum profit per item
+-  Like hands-on control
 
 ### Choose GigMate Managed If You:
-- ✅ Want to focus on music, not logistics
-- ✅ Sell 100+ items/month consistently
-- ✅ Tour frequently
-- ✅ Have growing product catalog
-- ✅ Need professional fulfillment
-- ✅ Want optimized pricing and marketing
+-  Want to focus on music, not logistics
+-  Sell 100+ items/month consistently
+-  Tour frequently
+-  Have growing product catalog
+-  Need professional fulfillment
+-  Want optimized pricing and marketing
 
 ---
 

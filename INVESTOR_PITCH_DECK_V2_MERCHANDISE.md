@@ -7,7 +7,7 @@
 
 ---
 
-## 📊 Executive Summary (1 Slide)
+##  Executive Summary (1 Slide)
 
 ### One-Sentence Pitch
 **GigMate is the complete operating system for live music** - handling booking, ticketing, payments, fan messaging, and **merchandise fulfillment** with day-before event delivery.
@@ -16,11 +16,11 @@
 The $32B live music industry + $50B music merchandise market are fragmented across dozens of platforms. **GigMate is the first to unify everything.**
 
 ### Traction
-- ✅ Platform live and operational
-- ✅ 8 revenue streams identified
-- ✅ Merchandise system built (biggest opportunity)
-- ✅ $3.9M Year 2 projection from merch alone
-- ✅ Clear path to $100M+ by Year 5
+-  Platform live and operational
+-  8 revenue streams identified
+-  Merchandise system built (biggest opportunity)
+-  $3.9M Year 2 projection from merch alone
+-  Clear path to $100M+ by Year 5
 
 ### The Ask
 **$500K-$1M Seed Round**
@@ -38,7 +38,7 @@ The $32B live music industry + $50B music merchandise market are fragmented acro
 
 ---
 
-## 🎯 The Problem (2 Slides)
+##  The Problem (2 Slides)
 
 ### Slide 1: Musicians Can't Monetize Their Audience
 
@@ -49,13 +49,13 @@ But lose 70% of potential revenue:
 ```
 
 **What Musicians Face:**
-- ❌ Can't afford upfront merch costs ($2,000 minimum order)
-- ❌ No storage for inventory (apartments/garages full)
-- ❌ Merch sells out at popular shows (lost sales)
-- ❌ Can't take pre-orders easily
-- ❌ No way to sell between shows
-- ❌ Pay 30-50% to middlemen (Merch Now, Merchbar)
-- ❌ Traveling with merch is expensive and risky
+- ? Can't afford upfront merch costs ($2,000 minimum order)
+- ? No storage for inventory (apartments/garages full)
+- ? Merch sells out at popular shows (lost sales)
+- ? Can't take pre-orders easily
+- ? No way to sell between shows
+- ? Pay 30-50% to middlemen (Merch Now, Merchbar)
+- ? Traveling with merch is expensive and risky
 
 **The Real Cost:**
 - Average band could sell $5,000/month in merch
@@ -65,12 +65,12 @@ But lose 70% of potential revenue:
 ### Slide 2: Fans Want to Support Artists (But Can't)
 
 **Fan Frustration:**
-- 😞 Arrive at show, merch sold out
-- 😞 Wrong size available
-- 😞 Only have digital payment, merch table is cash-only
-- 😞 Don't want to carry shirt all night
-- 😞 Miss the show, miss the merch
-- 😞 No way to buy online (most musicians have no store)
+- ? Arrive at show, merch sold out
+- ? Wrong size available
+- ? Only have digital payment, merch table is cash-only
+- ? Don't want to carry shirt all night
+- ? Miss the show, miss the merch
+- ? No way to buy online (most musicians have no store)
 
 **The Opportunity:**
 - 60M active music fans
@@ -79,28 +79,28 @@ But lose 70% of potential revenue:
 - **$2.1B market** being lost to friction
 
 **What Fans Want:**
-- ✅ Buy from phone (like everything else)
-- ✅ Pre-order for pickup at show
-- ✅ Ship to home if they miss show
-- ✅ Support favorite artist directly
-- ✅ Skip merch table lines
+-  Buy from phone (like everything else)
+-  Pre-order for pickup at show
+-  Ship to home if they miss show
+-  Support favorite artist directly
+-  Skip merch table lines
 
 ---
 
-## 💡 Our Solution: The Complete Merch Ecosystem (3 Slides)
+##  Our Solution: The Complete Merch Ecosystem (3 Slides)
 
 ### Slide 1: For Musicians - Zero-Cost Merch Store
 
 **Every Musician Gets:**
 
-📱 **Built-In Online Store**
+? **Built-In Online Store**
 - Professional product pages
 - Upload unlimited products
 - Set your own prices
 - Integrated with profile
 - No monthly fees
 
-🤝 **Two Selling Options:**
+? **Two Selling Options:**
 
 **Option 1: Self-Service**
 - Upload your own inventory
@@ -108,7 +108,7 @@ But lose 70% of potential revenue:
 - Keep 97.5% (2.5% platform fee)
 - Full control
 
-**Option 2: Dropship Partnership (🔥 Game Changer)**
+**Option 2: Dropship Partnership (? Game Changer)**
 - **Zero upfront costs**
 - Partner with verified vendors
 - Vendors handle production + shipping
@@ -131,7 +131,7 @@ Your investment: $0
 
 **The Experience:**
 
-📱 **Browse from Phone**
+? **Browse from Phone**
 1. Open musician profile
 2. Tap "Shop Merch"
 3. Select items (shirts, vinyl, posters)
@@ -139,7 +139,7 @@ Your investment: $0
 5. Pay with Apple Pay
 6. **Done in 60 seconds**
 
-📦 **5 Fulfillment Options:**
+ **5 Fulfillment Options:**
 
 1. **Ship to Home** - Standard delivery (5-7 days)
 2. **Pick Up at Event** - Pre-order, grab at show
@@ -174,7 +174,7 @@ Fan is GUARANTEED their size/item
 
 **What We Offer Vendors:**
 
-🏪 **Vendor Marketplace**
+? **Vendor Marketplace**
 - Business profile + verification
 - Product catalog (unlimited items)
 - Set wholesale pricing
@@ -182,7 +182,7 @@ Fan is GUARANTEED their size/item
 - Order management dashboard
 - Weekly payouts via Stripe Connect
 
-💰 **Revenue Model for Vendors:**
+ **Revenue Model for Vendors:**
 - Keep 85% of wholesale price
 - GigMate takes 15% commission
 - Higher margins than any competitor
@@ -211,7 +211,7 @@ Annual: $30,000 from one channel
 
 ---
 
-## 📈 Market Opportunity (2 Slides)
+## ? Market Opportunity (2 Slides)
 
 ### Slide 1: Two Massive Markets Combined
 
@@ -242,11 +242,11 @@ Annual: $30,000 from one channel
 
 | Platform | Commission | Event Delivery | Dropship | Mobile | Discovery |
 |----------|-----------|----------------|----------|--------|-----------|
-| Bandcamp | 15% | ❌ | ❌ | ⚠️ | ❌ |
-| Merch Now | 30-50% | ❌ | ✅ | ❌ | ❌ |
-| Printful | N/A* | ❌ | ✅ | ❌ | ❌ |
-| Shopify | 2.9%+$30/mo | ❌ | ⚠️ | ⚠️ | ❌ |
-| **GigMate** | **15%** | **✅** | **✅** | **✅** | **✅** |
+| Bandcamp | 15% | ? | ? | ? | ? |
+| Merch Now | 30-50% | ? |  | ? | ? |
+| Printful | N/A* | ? |  | ? | ? |
+| Shopify | 2.9%+$30/mo | ? | ? | ? | ? |
+| **GigMate** | **15%** | **** | **** | **** | **** |
 
 *Printful charges musicians directly (markup model)
 
@@ -259,11 +259,11 @@ Annual: $30,000 from one channel
 
 ---
 
-## 🚀 Business Model - 8 Revenue Streams (2 Slides)
+##  Business Model - 8 Revenue Streams (2 Slides)
 
 ### Slide 1: Revenue Stream Breakdown
 
-**1. Merchandise (69% of Year 3 Revenue) 🔥**
+**1. Merchandise (69% of Year 3 Revenue) ?**
 - Vendor commissions: 15-22%
 - Self-service platform fee: 2.5%
 - Premium fulfillment fees: $10-15/order
@@ -322,19 +322,19 @@ Annual: $30,000 from one channel
 | 5 | $78,000K | $22,000K | **$100,000K** | 249% |
 
 **Key Insight:**
-📊 **Merchandise grows from 8% to 78% of revenue**
-📊 **Merchandise drives us to $100M+**
+ **Merchandise grows from 8% to 78% of revenue**
+ **Merchandise drives us to $100M+**
 
 **Why Merchandise Scales:**
 - Marketplace model (non-linear scaling)
-- Network effects (more vendors → more products → more sales)
+- Network effects (more vendors -> more products -> more sales)
 - High margins (92-95%)
 - No inventory costs
 - Automated fulfillment
 
 ---
 
-## 💰 Unit Economics (1 Slide)
+##  Unit Economics (1 Slide)
 
 ### Per Transaction Economics
 
@@ -397,7 +397,7 @@ Net profit: $8.50 (53% margin)
 
 ---
 
-## 📊 Financial Projections (2 Slides)
+##  Financial Projections (2 Slides)
 
 ### Slide 1: 5-Year Revenue Forecast
 
@@ -438,10 +438,10 @@ Net profit: $8.50 (53% margin)
 | **Margin** | 0% | 50% | 70% | 80% |
 
 **Key Milestones:**
-- ✅ Breakeven: Month 18
-- ✅ Profitable: Year 2
-- ✅ 70%+ margins: Year 3 (marketplace scales beautifully)
-- ✅ $100M revenue: Year 5
+-  Breakeven: Month 18
+-  Profitable: Year 2
+-  70%+ margins: Year 3 (marketplace scales beautifully)
+-  $100M revenue: Year 5
 
 **Why Margins Improve:**
 - Marketplace model (low marginal costs)
@@ -451,7 +451,7 @@ Net profit: $8.50 (53% margin)
 
 ---
 
-## 🎯 Go-To-Market Strategy (2 Slides)
+##  Go-To-Market Strategy (2 Slides)
 
 ### Slide 1: Phased Launch Strategy
 
@@ -505,11 +505,11 @@ Net profit: $8.50 (53% margin)
 **Musician Activation:**
 
 **Conversion Funnel:**
-1. Musician signs up → Email about merch
-2. Views merch tab → Onboarding bonus (50 credits)
-3. Lists first product → $10 credit reward
-4. Makes first sale → Celebration email
-5. 10 sales → Premium vendor matching
+1. Musician signs up -> Email about merch
+2. Views merch tab -> Onboarding bonus (50 credits)
+3. Lists first product -> $10 credit reward
+4. Makes first sale -> Celebration email
+5. 10 sales -> Premium vendor matching
 
 **Activation Rate:**
 - Musicians on platform: 100%
@@ -520,7 +520,7 @@ Net profit: $8.50 (53% margin)
 
 ---
 
-## 🏆 Competitive Advantages (1 Slide)
+## ? Competitive Advantages (1 Slide)
 
 ### Why We Win
 
@@ -549,17 +549,17 @@ Net profit: $8.50 (53% margin)
 - **Friction = our enemy, we eliminate it**
 
 **5. Two-Sided Marketplace**
-- More vendors → more products
-- More products → more musicians
-- More musicians → more fans
-- More fans → more vendors
+- More vendors -> more products
+- More products -> more musicians
+- More musicians -> more fans
+- More fans -> more vendors
 - **Flywheel effect**
 
 ---
 
-## 🛣️ Product Roadmap (1 Slide)
+## ? Product Roadmap (1 Slide)
 
-### Built & Operational ✅
+### Built & Operational 
 - Vendor marketplace infrastructure
 - Product catalog system
 - Order management
@@ -592,7 +592,7 @@ Net profit: $8.50 (53% margin)
 
 ---
 
-## 👥 Team (1 Slide)
+## ? Team (1 Slide)
 
 ### Current Team
 
@@ -636,7 +636,7 @@ Net profit: $8.50 (53% margin)
 
 ---
 
-## 💵 Use of Funds (1 Slide)
+## ? Use of Funds (1 Slide)
 
 ### $500K Seed Round Allocation
 
@@ -680,7 +680,7 @@ Net profit: $8.50 (53% margin)
 
 ---
 
-## 📈 Investment Opportunity (1 Slide)
+## ? Investment Opportunity (1 Slide)
 
 ### The Deal
 
@@ -693,10 +693,10 @@ Net profit: $8.50 (53% margin)
 ### Why Invest Now
 
 **1. Proven Model**
-- Infrastructure built ✅
-- Vendor interest validated ✅
-- Musician demand confirmed ✅
-- Path to profitability clear ✅
+- Infrastructure built 
+- Vendor interest validated 
+- Musician demand confirmed 
+- Path to profitability clear 
 
 **2. Massive Market**
 - $82B combined TAM
@@ -723,31 +723,31 @@ Net profit: $8.50 (53% margin)
 ### Exit Comparables
 
 **Recent Music/Marketplace Exits:**
-- Eventbrite IPO: $200M revenue → $1.5B valuation (7.5x)
+- Eventbrite IPO: $200M revenue -> $1.5B valuation (7.5x)
 - Reverb (music gear): $275M (acquired by Etsy)
-- StubHub: $310M revenue → $4B valuation (13x)
+- StubHub: $310M revenue -> $4B valuation (13x)
 - Bandsintown: $120M (acquired by Warner Music)
 
 **Our Trajectory:**
-- Year 3: $28.6M revenue → $200M valuation (7x)
-- Year 5: $100M revenue → $700M-$1B valuation (7-10x)
+- Year 3: $28.6M revenue -> $200M valuation (7x)
+- Year 5: $100M revenue -> $700M-$1B valuation (7-10x)
 
 **Investor Returns (at 7x multiple):**
-- Seed at $5M pre → 10% equity
-- Year 3 exit at $200M → $20M (4x)
-- Year 5 exit at $700M → $70M (14x)
+- Seed at $5M pre -> 10% equity
+- Year 3 exit at $200M -> $20M (4x)
+- Year 5 exit at $700M -> $70M (14x)
 
 ---
 
-## 🎤 Closing Slide
+## ? Closing Slide
 
 ### GigMate: The Complete Operating System for Live Music
 
 **We're building the platform that:**
-- ✅ Helps musicians make money (booking + merch)
-- ✅ Helps venues discover talent (search + verify)
-- ✅ Helps fans support artists (tickets + merch)
-- ✅ Helps vendors reach customers (marketplace)
+-  Helps musicians make money (booking + merch)
+-  Helps venues discover talent (search + verify)
+-  Helps fans support artists (tickets + merch)
+-  Helps vendors reach customers (marketplace)
 
 **The merchandise system alone is a $100M+ opportunity.**
 
@@ -773,4 +773,4 @@ gigmate.us
 
 ---
 
-**Let's revolutionize how musicians make money and how fans support the artists they love.** 🎸🛍️🚀
+**Let's revolutionize how musicians make money and how fans support the artists they love.** ?

@@ -1,28 +1,28 @@
-# 🤖 GigMate Automated Deployment Scripts
+# ? GigMate Automated Deployment Scripts
 
 **Everything is automated. Just run one command.**
 
 ---
 
-## 🚀 One-Command Deploy (Recommended)
+##  One-Command Deploy (Recommended)
 
 ```bash
 ./deploy-all.sh
 ```
 
 **This single script does EVERYTHING:**
-- ✅ Sets up environment (asks for Supabase credentials)
-- ✅ Installs dependencies
-- ✅ Builds the project
-- ✅ Deploys to Vercel
-- ✅ Deploys Edge Functions
-- ✅ Verifies deployment
+-  Sets up environment (asks for Supabase credentials)
+-  Installs dependencies
+-  Builds the project
+-  Deploys to Vercel
+-  Deploys Edge Functions
+-  Verifies deployment
 
 **Time:** 5-10 minutes (mostly automated)
 
 ---
 
-## 📋 Individual Scripts (Advanced)
+##  Individual Scripts (Advanced)
 
 ### 1. Setup Environment
 
@@ -70,7 +70,7 @@
 
 ---
 
-## 🎯 Quick Start (From Scratch)
+##  Quick Start (From Scratch)
 
 **If you're starting from nothing:**
 
@@ -91,13 +91,13 @@
 
 ---
 
-## 📝 What You Need
+## ? What You Need
 
 ### Required (Script will ask for these):
 - **Supabase URL** (from Supabase Dashboard)
 - **Supabase Anon Key** (from Supabase Dashboard)
 
-Get them from: https://supabase.com/dashboard → Your Project → Settings → API
+Get them from: https://supabase.com/dashboard -> Your Project -> Settings -> API
 
 ### Optional (Add later):
 - Stripe Publishable Key (for payments)
@@ -105,7 +105,7 @@ Get them from: https://supabase.com/dashboard → Your Project → Settings → 
 
 ---
 
-## 🔄 Update Your Deployment
+## ? Update Your Deployment
 
 **To deploy updates:**
 
@@ -118,7 +118,7 @@ That's it! Your changes are live in 2-3 minutes.
 
 ---
 
-## 🐛 Troubleshooting
+## ? Troubleshooting
 
 ### "Permission denied" error
 
@@ -158,7 +158,7 @@ npm run build
 
 ---
 
-## 📊 What Happens During Deployment
+##  What Happens During Deployment
 
 ### deploy-all.sh Flow:
 
@@ -199,7 +199,7 @@ npm run build
 
 ---
 
-## ✅ Post-Deployment (Manual Steps)
+##  Post-Deployment (Manual Steps)
 
 After automation completes, you need to:
 
@@ -207,7 +207,7 @@ After automation completes, you need to:
 
 1. Copy your Vercel URL from script output
 2. Go to: https://supabase.com/dashboard
-3. Navigate to: **Authentication → URL Configuration**
+3. Navigate to: **Authentication -> URL Configuration**
 4. Set **Site URL:** `https://your-vercel-url.app`
 5. Add **Redirect URL:** `https://your-vercel-url.app/**`
 6. Click **Save**
@@ -238,7 +238,7 @@ If using payments:
 
 ---
 
-## 🎨 Customization
+## ? Customization
 
 ### Add More Environment Variables
 
@@ -266,7 +266,7 @@ Edit `vercel.json` or use Vercel dashboard
 
 ---
 
-## 📚 Documentation
+## ? Documentation
 
 - **Quick Guide:** `VERCEL_READY.md`
 - **Detailed Guide:** `VERCEL_DEPLOYMENT_GUIDE.md`
@@ -275,7 +275,7 @@ Edit `vercel.json` or use Vercel dashboard
 
 ---
 
-## 🎉 Summary
+##  Summary
 
 **Before automation:**
 - 20+ manual steps
@@ -289,11 +289,11 @@ Edit `vercel.json` or use Vercel dashboard
 - Wait 5-10 minutes
 - Done!
 
-**Your $100M platform deploys itself!** 🚀
+**Your $100M platform deploys itself!** 
 
 ---
 
-## 🆘 Need Help?
+## ? Need Help?
 
 1. Check troubleshooting section above
 2. Read `VERCEL_DEPLOYMENT_GUIDE.md`
@@ -302,7 +302,7 @@ Edit `vercel.json` or use Vercel dashboard
 
 ---
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. **First deployment:** Use `deploy-all.sh` - it does everything
 2. **Updates:** Use `deploy.sh` - faster for code changes
@@ -312,4 +312,4 @@ Edit `vercel.json` or use Vercel dashboard
 
 ---
 
-**Everything is automated. Just run the script!** 🤖✨
+**Everything is automated. Just run the script!** ??

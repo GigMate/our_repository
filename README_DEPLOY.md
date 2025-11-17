@@ -1,60 +1,60 @@
-# 🚀 Deploy GigMate - It's Automated!
+#  Deploy GigMate - It's Automated!
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                                                             │
-│  🎉 EVERYTHING IS AUTOMATED                                │
-│                                                             │
-│  Your entire deployment is now ONE command:                │
-│                                                             │
-│      ./deploy-all.sh                                       │
-│                                                             │
-│  That's it!                                                │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+|                                                             |
+|   EVERYTHING IS AUTOMATED                                |
+|                                                             |
+|  Your entire deployment is now ONE command:                |
+|                                                             |
+|      ./deploy-all.sh                                       |
+|                                                             |
+|  That's it!                                                |
+|                                                             |
++-------------------------------------------------------------+
 ```
 
 ---
 
-## 📖 Choose Your Guide:
+## ? Choose Your Guide:
 
-### 🆕 First Time Deploying?
+### ? First Time Deploying?
 
-**→ Read:** [`START_HERE.md`](START_HERE.md)
+**-> Read:** [`START_HERE.md`](START_HERE.md)
 
 3 simple steps, 5 minutes total.
 
 ---
 
-### 🤖 Want Automation Details?
+### ? Want Automation Details?
 
-**→ Read:** [`AUTOMATION_SCRIPTS.md`](AUTOMATION_SCRIPTS.md)
+**-> Read:** [`AUTOMATION_SCRIPTS.md`](AUTOMATION_SCRIPTS.md)
 
 Learn what each script does and how to use them.
 
 ---
 
-### 📋 Want Step-by-Step Checklist?
+###  Want Step-by-Step Checklist?
 
-**→ Read:** [`DEPLOY_NOW_CHECKLIST.md`](DEPLOY_NOW_CHECKLIST.md)
+**-> Read:** [`DEPLOY_NOW_CHECKLIST.md`](DEPLOY_NOW_CHECKLIST.md)
 
 Manual step-by-step if you prefer.
 
 ---
 
-### 📚 Want Complete Manual Process?
+### ? Want Complete Manual Process?
 
-**→ Read:** [`VERCEL_DEPLOYMENT_GUIDE.md`](VERCEL_DEPLOYMENT_GUIDE.md)
+**-> Read:** [`VERCEL_DEPLOYMENT_GUIDE.md`](VERCEL_DEPLOYMENT_GUIDE.md)
 
 Full documentation for manual deployment.
 
 ---
 
-## ⚡ Quick Start
+## ? Quick Start
 
 ```bash
 # 1. Get Supabase credentials from:
-#    https://supabase.com/dashboard → Settings → API
+#    https://supabase.com/dashboard -> Settings -> API
 
 # 2. Run deployment:
 ./deploy-all.sh
@@ -74,30 +74,30 @@ Full documentation for manual deployment.
 
 ---
 
-## 📁 File Structure
+## ? File Structure
 
 ```
 .
-├── START_HERE.md                    ← Start here! (simplest)
-├── AUTOMATION_SCRIPTS.md            ← How automation works
-├── AUTOMATION_COMPLETE.md           ← What's been automated
-├── VERCEL_READY.md                  ← Deployment status
-├── DEPLOY_NOW_CHECKLIST.md          ← Step-by-step checklist
-├── VERCEL_DEPLOYMENT_GUIDE.md       ← Complete manual guide
-│
-├── deploy-all.sh                    ← ONE command deployment ⭐
-├── deploy.sh                        ← Deploy to Vercel only
-├── deploy-functions.sh              ← Deploy Edge Functions only
-├── setup-env.sh                     ← Setup environment
-│
-└── .env.example                     ← Environment template
++-- START_HERE.md                    <- Start here! (simplest)
++-- AUTOMATION_SCRIPTS.md            <- How automation works
++-- AUTOMATION_COMPLETE.md           <- What's been automated
++-- VERCEL_READY.md                  <- Deployment status
++-- DEPLOY_NOW_CHECKLIST.md          <- Step-by-step checklist
++-- VERCEL_DEPLOYMENT_GUIDE.md       <- Complete manual guide
+|
++-- deploy-all.sh                    <- ONE command deployment 
++-- deploy.sh                        <- Deploy to Vercel only
++-- deploy-functions.sh              <- Deploy Edge Functions only
++-- setup-env.sh                     <- Setup environment
+|
++-- .env.example                     <- Environment template
 ```
 
 ---
 
-## 🎯 What Each Script Does
+##  What Each Script Does
 
-### `deploy-all.sh` ⭐ (Recommended)
+### `deploy-all.sh`  (Recommended)
 **Does everything in one command**
 - Sets up environment
 - Installs dependencies
@@ -129,7 +129,7 @@ Full documentation for manual deployment.
 
 ---
 
-## 🆘 Troubleshooting
+## ? Troubleshooting
 
 ### "Permission denied"
 ```bash
@@ -157,30 +157,30 @@ npm run build
 
 ---
 
-## ✅ What's Automated
+##  What's Automated
 
-- ✅ Environment setup
-- ✅ Dependency installation
-- ✅ CLI tool installation
-- ✅ Project building
-- ✅ Vercel deployment
-- ✅ Environment variable configuration
-- ✅ Edge Functions deployment
-- ✅ Verification
-- ✅ Error handling
+-  Environment setup
+-  Dependency installation
+-  CLI tool installation
+-  Project building
+-  Vercel deployment
+-  Environment variable configuration
+-  Edge Functions deployment
+-  Verification
+-  Error handling
 
-## ❌ What's NOT Automated (requires manual action)
+## ? What's NOT Automated (requires manual action)
 
-- ❌ Getting Supabase credentials (you need to copy them)
-- ❌ Updating Supabase auth URLs (you need to paste your Vercel URL)
-- ❌ Testing your deployment (you need to visit it)
-- ❌ Configuring Stripe webhook (optional, for payments)
+- ? Getting Supabase credentials (you need to copy them)
+- ? Updating Supabase auth URLs (you need to paste your Vercel URL)
+- ? Testing your deployment (you need to visit it)
+- ? Configuring Stripe webhook (optional, for payments)
 
 **These take 5 minutes total and are clearly documented!**
 
 ---
 
-## 📊 Time Comparison
+##  Time Comparison
 
 ### Before Automation:
 - Manual steps: 20+
@@ -200,7 +200,7 @@ npm run build
 
 ---
 
-## 🎉 Summary
+##  Summary
 
 **Deployment is now ridiculously simple:**
 
@@ -214,7 +214,7 @@ npm run build
 
 ---
 
-## 📚 Documentation
+## ? Documentation
 
 - **START_HERE.md** - Absolute beginner guide
 - **AUTOMATION_SCRIPTS.md** - Script documentation
@@ -226,14 +226,14 @@ npm run build
 
 ---
 
-## 🤖 The Future is Automated
+## ? The Future is Automated
 
 ```bash
 ./deploy-all.sh
 ```
 
-**One command. Five minutes. Your $100M platform is live.** 🚀
+**One command. Five minutes. Your $100M platform is live.** 
 
 ---
 
-**Ready? → Read [`START_HERE.md`](START_HERE.md)** 📖
+**Ready? -> Read [`START_HERE.md`](START_HERE.md)** ?

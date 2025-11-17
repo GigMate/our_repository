@@ -8,23 +8,23 @@
 ## SYSTEM ARCHITECTURE
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                        GM8AI SYSTEM                          │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
-│  │ Data         │  │ Lead         │  │ Outreach     │      │
-│  │ Collection   │→ │ Scoring      │→ │ Engine       │      │
-│  │ Engine       │  │ AI           │  │              │      │
-│  └──────────────┘  └──────────────┘  └──────────────┘      │
-│         │                 │                  │              │
-│         ↓                 ↓                  ↓              │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
-│  │ Database     │  │ Analytics    │  │ Follow-up    │      │
-│  │ (Supabase)   │  │ Dashboard    │  │ Bot          │      │
-│  └──────────────┘  └──────────────┘  └──────────────┘      │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+|                        GM8AI SYSTEM                          |
++-------------------------------------------------------------+
+|                                                              |
+|  +--------------+  +--------------+  +--------------+      |
+|  | Data         |  | Lead         |  | Outreach     |      |
+|  | Collection   |-> | Scoring      |-> | Engine       |      |
+|  | Engine       |  | AI           |  |              |      |
+|  +--------------+  +--------------+  +--------------+      |
+|         |                 |                  |              |
+|         ?                 ?                  ?              |
+|  +--------------+  +--------------+  +--------------+      |
+|  | Database     |  | Analytics    |  | Follow-up    |      |
+|  | (Supabase)   |  | Dashboard    |  | Bot          |      |
+|  +--------------+  +--------------+  +--------------+      |
+|                                                              |
++-------------------------------------------------------------+
 ```
 
 ---
@@ -150,22 +150,22 @@ function calculateLeadScore(lead: Lead): LeadScore {
 - High engagement
 - Professional branding
 - Active booking
-→ Personal outreach, phone call follow-up
+-> Personal outreach, phone call follow-up
 
 **70-89: Warm Leads** (Priority 2)
 - Good presence
 - Moderate engagement
 - Some professionalism
-→ Personalized email, automated follow-up
+-> Personalized email, automated follow-up
 
 **50-69: Cold Leads** (Priority 3)
 - Basic presence
 - Low engagement
-→ Template email, slow follow-up
+-> Template email, slow follow-up
 
 **Below 50: Hold**
 - Insufficient data or quality
-→ Re-score after 30 days
+-> Re-score after 30 days
 
 ---
 
@@ -534,9 +534,9 @@ CREATE TABLE ai_ab_tests (
 - **ROI:** 108-200%
 
 ### Scale Economics:
-- **Month 3:** 300 signups → $3,000 revenue → $2,400 profit
-- **Month 6:** 800 signups → $8,000 revenue → $7,200 profit
-- **Month 12:** 2,000 signups → $20,000 revenue → $18,500 profit
+- **Month 3:** 300 signups -> $3,000 revenue -> $2,400 profit
+- **Month 6:** 800 signups -> $8,000 revenue -> $7,200 profit
+- **Month 12:** 2,000 signups -> $20,000 revenue -> $18,500 profit
 
 ---
 

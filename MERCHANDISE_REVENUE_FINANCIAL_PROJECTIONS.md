@@ -1,4 +1,4 @@
-# 🛍️ GigMate Merchandise System - Detailed Financial Projections
+# ? GigMate Merchandise System - Detailed Financial Projections
 
 ## Executive Summary
 
@@ -11,7 +11,7 @@ The merchandise system represents **GigMate's largest revenue opportunity**, pro
 
 ---
 
-## 📊 Market Opportunity
+##  Market Opportunity
 
 ### Market Size
 - **$50B** US music merchandise market
@@ -31,7 +31,7 @@ The merchandise system represents **GigMate's largest revenue opportunity**, pro
 
 ---
 
-## 💰 Revenue Model Breakdown
+##  Revenue Model Breakdown
 
 ### Three Revenue Streams from Merchandise
 
@@ -64,7 +64,7 @@ The merchandise system represents **GigMate's largest revenue opportunity**, pro
 
 ---
 
-## 📈 Growth Projections by Year
+## ? Growth Projections by Year
 
 ### Year 1: Foundation ($50K)
 **Focus:** Infrastructure, vendor onboarding, beta testing
@@ -86,7 +86,7 @@ The merchandise system represents **GigMate's largest revenue opportunity**, pro
 
 ---
 
-### Year 2: Scale ($3.9M) 🚀
+### Year 2: Scale ($3.9M) 
 **Focus:** Vendor acquisition, musician adoption, fulfillment excellence
 
 **Metrics:**
@@ -123,7 +123,7 @@ The merchandise system represents **GigMate's largest revenue opportunity**, pro
 
 ---
 
-### Year 3: Dominance ($19.7M) 🔥
+### Year 3: Dominance ($19.7M) ?
 **Focus:** Category leadership, national expansion, automation
 
 **Metrics:**
@@ -162,7 +162,7 @@ The merchandise system represents **GigMate's largest revenue opportunity**, pro
 
 ---
 
-### Year 5: Scale ($78M) 💎
+### Year 5: Scale ($78M) ?
 **Focus:** Market dominance, international expansion, B2B services
 
 **Metrics:**
@@ -194,7 +194,7 @@ The merchandise system represents **GigMate's largest revenue opportunity**, pro
 
 ---
 
-## 🎯 Unit Economics
+##  Unit Economics
 
 ### Per Order Economics
 
@@ -272,10 +272,10 @@ Net profit per order: $8.40 (51% margin)
 
 ---
 
-## 💡 Key Growth Drivers
+##  Key Growth Drivers
 
 ### 1. Vendor Network Effect
-**More vendors → More products → More musicians → More orders → More vendors**
+**More vendors -> More products -> More musicians -> More orders -> More vendors**
 
 **Vendor Acquisition Strategy:**
 - Year 1: Direct outreach to 500 print shops
@@ -326,9 +326,9 @@ Net profit per order: $8.40 (51% margin)
 **Fans buy merch like they buy Uber:**
 
 **Conversion Metrics:**
-- Profile view → Shop: 15%
-- Shop visit → Cart: 25%
-- Cart → Purchase: 60%
+- Profile view -> Shop: 15%
+- Shop visit -> Cart: 25%
+- Cart -> Purchase: 60%
 - Overall conversion: 2.25%
 
 **With 1M monthly profile views:**
@@ -341,7 +341,7 @@ Net profit per order: $8.40 (51% margin)
 
 ---
 
-## 🚀 Marketing & Customer Acquisition
+##  Marketing & Customer Acquisition
 
 ### Vendor Acquisition
 
@@ -352,7 +352,7 @@ Net profit per order: $8.40 (51% margin)
 - Self-serve signup: $10
 
 **LTV (Lifetime Value per Vendor):**
-- Year 1-2 vendors: $5,000 (24 months × $200/mo avg)
+- Year 1-2 vendors: $5,000 (24 months x $200/mo avg)
 - Year 3-5 vendors: $15,000 (higher volume)
 
 **LTV:CAC Ratio:**
@@ -366,7 +366,7 @@ Net profit per order: $8.40 (51% margin)
 ### Musician Activation
 
 **Merch Feature Adoption:**
-- Sign-up → Merch awareness: Email campaign
+- Sign-up -> Merch awareness: Email campaign
 - First listing: Onboarding bonus (50 free credits)
 - First sale: Celebration email + $10 credit
 - 10 sales: Upgrade to premium vendor matching
@@ -380,7 +380,7 @@ Net profit per order: $8.40 (51% margin)
 
 ---
 
-## 📊 Competitive Analysis
+##  Competitive Analysis
 
 ### vs. Traditional Merch Companies
 
@@ -413,7 +413,7 @@ Net profit per order: $8.40 (51% margin)
 
 ---
 
-## 🎯 Risk Mitigation
+##  Risk Mitigation
 
 ### Risk 1: Vendor Quality Control
 **Mitigation:**
@@ -449,7 +449,7 @@ Net profit per order: $8.40 (51% margin)
 
 ---
 
-## 💼 Investment Required
+## ? Investment Required
 
 ### Merchandise System Development (Year 1)
 
@@ -482,7 +482,7 @@ Net profit per order: $8.40 (51% margin)
 
 ---
 
-## 📈 Detailed Financial Model
+## ? Detailed Financial Model
 
 ### Year-by-Year Merchandise Projections
 
@@ -524,7 +524,7 @@ Total: $78M (296% growth from Y3)
 
 ---
 
-## 🎉 Success Metrics
+##  Success Metrics
 
 ### Key Performance Indicators
 
@@ -576,13 +576,13 @@ Total: $78M (296% growth from Y3)
 
 ---
 
-## 🏁 Conclusion
+## ? Conclusion
 
 ### Why Merchandise is Our Biggest Opportunity
 
 1. **Massive Market:** $3.5B in artist merch alone
 2. **High Margins:** 92-95% gross margins on commissions
-3. **Network Effects:** More vendors → more musicians → more orders
+3. **Network Effects:** More vendors -> more musicians -> more orders
 4. **Defensible:** Event delivery is hard to replicate
 5. **Scalable:** Marketplace model scales without linear costs
 
@@ -608,5 +608,5 @@ Total: $78M (296% growth from Y3)
 
 ---
 
-**The merchandise system isn't just a feature — it's the foundation of a $100M+ business.** 🚀🛍️
+**The merchandise system isn't just a feature -- it's the foundation of a $100M+ business.** ?
 

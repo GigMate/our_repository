@@ -37,7 +37,7 @@ git push -u origin main
 
 ### Step 4: Update Supabase Settings
 1. Go to your Supabase dashboard
-2. Navigate to Authentication → URL Configuration
+2. Navigate to Authentication -> URL Configuration
 3. Add your production URL to allowed redirect URLs:
    - `https://www.gigmate.us`
    - `https://gigmate.us`
@@ -59,7 +59,7 @@ Create `netlify.toml`:
 
 ### Step 2: Deploy
 1. Go to [netlify.com](https://netlify.com)
-2. Click "Add new site" → "Import an existing project"
+2. Click "Add new site" -> "Import an existing project"
 3. Connect to GitHub and select your repository
 4. Add environment variables (same as Vercel)
 5. Click "Deploy"

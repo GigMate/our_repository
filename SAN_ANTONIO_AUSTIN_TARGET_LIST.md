@@ -212,10 +212,10 @@ Hi [Venue Name] Team,
 Looking to fill Tuesday/Wednesday nights without upfront costs?
 
 GigMate connects you with pre-vetted local musicians who:
-✓ Have their own following
-✓ Handle ticket sales
-✓ Promote the show
-✓ Only get paid if tickets sell
+? Have their own following
+? Handle ticket sales
+? Promote the show
+? Only get paid if tickets sell
 
 You: Keep bar/food revenue
 Them: Keep ticket revenue
@@ -257,11 +257,11 @@ Hey [Musician Name],
 Tired of cold-calling venues?
 
 GigMate = Your automated booking agent:
-✓ Venues browse YOUR profile
-✓ They send YOU offers
-✓ Escrow protects payment
-✓ Built-in ticketing & promo
-✓ Keep 85-95% of revenue
+? Venues browse YOUR profile
+? They send YOU offers
+? Escrow protects payment
+? Built-in ticketing & promo
+? Keep 85-95% of revenue
 
 [Similar Band] just booked 8 shows in 2 weeks.
 
@@ -313,7 +313,7 @@ Website chatbot engages visitors:
 ### Cold Email:
 - **Venues:** 8-12% response, 3-5% signup
 - **Musicians:** 15-20% response, 8-12% signup
-- **Target:** 500 emails → 40-50 signups
+- **Target:** 500 emails -> 40-50 signups
 
 ### Facebook Group Engagement:
 - Post reach: 300-500 members

@@ -213,7 +213,7 @@ Empower musicians to earn sustainable income, help venues thrive, enrich fan exp
 
 ### Venues
 **What They Get:**
-- Streamlined booking process (hours → minutes)
+- Streamlined booking process (hours -> minutes)
 - Access to vetted, rated musicians
 - Integrated ticketing and promotion
 - Reduced administrative overhead
@@ -292,13 +292,13 @@ Empower musicians to earn sustainable income, help venues thrive, enrich fan exp
 ### 2. Premium Subscriptions
 
 **Musician Memberships:**
-- Premium: $49/month × 1,000 members = $49,000/month
-- Platinum: $199/month × 200 members = $39,800/month
+- Premium: $49/month x 1,000 members = $49,000/month
+- Platinum: $199/month x 200 members = $39,800/month
 - **Total Subscription Revenue:** $88,800/month = $1,065,600/year
 
 **Venue Subscriptions:**
-- Premium: $99/month × 200 venues = $19,800/month
-- Platinum: $299/month × 50 venues = $14,950/month
+- Premium: $99/month x 200 venues = $19,800/month
+- Platinum: $299/month x 50 venues = $14,950/month
 - **Total Venue Revenue:** $34,750/month = $417,000/year
 
 ### 3. Advertising Revenue
@@ -320,7 +320,7 @@ Empower musicians to earn sustainable income, help venues thrive, enrich fan exp
 - $5 per message from fan to artist
 - Artist keeps 100% (no platform fee)
 - Platform monetizes through increased engagement
-- Average: 50 messages/day × 365 days = $91,250/year indirect value
+- Average: 50 messages/day x 365 days = $91,250/year indirect value
 
 ### 5. Data & Insights (Future Revenue)
 
@@ -834,4 +834,4 @@ Our AI-powered platform reduces friction, increases transparency, and creates ec
 **GigMate Platform**
 *Connecting Musicians, Venues, Fans & Sponsors*
 
-© 2025 GigMate. All rights reserved.
+(C) 2025 GigMate. All rights reserved.

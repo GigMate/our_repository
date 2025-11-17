@@ -25,13 +25,13 @@ The homepage features a rotating carousel of 6 professional venue images from Pe
 6. **Jazz/Blues Club** - Moody performance space
 
 **Carousel Features:**
-- ✅ Auto-rotation every 5 seconds
-- ✅ Manual navigation (prev/next arrows)
-- ✅ Dot indicators for each image
-- ✅ Smooth fade transitions (1 second)
-- ✅ Hero overlay with logo and CTA
-- ✅ Gradient overlay for text readability
-- ✅ Full-width responsive design
+-  Auto-rotation every 5 seconds
+-  Manual navigation (prev/next arrows)
+-  Dot indicators for each image
+-  Smooth fade transitions (1 second)
+-  Hero overlay with logo and CTA
+-  Gradient overlay for text readability
+-  Full-width responsive design
 
 **Technical Implementation:**
 ```typescript
@@ -113,7 +113,7 @@ Once we have real users and events, we'll rotate in actual GigMate photos:
 - Social proof: "This is real, happening now"
 - Community building: "I saw my venue on the homepage!"
 - User engagement: "Submit your photo for a chance to be featured"
-- Authenticity: Stock photos → real GigMate moments
+- Authenticity: Stock photos -> real GigMate moments
 - Marketing: User-generated content drives virality
 
 ---
@@ -487,11 +487,11 @@ Three key points displayed:
 ## Future Enhancements
 
 ### Phase 1 (Current)
-- ✅ Mutual rating system operational
-- ✅ Professional venue images
-- ✅ Homepage carousel
-- ✅ Auth page backgrounds
-- ✅ Rating protection messaging
+-  Mutual rating system operational
+-  Professional venue images
+-  Homepage carousel
+-  Auth page backgrounds
+-  Rating protection messaging
 
 ### Phase 2 (6-12 months)
 - User-submitted photos
@@ -504,7 +504,7 @@ Three key points displayed:
 ### Phase 3 (12-18 months)
 - Augmented reality venue tours
 - Live event photo streams
-- 360° venue photos
+- 360? venue photos
 - Machine learning for fraud detection
 - Blockchain-verified ratings (tamper-proof)
 - International expansion (localized images)
@@ -563,4 +563,4 @@ Professional imagery + mutual accountability = Platform users can trust. And tru
 
 ---
 
-**Making live music better—and safer—for everyone.**
+**Making live music better--and safer--for everyone.**

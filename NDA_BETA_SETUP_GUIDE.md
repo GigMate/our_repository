@@ -266,7 +266,7 @@ For each consent, the system records:
 **Q**: How do I update my NDA after users have accepted it?
 
 **A**:
-- **Minor changes**: Edit the document, bump the version (e.g., 1.0 → 1.1)
+- **Minor changes**: Edit the document, bump the version (e.g., 1.0 -> 1.1)
 - **Major changes**: Create a new document with version 2.0, deactivate v1.0, activate v2.0
 - Users will be required to re-accept the new version
 
@@ -334,8 +334,8 @@ updated_at          timestamptz
 ### user_legal_consents Table
 ```sql
 id                  uuid PRIMARY KEY
-user_id             uuid → auth.users
-document_id         uuid → legal_documents
+user_id             uuid -> auth.users
+document_id         uuid -> legal_documents
 document_version    text
 ip_address          text
 user_agent          text
@@ -349,12 +349,12 @@ UNIQUE(user_id, document_id)
 
 ## Next Steps
 
-1. ✅ **Prepare Your NDA**: Draft or customize the NDA template above
-2. ✅ **Add Route**: Create an admin route to `/admin/legal` for the Legal Document Manager
-3. ✅ **Upload NDA**: Use the manager to add your NDA document
-4. ✅ **Test Thoroughly**: Create test accounts and verify the entire flow
-5. ✅ **Monitor**: Check consent tracking as beta testers sign up
-6. ✅ **Iterate**: Update documents as needed based on legal advice
+1.  **Prepare Your NDA**: Draft or customize the NDA template above
+2.  **Add Route**: Create an admin route to `/admin/legal` for the Legal Document Manager
+3.  **Upload NDA**: Use the manager to add your NDA document
+4.  **Test Thoroughly**: Create test accounts and verify the entire flow
+5.  **Monitor**: Check consent tracking as beta testers sign up
+6.  **Iterate**: Update documents as needed based on legal advice
 
 ---
 
@@ -367,4 +367,4 @@ If you encounter issues:
 4. Test with a fresh user account
 5. Check that document is marked as "Active"
 
-The legal consent system is now ready to protect your beta launch! 🎉
+The legal consent system is now ready to protect your beta launch! 

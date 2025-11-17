@@ -4,7 +4,7 @@
 
 ---
 
-## ✅ CRITICAL TESTS (Must Complete Today)
+##  CRITICAL TESTS (Must Complete Today)
 
 ### 1. Authentication Flows
 - [ ] **Musician signup** - with genres
@@ -46,7 +46,7 @@
 
 ---
 
-## 🔍 DETAILED TEST SCENARIOS
+## ? DETAILED TEST SCENARIOS
 
 ### Musician Signup Test
 ```
@@ -55,10 +55,10 @@
 3. Enter: name, email, password
 4. Select 2-3 genres
 5. Submit
-✓ Profile created
-✓ Musician record created with genres
-✓ Dashboard loads
-✓ Can see venue listings
+? Profile created
+? Musician record created with genres
+? Dashboard loads
+? Can see venue listings
 ```
 
 ### Venue Signup Test
@@ -68,10 +68,10 @@
 3. Enter: name, email, password
 4. Select 2-3 preferred genres
 5. Submit
-✓ Profile created
-✓ Venue record created with genres
-✓ Dashboard loads
-✓ Can see musician listings
+? Profile created
+? Venue record created with genres
+? Dashboard loads
+? Can see musician listings
 ```
 
 ### Fan Signup Test
@@ -81,22 +81,22 @@
 3. Enter: name, email, password
 4. Optionally select genres
 5. Submit
-✓ Profile created (no separate fan table)
-✓ Dashboard loads
-✓ Can browse musicians, venues, events
+? Profile created (no separate fan table)
+? Dashboard loads
+? Can browse musicians, venues, events
 ```
 
 ---
 
-## 🐛 KNOWN BUGS FIXED TODAY
+## ? KNOWN BUGS FIXED TODAY
 
-1. ✅ **Fan signup bug** - Was trying to insert into non-existent `fans` table
-2. ✅ **Musician ID lookup bug** - Was using wrong column name (`user_id` vs `id`)
-3. ✅ **TypeScript errors** - All 18 errors resolved
+1.  **Fan signup bug** - Was trying to insert into non-existent `fans` table
+2.  **Musician ID lookup bug** - Was using wrong column name (`user_id` vs `id`)
+3.  **TypeScript errors** - All 18 errors resolved
 
 ---
 
-## 📝 BUG REPORTING
+## ? BUG REPORTING
 
 If you find a bug:
 
@@ -123,7 +123,7 @@ If you find a bug:
 
 ---
 
-## 🎯 SUCCESS CRITERIA
+##  SUCCESS CRITERIA
 
 **Day 2 is complete when:**
 - [ ] Can signup as all 3 user types
@@ -136,7 +136,7 @@ If you find a bug:
 
 ---
 
-## 🔧 TEST ACCOUNTS
+##  TEST ACCOUNTS
 
 Create these for testing:
 
@@ -151,7 +151,7 @@ Create these for testing:
 
 ---
 
-## 🚀 NEXT STEPS (Day 3)
+##  NEXT STEPS (Day 3)
 
 After Day 2 testing passes:
 - Test subscription upgrades
@@ -162,7 +162,7 @@ After Day 2 testing passes:
 
 ---
 
-## ⏱️ Estimated Testing Time
+## ? Estimated Testing Time
 
 - Authentication: 30 min
 - NDA System: 20 min
@@ -175,7 +175,7 @@ After Day 2 testing passes:
 
 ---
 
-## 📞 Getting Help
+## ? Getting Help
 
 **If stuck:**
 1. Check browser console for errors

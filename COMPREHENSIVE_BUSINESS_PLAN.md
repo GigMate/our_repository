@@ -84,13 +84,13 @@ A tiered credit-based platform that:
 
 **Total Addressable Market (TAM):**
 - US live music industry: $32B annually
-- Musicians (650K) × $45K average annual gig revenue = $29B
-- Venues (14K) × $2.3M average annual music revenue = $32B
+- Musicians (650K) x $45K average annual gig revenue = $29B
+- Venues (14K) x $2.3M average annual music revenue = $32B
 
 **Serviceable Addressable Market (SAM):**
-- Online-savvy musicians (400K) × 20% platform adoption = 80K users
-- Tech-forward venues (8K) × 30% platform adoption = 2.4K venues
-- Active music fans (60M) × 5% platform adoption = 3M fans
+- Online-savvy musicians (400K) x 20% platform adoption = 80K users
+- Tech-forward venues (8K) x 30% platform adoption = 2.4K venues
+- Active music fans (60M) x 5% platform adoption = 3M fans
 - Combined opportunity: **$5-8B annually**
 
 **Serviceable Obtainable Market (SOM) - Year 5:**
@@ -180,8 +180,8 @@ Quality interactions cost credits. Spam prevention + revenue generation.
 
 | Action | Cost | Notes |
 |--------|------|-------|
-| Musician → Venue (initial) | 2 | Professional inquiry |
-| Venue → Musician (initial) | 2 | Booking opportunity |
+| Musician -> Venue (initial) | 2 | Professional inquiry |
+| Venue -> Musician (initial) | 2 | Booking opportunity |
 | Reply (cross-type) | 1 | Ongoing conversation |
 | Peer networking | 1/0 | Musicians/Venues to same type |
 | Fan messages | 0-1 | Free initially, then 1 credit |
@@ -193,7 +193,7 @@ Quality interactions cost credits. Spam prevention + revenue generation.
 | Profile boost (24hr) | 20 | Featured placement |
 | Event promotion (7 days) | 50 | Top of search |
 
-**À la Carte Credit Purchases:**
+**? la Carte Credit Purchases:**
 - 25 credits: $4.99
 - 100 credits: $14.99
 - 250 credits: $29.99
@@ -637,10 +637,10 @@ Revenue: $40K-120K/month
 
 **Key Assumptions:**
 - User growth: 300% YoY (Years 1-2), 200% YoY (Year 3+)
-- Subscription conversion: 25% paid (Year 1) → 35% (Year 3)
+- Subscription conversion: 25% paid (Year 1) -> 35% (Year 3)
 - Credit adoption: 80%+ of active users
-- Automation adoption: 15% (Year 2) → 30% (Year 3)
-- Gross margins improve from 65% → 85% as automation scales
+- Automation adoption: 15% (Year 2) -> 30% (Year 3)
+- Gross margins improve from 65% -> 85% as automation scales
 
 ---
 

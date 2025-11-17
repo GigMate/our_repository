@@ -126,7 +126,7 @@ https://app.supabase.com/project/rmagqkuwulbcabxtzsjm/settings/functions
    - Used to verify webhook authenticity
 
 **How to Add Secrets:**
-1. Go to Supabase Dashboard → Project Settings → Edge Functions
+1. Go to Supabase Dashboard -> Project Settings -> Edge Functions
 2. Find "Secrets" section
 3. Click "Add new secret"
 4. Enter name and value
@@ -2746,4 +2746,4 @@ Follow this guide systematically to build a production-ready platform. Estimated
 5. Test thoroughly at each stage
 6. Prepare for launch
 
-Good luck building GigMate! 🎵
+Good luck building GigMate! 
