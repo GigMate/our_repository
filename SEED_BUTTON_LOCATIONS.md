@@ -116,13 +116,13 @@ You'll see:
   ...
   Creating 100 venues...
   ...
-  ? Database seeding completed successfully!
+  Database seeding completed successfully!
   ```
 
 ### Step 4: Success Message
 After 2-3 minutes, you'll see:
 ```
-? Database seeding completed successfully!
+Database seeding completed successfully!
 
 Created:
 - 100 Musicians (25% bronze, 25% silver, 50% gold)
@@ -176,12 +176,12 @@ This creates 100-300 events matched within 20-mile radius!
 
 ## Important Notes
 
-### ? Only Run in Development/Staging
+### Only Run in Development/Staging
 - **Never** seed production database
 - Demo accounts pollute real user data
 - Use for local dev, demos, and testing only
 
-###  Safe to Run Multiple Times?
+###  Safe to Run Multiple Times
 - **NO** - Will try to create duplicate emails
 - **Result:** Error messages for existing accounts
 - **Solution:** Reset database first if you want to re-seed
@@ -223,7 +223,7 @@ This creates 100-300 events matched within 20-mile radius!
   - Or reset database and re-seed
 
 ### "No events after seeding"
-- Did you run `SELECT weekly_platform_refresh();`?
+- Did you run `SELECT weekly_platform_refresh();`
 - Check that venues/musicians have coordinates
 - Verify pg_cron job is active
 

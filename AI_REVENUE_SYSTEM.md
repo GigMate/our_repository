@@ -318,7 +318,7 @@ The system supports continuous improvement:
 
 - Clear privacy policy
 - User-accessible data downloads
-- Explanation of recommendations ("Why this?")
+- Explanation of recommendations ("Why this")
 - Control over notification preferences
 
 ### Fairness

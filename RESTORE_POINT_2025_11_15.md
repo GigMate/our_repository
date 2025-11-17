@@ -237,8 +237,8 @@ STRIPE_SECRET_KEY=<stripe-secret>
  **Last Build:** November 15, 2025
 ```
 vite v5.4.8 building for production...
-? 1989 modules transformed
-? built in 13.86s
+1989 modules transformed
+built in 13.86s
 All chunks generated successfully
 ```
 

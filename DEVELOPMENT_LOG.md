@@ -361,7 +361,7 @@ Added "Investor" as a 4th user category to the GigMate platform, alongside Music
    - Blue accent color
 
 2. **Average Revenue Per User (ARPU)**
-   - Calculated: Platform fees ? Total users
+   - Calculated: Platform fees Total users
    - Monthly platform fees per user
    - Green accent color
 
@@ -457,9 +457,9 @@ const events = await supabase
 #### Key Calculations:
 - **Total Revenue**: Sum of all transaction amounts
 - **Platform Fees**: Sum of all platform_fee values
-- **ARPU**: Platform fees ? Total users
-- **Average Transaction**: Total revenue ? Transaction count
-- **User Distribution %**: (User type count ? Total users) x 100
+- **ARPU**: Platform fees Total users
+- **Average Transaction**: Total revenue Transaction count
+- **User Distribution %**: (User type count Total users) x 100
 
 ---
 

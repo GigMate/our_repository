@@ -25,7 +25,7 @@ vercel --prod
 
 ---
 
-## ? Step 2: Add Password Protection (2 minutes)
+## Step 2: Add Password Protection (2 minutes)
 
 **Why:** Keep beta private until you're ready for public launch
 
@@ -128,7 +128,7 @@ After adding variables, click **"Redeploy"** in Deployments tab.
 
 ---
 
-## ? Step 6: Generate Beta Codes (5 minutes)
+## Step 6: Generate Beta Codes (5 minutes)
 
 1. Log into your deployed site
 2. Visit: `https://gigmate.us/admin/beta` (or your Vercel URL + `/admin/beta`)
@@ -140,7 +140,7 @@ After adding variables, click **"Redeploy"** in Deployments tab.
 
 ---
 
-## ? Step 7: Invite Beta Testers (Same Day)
+## Step 7: Invite Beta Testers (Same Day)
 
 Use this email template:
 
@@ -169,14 +169,14 @@ As a beta tester, you get:
  Priority support
  Voice in product direction
 
-Questions? Reply to this email.
+QuestionsReply to this email.
 
 Welcome to GigMate!
 ```
 
 ---
 
-## ? Step 8: Set Up Feedback Collection
+## Step 8: Set Up Feedback Collection
 
 **Option 1: Simple Email**
 Create a new email: `beta@gigmate.us`
@@ -214,7 +214,7 @@ Create private server with channels:
 
 ---
 
-## ? Troubleshooting Common Issues
+## Troubleshooting Common Issues
 
 ### "Site not loading after deployment"
 - Check environment variables are set
@@ -249,7 +249,7 @@ After completing these steps:
 
 ---
 
-## ? Need Help?
+## Need Help
 
 If you get stuck:
 1. Check Vercel deployment logs
@@ -259,7 +259,7 @@ If you get stuck:
 
 ---
 
-## ? Next Steps After Deployment
+## Next Steps After Deployment
 
 **Today:**
 - Deploy (Steps 1-4)
@@ -283,7 +283,7 @@ If you get stuck:
 
 ---
 
-**Ready? Run this command to start:**
+**ReadyRun this command to start:**
 
 ```bash
 npm i -g vercel && vercel login && vercel --prod

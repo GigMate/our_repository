@@ -28,7 +28,7 @@ All three URLs will take you to the documentation download center.
 
 ---
 
-## ? What You Can Download
+## What You Can Download
 
 ### Download Options:
 
@@ -164,7 +164,7 @@ Visit: `https://gigmate.us/docs`
 
 ---
 
-## ? Support
+## Support
 
 If you have issues accessing documentation:
 
@@ -185,6 +185,6 @@ Before sharing download link with others:
 
 ---
 
-**Ready to download all your documentation!** ?
+**Ready to download all your documentation!**
 
 All 55+ documents are available at: **https://gigmate.us/docs**

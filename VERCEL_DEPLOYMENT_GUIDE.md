@@ -200,7 +200,7 @@ done
 
 ---
 
-## ? Step 5: Configure Google Maps API (If Using Maps)
+## Step 5: Configure Google Maps API (If Using Maps)
 
 1. **Go to Google Cloud Console** -> APIs & Services -> Credentials
 
@@ -226,27 +226,27 @@ done
 
 ### Test These Features:
 
-1. **Homepage loads** ?
+1. **Homepage loads**
    - Visit `https://your-project.vercel.app`
    - Should see GigMate homepage
 
-2. **Authentication works** ?
+2. **Authentication works**
    - Try to sign up/login
    - Check email verification
 
-3. **Database queries work** ?
+3. **Database queries work**
    - Browse musicians/venues
    - Should load data from Supabase
 
-4. **Payments work** (if configured) ?
+4. **Payments work** (if configured)
    - Try to purchase credits/tickets
    - Should redirect to Stripe
 
-5. **Maps work** (if configured) ?
+5. **Maps work** (if configured)
    - Open map search
    - Should display Google Maps
 
-6. **Edge Functions work** ?
+6. **Edge Functions work**
    - Test email sending
    - Test any API calls
 
@@ -270,7 +270,7 @@ done
 
 ---
 
-## ? Step 7: Set Up Automatic Deployments
+## Step 7: Set Up Automatic Deployments
 
 ### With GitHub (Recommended):
 
@@ -330,7 +330,7 @@ vercel --prod
 
 ---
 
-## ? Step 9: Add Custom Domain (Optional)
+## Step 9: Add Custom Domain (Optional)
 
 1. **Buy domain** (Namecheap, GoDaddy, etc.)
 
@@ -353,7 +353,7 @@ vercel --prod
 
 ---
 
-## ? Security Checklist
+## Security Checklist
 
 Before going live:
 
@@ -370,7 +370,7 @@ Before going live:
 
 ---
 
-## ? Step 10: Test on Mobile
+## Step 10: Test on Mobile
 
 Your app is responsive, but test these on mobile:
 
@@ -414,7 +414,7 @@ Your app is responsive, but test these on mobile:
 
 ---
 
-## ? Troubleshooting
+## Troubleshooting
 
 ### Build Fails:
 
@@ -459,7 +459,7 @@ supabase secrets list
 
 ---
 
-## ? Support Resources
+## Support Resources
 
 - **Vercel Docs:** https://vercel.com/docs
 - **Supabase Docs:** https://supabase.com/docs
@@ -532,4 +532,4 @@ npm run preview
 
 ---
 
-**Need help?** Check the documentation files in the project root or contact support.
+**Need help** Check the documentation files in the project root or contact support.

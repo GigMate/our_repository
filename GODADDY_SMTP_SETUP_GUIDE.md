@@ -25,7 +25,7 @@ Sender Email: admin@gigmate.us
 Sender Name: GigMate
 ```
 
-**Why Office365?** GoDaddy Workspace uses Microsoft 365 infrastructure.
+**Why Office365** GoDaddy Workspace uses Microsoft 365 infrastructure.
 
 ### Option B: Using GoDaddy cPanel Email (Legacy)
 
@@ -213,7 +213,7 @@ admin@gigmate.us
 1. Go back to Supabase Dashboard
 2. Click **"Authentication"** -> **"Users"**
 3. Find your test user
-4. Check **"Confirmed"** column - should show ?
+4. Check **"Confirmed"** column - should show
 5. Click user to see **"email_confirmed_at"** timestamp
 
 ---
@@ -243,7 +243,7 @@ admin@gigmate.us
 **Option 2: Use GoDaddy Support**
 - Call: 1-480-505-8877
 - Chat: Available in GoDaddy account
-- Ask: "How do I configure SMTP for my email admin@gigmate.us?"
+- Ask: "How do I configure SMTP for my email admin@gigmate.us"
 
 **Option 3: Alternative - Use SendGrid**
 If GoDaddy SMTP has issues, consider switching to SendGrid:

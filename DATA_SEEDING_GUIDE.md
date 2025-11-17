@@ -1,6 +1,6 @@
 # GigMate Data Seeding Guide
 
-## What is Database Seeding?
+## What is Database Seeding
 
 Database seeding populates your empty database with realistic test data. Think of it as creating fake users, venues, musicians, events, and bookings so you can:
 - Test features without manually creating 100 accounts
@@ -10,7 +10,7 @@ Database seeding populates your empty database with realistic test data. Think o
 
 ---
 
-## When Should You Seed Data?
+## When Should You Seed Data
 
 ###  **SEED DATA WHEN:**
 
@@ -59,7 +59,7 @@ http://localhost:5173/admin/seed
 
 ---
 
-### ? **DO NOT SEED DATA WHEN:**
+### **DO NOT SEED DATA WHEN:**
 
 #### 1. **Production Environment - NEVER**
 - Real users exist
@@ -94,7 +94,7 @@ http://localhost:5173/admin/seed
 
 ---
 
-## What Gets Created When You Seed?
+## What Gets Created When You Seed
 
 ### Current Seed Data (as of your DatabaseSeeder.tsx):
 
@@ -165,7 +165,7 @@ npm run dev
 
 **Step 5: Verify Success**
 ```
-? Database seeding completed successfully!
+Database seeding completed successfully!
 
 Created:
 - 100 Musicians (25% bronze, 25% silver, 50% gold)
@@ -206,9 +206,9 @@ async function main() {
   const result = await seedDatabase();
 
   if (result.success) {
-    console.log('? Seeding completed successfully!');
+    console.log('Seeding completed successfully!');
   } else {
-    console.error('? Seeding failed');
+    console.error('Seeding failed');
     process.exit(1);
   }
 }
@@ -227,7 +227,7 @@ npx tsx scripts/seed.ts
 
 Sometimes you want to wipe everything and re-seed:
 
-### ? **DANGEROUS: This Deletes ALL Data**
+### **DANGEROUS: This Deletes ALL Data**
 
 **Method 1: Using Supabase Dashboard**
 1. Go to your Supabase project dashboard
@@ -272,20 +272,20 @@ supabase db reset
 
 ## Seeding Strategy by Environment
 
-### ? **Local Development**
+### **Local Development**
 - **Seed:** YES, every time you start fresh
 - **How often:** Whenever you reset your database
 - **Data volume:** 300 accounts (current default)
 - **Purpose:** Testing and feature development
 
-### ? **Staging/QA Environment**
+### **Staging/QA Environment**
 - **Seed:** YES, once after deployment
 - **How often:** After each major deployment
 - **Data volume:** 300-1000 accounts (can customize)
 - **Purpose:** QA testing, demos, presentations
 - **Add flag:** Consider marking as `is_test_data: true`
 
-### ? **Production**
+### **Production**
 - **Seed:** NEVER
 - **Real users only**
 - **Data comes from:** Actual signups and activity
@@ -295,7 +295,7 @@ supabase db reset
 
 ## Customizing Seed Data
 
-Want to change what gets created? Edit this file:
+Want to change what gets createdEdit this file:
 
 **File:** `src/lib/seedData.ts`
 
@@ -331,8 +331,8 @@ const LOCATIONS = [
 // Change to: 50% bronze, 30% silver, 20% gold
 
 const tier =
-  i < 50 ? 'bronze' :   // First 50
-  i < 80 ? 'silver' :   // Next 30
+  i < 50 'bronze' :   // First 50
+  i < 80 'silver' :   // Next 30
   'gold';               // Last 20
 ```
 
@@ -350,7 +350,7 @@ const tier =
 6. **Document credentials** - Keep list of test accounts handy
 7. **Add timestamps** - Realistic created_at/updated_at dates
 
-### ? **DON'T:**
+### **DON'T:**
 
 1. **Seed in production** - Ever. Period.
 2. **Use real emails** - All test emails should be @example.com or @gigmate.us
@@ -417,11 +417,11 @@ await supabase.rpc('upsert_user_subscription', {
 
 ## Quick Reference
 
-| Environment | Seed Data? | When? | Volume |
+| Environment | Seed Data| When| Volume |
 |------------|-----------|-------|--------|
 | **Local Dev** |  YES | Every fresh clone | 300 accounts |
 | **Staging** |  YES | After deployment | 300-1000 |
-| **Production** | ? NEVER | Never | Real users only |
+| **Production** | NEVER | Never | Real users only |
 | **CI/CD Tests** |  YES | Before test run | Minimal (10-20) |
 | **Demos** |  YES | Before presentation | 300 accounts |
 
@@ -467,4 +467,4 @@ TRUNCATE profiles, musicians, venues, fans CASCADE;
 
 ---
 
-**You're ready to seed!** Just remember: development only, never production. ?
+**You're ready to seed!** Just remember: development only, never production.

@@ -57,7 +57,7 @@ The GigMate platform has been comprehensively audited and is ready for password-
 -  Credit system for platform currency
 -  Transaction fee calculations
 -  Payout account management
-- ? **IMPORTANT:** Stripe requires live API keys for production
+- **IMPORTANT:** Stripe requires live API keys for production
 
 ### Database Schema
 -  89 migrations applied successfully
@@ -97,7 +97,7 @@ The GigMate platform has been comprehensively audited and is ready for password-
 
 ### Public Routes
 - `/` - Home page
-- `/beta/register?code=XXXXXXXX` - Beta tester registration
+- `/beta/registercode=XXXXXXXX` - Beta tester registration
 - `/reset-password` - Password reset
 
 ### Authenticated Routes
@@ -120,7 +120,7 @@ The GigMate platform has been comprehensively audited and is ready for password-
 1. Navigate to `/admin/beta`
 2. Enter beta tester's email address
 3. Click "Generate Invitation"
-4. Copy invitation link (e.g., `/beta/register?code=ABC12345`)
+4. Copy invitation link (e.g., `/beta/registercode=ABC12345`)
 5. Send link to beta tester via email
 
 ### For Beta Tester:
@@ -143,7 +143,7 @@ The GigMate platform has been comprehensively audited and is ready for password-
 
 ---
 
-## ? Payment System Configuration
+## Payment System Configuration
 
 ### Stripe Setup Required:
 1. Create Stripe account (or use existing)
@@ -165,7 +165,7 @@ The GigMate platform has been comprehensively audited and is ready for password-
 
 ---
 
-## ? Database Tables (Key Tables)
+## Database Tables (Key Tables)
 
 ### Authentication & Users
 - `profiles` - User profiles with role and beta tester flags
@@ -193,7 +193,7 @@ The GigMate platform has been comprehensively audited and is ready for password-
 
 ---
 
-## ? Pre-Deployment Checklist
+## Pre-Deployment Checklist
 
 ### Environment Variables (.env)
 ```env
@@ -298,7 +298,7 @@ netlify deploy --prod
 
 ---
 
-## ? Known Issues & Limitations
+## Known Issues & Limitations
 
 ### Non-Critical:
 - Build warning about chunk size (>500KB) - doesn't affect functionality
@@ -311,7 +311,7 @@ netlify deploy --prod
 
 ---
 
-## ? Support & Maintenance
+## Support & Maintenance
 
 ### For Beta Testers:
 - Report bugs via email or in-app feedback

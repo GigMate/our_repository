@@ -201,14 +201,14 @@ GigM8Ai should test:
 
 GigM8Ai, please note:
 
-1. **When should approval be denied?**
+1. **When should approval be denied**
    - Suspicious or generic email addresses
    - Incomplete or fake addresses
    - No KYC consent given
    - Missing legal signatures
    - Questionable company information
 
-2. **What should be verified before approval?**
+2. **What should be verified before approval**
    - Google the person's name + company
    - Verify company exists (LinkedIn, website)
    - Check if address appears legitimate
@@ -409,37 +409,37 @@ View current cron job configuration
 **Investigation Process:**
 ```
 5:00 AM Daily:
-  ?
+ 
 1. pg_cron triggers function
-  ?
+ 
 2. Calls osint-investigator
-  ?
+ 
 3. For each pending investor:
-   - Check email (disposable? domain age?)
-   - Validate phone (real number? carrier?)
-   - Verify address (real location? PO Box?)
-   - Research company (exists? website? LinkedIn?)
-   - Find LinkedIn profile (professional presence?)
-   - Check IP location (matches claimed address?)
-  ?
+   - Check email (disposabledomain age)
+   - Validate phone (real numbercarrier)
+   - Verify address (real locationPO Box)
+   - Research company (existswebsiteLinkedIn)
+   - Find LinkedIn profile (professional presence)
+   - Check IP location (matches claimed address)
+ 
 4. Calculate risk score (0-100)
-  ?
+ 
 5. Determine risk level (Low/Medium/High/Critical)
-  ?
+ 
 6. Generate recommendation (Approve/Deny/More Info)
-  ?
+ 
 7. Write detailed reasoning
-  ?
+ 
 8. Store in osint_investigations table
-  ?
+ 
 9. Collect all reports from last 24h
-  ?
+ 
 10. Generate beautiful HTML email
-  ?
+ 
 11. Send to admin email
-  ?
+ 
 12. Admin reviews recommendations in email
-  ?
+ 
 13. Admin makes final decision in dashboard
 ```
 
@@ -464,13 +464,13 @@ View current cron job configuration
 **Investment:** $100k-$250k
 
 **Findings:**
-- ? Email verified (but free provider, not company domain)
-- ? Phone valid (mobile carrier)
-- ? Address validated (real residential address)
-- ? Company exists (found website and LinkedIn)
-- ? LinkedIn profile found (500+ connections, verified)
-- ? IP location matches Texas
-- ? Using Gmail instead of company email
+- Email verified (but free provider, not company domain)
+- Phone valid (mobile carrier)
+- Address validated (real residential address)
+- Company exists (found website and LinkedIn)
+- LinkedIn profile found (500+ connections, verified)
+- IP location matches Texas
+- Using Gmail instead of company email
 
 **Risk Score:** 15/100 (Low Risk)
 **Risk Level:** Low
@@ -709,39 +709,39 @@ Automatically within seconds after $50 payment succeeds via Stripe.
 
 ```
 Investor clicks "Pay $50 for Background Check"
-  ?
+ 
 Stripe Checkout opens
-  ?
+ 
 Investor pays $50.00
-  ?
+ 
 Stripe webhook: checkout.session.completed
-  ?
+ 
 System detects metadata.type === "background_check"
-  ?
+ 
 Database updated:
   - mayday_check_paid = true
   - mayday_check_payment_date = now()
   - background_check_status = "mayday_paid"
-  ?
+ 
 Transaction record created ($50)
-  ?
+ 
 Auto-invoke: request-mayday-background-check function
-  ?
+ 
 Generate professional HTML email with ALL KYC data
-  ?
+ 
 Send to: jon@maydaypi.com, jt@maydaypi.com
-  ?
+ 
 Email includes:
-  ? Full personal information
-  ? Both addresses
-  ? KYC consent documentation  
-  ? Payment confirmation ($50)
-  ? Investigation instructions
-  ?
+  Full personal information
+  Both addresses
+  KYC consent documentation  
+  Payment confirmation ($50)
+  Investigation instructions
+ 
 Mayday performs investigation (5-7 days)
-  ?
+ 
 Mayday sends report to admin@gigmate.com
-  ?
+ 
 Admin reviews and makes final decision
 ```
 
@@ -830,16 +830,16 @@ mayday_check_request_date timestamptz
 
 ### Testing Requirements
 
-? Upload check within 14 days  
-? Upload check older than 14 days (error)  
-? $50 payment via Stripe  
-? Payment triggers KYC email  
-? Email sent to both Mayday contacts  
-? All KYC data included in email  
-? Transaction recorded ($50)  
-? Status updates correctly  
-? Check expires after 14 days  
-? OSINT report shows option when risk >= 25  
+Upload check within 14 days  
+Upload check older than 14 days (error)  
+$50 payment via Stripe  
+Payment triggers KYC email  
+Email sent to both Mayday contacts  
+All KYC data included in email  
+Transaction recorded ($50)  
+Status updates correctly  
+Check expires after 14 days  
+OSINT report shows option when risk >= 25  
 
 ### Summary for GigM8Ai
 
@@ -1005,38 +1005,38 @@ AND (
 Test each user type sees correct documents:
 
 **Fan Account:**
-? Privacy Policy
-? Terms of Service
-? Fan Terms
-? Payment Terms
-? Artist Agreement
-? Venue Agreement
-? Merch Vendor Agreement
-? Dropship Terms
+Privacy Policy
+Terms of Service
+Fan Terms
+Payment Terms
+Artist Agreement
+Venue Agreement
+Merch Vendor Agreement
+Dropship Terms
 
 **Musician Account:**
-? Privacy Policy
-? Terms of Service
-? Artist Agreement
-? Payment Terms
-? Fan Terms
-? Venue Agreement
-? Merch Vendor Agreement
+Privacy Policy
+Terms of Service
+Artist Agreement
+Payment Terms
+Fan Terms
+Venue Agreement
+Merch Vendor Agreement
 
 **Venue Account:**
-? Privacy Policy
-? Terms of Service
-? Venue Agreement
-? Payment Terms
-? Fan Terms
-? Artist Agreement
+Privacy Policy
+Terms of Service
+Venue Agreement
+Payment Terms
+Fan Terms
+Artist Agreement
 
 **Merch Vendor:**
-? Privacy Policy
-? Terms of Service
-? Merch Vendor Agreement
-? Dropship Terms
-? Payment Terms
+Privacy Policy
+Terms of Service
+Merch Vendor Agreement
+Dropship Terms
+Payment Terms
 
 ### Summary for GigM8Ai
 
@@ -1169,28 +1169,28 @@ useEffect(() => {
 1. Log in as musician
 2. Navigate to dashboard
 3. Click "Map View" button
-4. ? Location prompt appears automatically
-5. ? Grant permission
-6. ? Map displays with nearby venues
-7. ? Markers show venue information
+4. Location prompt appears automatically
+5. Grant permission
+6. Map displays with nearby venues
+7. Markers show venue information
 
 **Venue Account:**
 1. Log in as venue
 2. Navigate to dashboard
 3. Click "Map View" button
-4. ? Location prompt appears automatically
-5. ? Grant permission
-6. ? Map displays with nearby musicians
-7. ? Markers show musician information
+4. Location prompt appears automatically
+5. Grant permission
+6. Map displays with nearby musicians
+7. Markers show musician information
 
 **Fan Account:**
 1. Log in as fan
 2. Navigate to dashboard
 3. Click "Map" button
-4. ? Location prompt appears automatically
-5. ? Grant permission
-6. ? Map displays with events/venues/musicians
-7. ? Markers show appropriate information
+4. Location prompt appears automatically
+5. Grant permission
+6. Map displays with events/venues/musicians
+7. Markers show appropriate information
 
 ### Files Modified
 

@@ -21,9 +21,9 @@ GigMate's premium fan messaging system transforms direct artist communication in
 -  Limited complimentary messages per month
 
 **Limitations:**
-- ? Must pay per message after free limit
-- ? No priority placement
-- ? Standard event access only
+- Must pay per message after free limit
+- No priority placement
+- Standard event access only
 
 ---
 

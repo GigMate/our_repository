@@ -1,4 +1,4 @@
-# ? GigMate Automated Deployment Scripts
+# GigMate Automated Deployment Scripts
 
 **Everything is automated. Just run one command.**
 
@@ -91,7 +91,7 @@
 
 ---
 
-## ? What You Need
+## What You Need
 
 ### Required (Script will ask for these):
 - **Supabase URL** (from Supabase Dashboard)
@@ -105,7 +105,7 @@ Get them from: https://supabase.com/dashboard -> Your Project -> Settings -> API
 
 ---
 
-## ? Update Your Deployment
+## Update Your Deployment
 
 **To deploy updates:**
 
@@ -118,7 +118,7 @@ That's it! Your changes are live in 2-3 minutes.
 
 ---
 
-## ? Troubleshooting
+## Troubleshooting
 
 ### "Permission denied" error
 
@@ -238,7 +238,7 @@ If using payments:
 
 ---
 
-## ? Customization
+## Customization
 
 ### Add More Environment Variables
 
@@ -266,7 +266,7 @@ Edit `vercel.json` or use Vercel dashboard
 
 ---
 
-## ? Documentation
+## Documentation
 
 - **Quick Guide:** `VERCEL_READY.md`
 - **Detailed Guide:** `VERCEL_DEPLOYMENT_GUIDE.md`
@@ -293,7 +293,7 @@ Edit `vercel.json` or use Vercel dashboard
 
 ---
 
-## ? Need Help?
+## Need Help
 
 1. Check troubleshooting section above
 2. Read `VERCEL_DEPLOYMENT_GUIDE.md`
@@ -312,4 +312,4 @@ Edit `vercel.json` or use Vercel dashboard
 
 ---
 
-**Everything is automated. Just run the script!** ??
+**Everything is automated. Just run the script!**

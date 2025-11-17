@@ -6,7 +6,7 @@
 
 ##  Quick Deploy (Choose One)
 
-### ? Option 1: FULLY AUTOMATED (Recommended - 5 minutes)
+### Option 1: FULLY AUTOMATED (Recommended - 5 minutes)
 
 ```bash
 ./deploy-all.sh
@@ -22,7 +22,7 @@
 
 **Just answer a few questions and wait 5 minutes!**
 
-? See: `AUTOMATION_SCRIPTS.md` for full details
+See: `AUTOMATION_SCRIPTS.md` for full details
 
 ---
 
@@ -55,30 +55,30 @@
 
 ##  What's Already Configured
 
-### Build Configuration ?
+### Build Configuration
 - **Framework:** Vite
-- **Build Command:** `npm run build` ?
-- **Output Directory:** `dist` ?
-- **Install Command:** `npm install` ?
-- **Node Version:** 18.x or 20.x (auto-detected) ?
+- **Build Command:** `npm run build`
+- **Output Directory:** `dist`
+- **Install Command:** `npm install`
+- **Node Version:** 18.x or 20.x (auto-detected)
 
-### Project Files ?
-- `vercel.json` ? (routing configured)
-- `package.json` ? (all scripts set)
-- `.gitignore` ? (.env excluded)
-- `.env.example` ? (template for variables)
-- `tsconfig.json` ? (TypeScript configured)
-- `vite.config.ts` ? (Vite configured)
+### Project Files
+- `vercel.json` (routing configured)
+- `package.json` (all scripts set)
+- `.gitignore` (.env excluded)
+- `.env.example` (template for variables)
+- `tsconfig.json` (TypeScript configured)
+- `vite.config.ts` (Vite configured)
 
-### Dependencies ?
+### Dependencies
 All production dependencies installed:
-- React 18.3.1 ?
-- TypeScript 5.5.3 ?
-- Vite 5.4.2 ?
-- Tailwind CSS 3.4.1 ?
-- Supabase Client 2.57.4 ?
-- Stripe JS 8.3.0 ?
-- Google Maps Loader 2.0.2 ?
+- React 18.3.1
+- TypeScript 5.5.3
+- Vite 5.4.2
+- Tailwind CSS 3.4.1
+- Supabase Client 2.57.4
+- Stripe JS 8.3.0
+- Google Maps Loader 2.0.2
 
 ---
 
@@ -104,7 +104,7 @@ VITE_GOOGLE_MAPS_API_KEY=AIza...
 
 ---
 
-## ? What's Included
+## What's Included
 
 ### Core Features (100% Functional):
  User authentication & profiles
@@ -220,16 +220,16 @@ Visit: `https://your-project.vercel.app`
 4.  Test database queries
 
 ### Soon (Recommended):
-1. ? Add Stripe keys (for payments)
-2. ? Add Google Maps key (for location features)
-3. ? Configure Stripe webhooks
-4. ? Seed sample data
+1. Add Stripe keys (for payments)
+2. Add Google Maps key (for location features)
+3. Configure Stripe webhooks
+4. Seed sample data
 
 ### Later (Optional):
 1.  Set up analytics
 2.  Add custom domain
-3. ? Configure PWA
-4. ? Set up monitoring
+3. Configure PWA
+4. Set up monitoring
 
 ---
 
@@ -263,7 +263,7 @@ Visit: `https://your-project.vercel.app`
 
 ---
 
-## ? Common Issues & Fixes
+## Common Issues & Fixes
 
 ### Issue: "Failed to fetch"
 **Fix:** Check CORS in Supabase settings
@@ -289,7 +289,7 @@ Visit: `https://your-project.vercel.app`
 
 ---
 
-## ? Monitoring
+## Monitoring
 
 ### Vercel Dashboard:
 - **Analytics:** User visits, page views
@@ -305,7 +305,7 @@ Visit: `https://your-project.vercel.app`
 
 ---
 
-## ? Continuous Deployment
+## Continuous Deployment
 
 Once connected to GitHub:
 
@@ -323,7 +323,7 @@ No manual steps needed!
 
 ---
 
-## ? Documentation Available
+## Documentation Available
 
 - `VERCEL_DEPLOYMENT_GUIDE.md` - Complete step-by-step guide
 - `DEPLOY_NOW_CHECKLIST.md` - Quick deployment checklist
@@ -374,7 +374,7 @@ vercel --prod
 
 ---
 
-## ? Support
+## Support
 
 - **Deployment Issues:** See `VERCEL_DEPLOYMENT_GUIDE.md`
 - **Feature Questions:** See platform documentation files
@@ -383,7 +383,7 @@ vercel --prod
 
 ---
 
-**Everything is ready. Time to launch!** ?
+**Everything is ready. Time to launch!**
 
 ---
 
@@ -414,4 +414,4 @@ supabase functions logs function-name
 
 ---
 
-**Questions? Everything is documented. Check the guides above.** ?
+**QuestionsEverything is documented. Check the guides above.**

@@ -19,7 +19,7 @@ A modern platform where musicians find gigs, venues discover talent, and fans bu
 -  100 beta testers signed up
 -  12 real bookings completed
 -  $8,400 GMV in pre-launch
--  4.9? average rating
+-  4.9average rating
 
 **The Ask:**
 $2M Seed Round at $10M post-money valuation
@@ -44,11 +44,11 @@ $2M Seed Round at $10M post-money valuation
 5. Repeat monthly forever
 
 **Pain Points:**
-- ? 20+ hours/month prospecting
-- ? 30% of bookings fall through
-- ? 15% never get paid
-- ? No contract = no recourse
-- ? Competitors take 20-30% fee
+- 20+ hours/month prospecting
+- 30% of bookings fall through
+- 15% never get paid
+- No contract = no recourse
+- Competitors take 20-30% fee
 
 ### Venues Need Reliable Entertainment
 
@@ -62,11 +62,11 @@ $2M Seed Round at $10M post-money valuation
 7. Cancel show, lose $10K+ revenue
 
 **Pain Points:**
-- ? No way to verify talent quality
-- ? No protection if musician no-shows
-- ? No easy way to promote events
-- ? Ticketing platforms charge 15-20%
-- ? Payment disputes waste time
+- No way to verify talent quality
+- No protection if musician no-shows
+- No easy way to promote events
+- Ticketing platforms charge 15-20%
+- Payment disputes waste time
 
 ### Fans Miss Great Shows
 
@@ -78,11 +78,11 @@ $2M Seed Round at $10M post-money valuation
 5. Tickets sold out on bots
 
 **Pain Points:**
-- ? No single place to discover shows
-- ? Hidden fees at checkout
-- ? Support shady ticket resellers
-- ? Miss favorite bands in town
-- ? No easy way to support local music
+- No single place to discover shows
+- Hidden fees at checkout
+- Support shady ticket resellers
+- Miss favorite bands in town
+- No easy way to support local music
 
 ---
 
@@ -139,7 +139,7 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## ? Market Opportunity
+## Market Opportunity
 
 ### Total Addressable Market (TAM)
 
@@ -371,7 +371,7 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## ? Product Roadmap
+## Product Roadmap
 
 ###  Completed (Beta - Q1 2025)
 
@@ -391,7 +391,7 @@ $2M Seed Round at $10M post-money valuation
 - [x] Premium fan messaging
 - [x] Merchandise management
 
-### ? In Development (Q2 2025)
+### In Development (Q2 2025)
 
 - [ ] Native mobile apps (iOS, Android)
 - [ ] Live chat support
@@ -413,7 +413,7 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## ? Team
+## Team
 
 ### Founders
 
@@ -464,13 +464,13 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## ? Traction & Milestones
+## Traction & Milestones
 
 ### Current Status (January 2025)
 
 **Users:**
 - 100 beta testers (35 musicians, 15 venues, 50 fans)
-- 4.9? average rating
+- 4.9average rating
 - 85% weekly active users (beta)
 
 **Activity:**
@@ -556,7 +556,7 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## ? Risks & Mitigation
+## Risks & Mitigation
 
 ### Risk 1: Chicken-and-Egg Problem
 
@@ -605,7 +605,7 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## ? Investment Opportunity
+## Investment Opportunity
 
 ### The Ask
 
@@ -657,7 +657,7 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-## ? Contact & Next Steps
+## Contact & Next Steps
 
 ### Founders
 
@@ -675,11 +675,11 @@ $2M Seed Round at $10M post-money valuation
 
 **Available Upon Request:**
 -  Detailed financial model (Excel)
-- ? User cohort analysis
-- ? Legal documents (incorporation, IP assignments)
-- ? Data room access (codebase, contracts, etc.)
-- ? Product demo video
-- ? Customer testimonials & case studies
+- User cohort analysis
+- Legal documents (incorporation, IP assignments)
+- Data room access (codebase, contracts, etc.)
+- Product demo video
+- Customer testimonials & case studies
 
 ### How to Invest
 
@@ -693,7 +693,7 @@ $2M Seed Round at $10M post-money valuation
 
 ---
 
-##  Why Now?
+##  Why Now
 
 ### Market Timing
 
@@ -739,7 +739,7 @@ We're not just building software. We're creating the infrastructure for the next
 
 ---
 
-## ? Join Us
+## Join Us
 
 **"The best time to invest in GigMate was yesterday. The second best time is today."**
 
@@ -750,10 +750,10 @@ We're not looking for just capital. We're looking for partners who:
 -  Can help with sales, partnerships, hiring
 -  Share our vision of a better music industry
 
-**Interested in learning more?**
+**Interested in learning more**
 
-? Email: invest@gigmate.com
-? Call: (512) 555-1234
+Email: invest@gigmate.com
+Call: (512) 555-1234
  Web: gigmate.com/invest
 
 **Let's make live music better for everyone. Let's build GigMate together.**

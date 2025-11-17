@@ -106,7 +106,7 @@
 **Status:** COMPLETE
 
 #### Email Confirmation
-? **Action Required:** Enable in Supabase Dashboard
+**Action Required:** Enable in Supabase Dashboard
 - Navigate to: Dashboard > Authentication > Settings
 - Enable "Confirm email" setting
 - Configure email templates
@@ -141,13 +141,13 @@
 - Password reset: 3 per hour (per email)
 
 #### CAPTCHA Integration
-? **Action Required:** Configure in Supabase Dashboard
+**Action Required:** Configure in Supabase Dashboard
 - Navigate to: Dashboard > Authentication > Settings
 - Enable CAPTCHA for signup/login
 - Add CAPTCHA site key to environment
 
 #### MFA for Admin Accounts
-? **Action Required:** Enable for team members
+**Action Required:** Enable for team members
 - Navigate to: Dashboard > Settings > Team
 - Enable MFA requirement for all admin users
 - Require 2FA for sensitive operations
@@ -180,7 +180,7 @@
 4. **Recovery Testing:** Schedule monthly restore drills
 
 #### Backup Verification Checklist
-? **Action Required:** Verify backups before beta launch
+**Action Required:** Verify backups before beta launch
 1. Access Supabase Dashboard > Database > Backups
 2. Confirm daily backups are running
 3. Test restore to staging environment
@@ -295,7 +295,7 @@ SELECT * FROM connection_stats;
 ```
 
 #### Load Testing Recommendations
-? **Action Required:** Perform load testing before launch
+**Action Required:** Perform load testing before launch
 1. Use tools: Apache JMeter, k6, or Artillery
 2. Test scenarios:
    - Concurrent user logins (100+ users)
@@ -340,7 +340,7 @@ Active Connections: TBD (monitor during beta)
 6. **Performance:** Critical indexes added
 7. **Monitoring:** Full observability system
 
-### ? Manual Configuration Required
+### Manual Configuration Required
 
 #### In Supabase Dashboard:
 1. **Enable Email Confirmation**
@@ -425,7 +425,7 @@ ORDER BY dead_row_percent DESC;
 - Monitoring system ready
 - Performance views created
 
-### ? Pre-Launch Actions Required
+### Pre-Launch Actions Required
 1. Enable email confirmation in dashboard
 2. Configure CAPTCHA
 3. Enable MFA for admin team

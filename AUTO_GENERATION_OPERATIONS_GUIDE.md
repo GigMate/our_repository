@@ -7,7 +7,7 @@
 - Weekly automation:  Scheduled (Every Monday 3 AM UTC)
 - Geographic matching:  20-mile radius proximity
 - Featured rotation:  10 venues + 20 musicians weekly
-- Database: ? **Needs seeding** (currently only 1 venue, 1 musician)
+- Database: **Needs seeding** (currently only 1 venue, 1 musician)
 
 ---
 
@@ -121,7 +121,7 @@ When you seed, these REAL venues are included with actual locations:
 - Rockbox Theater
 - Hondo's On Main
 - Crossroads Saloon & Steakhouse
-- Hill Top Caf?
+- Hill Top Caf
 - The Hive
 - Yee Haw Saloon
 
@@ -132,7 +132,7 @@ When you seed, these REAL venues are included with actual locations:
 - Billy's Ice
 - Watering Hole Saloon
 - Freiheit Country Store
-- Krause's Caf?
+- Krause's Caf
 
 ### Bandera Area
 - 11th Street Cowboy Bar
@@ -373,7 +373,7 @@ SELECT rotate_featured_musicians();
    - Better to have 100 venues in 5 cities than 10 venues in 50 cities
    - Ensure critical mass for network effects
 
-### DON'T ?
+### DON'T
 
 1. **Don't disable weekly automation**
    - Platform will look stale
@@ -462,7 +462,7 @@ SELECT rotate_featured_musicians();
 ## Summary
 
 **Current Status:**
-- ? **Action Required:** Run seeding to populate 300 accounts
+- **Action Required:** Run seeding to populate 300 accounts
 -  Auto-generation system ready
 -  Weekly automation configured
 -  Geographic matching active

@@ -68,7 +68,7 @@ VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 7. Click **Deploy**
 
-8. Wait 2-3 minutes ?
+8. Wait 2-3 minutes
 
 9. **Done!** Your site is live at `https://your-project.vercel.app`
 
@@ -127,24 +127,24 @@ done
 
 1. **Visit your site:**
    - Open `https://your-project.vercel.app`
-   - Should see GigMate homepage ?
+   - Should see GigMate homepage
 
 2. **Test sign up:**
    - Click "Sign Up"
    - Create account
-   - Should receive email ?
+   - Should receive email
 
 3. **Test login:**
    - Log in with new account
-   - Should access dashboard ?
+   - Should access dashboard
 
 4. **Test data loading:**
    - Browse musicians/venues
-   - Should see data from Supabase ?
+   - Should see data from Supabase
 
 5. **Check console:**
    - Open browser DevTools
-   - No red errors ?
+   - No red errors
 
 ---
 
@@ -209,9 +209,9 @@ Your GigMate platform is now running at:
 
 ### What Needs API Keys (Optional):
 
-? Payments (Stripe) - Need to add keys
-? Maps (Google) - Need to add API key
-? Background checks (Mayday) - Optional
+Payments (Stripe) - Need to add keys
+Maps (Google) - Need to add API key
+Background checks (Mayday) - Optional
 
 ---
 
@@ -231,7 +231,7 @@ Your GigMate platform is now running at:
 
 ---
 
-## ? Future Deployments
+## Future Deployments
 
 With GitHub connected:
 1. Make changes to code
@@ -246,7 +246,7 @@ With GitHub connected:
 
 ---
 
-## ? Quick Troubleshooting
+## Quick Troubleshooting
 
 **Build fails on Vercel:**
 ```bash
@@ -308,7 +308,7 @@ supabase functions logs function-name
 
 ---
 
-## ? Need Help?
+## Need Help
 
 - **Vercel Docs:** https://vercel.com/docs
 - **Supabase Docs:** https://supabase.com/docs
@@ -317,7 +317,7 @@ supabase functions logs function-name
 
 ---
 
-## ? Quick Command Reference
+## Quick Command Reference
 
 ```bash
 # Deploy to Vercel
@@ -342,7 +342,7 @@ npm run typecheck
 
 ---
 
-** Ready? Let's deploy!**
+** ReadyLet's deploy!**
 
 ```bash
 # 1. Push to GitHub (if not done)
@@ -356,4 +356,4 @@ vercel --prod
 
 ---
 
-**Your platform is ready. It's time to go live!** ?
+**Your platform is ready. It's time to go live!**

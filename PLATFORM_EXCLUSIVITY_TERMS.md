@@ -211,7 +211,7 @@ To maintain fairness and avoid being overly restrictive:
 
 **During Signup:**
 ```
-? I agree to GigMate's Terms of Service
+I agree to GigMate's Terms of Service
 
 [ View Platform Exclusivity Terms ]
 
@@ -226,25 +226,25 @@ o After 12 months, you may transact directly
 ```
  Reminder: Keep payments on platform
 When you book through GigMate, you get:
-? Escrow protection
-? Refund guarantees
-? Insurance coverage
-? Rating/review system
-? Customer support
+Escrow protection
+Refund guarantees
+Insurance coverage
+Rating/review system
+Customer support
 
 Moving payments off-platform voids these protections.
 ```
 
 **In Booking Confirmation:**
 ```
-? IMPORTANT: Payment Terms
+IMPORTANT: Payment Terms
 This booking must be paid through GigMate to be covered by:
 o Our escrow system
 o Cancellation protection
 o Platform guarantees
 
 Off-platform payments violate Terms of Service and may result in
-account suspension. Need help? Contact support@gigmate.us
+account suspension. Need helpContact support@gigmate.us
 ```
 
 ---

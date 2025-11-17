@@ -52,7 +52,7 @@ Visit your Vercel URL and test:
 
 ---
 
-## ? Problems?
+## Problems
 
 ### "Permission denied"
 ```bash
@@ -60,7 +60,7 @@ chmod +x deploy-all.sh
 ./deploy-all.sh
 ```
 
-### Need details?
+### Need details
 See: `AUTOMATION_SCRIPTS.md`
 
 ---

@@ -5,7 +5,7 @@ Populate GigMate with 100 venues, 100 musicians, and 100 fans so the platform lo
 
 ---
 
-## ? Fast Track (3 Minutes)
+## Fast Track (3 Minutes)
 
 ### Step 1: Click the Seed Button
 **Three ways to access:**
@@ -88,7 +88,7 @@ Password for ALL: password123
 
 ---
 
-## ? Real Venues Included (First 29)
+## Real Venues Included (First 29)
 
 **Texas Hill Country legends:**
 - Gruene Hall (oldest dance hall in Texas!)
@@ -122,7 +122,7 @@ Kendall, Gillespie, Blanco, Comal, Bandera, Kerr
 
 ---
 
-## ? Important
+## Important
 
 **Only for Development/Staging:**
 - Never seed production
@@ -162,5 +162,5 @@ Kendall, Gillespie, Blanco, Comal, Bandera, Kerr
 
 ---
 
-**Ready? Click the green "Seed Data" button now!** 
+**ReadyClick the green "Seed Data" button now!** 
 

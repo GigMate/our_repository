@@ -284,7 +284,7 @@ Used for business-to-business communications:
 - Silver ($19.99): 150/month (rollover 75)
 - Gold ($49.99): 500/month (rollover 250)
 
-**? la carte purchases:**
+**la carte purchases:**
 - 25 credits: $4.99
 - 100 credits: $14.99 (most popular)
 - 250 credits: $29.99 (best value)

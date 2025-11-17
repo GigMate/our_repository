@@ -16,9 +16,9 @@
 
 ---
 
-## ? Choose Your Guide:
+## Choose Your Guide:
 
-### ? First Time Deploying?
+### First Time Deploying
 
 **-> Read:** [`START_HERE.md`](START_HERE.md)
 
@@ -26,7 +26,7 @@
 
 ---
 
-### ? Want Automation Details?
+### Want Automation Details
 
 **-> Read:** [`AUTOMATION_SCRIPTS.md`](AUTOMATION_SCRIPTS.md)
 
@@ -34,7 +34,7 @@ Learn what each script does and how to use them.
 
 ---
 
-###  Want Step-by-Step Checklist?
+###  Want Step-by-Step Checklist
 
 **-> Read:** [`DEPLOY_NOW_CHECKLIST.md`](DEPLOY_NOW_CHECKLIST.md)
 
@@ -42,7 +42,7 @@ Manual step-by-step if you prefer.
 
 ---
 
-### ? Want Complete Manual Process?
+### Want Complete Manual Process
 
 **-> Read:** [`VERCEL_DEPLOYMENT_GUIDE.md`](VERCEL_DEPLOYMENT_GUIDE.md)
 
@@ -50,7 +50,7 @@ Full documentation for manual deployment.
 
 ---
 
-## ? Quick Start
+## Quick Start
 
 ```bash
 # 1. Get Supabase credentials from:
@@ -74,7 +74,7 @@ Full documentation for manual deployment.
 
 ---
 
-## ? File Structure
+## File Structure
 
 ```
 .
@@ -129,7 +129,7 @@ Full documentation for manual deployment.
 
 ---
 
-## ? Troubleshooting
+## Troubleshooting
 
 ### "Permission denied"
 ```bash
@@ -169,12 +169,12 @@ npm run build
 -  Verification
 -  Error handling
 
-## ? What's NOT Automated (requires manual action)
+## What's NOT Automated (requires manual action)
 
-- ? Getting Supabase credentials (you need to copy them)
-- ? Updating Supabase auth URLs (you need to paste your Vercel URL)
-- ? Testing your deployment (you need to visit it)
-- ? Configuring Stripe webhook (optional, for payments)
+- Getting Supabase credentials (you need to copy them)
+- Updating Supabase auth URLs (you need to paste your Vercel URL)
+- Testing your deployment (you need to visit it)
+- Configuring Stripe webhook (optional, for payments)
 
 **These take 5 minutes total and are clearly documented!**
 
@@ -214,7 +214,7 @@ npm run build
 
 ---
 
-## ? Documentation
+## Documentation
 
 - **START_HERE.md** - Absolute beginner guide
 - **AUTOMATION_SCRIPTS.md** - Script documentation
@@ -226,7 +226,7 @@ npm run build
 
 ---
 
-## ? The Future is Automated
+## The Future is Automated
 
 ```bash
 ./deploy-all.sh
@@ -236,4 +236,4 @@ npm run build
 
 ---
 
-**Ready? -> Read [`START_HERE.md`](START_HERE.md)** ?
+**Ready-> Read [`START_HERE.md`](START_HERE.md)**

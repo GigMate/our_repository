@@ -1,4 +1,4 @@
-# ? GigMate Merchandise System - Detailed Financial Projections
+# GigMate Merchandise System - Detailed Financial Projections
 
 ## Executive Summary
 
@@ -64,7 +64,7 @@ The merchandise system represents **GigMate's largest revenue opportunity**, pro
 
 ---
 
-## ? Growth Projections by Year
+## Growth Projections by Year
 
 ### Year 1: Foundation ($50K)
 **Focus:** Infrastructure, vendor onboarding, beta testing
@@ -123,7 +123,7 @@ The merchandise system represents **GigMate's largest revenue opportunity**, pro
 
 ---
 
-### Year 3: Dominance ($19.7M) ?
+### Year 3: Dominance ($19.7M)
 **Focus:** Category leadership, national expansion, automation
 
 **Metrics:**
@@ -162,7 +162,7 @@ The merchandise system represents **GigMate's largest revenue opportunity**, pro
 
 ---
 
-### Year 5: Scale ($78M) ?
+### Year 5: Scale ($78M)
 **Focus:** Market dominance, international expansion, B2B services
 
 **Metrics:**
@@ -449,7 +449,7 @@ Net profit per order: $8.40 (51% margin)
 
 ---
 
-## ? Investment Required
+## Investment Required
 
 ### Merchandise System Development (Year 1)
 
@@ -482,7 +482,7 @@ Net profit per order: $8.40 (51% margin)
 
 ---
 
-## ? Detailed Financial Model
+## Detailed Financial Model
 
 ### Year-by-Year Merchandise Projections
 
@@ -576,7 +576,7 @@ Total: $78M (296% growth from Y3)
 
 ---
 
-## ? Conclusion
+## Conclusion
 
 ### Why Merchandise is Our Biggest Opportunity
 
@@ -608,5 +608,5 @@ Total: $78M (296% growth from Y3)
 
 ---
 
-**The merchandise system isn't just a feature -- it's the foundation of a $100M+ business.** ?
+**The merchandise system isn't just a feature -- it's the foundation of a $100M+ business.**
 

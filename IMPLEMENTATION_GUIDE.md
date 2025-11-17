@@ -155,10 +155,10 @@ export const getStripe = () => {
 
 export interface CreatePaymentIntentRequest {
   amount: number;
-  currency?: string;
+  currency: string;
   payment_type: 'booking' | 'ticket' | 'merchandise' | 'tip' | 'subscription';
-  related_id?: string;
-  metadata?: Record<string, any>;
+  related_id: string;
+  metadata: Record<string, any>;
 }
 
 export interface CreateSubscriptionRequest {
@@ -180,7 +180,7 @@ export function usePayment() {
   const createPaymentIntent = async (
     amount: number,
     paymentType: string,
-    relatedId?: string
+    relatedId: string
   ) => {
     try {
       setLoading(true);
@@ -1071,7 +1071,7 @@ serve(async (req) => {
     }
 
     return new Response(
-      JSON.stringify({ processed: emails?.length || 0 }),
+      JSON.stringify({ processed: emails.length || 0 }),
       { headers: { 'Content-Type': 'application/json' } }
     );
   } catch (error) {
@@ -1188,7 +1188,7 @@ interface Message {
 interface MessagingPanelProps {
   recipientId: string;
   recipientName: string;
-  bookingId?: string;
+  bookingId: string;
 }
 
 export function MessagingPanel({ recipientId, recipientName, bookingId }: MessagingPanelProps) {
@@ -1259,7 +1259,7 @@ export function MessagingPanel({ recipientId, recipientName, bookingId }: Messag
         .select('id')
         .single();
 
-      setConversationId(newConv?.id || null);
+      setConversationId(newConv.id || null);
     }
   };
 
@@ -1300,7 +1300,7 @@ export function MessagingPanel({ recipientId, recipientName, bookingId }: Messag
   };
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -1314,12 +1314,12 @@ export function MessagingPanel({ recipientId, recipientName, bookingId }: Messag
         {messages.map((message) => (
           <div
             key={message.id}
-            className={`flex ${message.sender_id === user?.id ? 'justify-end' : 'justify-start'}`}
+            className={`flex ${message.sender_id === user.id 'justify-end' : 'justify-start'}`}
           >
             <div
               className={`max-w-[70%] rounded-lg p-3 ${
-                message.sender_id === user?.id
-                  ? 'bg-blue-500 text-white'
+                message.sender_id === user.id
+                  'bg-blue-500 text-white'
                   : 'bg-gray-100 text-gray-900'
               }`}
             >
@@ -1426,7 +1426,7 @@ import { useAuth } from '../../contexts/AuthContext';
 interface MediaUploaderProps {
   userId: string;
   mediaType: 'photo' | 'audio' | 'video';
-  maxFiles?: number;
+  maxFiles: number;
   onUploadComplete: (urls: string[]) => void;
 }
 
@@ -1544,12 +1544,12 @@ export function MediaUploader({ userId, mediaType, maxFiles = 10, onUploadComple
       />
 
       <button
-        onClick={() => fileInputRef.current?.click()}
+        onClick={() => fileInputRef.current.click()}
         disabled={uploading || uploadedFiles.length >= maxFiles}
         className="w-full py-3 border-2 border-dashed rounded-lg hover:border-blue-500 transition-colors flex items-center justify-center gap-2"
       >
         {getIcon()}
-        {uploading ? 'Uploading...' : `Upload ${mediaType}s`}
+        {uploading 'Uploading...' : `Upload ${mediaType}s`}
       </button>
 
       <div className="grid grid-cols-3 gap-4">
@@ -1735,7 +1735,7 @@ export function EventDiscovery() {
       .eq('fan_id', profile.id);
 
     // Extract favorite genres
-    const genres = purchases?.flatMap((p) => p.event.genres) || [];
+    const genres = purchases.flatMap((p) => p.event.genres) || [];
     const genreCounts = genres.reduce((acc: any, genre: string) => {
       acc[genre] = (acc[genre] || 0) + 1;
       return acc;
@@ -1762,7 +1762,7 @@ export function EventDiscovery() {
 
   const saveSearch = async () => {
     await supabase.from('saved_searches').insert({
-      user_id: profile?.id,
+      user_id: profile.id,
       search_query: filters,
       notify_on_match: true,
     });
@@ -1790,7 +1790,7 @@ export function EventDiscovery() {
           <button
             onClick={() => setFilters({ ...filters, featured: !filters.featured })}
             className={`px-4 py-2 rounded-lg flex items-center gap-2 ${
-              filters.featured ? 'bg-yellow-500 text-white' : 'bg-gray-100'
+              filters.featured 'bg-yellow-500 text-white' : 'bg-gray-100'
             }`}
           >
             <Star className="w-4 h-4" />
@@ -1842,14 +1842,14 @@ export function EventDiscovery() {
           <span className="text-sm font-medium">Sort by:</span>
           <button
             onClick={() => setSortBy('date')}
-            className={`px-3 py-1 rounded ${sortBy === 'date' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}
+            className={`px-3 py-1 rounded ${sortBy === 'date' 'bg-blue-500 text-white' : 'bg-gray-100'}`}
           >
             Date
           </button>
           <button
             onClick={() => setSortBy('popular')}
             className={`px-3 py-1 rounded flex items-center gap-1 ${
-              sortBy === 'popular' ? 'bg-blue-500 text-white' : 'bg-gray-100'
+              sortBy === 'popular' 'bg-blue-500 text-white' : 'bg-gray-100'
             }`}
           >
             <TrendingUp className="w-4 h-4" />
@@ -1857,7 +1857,7 @@ export function EventDiscovery() {
           </button>
           <button
             onClick={() => setSortBy('price')}
-            className={`px-3 py-1 rounded ${sortBy === 'price' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}
+            className={`px-3 py-1 rounded ${sortBy === 'price' 'bg-blue-500 text-white' : 'bg-gray-100'}`}
           >
             Price
           </button>
@@ -2183,7 +2183,7 @@ export function TicketScanner() {
       {result && (
         <div
           className={`mt-4 p-4 rounded-lg ${
-            result.valid ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+            result.valid 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
           }`}
         >
           {result.message}
@@ -2303,7 +2303,7 @@ export function VerificationManager() {
 
     try {
       const { error } = await supabase.from('verifications').insert({
-        user_id: profile?.id,
+        user_id: profile.id,
         verification_type: type,
         status: 'pending',
       });
@@ -2330,7 +2330,7 @@ export function VerificationManager() {
             <h4 className="font-semibold">Identity Verification</h4>
             <p className="text-sm text-gray-600">Verify your identity with government ID</p>
           </div>
-          {profile?.is_identity_verified ? (
+          {profile.is_identity_verified (
             <CheckCircle className="w-6 h-6 text-green-500" />
           ) : (
             <button
@@ -2348,7 +2348,7 @@ export function VerificationManager() {
             <h4 className="font-semibold">Background Check</h4>
             <p className="text-sm text-gray-600">Optional enhanced verification</p>
           </div>
-          {profile?.is_background_checked ? (
+          {profile.is_background_checked (
             <CheckCircle className="w-6 h-6 text-green-500" />
           ) : (
             <button
@@ -2367,10 +2367,10 @@ export function VerificationManager() {
             <div className="flex-1 bg-gray-200 rounded-full h-4">
               <div
                 className="bg-blue-500 h-4 rounded-full"
-                style={{ width: `${profile?.trust_score || 100}%` }}
+                style={{ width: `${profile.trust_score || 100}%` }}
               />
             </div>
-            <span className="font-bold">{profile?.trust_score || 100}/100</span>
+            <span className="font-bold">{profile.trust_score || 100}/100</span>
           </div>
         </div>
       </div>
@@ -2408,7 +2408,7 @@ export function DisputeForm({ bookingId, respondentId, onSuccess }: DisputeFormP
 
     try {
       const { error } = await supabase.from('disputes').insert({
-        claimant_id: profile?.id,
+        claimant_id: profile.id,
         respondent_id: respondentId,
         related_booking_id: bookingId,
         dispute_type: formData.dispute_type,
@@ -2465,7 +2465,7 @@ export function DisputeForm({ bookingId, respondentId, onSuccess }: DisputeFormP
           disabled={loading}
           className="w-full py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 disabled:opacity-50"
         >
-          {loading ? 'Submitting...' : 'File Dispute'}
+          {loading 'Submitting...' : 'File Dispute'}
         </button>
 
         <p className="text-xs text-gray-500">

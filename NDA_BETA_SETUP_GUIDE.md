@@ -249,21 +249,21 @@ For each consent, the system records:
 ## Common Scenarios
 
 ### Scenario 1: Adding Documents Mid-Beta
-**Q**: What if I add an NDA after users are already using the beta?
+**Q**: What if I add an NDA after users are already using the beta
 
 **A**: All existing users will see the NDA on their next login. They cannot proceed without accepting it.
 
 ---
 
 ### Scenario 2: User Refuses to Accept
-**Q**: What if a user doesn't want to accept the NDA?
+**Q**: What if a user doesn't want to accept the NDA
 
 **A**: They will be stuck on the consent screen and cannot access the application. They can log out but cannot proceed without acceptance.
 
 ---
 
 ### Scenario 3: Updating Terms
-**Q**: How do I update my NDA after users have accepted it?
+**Q**: How do I update my NDA after users have accepted it
 
 **A**:
 - **Minor changes**: Edit the document, bump the version (e.g., 1.0 -> 1.1)
@@ -273,7 +273,7 @@ For each consent, the system records:
 ---
 
 ### Scenario 4: Multiple Documents
-**Q**: Can users be required to accept multiple documents?
+**Q**: Can users be required to accept multiple documents
 
 **A**: Yes! The system shows documents sequentially. Users must accept all active documents before accessing the app.
 
@@ -284,8 +284,8 @@ For each consent, the system records:
 ### Users Not Seeing Consent Screen
 
 **Check**:
-1. Are any documents marked as "Active"?
-2. Has the migration been applied? Run: `supabase db pull` to verify tables exist
+1. Are any documents marked as "Active"
+2. Has the migration been appliedRun: `supabase db pull` to verify tables exist
 3. Check browser console for errors
 4. Verify RLS policies are enabled
 

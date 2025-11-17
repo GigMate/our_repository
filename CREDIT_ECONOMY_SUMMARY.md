@@ -26,7 +26,7 @@ Users can buy more credits anytime:
 
 - **25 credits:** $4.99 ($0.20 per credit)
 - **100 credits:** $14.99 ($0.15 per credit)  Most Popular
-- **250 credits:** $29.99 ($0.12 per credit) ? Best Value
+- **250 credits:** $29.99 ($0.12 per credit) Best Value
 - **1,000 credits:** $99.99 ($0.10 per credit)
 
 ---
@@ -143,10 +143,10 @@ Users can buy more credits anytime:
 
 **Message Thread:**
 1. Venue sends initial inquiry: **-2 credits**
-   - "Hi Sarah! Love your sound. Available March 15th?"
+   - "Hi Sarah! Love your sound. Available March 15th"
 
 2. Sarah replies: **-1 credit**
-   - "Thanks! Yes, I'm available. What's your budget?"
+   - "Thanks! Yes, I'm available. What's your budget"
 
 3. Venue sends booking request: **-3 credits**
    - Formal proposal with $500, 2-hour set, equipment details
@@ -168,7 +168,7 @@ Users can buy more credits anytime:
 
 **Message Thread:**
 1. Jake sends initial message: **-1 credit**
-   - "Hey Emma! Want to do a co-headlining show?"
+   - "Hey Emma! Want to do a co-headlining show"
 
 2. Emma replies: **FREE**
    - "I'm interested! Tell me more."
@@ -196,13 +196,13 @@ Users can buy more credits anytime:
    - "Thank you so much! Glad you enjoyed it."
 
 3. Fan asks: **FREE**
-   - "Any upcoming shows?"
+   - "Any upcoming shows"
 
 4. Tom replies: **FREE**
    - "Yes! Next Friday at Luckenbach."
 
 5. Fan asks about merch: **-1 credit**
-   - "Do you have any t-shirts available?"
+   - "Do you have any t-shirts available"
 
 6. Tom replies: **FREE**
    - "Yes! Check my merch tab on my profile!"
@@ -498,7 +498,7 @@ GigMate's credit economy transforms communication into a revenue-generating asse
 **Key Success Factors:**
 
 1. **Fair Value Exchange:** Credits reflect real value of professional attention
-2. **Flexible Options:** Free, subscription, and ? la carte purchases
+2. **Flexible Options:** Free, subscription, and la carte purchases
 3. **Community Encouragement:** Peer networking remains affordable
 4. **Spam Prevention:** Self-regulating quality control
 5. **Recurring Revenue:** Predictable monthly income

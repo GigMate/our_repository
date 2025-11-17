@@ -114,7 +114,7 @@ DELETE FROM auth.users
 WHERE email LIKE '%@gigmate-test.com';
 ```
 
-**? IMPORTANT:** Run this command before going to production!
+**IMPORTANT:** Run this command before going to production!
 
 ---
 
@@ -400,11 +400,11 @@ npm run preview       # Preview production build
 
 ### Current Build Output
 ```
-? 1591 modules transformed
+1591 modules transformed
 dist/index.html                   0.47 kB | gzip:   0.30 kB
 dist/assets/index-zsbdJGAH.css   49.96 kB | gzip:   7.81 kB
 dist/assets/index-DS7ORFOc.js   526.01 kB | gzip: 136.28 kB
-? built in 8.00s
+built in 8.00s
 ```
 
 ---

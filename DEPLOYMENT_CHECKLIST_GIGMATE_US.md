@@ -113,7 +113,7 @@ TTL: 3600
 - [ ] Site loads at `https://gigmate.us`
 - [ ] Password prompt appears first
 - [ ] After password, homepage loads
-- [ ] Can access `/beta/register?code=TEST` (will show invalid code error)
+- [ ] Can access `/beta/registercode=TEST` (will show invalid code error)
 - [ ] SSL certificate active (green padlock in browser)
 - [ ] All static assets loading correctly
 - [ ] Mobile responsive layout works
@@ -197,7 +197,7 @@ Password: [hosting password]
 
 STEP 2: Register Your Account
 Use your unique invitation link:
-https://gigmate.us/beta/register?code=[THEIR_CODE]
+https://gigmate.us/beta/registercode=[THEIR_CODE]
 
 STEP 3: Sign Legal Documents
 You'll need to sign:
@@ -278,7 +278,7 @@ support@gigmate.us
 
 ---
 
-## ? Troubleshooting Guide
+## Troubleshooting Guide
 
 ### Domain Not Resolving
 **Symptom:** gigmate.us doesn't load
@@ -330,7 +330,7 @@ support@gigmate.us
 
 ---
 
-## ? Continued Development
+## Continued Development
 
 ### Important: Custom Domain Does NOT Block Development!
 
@@ -359,7 +359,7 @@ vercel --prod
 
 ---
 
-## ? Support Contacts
+## Support Contacts
 
 ### Technical Issues
 - **Vercel Support:** vercel.com/support
@@ -423,7 +423,7 @@ vercel --prod
 
 ---
 
-## ? Post-Launch Metrics
+## Post-Launch Metrics
 
 ### Week 1 KPIs:
 - Total beta testers registered
@@ -482,4 +482,4 @@ FROM beta_invitations;
 **Status:**  Ready for Launch
 **Domain:** gigmate.us
 
-**Let's revolutionize live music!** ??
+**Let's revolutionize live music!**

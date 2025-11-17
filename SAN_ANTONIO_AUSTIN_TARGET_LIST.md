@@ -209,13 +209,13 @@ Subject: Fill Your Slow Nights - Zero Cost to You
 
 Hi [Venue Name] Team,
 
-Looking to fill Tuesday/Wednesday nights without upfront costs?
+Looking to fill Tuesday/Wednesday nights without upfront costs
 
 GigMate connects you with pre-vetted local musicians who:
-? Have their own following
-? Handle ticket sales
-? Promote the show
-? Only get paid if tickets sell
+Have their own following
+Handle ticket sales
+Promote the show
+Only get paid if tickets sell
 
 You: Keep bar/food revenue
 Them: Keep ticket revenue
@@ -223,7 +223,7 @@ GigMate: Small platform fee
 
 [Venue Name] could host 4-8 more shows per month with ZERO booking risk.
 
-Interested in a 5-minute call?
+Interested in a 5-minute call
 
 - GigMate Team
 ```
@@ -240,7 +240,7 @@ Their results:
 - 800+ new customers
 - Zero booking hassle
 
-Want the same for [Venue Name]?
+Want the same for [Venue Name]
 
 Free trial: First 3 bookings, zero platform fees.
 
@@ -254,14 +254,14 @@ Book a demo: [link]
 ```
 Hey [Musician Name],
 
-Tired of cold-calling venues?
+Tired of cold-calling venues
 
 GigMate = Your automated booking agent:
-? Venues browse YOUR profile
-? They send YOU offers
-? Escrow protects payment
-? Built-in ticketing & promo
-? Keep 85-95% of revenue
+Venues browse YOUR profile
+They send YOU offers
+Escrow protects payment
+Built-in ticketing & promo
+Keep 85-95% of revenue
 
 [Similar Band] just booked 8 shows in 2 weeks.
 

@@ -193,7 +193,7 @@ Quality interactions cost credits. Spam prevention + revenue generation.
 | Profile boost (24hr) | 20 | Featured placement |
 | Event promotion (7 days) | 50 | Top of search |
 
-**? la Carte Credit Purchases:**
+**la Carte Credit Purchases:**
 - 25 credits: $4.99
 - 100 credits: $14.99
 - 250 credits: $29.99

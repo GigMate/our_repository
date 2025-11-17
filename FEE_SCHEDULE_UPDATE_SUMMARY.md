@@ -124,7 +124,7 @@ This document summarizes the updates made to GigMate's legal agreements and docu
 
 ### 4. Credit Economy
 - Professional messaging between musicians/venues
-- ? la carte purchases
+- la carte purchases
 - 10% platform fee
 
 ### 5. Merchandise Commissions

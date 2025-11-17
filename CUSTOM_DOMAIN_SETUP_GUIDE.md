@@ -225,7 +225,7 @@ git push -u origin main
 2. **Sees password prompt** (Vercel/Netlify password protection)
 3. **Enters hosting password** (you provide to beta testers)
 4. **Lands on homepage**
-5. **Clicks beta invitation link** (e.g., gigmate.us/beta/register?code=ABC12345)
+5. **Clicks beta invitation link** (e.g., gigmate.us/beta/registercode=ABC12345)
 6. **Registers account**
 7. **MUST sign legal documents:**
    - NDA (Non-Disclosure Agreement)
@@ -355,19 +355,19 @@ open https://gigmate.us
 
 ```
 1. Local Development (with Claude Code)
-   ?
+  
 2. Test with npm run dev
-   ?
+  
 3. Make more changes as needed
-   ?
+  
 4. Run npm run build (verify no errors)
-   ?
+  
 5. Deploy to production
-   ?
+  
 6. Changes live on gigmate.us
-   ?
+  
 7. Test on live site
-   ?
+  
 8. Repeat as needed
 ```
 
@@ -409,7 +409,7 @@ open https://gigmate.us
    1. Visit: https://gigmate.us
    2. Enter password: [hosting password]
    3. Use this invitation link:
-      https://gigmate.us/beta/register?code=ABC12345
+      https://gigmate.us/beta/registercode=ABC12345
    4. Register and sign legal documents
    5. Start testing!
 

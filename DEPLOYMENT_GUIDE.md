@@ -85,7 +85,7 @@ Vercel should auto-detect these settings:
 
 ### Step 4: Add Environment Variables
 
-? **CRITICAL STEP** - Your app won't work without these!
+**CRITICAL STEP** - Your app won't work without these!
 
 Click **"Environment Variables"** and add each one:
 
@@ -104,7 +104,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtYWdxa3V
 pk_test_YOUR_STRIPE_PUBLISHABLE_KEY_HERE
 ```
 
-? **You must add your own Stripe publishable key from https://dashboard.stripe.com/test/apikeys**
+**You must add your own Stripe publishable key from https://dashboard.stripe.com/test/apikeys**
 
 **VITE_GOOGLE_MAPS_API_KEY**
 ```
@@ -112,9 +112,9 @@ YOUR_GOOGLE_MAPS_API_KEY_HERE
 ```
 
 **Important Notes:**
-- ? These are test/development keys - replace Stripe key with production key when going live
-- ? You need to get a real Google Maps API key from Google Cloud Console
-- ? You MUST get your own Stripe publishable key from https://dashboard.stripe.com/test/apikeys
+- These are test/development keys - replace Stripe key with production key when going live
+- You need to get a real Google Maps API key from Google Cloud Console
+- You MUST get your own Stripe publishable key from https://dashboard.stripe.com/test/apikeys
 -  Supabase keys are already configured and working
 
 ### Step 5: Deploy!
@@ -221,16 +221,16 @@ This allows Supabase authentication to work on your deployed app.
 
 **Common Issues:**
 
-? **"Blank page"**
+**"Blank page"**
 - Check browser console for errors
 - Verify environment variables are set correctly
 - Make sure Supabase URL is in the allowlist
 
-? **"Authentication not working"**
+**"Authentication not working"**
 - Check Supabase redirect URLs
 - Verify VITE_SUPABASE_ANON_KEY is correct
 
-? **"Payments failing"**
+**"Payments failing"**
 - Check Stripe publishable key is correct in Vercel environment variables
 - Verify Stripe secret key is set in Supabase Edge Functions secrets
 - Verify webhook endpoint is configured in Stripe Dashboard
@@ -258,7 +258,7 @@ Vercel detects the push and deploys automatically!
 
 ## Custom Domain (Optional)
 
-Want `gigmate.com` instead of the Vercel subdomain?
+Want `gigmate.com` instead of the Vercel subdomain
 
 1. **Buy a domain** (Namecheap, GoDaddy, Google Domains, etc.)
 2. **In Vercel Dashboard**:

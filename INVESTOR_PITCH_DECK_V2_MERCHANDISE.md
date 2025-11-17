@@ -49,13 +49,13 @@ But lose 70% of potential revenue:
 ```
 
 **What Musicians Face:**
-- ? Can't afford upfront merch costs ($2,000 minimum order)
-- ? No storage for inventory (apartments/garages full)
-- ? Merch sells out at popular shows (lost sales)
-- ? Can't take pre-orders easily
-- ? No way to sell between shows
-- ? Pay 30-50% to middlemen (Merch Now, Merchbar)
-- ? Traveling with merch is expensive and risky
+- Can't afford upfront merch costs ($2,000 minimum order)
+- No storage for inventory (apartments/garages full)
+- Merch sells out at popular shows (lost sales)
+- Can't take pre-orders easily
+- No way to sell between shows
+- Pay 30-50% to middlemen (Merch Now, Merchbar)
+- Traveling with merch is expensive and risky
 
 **The Real Cost:**
 - Average band could sell $5,000/month in merch
@@ -65,12 +65,12 @@ But lose 70% of potential revenue:
 ### Slide 2: Fans Want to Support Artists (But Can't)
 
 **Fan Frustration:**
-- ? Arrive at show, merch sold out
-- ? Wrong size available
-- ? Only have digital payment, merch table is cash-only
-- ? Don't want to carry shirt all night
-- ? Miss the show, miss the merch
-- ? No way to buy online (most musicians have no store)
+- Arrive at show, merch sold out
+- Wrong size available
+- Only have digital payment, merch table is cash-only
+- Don't want to carry shirt all night
+- Miss the show, miss the merch
+- No way to buy online (most musicians have no store)
 
 **The Opportunity:**
 - 60M active music fans
@@ -93,14 +93,14 @@ But lose 70% of potential revenue:
 
 **Every Musician Gets:**
 
-? **Built-In Online Store**
+**Built-In Online Store**
 - Professional product pages
 - Upload unlimited products
 - Set your own prices
 - Integrated with profile
 - No monthly fees
 
-? **Two Selling Options:**
+**Two Selling Options:**
 
 **Option 1: Self-Service**
 - Upload your own inventory
@@ -108,7 +108,7 @@ But lose 70% of potential revenue:
 - Keep 97.5% (2.5% platform fee)
 - Full control
 
-**Option 2: Dropship Partnership (? Game Changer)**
+**Option 2: Dropship Partnership (Game Changer)**
 - **Zero upfront costs**
 - Partner with verified vendors
 - Vendors handle production + shipping
@@ -131,7 +131,7 @@ Your investment: $0
 
 **The Experience:**
 
-? **Browse from Phone**
+**Browse from Phone**
 1. Open musician profile
 2. Tap "Shop Merch"
 3. Select items (shirts, vinyl, posters)
@@ -174,7 +174,7 @@ Fan is GUARANTEED their size/item
 
 **What We Offer Vendors:**
 
-? **Vendor Marketplace**
+**Vendor Marketplace**
 - Business profile + verification
 - Product catalog (unlimited items)
 - Set wholesale pricing
@@ -211,7 +211,7 @@ Annual: $30,000 from one channel
 
 ---
 
-## ? Market Opportunity (2 Slides)
+## Market Opportunity (2 Slides)
 
 ### Slide 1: Two Massive Markets Combined
 
@@ -242,10 +242,10 @@ Annual: $30,000 from one channel
 
 | Platform | Commission | Event Delivery | Dropship | Mobile | Discovery |
 |----------|-----------|----------------|----------|--------|-----------|
-| Bandcamp | 15% | ? | ? | ? | ? |
-| Merch Now | 30-50% | ? |  | ? | ? |
-| Printful | N/A* | ? |  | ? | ? |
-| Shopify | 2.9%+$30/mo | ? | ? | ? | ? |
+| Bandcamp | 15% | | | | |
+| Merch Now | 30-50% | |  | | |
+| Printful | N/A* | |  | | |
+| Shopify | 2.9%+$30/mo | | | | |
 | **GigMate** | **15%** | **** | **** | **** | **** |
 
 *Printful charges musicians directly (markup model)
@@ -263,7 +263,7 @@ Annual: $30,000 from one channel
 
 ### Slide 1: Revenue Stream Breakdown
 
-**1. Merchandise (69% of Year 3 Revenue) ?**
+**1. Merchandise (69% of Year 3 Revenue)**
 - Vendor commissions: 15-22%
 - Self-service platform fee: 2.5%
 - Premium fulfillment fees: $10-15/order
@@ -520,7 +520,7 @@ Net profit: $8.50 (53% margin)
 
 ---
 
-## ? Competitive Advantages (1 Slide)
+## Competitive Advantages (1 Slide)
 
 ### Why We Win
 
@@ -557,7 +557,7 @@ Net profit: $8.50 (53% margin)
 
 ---
 
-## ? Product Roadmap (1 Slide)
+## Product Roadmap (1 Slide)
 
 ### Built & Operational 
 - Vendor marketplace infrastructure
@@ -592,7 +592,7 @@ Net profit: $8.50 (53% margin)
 
 ---
 
-## ? Team (1 Slide)
+## Team (1 Slide)
 
 ### Current Team
 
@@ -636,7 +636,7 @@ Net profit: $8.50 (53% margin)
 
 ---
 
-## ? Use of Funds (1 Slide)
+## Use of Funds (1 Slide)
 
 ### $500K Seed Round Allocation
 
@@ -680,7 +680,7 @@ Net profit: $8.50 (53% margin)
 
 ---
 
-## ? Investment Opportunity (1 Slide)
+## Investment Opportunity (1 Slide)
 
 ### The Deal
 
@@ -739,7 +739,7 @@ Net profit: $8.50 (53% margin)
 
 ---
 
-## ? Closing Slide
+## Closing Slide
 
 ### GigMate: The Complete Operating System for Live Music
 
@@ -773,4 +773,4 @@ gigmate.us
 
 ---
 
-**Let's revolutionize how musicians make money and how fans support the artists they love.** ?
+**Let's revolutionize how musicians make money and how fans support the artists they love.**

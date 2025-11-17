@@ -92,7 +92,7 @@ When fans purchase credits to message artists:
 - Artist receives credits equivalent to $0.99
 - GigMate Revenue: $0.10
 
-### Why This Change?
+### Why This Change
 
 1. **Lower Barrier to Entry** - Everyone can start immediately without upfront costs
 2. **Align with Success** - GigMate only succeeds when our users succeed

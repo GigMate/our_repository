@@ -263,16 +263,16 @@ async function postToAllPlatforms(post) {
 |                                         |
 |  By uploading content to GigMate, you:  |
 |                                         |
-|  ? Retain full ownership                |
-|  ? Grant GigMate usage rights           |
-|  ? Allow derivative works               |
-|  ? Enable commercial use                |
-|  ? Permit marketing usage               |
+|  Retain full ownership                |
+|  Grant GigMate usage rights           |
+|  Allow derivative works               |
+|  Enable commercial use                |
+|  Permit marketing usage               |
 |                                         |
 |  You can delete content anytime.        |
 |  GigMate will credit you when possible. |
 |                                         |
-|  [?] I understand and agree             |
+|  [] I understand and agree             |
 |                                         |
 |  [Continue]  [Cancel]                   |
 +-----------------------------------------+
@@ -429,7 +429,7 @@ match_score = (
 
 ```
 +--------------------------------------------+
-|  ? Emergency Replacement Needed           |
+|  Emergency Replacement Needed           |
 +--------------------------------------------+
 |                                            |
 |  Original: The Blue Notes (cancelled)      |
@@ -441,7 +441,7 @@ match_score = (
 |  1. Johnny's Band                          |
 |     o 100% genre match (Rock, Blues)       |
 |     o Emergency Rate: $600 ($100 more)     |
-|     o 4.8? rating (45 gigs)                |
+|     o 4.8rating (45 gigs)                |
 |     o 35 miles away                        |
 |     o Can be there in 60 minutes           |
 |     [View Profile] [Book Now]              |
@@ -449,7 +449,7 @@ match_score = (
 |  2. The Roadhouse Kings                    |
 |     o 66% genre match (Rock, Country)      |
 |     o Emergency Rate: $550 ($50 more)      |
-|     o 4.6? rating (32 gigs)                |
+|     o 4.6rating (32 gigs)                |
 |     o 42 miles away                        |
 |     o Can be there in 90 minutes           |
 |     [View Profile] [Book Now]              |
@@ -729,20 +729,20 @@ FROM emergency_replacements;
 |  Connect Social Media Accounts       |
 +--------------------------------------+
 |                                      |
-|  ? Facebook     [Connected ?]       |
+|  Facebook     [Connected]       |
 |     @johnsband                       |
 |     Last synced: 2 hours ago         |
 |     [Disconnect]                     |
 |                                      |
-|  ? Instagram    [Connect]           |
+|  Instagram    [Connect]           |
 |                                      |
-|  ? Twitter      [Connect]           |
+|  Twitter      [Connect]           |
 |                                      |
 |   TikTok       [Connect]           |
 |                                      |
-|  ?  YouTube     [Connect]           |
+|   YouTube     [Connect]           |
 |                                      |
-|   Spotify      [Connected ?]       |
+|   Spotify      [Connected]       |
 |     @johnsband                       |
 |     [Disconnect]                     |
 |                                      |
@@ -757,7 +757,7 @@ FROM emergency_replacements;
 +----------------------------------------+
 |                                        |
 |  Post to:                              |
-|  [?] Facebook  [?] Instagram  [ ] Twitter
+|  [] Facebook  [] Instagram  [ ] Twitter
 |                                        |
 |  +----------------------------------+ |
 |  | Live at The Saxon Pub tonight!   | |
@@ -766,11 +766,11 @@ FROM emergency_replacements;
 |  | #livemusic #austin #gig         | |
 |  +----------------------------------+ |
 |                                        |
-|  ? Add Photos  ? Add Video           |
+|  Add Photos  Add Video           |
 |                                        |
-|  ? Link Event: Friday Night Live      |
+|  Link Event: Friday Night Live      |
 |                                        |
-|  ? Post Now   Schedule for Later    |
+|  Post Now   Schedule for Later    |
 |                                        |
 |  [Post]                                |
 |                                        |
@@ -796,10 +796,10 @@ FROM emergency_replacements;
 |  Current: 75 miles                       |
 |                                          |
 |  Response Time: [___] minutes            |
-|  (How quickly can you respond?)          |
+|  (How quickly can you respond)          |
 |                                          |
 |  Minimum Notice: [___] hours             |
-|  (How much advance warning do you need?) |
+|  (How much advance warning do you need) |
 |                                          |
 |  Requirements (optional):                |
 |  +------------------------------------+ |
@@ -891,7 +891,7 @@ async function uploadContent(file, user) {
 
 > **"Never Cancel a Show Again"**
 >
-> Musician cancelled last minute? GigMate automatically finds available replacements within your area, matching your genre and budget. Book a replacement in minutes, not hours. Your show goes on, your fans stay happy.
+> Musician cancelled last minuteGigMate automatically finds available replacements within your area, matching your genre and budget. Book a replacement in minutes, not hours. Your show goes on, your fans stay happy.
 
 **For Musicians:**
 

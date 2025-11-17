@@ -176,7 +176,7 @@ Once we have real users and events, we'll rotate in actual GigMate photos:
 - Venue atmosphere (1-5 stars)
 - Value for money (1-5 stars)
 - Overall experience (1-5 stars)
-- Would recommend? (Yes/No)
+- Would recommend(Yes/No)
 - Written review (optional)
 
 **Impact:**
@@ -259,7 +259,7 @@ if (musician.ratingsDrop30PercentInOneWeek) {
 
 **Database Check:**
 ```sql
--- Can user A rate user B?
+-- Can user A rate user B
 SELECT * FROM bookings
 WHERE (musician_id = A AND venue_id = B)
   OR (venue_id = A AND musician_id = B)
@@ -305,7 +305,7 @@ WHERE (musician_id = A AND venue_id = B)
 **Example:**
 > **1-Star Review from Venue:** "Musician was 2 hours late!"
 >
-> **Musician Response:** "I arrived 15 minutes before set time as agreed. I have the venue's confirmation email stating 8pm start, and I arrived at 7:45pm. Perhaps there was miscommunication with venue staff?"
+> **Musician Response:** "I arrived 15 minutes before set time as agreed. I have the venue's confirmation email stating 8pm start, and I arrived at 7:45pm. Perhaps there was miscommunication with venue staff"
 >
 > **Community Impact:** Other venues read response, see musician has 4.9 rating from 30 other venues, conclude venue was mistaken.
 
@@ -504,7 +504,7 @@ Three key points displayed:
 ### Phase 3 (12-18 months)
 - Augmented reality venue tours
 - Live event photo streams
-- 360? venue photos
+- 360venue photos
 - Machine learning for fraud detection
 - Blockchain-verified ratings (tamper-proof)
 - International expansion (localized images)

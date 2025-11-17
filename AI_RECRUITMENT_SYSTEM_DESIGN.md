@@ -18,7 +18,7 @@
 |  | Engine       |  | AI           |  |              |      |
 |  +--------------+  +--------------+  +--------------+      |
 |         |                 |                  |              |
-|         ?                 ?                  ?              |
+|                                                       |
 |  +--------------+  +--------------+  +--------------+      |
 |  | Database     |  | Analytics    |  | Follow-up    |      |
 |  | (Supabase)   |  | Dashboard    |  | Bot          |      |
@@ -301,7 +301,7 @@ emphasize value over cost. If they're hesitant, offer social proof.`,
 ### Chatbot Conversation Flow:
 
 ```
-User: "How much does it cost?"
+User: "How much does it cost"
 
 Bot: "Great question! GigMate charges 10-15% on bookings depending
 on your subscription tier (or just 15% if you're free tier).
@@ -312,11 +312,11 @@ Plus, payments are held in escrow so you're protected. And if
 you pay with GigM8 tokens, you can save even more!
 
 Are you a musician looking to book more shows, or a venue
-looking to fill more nights?"
+looking to fill more nights"
 
 User: "I'm a musician"
 
-Bot: "Awesome! What genre do you play? I can show you how
+Bot: "Awesome! What genre do you playI can show you how
 GigMate can help you book [genre] shows in your area."
 ```
 
@@ -328,7 +328,7 @@ GigMate can help you book [genre] shows in your area."
 
 **Sequence 1: Musician (No Response)**
 - **Day 0:** Initial personalized email
-- **Day 3:** "Did you see this?" + social proof
+- **Day 3:** "Did you see this" + social proof
 - **Day 7:** "Quick question..." + address objection
 - **Day 14:** "Last attempt" + limited-time bonus
 - **Day 30:** Re-score and archive or retry
@@ -343,7 +343,7 @@ GigMate can help you book [genre] shows in your area."
 **Sequence 3: Replied but Didn't Sign Up**
 - **Day 0:** Response acknowledgment
 - **Day 1:** Answer questions + resources
-- **Day 4:** "Any other questions?"
+- **Day 4:** "Any other questions"
 - **Day 8:** Testimonial video + CTA
 - **Day 15:** Special offer
 

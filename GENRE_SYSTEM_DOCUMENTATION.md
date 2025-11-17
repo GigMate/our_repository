@@ -533,14 +533,14 @@ ORDER BY month DESC, bookings DESC;
 **Headline:** "Find Musicians That Match Your Vibe--Exactly"
 
 **Copy:**
-> "Tired of sorting through irrelevant booking requests? Tell us what genres you book, and we'll show you only musicians who perform them. Multiple genres? No problem. GigMate's smart matching means every inquiry is on-brand for your venue."
+> "Tired of sorting through irrelevant booking requestsTell us what genres you book, and we'll show you only musicians who perform them. Multiple genresNo problem. GigMate's smart matching means every inquiry is on-brand for your venue."
 
 ### For Fans
 
 **Headline:** "Never Miss a Show You'd Love"
 
 **Copy:**
-> "Tell us what music moves you--all of it. Metal and Jazz? Hip Hop and Bluegrass? We don't judge. We just make sure you know about every event that matches your taste. The more genres you select, the more concerts you'll discover."
+> "Tell us what music moves you--all of it. Metal and JazzHip Hop and BluegrassWe don't judge. We just make sure you know about every event that matches your taste. The more genres you select, the more concerts you'll discover."
 
 ---
 

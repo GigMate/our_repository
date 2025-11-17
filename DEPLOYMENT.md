@@ -136,7 +136,7 @@ Create a `.env.production` file in your hosting environment or use your host's e
 - Verify all environment variables are set
 - Ensure build completed successfully
 
-## Need Help?
+## Need Help
 
 Check these resources:
 - [Vercel Documentation](https://vercel.com/docs)

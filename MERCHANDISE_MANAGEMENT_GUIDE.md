@@ -281,34 +281,34 @@ When GigMate Managed becomes available, migrating is simple:
 
 ## Frequently Asked Questions
 
-**Q: Can I switch between options?**
+**Q: Can I switch between options**
 A: Yes! When GigMate Managed launches, you can upgrade anytime. Downgrading back to self-service has a 30-day notice period.
 
-**Q: What if I already have a fulfillment partner?**
+**Q: What if I already have a fulfillment partner**
 A: Self-service allows you to use any fulfillment service. GigMate Managed can integrate with many existing partners.
 
-**Q: Who handles customer service?**
+**Q: Who handles customer service**
 A: Self-Service: You handle all customer inquiries. GigMate Managed: We provide first-line support, escalating product-specific questions to you.
 
-**Q: Can I sell merchandise at shows and online?**
+**Q: Can I sell merchandise at shows and online**
 A: Yes! Self-service allows full flexibility. GigMate Managed can sync inventory between in-person and online sales.
 
-**Q: What about custom/made-to-order items?**
+**Q: What about custom/made-to-order items**
 A: Both options support this. Self-service gives you complete control. GigMate Managed can partner with print-on-demand services.
 
-**Q: How are taxes handled?**
+**Q: How are taxes handled**
 A: You're responsible for sales tax compliance in both models. GigMate Managed includes tax calculation tools and reports.
 
-**Q: What if an item is damaged in shipping?**
+**Q: What if an item is damaged in shipping**
 A: Self-Service: You handle replacements. GigMate Managed: We handle claims and replacements automatically.
 
-**Q: Can I offer autographed items?**
+**Q: Can I offer autographed items**
 A: Absolutely! Both models support this. With GigMate Managed, we can ship items to you for signing before fulfillment.
 
-**Q: What payment methods are supported?**
+**Q: What payment methods are supported**
 A: All major credit cards, Apple Pay, Google Pay. GigMate Managed adds international payment options.
 
-**Q: How quickly do I get paid?**
+**Q: How quickly do I get paid**
 A: Weekly payouts for both options. GigMate Managed has optional daily payout for higher tiers.
 
 ---

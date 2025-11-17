@@ -74,7 +74,7 @@ GigMate will evolve from a live music booking platform into a comprehensive musi
 - Promotional opportunities
 - API access (for venues)
 
-**Credit Purchases (? la carte):**
+**Credit Purchases (la carte):**
 - 25 credits: $4.99
 - 100 credits: $14.99
 - 250 credits: $29.99

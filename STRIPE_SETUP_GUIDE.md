@@ -415,7 +415,7 @@ After completing this setup:
 
 ---
 
-**Questions?**
+**Questions**
 
 Refer to:
 - [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)
