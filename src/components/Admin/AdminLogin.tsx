@@ -20,15 +20,15 @@ export default function AdminLogin({ onAuthenticated }: AdminLoginProps) {
     setError('');
 
     try {
-      if (password === ADMIN_PASSWORD) {
-        // Try to sign in as admin user
-        const { error: signInError } = await supabase.auth.signInWithPassword({
-          email: ADMIN_EMAIL,
-          password: ADMIN_PASSWORD,
-        });
+      // Try to sign in as admin user
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email: ADMIN_EMAIL,
+        password: password,
+      });
 
-        if (signInError) {
-          // If admin user doesn't exist, create it
+      if (signInError) {
+        // If admin user doesn't exist and password matches, create it
+        if (password === ADMIN_PASSWORD) {
           console.log('Admin user not found, creating...');
           const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
             email: ADMIN_EMAIL,
@@ -66,13 +66,17 @@ export default function AdminLogin({ onAuthenticated }: AdminLoginProps) {
           });
 
           if (retrySignInError) throw retrySignInError;
-        }
 
+          sessionStorage.setItem('admin_authenticated', 'true');
+          onAuthenticated();
+        } else {
+          setError('Incorrect password');
+          setPassword('');
+        }
+      } else {
+        // Successfully signed in
         sessionStorage.setItem('admin_authenticated', 'true');
         onAuthenticated();
-      } else {
-        setError('Incorrect password');
-        setPassword('');
       }
     } catch (err) {
       console.error('Admin login error:', err);
