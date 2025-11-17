@@ -11,6 +11,25 @@
 
 ---
 
+## Table of Contents
+
+- [What is GigMate](#what-is-gigmate)
+- [Quick Start](#quick-start)
+  - [Automated Deployment](#automated-deployment-new)
+  - [For Beta Testers](#for-beta-testers)
+- [Documentation Index](#documentation-index)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [Security Features](#security-features)
+- [Subscription Tiers](#subscription-tiers)
+- [Database Schema](#database-schema)
+- [Deployment](#deployment)
+- [Revenue Model](#revenue-model)
+- [Roadmap](#roadmap)
+- [Support](#support)
+
+---
+
 ##  What is GigMate
 
 **Empowering live music communities, one gig at a time.**
