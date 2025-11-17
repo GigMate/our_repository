@@ -183,11 +183,29 @@ export default function EmailTester() {
         )}
 
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <h3 className="font-semibold text-blue-900 mb-2">Setup Required:</h3>
-          <ol className="text-sm text-blue-800 space-y-1 list-decimal list-inside">
-            <li>Add RESEND_API_KEY secret in Supabase Dashboard (Edge Functions)</li>
-            <li>Verify gigmate.us domain in Resend (or use test domain)</li>
-            <li>Ensure send-email edge function is deployed</li>
+          <h3 className="font-semibold text-blue-900 mb-2">Setup Instructions:</h3>
+          <ol className="text-sm text-blue-800 space-y-2 list-decimal ml-4">
+            <li>
+              <strong>Add RESEND_API_KEY to Supabase:</strong>
+              <ul className="ml-4 mt-1 list-disc space-y-1">
+                <li>Go to Supabase Dashboard → Settings → Edge Functions</li>
+                <li>Add new secret: Name = <code className="bg-blue-100 px-1">RESEND_API_KEY</code></li>
+                <li>Value from .env file: <code className="bg-blue-100 px-1">re_ZzVDgqKw_47HRFCEbecwwpm5qadZjmXiK</code></li>
+              </ul>
+            </li>
+            <li>
+              <strong>Verify domain in Resend:</strong>
+              <ul className="ml-4 mt-1 list-disc">
+                <li>Go to <a href="https://resend.com/domains" target="_blank" className="underline">resend.com/domains</a></li>
+                <li>Add and verify gigmate.us domain OR use Resend test domain</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Deploy edge function:</strong>
+              <ul className="ml-4 mt-1 list-disc">
+                <li>Use Deployment Manager tab to deploy send-email function</li>
+              </ul>
+            </li>
           </ol>
         </div>
       </div>
